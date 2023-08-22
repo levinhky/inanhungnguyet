@@ -10,7 +10,7 @@ export default function ProductDetail({ params }: Params ) {
     return (
        <>
         <h1>My Page {params.slug} </h1>
-        <Image src="/logo.svg" alt="me" width="200" height="200" />
+        <Image src="/icons/search.svg" alt="me" width="20" height="200" />
         </>
     )
   } 
