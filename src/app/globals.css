@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gray: #e8e8e8;
+  --white: #fff;
+  --blue: #0050b3;
+  --red : #ff4d4f;
+}
+
 @import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 
 body {
+  color: #333;
   font-family: "SF Pro Display", sans-serif;
+}
+
+header .links .login p::before {
+  content: "";
+  display: block;
+  background: url("/icons/user.svg") no-repeat;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 6px;
 }
