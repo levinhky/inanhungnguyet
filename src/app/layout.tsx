@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -22,12 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="favicon/favicon.ico" sizes="any" />
-      <body>
-        <div className="container mx-auto">
-        <Header />
-        {children}
-        </div>
-        </body>
+      <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }
