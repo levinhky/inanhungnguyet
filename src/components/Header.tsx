@@ -20,7 +20,7 @@ export default function Header({}: Props) {
             height={150}
           />
         </div>
-        <div className="block-search h-[40px] relative">
+        <div className="block-search h-[40px] relative sm:hidden md:hidden xs:hidden">
           <div className="field-search w-[500px]">
             <input
               type="text"

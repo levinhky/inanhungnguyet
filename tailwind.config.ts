@@ -9,12 +9,15 @@ const config: Config = {
   theme: {
     container: {
       padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        DEFAULT: '0',
+        sm: '0',
+        lg: '2rem',
+        xl: '3rem',
+        '2xl': '4rem',
       },
+    },
+    screens: {
+      'xs': '320px',
     },
   },
   plugins: [],

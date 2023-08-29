@@ -25,7 +25,7 @@ export default function FeaturedProduct({}: Props) {
         </Link>
       </div>
 
-      <div className="px-[100px] mt-7">
+      <div className="mt-7">
         <Swiper
           spaceBetween={30}
           slidesPerView={4}

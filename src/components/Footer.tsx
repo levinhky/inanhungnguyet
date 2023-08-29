@@ -35,14 +35,24 @@ export default function Footer({}: Props) {
 
         <div className="flex items-center hover:text-[var(--red)] ease-linear">
           <MailOutlined />
-          <Link href={"inanhungnguyet@gmail.com"} className="ml-1">
+          <Link
+            target="_blank"
+            rel="nofollow"
+            href={"mailto:inanhungnguyet@gmail.com"}
+            className="ml-1"
+          >
             inanhungnguyet@gmail.com
           </Link>
         </div>
 
         <div className="flex items-center hover:text-[var(--red)] ease-linear">
           <PhoneOutlined />
-          <Link href={"tel:0963284451"} className="ml-1">
+          <Link
+            target="_blank"
+            rel="nofollow"
+            href={"tel:0963284451"}
+            className="ml-1"
+          >
             086.767.3358
           </Link>
         </div>
