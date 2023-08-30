@@ -11,7 +11,18 @@ export default function ProduceProcess({}: Props) {
   const [active, setActive] = useState("lienhe");
 
   useEffect(() => {
-    const el = document.querySelector(".process-thumbs > .thumb");
+    const el = document.querySelector("#first-process");
+    const el2 = document.querySelector("#first-process-mobile");
+
+    el2?.classList.add(
+      "process-active",
+      "after:w-[1px]",
+      "after:h-[50px]",
+      "after:bg-[var(--gray)]",
+      "after:absolute",
+      "after:top-full"
+    );
+
     el?.classList.add(
       "process-active",
       "after:w-[1px]",
@@ -64,6 +75,7 @@ export default function ProduceProcess({}: Props) {
         <div className="process-thumbs flex justify-evenly items-center">
           <div
             onClick={(e) => handleActive("lienhe", e)}
+            id="first-process"
             className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
           >
             <Image
@@ -190,6 +202,7 @@ export default function ProduceProcess({}: Props) {
             <SwiperSlide>
               <div
                 onClick={(e) => handleActive("lienhe", e)}
+                id="first-process-mobile"
                 className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[170px] h-[170px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
               >
                 <Image
