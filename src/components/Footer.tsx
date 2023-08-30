@@ -8,9 +8,9 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <footer className="bg-[#f6f6f6] mt-10">
-      <div className="flex justify-around items-center container mx-auto">
-        <Link href={"/"} className="logo">
+    <footer className="bg-[#f6f6f6] mt-10 pb-5 rock:pb-0">
+      <div className="flex justify-around items-center container mx-auto flex-wrap">
+        <Link href={"/"} className="logo rock:mt-0 mt-[-40px]">
           <Image
             src={"/logo.svg"}
             alt="inanhungnguyetlogo"
@@ -19,7 +19,7 @@ export default function Footer({}: Props) {
           />
         </Link>
 
-        <div className="flex items-center hover:text-[var(--red)] ease-linear">
+        <div className="flex items-center hover:text-[var(--red)] ease-linear rock:mt-0 mt-[-50px]">
           <HomeOutlined />
           <Link
             href={
@@ -27,7 +27,7 @@ export default function Footer({}: Props) {
             }
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1"
+            className="ml-1 rock:text-base text-sm"
           >
             11 Hà Hoa, P.Hưng Trí, Tx.Kỳ Anh, Hà Tĩnh
           </Link>
@@ -39,7 +39,7 @@ export default function Footer({}: Props) {
             target="_blank"
             rel="nofollow"
             href={"mailto:inanhungnguyet@gmail.com"}
-            className="ml-1"
+            className="ml-1 rock:text-base text-sm"
           >
             inanhungnguyet@gmail.com
           </Link>
@@ -51,7 +51,7 @@ export default function Footer({}: Props) {
             target="_blank"
             rel="nofollow"
             href={"tel:0963284451"}
-            className="ml-1"
+            className="ml-1 rock:text-base text-sm"
           >
             086.767.3358
           </Link>
