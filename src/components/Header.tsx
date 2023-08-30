@@ -1,6 +1,6 @@
 "use client";
 
-import { UserOutlined } from "@ant-design/icons";
+import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ export default function Header({}: Props) {
             height={150}
           />
         </div>
-        <div className="block-search h-[40px] relative sm:hidden md:hidden xs:hidden">
+        <div className="block-search h-[40px] relative hidden rock:block">
           <div className="field-search w-[500px]">
             <input
               type="text"
@@ -43,10 +43,19 @@ export default function Header({}: Props) {
             />
           </button>
         </div>
-        <div className="links">
-          <button className="login flex items-center justify-center hover:text-[var(--blue)]">
-            <UserOutlined className="text-xl mr-[5px]"/>
-            <p className="text-base mt-[5px]">Đăng nhập</p>
+        <div className="links flex items-center">
+          <button
+            title="Tìm kiếm"
+            className="rock:hidden text-2xl"
+          >
+            <SearchOutlined />
+          </button>
+          <button  className="rock:hidden text-2xl ml-3">
+          <HeartOutlined />
+          </button>
+          <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
+            <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
+            <p className="rock:text-base rock:mt-[5px] rock:block hidden">Đăng nhập</p>
           </button>
         </div>
       </div>

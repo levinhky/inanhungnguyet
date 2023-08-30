@@ -73,3 +73,7 @@ body {
 #main-slider {
   overflow-y: visible; 
 }
+
+.categories .item:nth-child(n+5) {
+  display: none;
+}
