@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -9,55 +9,8 @@ type Props = {};
 
 export default function ProduceProcess({}: Props) {
   const [active, setActive] = useState("lienhe");
-
-  useEffect(() => {
-    const el = document.querySelector("#first-process");
-    const el2 = document.querySelector("#first-process-mobile");
-
-    el2?.classList.add(
-      "process-active",
-      "after:w-[1px]",
-      "after:h-[50px]",
-      "after:bg-[var(--gray)]",
-      "after:absolute",
-      "after:top-full"
-    );
-
-    el?.classList.add(
-      "process-active",
-      "after:w-[1px]",
-      "after:h-[50px]",
-      "after:bg-[var(--gray)]",
-      "after:absolute",
-      "after:top-full"
-    );
-  }, []);
-
-  const handleActive = (value: string, e: any) => {
-    setActive(value);
-    const clickedElement = e.target;
-    const activeElement = document.querySelector(".process-active");
-
-    if (activeElement) {
-      activeElement.classList.remove(
-        "process-active",
-        "after:w-[1px]",
-        "after:h-[50px]",
-        "after:bg-[var(--gray)]",
-        "after:absolute",
-        "after:top-full"
-      );
-    }
-
-    clickedElement.classList.add(
-      "process-active",
-      "after:w-[1px]",
-      "after:h-[50px]",
-      "after:bg-[var(--gray)]",
-      "after:absolute",
-      "after:top-full"
-    );
-  };
+  const acitiveClassName =
+    "process-active after:w-[1px] after:h-[50px] after:bg-[var(--gray)] after:absolute after:top-full";
 
   return (
     <div>
@@ -74,9 +27,12 @@ export default function ProduceProcess({}: Props) {
       <div className="process sm:hidden xs:hidden">
         <div className="process-thumbs flex justify-evenly items-center">
           <div
-            onClick={(e) => handleActive("lienhe", e)}
+            onClick={() => setActive("lienhe")}
             id="first-process"
-            className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
+            flex items-center justify-center flex-col ${
+              active === "lienhe" && acitiveClassName
+            }`}
           >
             <Image
               src="/lienhe.png"
@@ -90,8 +46,11 @@ export default function ProduceProcess({}: Props) {
             </h4>
           </div>
           <div
-            onClick={(e) => handleActive("tuvan", e)}
-            className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+            onClick={() => setActive("tuvan")}
+            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
+            flex items-center justify-center flex-col ${
+              active === "tuvan" && acitiveClassName
+            }`}
           >
             <Image
               src="/tuvan.png"
@@ -105,8 +64,11 @@ export default function ProduceProcess({}: Props) {
             </h4>
           </div>
           <div
-            onClick={(e) => handleActive("thietke", e)}
-            className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+            onClick={() => setActive("thietke")}
+            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
+            flex items-center justify-center flex-col ${
+              active === "thietke" && acitiveClassName
+            }`}
           >
             <Image
               src="/thietke.png"
@@ -120,8 +82,11 @@ export default function ProduceProcess({}: Props) {
             </h4>
           </div>
           <div
-            onClick={(e) => handleActive("sanxuat", e)}
-            className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+            onClick={() => setActive("sanxuat")}
+            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
+            flex items-center justify-center flex-col ${
+              active === "sanxuat" && acitiveClassName
+            }`}
           >
             <Image
               src="/sanxuat.png"
@@ -135,8 +100,11 @@ export default function ProduceProcess({}: Props) {
             </h4>
           </div>
           <div
-            onClick={(e) => handleActive("giaohang", e)}
-            className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+            onClick={() => setActive("giaohang")}
+            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
+            flex items-center justify-center flex-col ${
+              active === "giaohang" && acitiveClassName
+            }`}
           >
             <Image
               src="/giaohang.png"
@@ -150,60 +118,19 @@ export default function ProduceProcess({}: Props) {
             </h4>
           </div>
         </div>
-
-        <div className="tab-content border-[var(--gray)] border-t pt-6 mt-12">
-          {active === "lienhe" && (
-            <div className="content ml-12">
-              <p className="line-clamp-2">
-                Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau:
-                Call/sms/zalo : 086.767.3358 - Email : inanhungnguyet@gmail.com
-              </p>
-            </div>
-          )}
-          {active === "tuvan" && (
-            <div className="content ml-12">
-              <p className="line-clamp-2">
-                Tiếp nhận thông tin khách hàng tổng hợp tất cả các nhu cầu của
-                khách hàng như: thức uống đang kinh doanh chính, cần ly giấy hay
-                ly nhựa. Cần in ấn đơn sắc hay nhiều màu
-              </p>
-            </div>
-          )}
-          {active === "thietke" && (
-            <div className="content ml-12">
-              <p className="line-clamp-2">
-                Tiếp nhận yêu cầu và chuyển thông tin cho bộ phận thiết kế. Gửi
-                bản demo và chỉnh sửa theo yêu cầu đến khi khách hài lòng
-              </p>
-            </div>
-          )}
-          {active === "sanxuat" && (
-            <div className="content ml-12">
-              <p className="line-clamp-2">
-                Chuyển thông tin về đơn hàng cho xưởng sản xuất. Theo dõi tiến
-                độ, duyệt mẫu để sản xuất hàng loạt
-              </p>
-            </div>
-          )}
-          {active === "giaohang" && (
-            <div className="content ml-12">
-              <p className="line-clamp-2">
-                Giao hàng tới kho của khách hàng tại Kỳ Anh hoặc gửi hàng tới
-                các đơn vị vận chuyển theo yêu cầu.
-              </p>
-            </div>
-          )}
-        </div>
       </div>
 
       <div className="process rock:hidden">
         <div className="process-thumbs flex justify-center items-center">
-          <Swiper spaceBetween={0} slidesPerView={2}>
+          <Swiper spaceBetween={15} slidesPerView={2}>
             <SwiperSlide>
               <div
-                onClick={(e) => handleActive("lienhe", e)}
+                onClick={() => setActive("lienhe")}
                 id="first-process-mobile"
-                className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[170px] h-[170px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
+                flex items-center justify-center flex-col ${
+                  active === "lienhe" && acitiveClassName
+                }`}
               >
                 <Image
                   src="/lienhe.png"
@@ -219,8 +146,11 @@ export default function ProduceProcess({}: Props) {
             </SwiperSlide>
             <SwiperSlide>
               <div
-                onClick={(e) => handleActive("tuvan", e)}
-                className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[170px] h-[170px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+                onClick={() => setActive("tuvan")}
+                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
+                flex items-center justify-center flex-col ${
+                  active === "tuvan" && acitiveClassName
+                }`}
               >
                 <Image
                   src="/tuvan.png"
@@ -236,8 +166,11 @@ export default function ProduceProcess({}: Props) {
             </SwiperSlide>
             <SwiperSlide>
               <div
-                onClick={(e) => handleActive("thietke", e)}
-                className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[170px] h-[170px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+                onClick={() => setActive("thietke")}
+                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
+            flex items-center justify-center flex-col ${
+              active === "thietke" && acitiveClassName
+            }`}
               >
                 <Image
                   src="/thietke.png"
@@ -253,8 +186,11 @@ export default function ProduceProcess({}: Props) {
             </SwiperSlide>
             <SwiperSlide>
               <div
-                onClick={(e) => handleActive("sanxuat", e)}
-                className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[170px] h-[170px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+                onClick={() => setActive("sanxuat")}
+                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
+                flex items-center justify-center flex-col ${
+                  active === "sanxuat" && acitiveClassName
+                }`}
               >
                 <Image
                   src="/sanxuat.png"
@@ -270,8 +206,11 @@ export default function ProduceProcess({}: Props) {
             </SwiperSlide>
             <SwiperSlide>
               <div
-                onClick={(e) => handleActive("giaohang", e)}
-                className="thumb bg-[var(--gray-light)] relative cursor-pointer w-[170px] h-[170px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col"
+                onClick={() => setActive("giaohang")}
+                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
+                flex items-center justify-center flex-col ${
+                  active === "giaohang" && acitiveClassName
+                }`}
               >
                 <Image
                   src="/giaohang.png"
@@ -287,50 +226,50 @@ export default function ProduceProcess({}: Props) {
             </SwiperSlide>
           </Swiper>
         </div>
+      </div>
 
-        <div className="tab-content border-[var(--gray)] border-t rock:pt-6 pt-3 rock:mt-12 mt-5">
-          {active === "lienhe" && (
-            <div className="content rock:ml-12 ml-0">
-              <p className="line-clamp-2">
-                Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau:
-                Call/sms/zalo : 086.767.3358 - Email : inanhungnguyet@gmail.com
-              </p>
-            </div>
-          )}
-          {active === "tuvan" && (
-            <div className="content rock:ml-12 ml-0">
-              <p className="line-clamp-2">
-                Tiếp nhận thông tin khách hàng tổng hợp tất cả các nhu cầu của
-                khách hàng như: thức uống đang kinh doanh chính, cần ly giấy hay
-                ly nhựa. Cần in ấn đơn sắc hay nhiều màu
-              </p>
-            </div>
-          )}
-          {active === "thietke" && (
-            <div className="content rock:ml-12 ml-0">
-              <p className="line-clamp-2">
-                Tiếp nhận yêu cầu và chuyển thông tin cho bộ phận thiết kế. Gửi
-                bản demo và chỉnh sửa theo yêu cầu đến khi khách hài lòng
-              </p>
-            </div>
-          )}
-          {active === "sanxuat" && (
-            <div className="content rock:ml-12 ml-0">
-              <p className="line-clamp-2">
-                Chuyển thông tin về đơn hàng cho xưởng sản xuất. Theo dõi tiến
-                độ, duyệt mẫu để sản xuất hàng loạt
-              </p>
-            </div>
-          )}
-          {active === "giaohang" && (
-            <div className="content rock:ml-12 ml-0">
-              <p className="line-clamp-2">
-                Giao hàng tới kho của khách hàng tại Kỳ Anh hoặc gửi hàng tới
-                các đơn vị vận chuyển theo yêu cầu.
-              </p>
-            </div>
-          )}
-        </div>
+      <div className="tab-content border-[var(--gray)] border-t rock:pt-6 pt-3 rock:mt-12 mt-5">
+        {active === "lienhe" && (
+          <div className="content rock:ml-12 ml-0">
+            <p className="line-clamp-3 text-sm rock:text-base">
+              Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau:
+              Call/sms/zalo : 086.767.3358 - Email : inanhungnguyet@gmail.com
+            </p>
+          </div>
+        )}
+        {active === "tuvan" && (
+          <div className="content rock:ml-12 ml-0">
+            <p className="line-clamp-3 text-sm rock:text-base">
+              Tiếp nhận thông tin khách hàng tổng hợp tất cả các nhu cầu của
+              khách hàng như: thức uống đang kinh doanh chính, cần ly giấy hay
+              ly nhựa. Cần in ấn đơn sắc hay nhiều màu
+            </p>
+          </div>
+        )}
+        {active === "thietke" && (
+          <div className="content rock:ml-12 ml-0">
+            <p className="line-clamp-3 text-sm rock:text-base">
+              Tiếp nhận yêu cầu và chuyển thông tin cho bộ phận thiết kế. Gửi
+              bản demo và chỉnh sửa theo yêu cầu đến khi khách hài lòng
+            </p>
+          </div>
+        )}
+        {active === "sanxuat" && (
+          <div className="content rock:ml-12 ml-0">
+            <p className="line-clamp-3 text-sm rock:text-base">
+              Chuyển thông tin về đơn hàng cho xưởng sản xuất. Theo dõi tiến độ,
+              duyệt mẫu để sản xuất hàng loạt
+            </p>
+          </div>
+        )}
+        {active === "giaohang" && (
+          <div className="content rock:ml-12 ml-0">
+            <p className="line-clamp-3 text-sm rock:text-base">
+              Giao hàng tới kho của khách hàng tại Kỳ Anh hoặc gửi hàng tới các
+              đơn vị vận chuyển theo yêu cầu.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

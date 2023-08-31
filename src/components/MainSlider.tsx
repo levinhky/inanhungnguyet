@@ -21,10 +21,10 @@ export default function MainSlider({}: Props) {
         slidesPerView={1}
         modules={[Navigation, Pagination, Autoplay]}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 2000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         navigation
         pagination={{ clickable: true }}
         loop={true}
@@ -33,7 +33,9 @@ export default function MainSlider({}: Props) {
         {slides.map((slideContent, index) => (
           <SwiperSlide key={slideContent} virtualIndex={index}>
             <img src="/slider1.png" className="w-full h-[400px]" alt="" />
-            <div className="banner-container absolute bottom-[-30px] right-[20%] w-[320px] h-[270px] max-h-[80%] bg-[var(--red)] pt-[30px] px-[24px]">
+            <div className="banner-container absolute bottom-[-30px] right-[20%]
+            
+             w-[320px] h-[270px] max-h-[80%] bg-[var(--red)] pt-[30px] px-[24px]">
               <h1 className="title text-[var(--white)] text-lg font-bold mb-3">
                 Sáng Tạo và Màu Sắc Trên Ly Nhựa và Bao Bì In ấn
               </h1>
@@ -54,16 +56,16 @@ export default function MainSlider({}: Props) {
         slidesPerView={1}
         modules={[Pagination, Autoplay]}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 2000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         loop={true}
         id="main-slider"
       >
         {slides.map((slideContent, index) => (
           <SwiperSlide key={slideContent} virtualIndex={index}>
-            <img src="/slider1.png" className="w-full h-[400px]" alt="" />
+            <img src="/slider2.png" className="w-full h-[400px]  min-h-[320px] object-cover" alt="" />
             <div className="banner-container bg-[var(--red)] py-[30px] px-[24px]">
               <h1 className="title text-[var(--white)] text-2xl font-bold mb-3">
                 Sáng Tạo và Màu Sắc Trên Ly Nhựa và Bao Bì In ấn
