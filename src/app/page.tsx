@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
-import MainSlider from "@/components/MainSlider";
-import FeaturedProduct from "@/components/FeaturedProduct";
-import CategoryList from "@/components/FeaturedCategory";
-import ProduceProcess from "@/components/ProduceProcess";
+import MainSlider from "@/components/HomePage/MainSlider";
+import FeaturedProduct from "@/components/HomePage/FeaturedProduct";
+import CategoryList from "@/components/HomePage/FeaturedCategory";
+import ProduceProcess from "@/components/HomePage/ProduceProcess";
 import Footer from "@/components/Footer";
 
 export default function Home() {

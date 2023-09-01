@@ -17,7 +17,7 @@ export default function MainSlider({}: Props) {
     <div>
       <div className="sm:hidden xs:hidden">
       <Swiper
-        spaceBetween={30}
+        spaceBetween={15}
         slidesPerView={1}
         modules={[Navigation, Pagination, Autoplay]}
         centeredSlides={true}
@@ -34,7 +34,6 @@ export default function MainSlider({}: Props) {
           <SwiperSlide key={slideContent} virtualIndex={index}>
             <img src="/slider1.png" className="w-full h-[400px]" alt="" />
             <div className="banner-container absolute bottom-[-30px] right-[20%]
-            
              w-[320px] h-[270px] max-h-[80%] bg-[var(--red)] pt-[30px] px-[24px]">
               <h1 className="title text-[var(--white)] text-lg font-bold mb-3">
                 Sáng Tạo và Màu Sắc Trên Ly Nhựa và Bao Bì In ấn
