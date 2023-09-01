@@ -82,6 +82,10 @@ body {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
   .container {
     max-width: 100%;
     padding: 0 15px;

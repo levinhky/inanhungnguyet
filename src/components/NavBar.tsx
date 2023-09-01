@@ -9,7 +9,7 @@ type Props = {};
 export default function NavBar({}: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [isActiveMenu, setIsActiveMenu] = useState(false);
-  const genericHamburgerLine = `h-1 w-6 my-[2px] rounded-full bg-[var(--white)] transition ease transform duration-300`;
+  const genericHamburgerLine = `h-[3px] w-[16px] mb-[2px] mt-[1px] rounded-full bg-[var(--white)] transition ease transform duration-300`;
   const liClassName =
     "uppercase items-center h-full flex hover:bg-[var(--dark-blue)] cursor-pointer px-[20px] text-[var(--white)]";
   const liClassNameMobile =
@@ -75,8 +75,8 @@ export default function NavBar({}: Props) {
 
       <div
         id="menu-mobile"
-        className={`rock:hidden w-full h-screen
-      fixed top-0 right-0 z-10 bg-white px-[15px] py-[20px] 
+        className={`rock:hidden w-screen h-screen
+      fixed top-0 right-auto z-50 bg-white px-[15px] py-[20px] 
       ${
         !isActiveMenu
           ? "-left-full opacity-50 invisible"
