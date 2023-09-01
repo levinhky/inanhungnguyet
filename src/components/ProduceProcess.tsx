@@ -11,6 +11,10 @@ export default function ProduceProcess({}: Props) {
   const [active, setActive] = useState("lienhe");
   const acitiveClassName =
     "process-active after:w-[1px] after:h-[50px] after:bg-[var(--gray)] after:absolute after:top-full";
+  const thumbClass =
+    "thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full flex items-center justify-center flex-col";
+  const mobileThumbClass =
+    "thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg flex items-center justify-center flex-col";
 
   return (
     <div>
@@ -29,8 +33,7 @@ export default function ProduceProcess({}: Props) {
           <div
             onClick={() => setActive("lienhe")}
             id="first-process"
-            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
-            flex items-center justify-center flex-col ${
+            className={`${thumbClass} ${
               active === "lienhe" && acitiveClassName
             }`}
           >
@@ -47,8 +50,7 @@ export default function ProduceProcess({}: Props) {
           </div>
           <div
             onClick={() => setActive("tuvan")}
-            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
-            flex items-center justify-center flex-col ${
+            className={`${thumbClass} ${
               active === "tuvan" && acitiveClassName
             }`}
           >
@@ -65,8 +67,7 @@ export default function ProduceProcess({}: Props) {
           </div>
           <div
             onClick={() => setActive("thietke")}
-            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
-            flex items-center justify-center flex-col ${
+            className={`${thumbClass} ${
               active === "thietke" && acitiveClassName
             }`}
           >
@@ -83,8 +84,7 @@ export default function ProduceProcess({}: Props) {
           </div>
           <div
             onClick={() => setActive("sanxuat")}
-            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
-            flex items-center justify-center flex-col ${
+            className={`${thumbClass} ${
               active === "sanxuat" && acitiveClassName
             }`}
           >
@@ -101,8 +101,7 @@ export default function ProduceProcess({}: Props) {
           </div>
           <div
             onClick={() => setActive("giaohang")}
-            className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[150px] h-[150px] border-[var(--gray)] border rounded-full 
-            flex items-center justify-center flex-col ${
+            className={`${thumbClass} ${
               active === "giaohang" && acitiveClassName
             }`}
           >
@@ -127,8 +126,7 @@ export default function ProduceProcess({}: Props) {
               <div
                 onClick={() => setActive("lienhe")}
                 id="first-process-mobile"
-                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
-                flex items-center justify-center flex-col ${
+                className={`${mobileThumbClass} ${
                   active === "lienhe" && acitiveClassName
                 }`}
               >
@@ -147,8 +145,7 @@ export default function ProduceProcess({}: Props) {
             <SwiperSlide>
               <div
                 onClick={() => setActive("tuvan")}
-                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
-                flex items-center justify-center flex-col ${
+                className={`${mobileThumbClass} ${
                   active === "tuvan" && acitiveClassName
                 }`}
               >
@@ -187,8 +184,7 @@ export default function ProduceProcess({}: Props) {
             <SwiperSlide>
               <div
                 onClick={() => setActive("sanxuat")}
-                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
-                flex items-center justify-center flex-col ${
+                className={`${mobileThumbClass} ${
                   active === "sanxuat" && acitiveClassName
                 }`}
               >
@@ -207,8 +203,7 @@ export default function ProduceProcess({}: Props) {
             <SwiperSlide>
               <div
                 onClick={() => setActive("giaohang")}
-                className={`thumb bg-[var(--gray-light)] relative cursor-pointer w-[100%] h-[100%] border-[var(--gray)] border rounded-lg
-                flex items-center justify-center flex-col ${
+                className={`${mobileThumbClass} ${
                   active === "giaohang" && acitiveClassName
                 }`}
               >

@@ -8,6 +8,10 @@ type Props = {};
 
 export default function Header({}: Props) {
   const [searchValue, setSearchValue] = useState("");
+  const searchInputClass =
+    "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[var(--blue)] block w-full rounded-full sm:text-sm";
+  const searchIconClass =
+    "action-search min-w-[80px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-0 rounded-full";
 
   return (
     <header className="mt-[-30px]">
@@ -26,13 +30,13 @@ export default function Header({}: Props) {
               type="text"
               onInput={(e) => setSearchValue(e.currentTarget.value)}
               value={searchValue}
-              className="px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[var(--blue)] block w-full rounded-full sm:text-sm"
+              className={searchInputClass}
               placeholder="Tìm sản phẩm mong muốn ..."
             />
           </div>
           <button
             title="Tìm kiếm"
-            className="action-search min-w-[80px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-0 rounded-full"
+            className={searchIconClass}
           >
             <Image
               className="mx-auto"
@@ -44,18 +48,17 @@ export default function Header({}: Props) {
           </button>
         </div>
         <div className="links flex items-center">
-          <button
-            title="Tìm kiếm"
-            className="rock:hidden text-2xl"
-          >
+          <button title="Tìm kiếm" className="rock:hidden text-2xl">
             <SearchOutlined />
           </button>
-          <button  className="rock:hidden text-2xl ml-3">
-          <HeartOutlined />
+          <button className="rock:hidden text-2xl ml-3">
+            <HeartOutlined />
           </button>
           <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
             <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-            <p className="rock:text-base rock:mt-[5px] rock:block hidden">Đăng nhập</p>
+            <p className="rock:text-base rock:mt-[5px] rock:block hidden">
+              Đăng nhập
+            </p>
           </button>
         </div>
       </div>
