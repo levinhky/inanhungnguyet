@@ -26,13 +26,13 @@ export default function NavBar({}: Props) {
         <div className="container mx-auto flex justify-between items-center h-full">
           <ul className="rock:flex h-full hidden">
             <li className={liClassName}>
-              <Link href={"/"}> Giới thiệu </Link>
+              <Link href={"/gioi-thieu"}> Giới thiệu </Link>
             </li>
             <li className={liClassName}>
               <Link href={"/"}>Sản phẩm</Link>
             </li>
             <li className={liClassName}>
-              <Link href={"/linh"}>Liên hệ</Link>
+              <Link href={"/lien-he"}>Liên hệ</Link>
             </li>
           </ul>
 
@@ -94,13 +94,13 @@ export default function NavBar({}: Props) {
         </button>
         <ul className="p-2.5 border-2 border-[var(--gray-light)] rounded mt-3">
           <li className={liClassNameMobile}>
-            <Link href={"/"}> Giới thiệu </Link>
+            <Link href={"/gioi-thieu"}> Giới thiệu </Link>
           </li>
           <li className={liClassNameMobile}>
             <Link href={"/"}>Sản phẩm</Link>
           </li>
           <li className={liClassNameMobile}>
-            <Link href={"/linh"}>Liên hệ</Link>
+            <Link href={"/lien-he"}>Liên hệ</Link>
           </li>
         </ul>
       </div>

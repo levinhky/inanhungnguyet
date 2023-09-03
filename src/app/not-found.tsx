@@ -1,30 +1,31 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function NotFound() {
     
   return (
     <>
-      <div className="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
-        <div className="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+      <div className="lg:px-12 lg:py-12 md:py-20 md:px-44 mb-36 px-4 rock:pt-4 pt-8 rock:pb-8 pb-20 
+      items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+        <div className="xl:pt-5 w-full xl:w-1/2 relative pb-12 lg:pb-0">
           <div className="relative">
             <div className="absolute">
-              <div className="mt-[250px]">
+              <div className="mt-[150px]">
                 <h1 className="my-2 text-gray-800 font-bold text-2xl">
-                  Looks like you've found the doorway to the great nothing
+                Trang không tìm thấy
                 </h1>
                 <p className="my-2 text-gray-800">
-                  Sorry about that! Please visit our hompage to get where you
-                  need to go.
+                Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.
                 </p>
                 <button className="sm:w-full lg:w-auto my-2 border-2 border-[var(--blue)] rounded-full md py-4 px-8 text-center
                  bg-white text-[var(--blue)] font-bold
                  hover:bg-[var(--blue)] hover:text-white ease-in-out">
-                  <Link href={'/'}>Take me there!</Link>
+                  <Link href={'/'}>Trang chủ</Link>
                 </button>
               </div>
             </div>
             <div>
-              <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+              <Image src="/404.png" width={300} height={190} alt="404" />
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 type Props = {};
@@ -17,12 +18,14 @@ export default function Header({}: Props) {
     <header className="mt-[-30px]">
       <div className="flex justify-between items-center">
         <div className="main-logo cursor-pointer" title="In Ấn Hùng Nguyệt">
-          <Image
-            src={"/logo.svg"}
-            alt="inanhungnguyetlogo"
-            width={150}
-            height={150}
-          />
+          <Link href={"/"}>
+            <Image
+              src={"/logo.svg"}
+              alt="inanhungnguyetlogo"
+              width={150}
+              height={150}
+            />
+          </Link>
         </div>
         <div className="block-search h-[40px] relative hidden rock:block">
           <div className="field-search w-[500px]">
@@ -34,10 +37,7 @@ export default function Header({}: Props) {
               placeholder="Tìm sản phẩm mong muốn ..."
             />
           </div>
-          <button
-            title="Tìm kiếm"
-            className={searchIconClass}
-          >
+          <button title="Tìm kiếm" className={searchIconClass}>
             <Image
               className="mx-auto"
               src={"/icons/search.svg"}

@@ -1,5 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Header from "@/components/Header";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const metadataContent = {
   title: "In Ấn Hùng Nguyệt",
@@ -21,7 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="favicon/favicon.ico" sizes="any" />
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+        <div className="container mx-auto">
+          <Header />
+        </div>
+        <NavBar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
