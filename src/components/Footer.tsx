@@ -19,7 +19,7 @@ export default function Footer({}: Props) {
           />
         </Link>
 
-        <div className="flex items-center hover:text-[var(--red)] ease-linear rock:mt-0 mt-[-50px]">
+        <div className="flex items-center rock:hover:text-[var(--red)] ease-linear rock:mt-0 mt-[-50px]">
           <HomeOutlined />
           <Link
             href={
@@ -33,7 +33,7 @@ export default function Footer({}: Props) {
           </Link>
         </div>
 
-        <div className="flex items-center hover:text-[var(--red)] ease-linear">
+        <div className="flex items-center rock:hover:text-[var(--red)] ease-linear">
           <MailOutlined />
           <Link
             target="_blank"
@@ -45,7 +45,7 @@ export default function Footer({}: Props) {
           </Link>
         </div>
 
-        <div className="flex items-center hover:text-[var(--red)] ease-linear">
+        <div className="flex items-center rock:hover:text-[var(--red)] ease-linear">
           <PhoneOutlined />
           <Link
             target="_blank"
