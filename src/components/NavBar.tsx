@@ -1,5 +1,6 @@
 "use client";
 
+import { menuItems } from "@/data/arrays";
 import { CloseOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { useState } from "react";
@@ -15,6 +16,11 @@ export default function NavBar({}: Props) {
   const liClassNameMobile =
     "text-sm uppercase text-[var(--blue)] font-semibold py-2.5 px-1";
 
+  const handleMenuMobile = (isActiveMenu: boolean) => {
+    setIsOpen(!isOpen);
+    setIsActiveMenu(isActiveMenu);
+  };
+
   return (
     <>
       <style jsx>{`
@@ -25,38 +31,23 @@ export default function NavBar({}: Props) {
       <nav className="h-[44px] bg-[var(--blue)] main-nav mt-[-25px]">
         <div className="container mx-auto flex justify-between items-center h-full">
           <ul className="rock:flex h-full hidden">
-            <li className={liClassName}>
-              <Link
-                className="px-[20px] h-full flex items-center"
-                href={"/gioi-thieu"}
-              >
-                {" "}
-                Giới thiệu{" "}
-              </Link>
-            </li>
-            <li className={liClassName}>
-              <Link className="px-[20px] h-full flex items-center" href={"/"}>
-                Sản phẩm
-              </Link>
-            </li>
-            <li className={liClassName}>
-              <Link
-                className="px-[20px] h-full flex items-center"
-                href={"/lien-he"}
-              >
-                Liên hệ
-              </Link>
-            </li>
+            {menuItems.map((item) => (
+              <li className={liClassName} key={item.id}>
+                <Link
+                  className="px-[20px] h-full flex items-center"
+                  href={item.url}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <div className="rock:hidden">
             <div className="uppercase text-white flex items-center">
               <button
                 className="flex flex-col justify-center items-center group"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                  setIsActiveMenu(true);
-                }}
+                onClick={() => handleMenuMobile(true)}
               >
                 <div
                   className={`${genericHamburgerLine} ${
@@ -97,49 +88,19 @@ export default function NavBar({}: Props) {
       }`}
       >
         <button
-          onClick={() => {
-            setIsActiveMenu(false);
-            setIsOpen(!isOpen);
-          }}
+          onClick={() => handleMenuMobile(false)}
           className="w-[40px] h-[40px] bg-[var(--blue)] text-white text-lg rounded-full flex items-center justify-center"
         >
           <CloseOutlined />
         </button>
         <ul className="p-2.5 border-2 border-[var(--gray-light)] rounded mt-3">
-          <li className={liClassNameMobile}>
-            <Link
-              onClick={() => {
-                setIsActiveMenu(false);
-                setIsOpen(!isOpen);
-              }}
-              href={"/gioi-thieu"}
-            >
-              {" "}
-              Giới thiệu{" "}
-            </Link>
-          </li>
-          <li className={liClassNameMobile}>
-            <Link
-              onClick={() => {
-                setIsActiveMenu(false);
-                setIsOpen(!isOpen);
-              }}
-              href={"/"}
-            >
-              Sản phẩm
-            </Link>
-          </li>
-          <li className={liClassNameMobile}>
-            <Link
-              onClick={() => {
-                setIsActiveMenu(false);
-                setIsOpen(!isOpen);
-              }}
-              href={"/lien-he"}
-            >
-              Liên hệ
-            </Link>
-          </li>
+          {menuItems.map((item) => (
+            <li className={liClassNameMobile} key={item.id}>
+              <Link onClick={() => handleMenuMobile(false)} href={item.url}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </>
