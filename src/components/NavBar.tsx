@@ -11,7 +11,7 @@ export default function NavBar({}: Props) {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
   const genericHamburgerLine = `h-[3px] w-[16px] mb-[2px] mt-[1px] rounded-full bg-[var(--white)] transition ease transform duration-300`;
   const liClassName =
-    "uppercase items-center h-full flex hover:bg-[var(--dark-blue)] cursor-pointer px-[20px] text-[var(--white)]";
+    "uppercase items-center h-full flex hover:bg-[var(--dark-blue)] cursor-pointer text-[var(--white)]";
   const liClassNameMobile =
     "text-sm uppercase text-[var(--blue)] font-semibold py-2.5 px-1";
 
@@ -26,13 +26,26 @@ export default function NavBar({}: Props) {
         <div className="container mx-auto flex justify-between items-center h-full">
           <ul className="rock:flex h-full hidden">
             <li className={liClassName}>
-              <Link href={"/gioi-thieu"}> Giới thiệu </Link>
+              <Link
+                className="px-[20px] h-full flex items-center"
+                href={"/gioi-thieu"}
+              >
+                {" "}
+                Giới thiệu{" "}
+              </Link>
             </li>
             <li className={liClassName}>
-              <Link href={"/"}>Sản phẩm</Link>
+              <Link className="px-[20px] h-full flex items-center" href={"/"}>
+                Sản phẩm
+              </Link>
             </li>
             <li className={liClassName}>
-              <Link href={"/lien-he"}>Liên hệ</Link>
+              <Link
+                className="px-[20px] h-full flex items-center"
+                href={"/lien-he"}
+              >
+                Liên hệ
+              </Link>
             </li>
           </ul>
 
@@ -94,13 +107,38 @@ export default function NavBar({}: Props) {
         </button>
         <ul className="p-2.5 border-2 border-[var(--gray-light)] rounded mt-3">
           <li className={liClassNameMobile}>
-            <Link href={"/gioi-thieu"}> Giới thiệu </Link>
+            <Link
+              onClick={() => {
+                setIsActiveMenu(false);
+                setIsOpen(!isOpen);
+              }}
+              href={"/gioi-thieu"}
+            >
+              {" "}
+              Giới thiệu{" "}
+            </Link>
           </li>
           <li className={liClassNameMobile}>
-            <Link href={"/"}>Sản phẩm</Link>
+            <Link
+              onClick={() => {
+                setIsActiveMenu(false);
+                setIsOpen(!isOpen);
+              }}
+              href={"/"}
+            >
+              Sản phẩm
+            </Link>
           </li>
           <li className={liClassNameMobile}>
-            <Link href={"/lien-he"}>Liên hệ</Link>
+            <Link
+              onClick={() => {
+                setIsActiveMenu(false);
+                setIsOpen(!isOpen);
+              }}
+              href={"/lien-he"}
+            >
+              Liên hệ
+            </Link>
           </li>
         </ul>
       </div>

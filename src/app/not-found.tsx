@@ -19,7 +19,7 @@ export default async function NotFound() {
                 </p>
                 <button className="sm:w-full lg:w-auto my-2 border-2 border-[var(--blue)] rounded-full md py-4 px-8 text-center
                  bg-white text-[var(--blue)] font-bold
-                 hover:bg-[var(--blue)] hover:text-white ease-in-out">
+                 rock:hover:bg-[var(--blue)] rock:hover:text-white ease-in-out">
                   <Link href={'/'}>Trang chủ</Link>
                 </button>
               </div>

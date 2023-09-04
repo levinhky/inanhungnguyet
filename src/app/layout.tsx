@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { Providers } from "@/redux/provider";
 
 const metadataContent = {
   title: "In Ấn Hùng Nguyệt",
@@ -25,12 +26,14 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="favicon/favicon.ico" sizes="any" />
       <body suppressHydrationWarning={true}>
-        <div className="container mx-auto">
-          <Header />
-        </div>
-        <NavBar />
-        {children}
-        <Footer />
+        <Providers>
+          <div className="container mx-auto">
+            <Header />
+          </div>
+          <NavBar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

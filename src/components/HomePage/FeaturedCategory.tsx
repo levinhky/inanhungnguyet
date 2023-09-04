@@ -39,7 +39,7 @@ export default function CategoryList({}: Props) {
 
       <button
         onClick={() => setActive(!active)}
-        className="flex mx-auto capitalize text-[#096dd9] hover:text-[var(--red)] font-bold mt-10 rock:hidden"
+        className="flex mx-auto capitalize text-[#096dd9] rock:hover:text-[var(--red)] font-bold mt-10 rock:hidden"
       >
         {active ? "Thu Gọn" : "Xem Thêm"}
       </button>

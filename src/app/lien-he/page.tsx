@@ -7,7 +7,7 @@ type Props = {};
 export default function page({}: Props) {
   const inputClass =
     "mt-1 px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 \
-    focus:outline-none focus:border-gray-50 focus:ring-gray-400 block w-full rounded-md text-sm \
+    focus:outline-none focus:border-gray-50 focus:ring-gray-400 block w-full rounded-md rock:text-sm text-xs \
     focus:ring-1";
   const labelClass =
     "after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm text-slate-700 \
@@ -18,7 +18,7 @@ export default function page({}: Props) {
       <BreadCrumb />
       <div className="flex justify-center flex-wrap rock:flex-nowrap">
         <div id="contact-info" className="mr-7">
-          <h3 className="text-xl uppercase font-bold mb-3 text-[var(--blue)] text-center rock:text-left">
+          <h3 className="rock:text-xl text-lg uppercase font-bold mb-3 text-[var(--blue)] text-center rock:text-left">
             Thông tin liên hệ
           </h3>
           <div id="info" className="rock:mt-0 mt-[20%]">
@@ -73,7 +73,7 @@ export default function page({}: Props) {
         </div>
 
         <div id="send-info" className="rock:mt-0 mt-7">
-          <h3 className="w-fit mx-auto border-[var(--red)] border-b capitalize text-[var(--blue)] text-2xl font-bold rock:mb-2 mb-3">
+          <h3 className="w-fit mx-auto border-[var(--red)] border-b capitalize text-[var(--blue)] rock:text-2xl text-xl font-bold rock:mb-2 mb-3">
             Gửi thông tin
           </h3>
 
@@ -129,7 +129,7 @@ export default function page({}: Props) {
           </form>
 
           <button className="h-10 w-36 border border-[var(--blue)] text-[var(--blue)] uppercase
-           rock:hover:bg-[var(--blue)] rock:hover:text-white ease-in-out delay-75 rounded">Gửi ngay</button>
+           rock:hover:bg-[var(--blue)] rock:hover:text-white ease-in-out delay-75 rounded rock:text-base text-sm">Gửi ngay</button>
         </div>
       </div>
     </section>
