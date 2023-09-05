@@ -24,17 +24,23 @@ export default function BreadCrumb({}: Props) {
   const crumbs = router
     .split("/")
     .filter((crumb) => crumb !== "")
-    .map((crumb) => {
+    .map((crumb, index, array) => {
       currentLink += "/" + crumb;
+      const isLast = index === array.length - 1;
 
       return (
-        <Link
-          className="text-black hover:text-gray-700 text-sm capitalize"
-          key={crumb}
-          href={currentLink}
-        >
-          {handleCrumbLabel(crumb)}
-        </Link>
+        <>
+          <Link
+            className={`${
+              !isLast ? "text-[var(--gray-text)]" : "text-black"
+            } rock:hover:text-gray-700 text-sm capitalize`}
+            key={currentLink}
+            href={currentLink}
+          >
+            {handleCrumbLabel(crumb)}
+          </Link>
+          {!isLast && <span className="mx-2 text-[var(--gray-text)]">/</span>}
+        </>
       );
     });
 
@@ -45,7 +51,7 @@ export default function BreadCrumb({}: Props) {
           <li className="flex items-center">
             <Link
               href={"/"}
-              className="text-[var(--gray-text)] hover:text-gray-700 text-sm capitalize"
+              className="text-[var(--gray-text)] rock:hover:text-gray-700 text-sm capitalize"
             >
               Trang chủ
             </Link>
