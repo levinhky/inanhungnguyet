@@ -1,7 +1,7 @@
 export default function loading() {
   return (
     <>
-      <div className="relative items-center block max-w-full h-screen p-6 bg-black bg-opacity-20">
+      <div className="fixed top-0 right-0 left-0 items-center block max-w-full h-screen p-6 bg-black bg-opacity-20">
         <div
           role="status"
           className="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2"

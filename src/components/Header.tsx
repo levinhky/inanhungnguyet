@@ -10,7 +10,8 @@ type Props = {};
 export default function Header({}: Props) {
   const [searchValue, setSearchValue] = useState("");
   const searchInputClass =
-    "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[var(--blue)] block w-full rounded-full sm:text-sm";
+    "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
+     focus:outline-none focus:border-[var(--blue)] block w-full rounded-full sm:text-sm";
   const searchIconClass =
     "action-search min-w-[80px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-0 rounded-full";
 
