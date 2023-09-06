@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Providers } from "@/redux/provider";
 import { metadataContent } from "@/data/arrays";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: metadataContent.title,
@@ -31,6 +32,19 @@ export default function RootLayout({
           <Footer />
         </Providers>
       </body>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=G-M7X2Q19QCC`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+        window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-M7X2Q19QCC');
+        `}
+      </Script>
     </html>
   );
 }
