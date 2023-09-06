@@ -59,7 +59,7 @@ body {
   width: 32px;
   height: 44px;
   display: block;
-  background: url(/flag-vi.png) no-repeat center center;
+  background: url(/icons/flag-vi.png) no-repeat center center;
   background-size: auto 32px;
   overflow: hidden;
   float: left;
