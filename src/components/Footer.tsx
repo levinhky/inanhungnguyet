@@ -1,27 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
+import {
+  FacebookOutlined,
+  HomeOutlined,
+  MailOutlined,
+  PhoneOutlined,
+} from "@ant-design/icons";
 import Link from "next/link";
 
 type Props = {};
 
 export default function Footer({}: Props) {
+  const liHover = "rock:hover:text-[var(--red)] ease-linear";
   return (
     <footer className="bg-[#f6f6f6] mt-10 pb-5 rock:pb-5">
-      <div className="flex justify-around items-center container mx-auto flex-wrap">
-        <div>
+      <div className="flex rock:justify-around container mx-auto flex-wrap">
+        <div className="rock:mb-0 mb-5">
           <Link href={"/"} className="logo rock:mt-0 mt-[-40px]">
             <Image
               src={"/logo.svg"}
               alt="inanhungnguyetlogo"
+              className="rock:-mt-5 -mb-8"
               width={150}
               height={150}
             />
           </Link>
 
-          <ul className="mt-[-30px]">
-            <li className="flex items-center mb-1">
+          <ul>
+            <li className={`flex items-center mb-1 ${liHover}`}>
               <HomeOutlined />
               <Link
                 href={
@@ -34,7 +41,7 @@ export default function Footer({}: Props) {
                 11 Hà Hoa, P.Hưng Trí, Tx.Kỳ Anh, Hà Tĩnh
               </Link>
             </li>
-            <li className="flex items-center mb-1">
+            <li className={`flex items-center mb-1 ${liHover}`}>
               <MailOutlined />
               <Link
                 target="_blank"
@@ -45,7 +52,7 @@ export default function Footer({}: Props) {
                 inanhungnguyet@gmail.com
               </Link>
             </li>
-            <li className="flex items-center mb-1">
+            <li className={`flex items-center mb-1 ${liHover}`}>
               <PhoneOutlined />
               <Link
                 target="_blank"
@@ -59,55 +66,45 @@ export default function Footer({}: Props) {
           </ul>
         </div>
 
-        <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
-          <h1 className="mb-5 mt-[30px] font-bold uppercase">sản phẩm</h1>
+        <div className="flex items-start flex-col rock:mt-0 mt-[-50px] rock:mr-0 mr-8 mb-5 rock:mb-0">
+          <h1 className="mb-2 mt-11 font-bold uppercase">sản phẩm</h1>
           <ul>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
                 href={"/"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
                 Bao bì
               </Link>
             </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
-                target="_blank"
-                rel="nofollow"
                 href={"/"}
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
                 Ly nhựa
               </Link>
             </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
-                target="_blank"
-                rel="nofollow"
                 href={"/"}
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
                 Bao đũa
               </Link>
             </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
-                target="_blank"
-                rel="nofollow"
                 href={"/"}
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
                 Khăn lạnh
               </Link>
             </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
-                target="_blank"
-                rel="nofollow"
                 href={"/"}
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
                 Hoá đơn
               </Link>
@@ -116,73 +113,48 @@ export default function Footer({}: Props) {
         </div>
 
         <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
-          <h1 className="mb-5 mt-[30px] font-bold uppercase">sản phẩm</h1>
+          <h1 className="mb-2 mt-11 font-bold uppercase">chính sách</h1>
           <ul>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
                 href={"/"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
-                Bao bì
+                Hướng dẫn mua hàng
               </Link>
             </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
-                target="_blank"
-                rel="nofollow"
                 href={"/"}
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
-                Ly nhựa
+                Chính sách vận chuyển - thanh toán
               </Link>
             </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
+            <li className={`${liHover}`}>
               <Link
-                target="_blank"
-                rel="nofollow"
                 href={"/"}
-                className="ml-1 rock:text-base text-sm"
+                className="rock:text-base text-sm"
               >
-                Bao đũa
-              </Link>
-            </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
-              <Link
-                target="_blank"
-                rel="nofollow"
-                href={"/"}
-                className="ml-1 rock:text-base text-sm"
-              >
-                Khăn lạnh
-              </Link>
-            </li>
-            <li className="rock:hover:text-[var(--red)] ease-linear">
-              <Link
-                target="_blank"
-                rel="nofollow"
-                href={"/"}
-                className="ml-1 rock:text-base text-sm"
-              >
-                Hoá đơn
+                Chính sách đổi trả - bảo hành
               </Link>
             </li>
           </ul>
         </div>
 
         <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
-          <h1 className="mb-5 mt-[30px] font-bold uppercase">mạng xã hội</h1>
-          <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flevinhhoa.levinhhoa&tabs=timeline&width=0&height=0&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=750141939350920"
-            width={0}
-            height={0}
-            style={{ border: "none", overflow: "hidden" }}
-            scrolling="no"
-            frameBorder={0}
-            allowFullScreen={true}
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          />
+          <h1 className="mb-2 mt-11 font-bold uppercase">mạng xã hội</h1>
+          <ul>
+            <li className={`${liHover}`}>
+              <Link
+                href={"https://www.facebook.com/levinhhoa.levinhhoa"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookOutlined className="text-2xl text-blue-700" />
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

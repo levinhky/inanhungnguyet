@@ -39,7 +39,7 @@ export default function Header({}: Props) {
             />
           </div>
           <button title="Tìm kiếm" className={searchIconClass}>
-          <SearchOutlined className="text-white text-2xl" />
+          <SearchOutlined className="text-white text-xl" />
           </button>
         </div>
         <div className="links flex items-center">
