@@ -39,13 +39,7 @@ export default function Header({}: Props) {
             />
           </div>
           <button title="Tìm kiếm" className={searchIconClass}>
-            <Image
-              className="mx-auto"
-              src={"/icons/search.svg"}
-              alt="inanhungnguyetlogo"
-              width={25}
-              height={25}
-            />
+          <SearchOutlined className="text-white text-2xl" />
           </button>
         </div>
         <div className="links flex items-center">
