@@ -17,6 +17,8 @@ export default function BreadCrumb({}: Props) {
         return "liên hệ";
       case "chinh-sach-van-chuyen-thanh-toan":
         return "Chính sách vận chuyển và thanh toán";
+      case "chinh-sach-doi-tra-bao-hanh":
+        return "Chính sách đổi trả và bảo hành";
 
       default:
         return "";
@@ -32,15 +34,17 @@ export default function BreadCrumb({}: Props) {
 
       return (
         <>
+          <li>
           <Link
             className={`${
               !isLast ? "text-[var(--gray-text)]" : "text-black"
-            } rock:hover:text-gray-700 text-sm capitalize`}
+            } rock:hover:text-gray-700 text-xs capitalize rock:text-sm`}
             key={currentLink}
             href={currentLink}
           >
             {handleCrumbLabel(crumb)}
           </Link>
+          </li>
           {!isLast && <span className="mx-2 text-[var(--gray-text)]">/</span>}
         </>
       );
@@ -53,7 +57,7 @@ export default function BreadCrumb({}: Props) {
           <li className="flex items-center">
             <Link
               href={"/"}
-              className="text-[var(--gray-text)] rock:hover:text-gray-700 text-sm capitalize"
+              className="text-[var(--gray-text)] rock:hover:text-gray-700 text-xs rock:text-sm capitalize"
             >
               Trang chủ
             </Link>

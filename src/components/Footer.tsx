@@ -14,7 +14,7 @@ type Props = {};
 export default function Footer({}: Props) {
   const liHover = "rock:hover:text-[var(--red)] ease-linear";
   return (
-    <footer className="bg-[#f6f6f6] mt-10 pb-5 rock:pb-5">
+    <footer className="bg-[#f6f6f6] mt-10 pb-5 rock:pb-5 rock:text-base text-sm">
       <div className="flex rock:justify-around container mx-auto flex-wrap">
         <div className="rock:mb-0 mb-5">
           <Link href={"/"} className="logo rock:mt-0 mt-[-40px]">
@@ -36,7 +36,7 @@ export default function Footer({}: Props) {
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-1 rock:text-base text-sm"
+                className="ml-1 "
               >
                 11 Hà Hoa, P.Hưng Trí, Tx.Kỳ Anh, Hà Tĩnh
               </Link>
@@ -47,7 +47,7 @@ export default function Footer({}: Props) {
                 target="_blank"
                 rel="nofollow"
                 href={"mailto:inanhungnguyet@gmail.com"}
-                className="ml-1 rock:text-base text-sm"
+                className="ml-1 "
               >
                 inanhungnguyet@gmail.com
               </Link>
@@ -58,7 +58,7 @@ export default function Footer({}: Props) {
                 target="_blank"
                 rel="nofollow"
                 href={"tel:0963284451"}
-                className="ml-1 rock:text-base text-sm"
+                className="ml-1 "
               >
                 086.767.3358
               </Link>
@@ -70,29 +70,19 @@ export default function Footer({}: Props) {
           <h1 className="mb-2 mt-11 font-bold uppercase">sản phẩm</h1>
           <ul>
             <li className={`${liHover}`}>
-              <Link href={"/"} className="rock:text-base text-sm">
-                Bao bì
-              </Link>
+              <Link href={"/"}>Bao bì</Link>
             </li>
             <li className={`${liHover}`}>
-              <Link href={"/"} className="rock:text-base text-sm">
-                Ly nhựa
-              </Link>
+              <Link href={"/"}>Ly nhựa</Link>
             </li>
             <li className={`${liHover}`}>
-              <Link href={"/"} className="rock:text-base text-sm">
-                Bao đũa
-              </Link>
+              <Link href={"/"}>Bao đũa</Link>
             </li>
             <li className={`${liHover}`}>
-              <Link href={"/"} className="rock:text-base text-sm">
-                Khăn lạnh
-              </Link>
+              <Link href={"/"}>Khăn lạnh</Link>
             </li>
             <li className={`${liHover}`}>
-              <Link href={"/"} className="rock:text-base text-sm">
-                Hoá đơn
-              </Link>
+              <Link href={"/"}>Hoá đơn</Link>
             </li>
           </ul>
         </div>
@@ -101,23 +91,15 @@ export default function Footer({}: Props) {
           <h1 className="mb-2 mt-11 font-bold uppercase">chính sách</h1>
           <ul>
             <li className={`${liHover}`}>
-              <Link href={"/"} className="rock:text-base text-sm">
-                Hướng dẫn mua hàng
-              </Link>
+              <Link href={"/"}>Hướng dẫn mua hàng</Link>
             </li>
             <li className={`${liHover}`}>
-              <Link
-                href={"/chinh-sach-van-chuyen-thanh-toan"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/chinh-sach-van-chuyen-thanh-toan"}>
                 Chính sách vận chuyển - thanh toán
               </Link>
             </li>
             <li className={`${liHover}`}>
-              <Link
-                href={"/chinh-sach-bao-hanh"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/chinh-sach-doi-tra-bao-hanh"}>
                 Chính sách đổi trả - bảo hành
               </Link>
             </li>
@@ -129,29 +111,19 @@ export default function Footer({}: Props) {
             <h1 className="mb-2 mt-11 font-bold uppercase">sản phẩm</h1>
             <ul>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
-                  Bao bì
-                </Link>
+                <Link href={"/"}>Bao bì</Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
-                  Ly nhựa
-                </Link>
+                <Link href={"/"}>Ly nhựa</Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
-                  Bao đũa
-                </Link>
+                <Link href={"/"}>Bao đũa</Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
-                  Khăn lạnh
-                </Link>
+                <Link href={"/"}>Khăn lạnh</Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
-                  Hoá đơn
-                </Link>
+                <Link href={"/"}>Hoá đơn</Link>
               </li>
             </ul>
           </div>
@@ -160,17 +132,15 @@ export default function Footer({}: Props) {
             <h1 className="mb-2 mt-11 font-bold uppercase">chính sách</h1>
             <ul>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
-                  Hướng dẫn mua hàng
-                </Link>
+                <Link href={"/"}>Hướng dẫn mua hàng</Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
+                <Link href={"/chinh-sach-van-chuyen-thanh-toan"}>
                   Chính sách vận chuyển - thanh toán
                 </Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/"} className="rock:text-base text-sm">
+                <Link href={"/chinh-sach-doi-tra-bao-hanh"}>
                   Chính sách đổi trả - bảo hành
                 </Link>
               </li>
@@ -179,7 +149,7 @@ export default function Footer({}: Props) {
         </div>
 
         <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
-          <h1 className="mb-2 mt-11 font-bold uppercase">mạng xã hội</h1>
+          <h1 className="rock:mb-2 mb-0 mt-11 font-bold uppercase">mạng xã hội</h1>
           <ul>
             <li className={`${liHover}`}>
               <Link
