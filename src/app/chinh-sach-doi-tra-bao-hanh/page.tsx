@@ -24,7 +24,7 @@ export default function page({}: Props) {
           – Sản phẩm được bảo hành miễn phí trong thời gian sử dụng{" "}
           <b>tương ứng</b> trong các trường hợp sau:
         </h5>
-        <ul className="list-disc">
+        <ul className="rock:list-disc list-none">
           <li className="rock:mb-2 mb-1">
             Lỗi do sản xuất, không đóng gói theo quy cách, thiếu sản phẩm hoặc
             chất lượng sản phẩm không như cam kết.
@@ -38,7 +38,7 @@ export default function page({}: Props) {
           – In Ấn Hùng Nguyệt <b>từ chối</b> bảo hành sản phẩm đối với các
           trường hợp:
         </h5>
-        <ul className="list-disc">
+        <ul className="rock:list-disc list-none">
           <li className="rock:mb-2 mb-1 ">
             Sản phẩm không phải do In Ấn Hùng Nguyệt Sản xuất, Cung cấp hoặc do
             lỗi do quý Khách hàng tác động hoặc do thiên tai hỏa hoạn.

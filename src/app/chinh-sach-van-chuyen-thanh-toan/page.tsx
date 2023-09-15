@@ -19,7 +19,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
           tương tác :
         </h5>
 
-        <ul className="list-disc ">
+        <ul className="rock:list-disc list-none">
           <li className="mb-2">
             Website:
             <Link
@@ -69,7 +69,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
           2. Thời gian giao hàng và đặt hàng:
         </h6>
 
-        <ul className="list-disc ">
+        <ul className="rock:list-disc list-none">
           <li className="mb-2 font-semibold">
             Đặt hàng:
             <p className="font-normal my-2">+ Từ 8:00 đến 20:00 hàng ngày</p>
@@ -80,7 +80,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
             <p className="font-normal mt-2 mb-5">
               + Buổi chiều: Từ 13:30 đến 20:00
             </p>
-            <ul className="list-disc">
+            <ul className="rock:list-disc list-none">
               <li className="mb-2 font-normal">
                 Đơn hàng đặt: Trả hàng đúng theo lịch hai bên đã hẹn.
               </li>
@@ -103,7 +103,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
           3. Phương thức thanh toán:
         </h6>
 
-        <ul className="list-disc ">
+        <ul className="rock:list-disc list-none">
           <li className="mb-2 font-normal">
             Thanh toán trực tiếp: Ngay sau khi giao và nhận hàng.
           </li>
