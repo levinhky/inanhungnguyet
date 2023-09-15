@@ -54,6 +54,11 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
 .main-nav .switcher-language .language::before {
   content: "";
   width: 32px;

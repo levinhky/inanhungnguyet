@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Providers } from "@/redux/provider";
 import { metadataContent } from "@/data/arrays";
 import Script from "next/script";
+import ScrollTop from "@/components/ScrollTop";
 
 export const metadata: Metadata = {
   title: metadataContent.title,
@@ -33,6 +34,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <ScrollTop />
       </body>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
