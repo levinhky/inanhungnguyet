@@ -19,9 +19,9 @@ export default function ShippingAndPaymentPolicies({}: Props) {
           tương tác :
         </h5>
 
-        <ul className="rock:list-disc list-none">
+        <ul>
           <li className="mb-2">
-            Website:
+          &bull; Website:
             <Link
               className="text-[var(--blue)] ml-1 rock:hover:opacity-80 rock:ease-in-out"
               href={"/"}
@@ -30,7 +30,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
             </Link>
           </li>
           <li className="mb-2">
-            MXH:
+          &bull; MXH:
             <Link
               href={"https://www.facebook.com/levinhhoa.levinhhoa"}
               target="_blank"
@@ -40,7 +40,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
             </Link>
           </li>
           <li className="mb-2">
-            Email:
+          &bull; Email:
             <Link
               className="text-[var(--blue)] ml-1 rock:hover:opacity-80 rock:ease-in-out"
               target="_blank"
@@ -51,7 +51,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
             </Link>
           </li>
           <li className="mb-2">
-            SĐT/Zalo:
+          &bull; SĐT/Zalo:
             <Link
               className="text-[var(--blue)] ml-1 rock:hover:opacity-80 rock:ease-in-out"
               target="_blank"
@@ -69,23 +69,23 @@ export default function ShippingAndPaymentPolicies({}: Props) {
           2. Thời gian giao hàng và đặt hàng:
         </h6>
 
-        <ul className="rock:list-disc list-none">
+        <ul>
           <li className="mb-2 font-semibold">
-            Đặt hàng:
+          &bull; Đặt hàng:
             <p className="font-normal my-2">+ Từ 8:00 đến 20:00 hàng ngày</p>
           </li>
           <li className="mb-2 font-semibold">
-            Giao hàng:
+          &bull; Giao hàng:
             <p className="font-normal my-2">+ Buổi sáng: Từ 8:30 đến 12:00</p>
             <p className="font-normal mt-2 mb-5">
               + Buổi chiều: Từ 13:30 đến 20:00
             </p>
-            <ul className="rock:list-disc list-none">
+            <ul>
               <li className="mb-2 font-normal">
-                Đơn hàng đặt: Trả hàng đúng theo lịch hai bên đã hẹn.
+              &bull; Đơn hàng đặt: Trả hàng đúng theo lịch hai bên đã hẹn.
               </li>
               <li className="mb-2 font-normal">
-                Trường hợp khách quan: Trả hàng sau 3 ngày hoặc có thông báo
+              &bull; Trường hợp khách quan: Trả hàng sau 3 ngày hoặc có thông báo
                 trực tiếp với khách hàng.
               </li>
             </ul>
@@ -103,18 +103,18 @@ export default function ShippingAndPaymentPolicies({}: Props) {
           3. Phương thức thanh toán:
         </h6>
 
-        <ul className="rock:list-disc list-none">
+        <ul>
           <li className="mb-2 font-normal">
-            Thanh toán trực tiếp: Ngay sau khi giao và nhận hàng.
+          &bull; Thanh toán trực tiếp: Ngay sau khi giao và nhận hàng.
           </li>
           <li className="mb-2 font-normal">
-            Thanh toán chuyển khoản hoặc Internet Banking.
+          &bull; Thanh toán chuyển khoản hoặc Internet Banking.
           </li>
           <li className="mb-2 font-normal">
-            Thanh toán trực tiếp: Ngay sau khi giao và nhận hàng.
+          &bull; Thanh toán trực tiếp: Ngay sau khi giao và nhận hàng.
           </li>
           <li className="mb-2 font-normal">
-            Với đơn hàng ngoại tỉnh chúng tôi chỉ nhận thanh toán chuyển khoản
+          &bull; Với đơn hàng ngoại tỉnh chúng tôi chỉ nhận thanh toán chuyển khoản
             trước 100% tiền hàng hoặc nhận tiền và giao hàng tại nhà xe do quý
             khách cung cấp.
           </li>
