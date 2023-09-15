@@ -66,66 +66,48 @@ export default function Footer({}: Props) {
           </ul>
         </div>
 
-        <div className="flex items-start flex-col rock:mt-0 mt-[-50px] rock:mr-0 mr-8 mb-5 rock:mb-0">
+        <div className="rock:flex items-start flex-col  hidden rock:mt-0 mt-[-50px] rock:mr-0 mr-8 mb-5 rock:mb-0">
           <h1 className="mb-2 mt-11 font-bold uppercase">sản phẩm</h1>
           <ul>
             <li className={`${liHover}`}>
-              <Link
-                href={"/"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/"} className="rock:text-base text-sm">
                 Bao bì
               </Link>
             </li>
             <li className={`${liHover}`}>
-              <Link
-                href={"/"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/"} className="rock:text-base text-sm">
                 Ly nhựa
               </Link>
             </li>
             <li className={`${liHover}`}>
-              <Link
-                href={"/"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/"} className="rock:text-base text-sm">
                 Bao đũa
               </Link>
             </li>
             <li className={`${liHover}`}>
-              <Link
-                href={"/"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/"} className="rock:text-base text-sm">
                 Khăn lạnh
               </Link>
             </li>
             <li className={`${liHover}`}>
-              <Link
-                href={"/"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/"} className="rock:text-base text-sm">
                 Hoá đơn
               </Link>
             </li>
           </ul>
         </div>
 
-        <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
+        <div className="rock:flex hidden items-start flex-col rock:mt-0 mt-[-50px]">
           <h1 className="mb-2 mt-11 font-bold uppercase">chính sách</h1>
           <ul>
             <li className={`${liHover}`}>
-              <Link
-                href={"/"}
-                className="rock:text-base text-sm"
-              >
+              <Link href={"/"} className="rock:text-base text-sm">
                 Hướng dẫn mua hàng
               </Link>
             </li>
             <li className={`${liHover}`}>
               <Link
-                href={"/"}
+                href={"/chinh-sach-van-chuyen-thanh-toan"}
                 className="rock:text-base text-sm"
               >
                 Chính sách vận chuyển - thanh toán
@@ -133,13 +115,67 @@ export default function Footer({}: Props) {
             </li>
             <li className={`${liHover}`}>
               <Link
-                href={"/"}
+                href={"/chinh-sach-bao-hanh"}
                 className="rock:text-base text-sm"
               >
                 Chính sách đổi trả - bảo hành
               </Link>
             </li>
           </ul>
+        </div>
+
+        <div className="rock:hidden flex justify-between w-full">
+          <div className="flex items-start flex-col rock:mt-0 mt-[-50px] rock:mr-0 mb-5 rock:mb-0">
+            <h1 className="mb-2 mt-11 font-bold uppercase">sản phẩm</h1>
+            <ul>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Bao bì
+                </Link>
+              </li>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Ly nhựa
+                </Link>
+              </li>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Bao đũa
+                </Link>
+              </li>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Khăn lạnh
+                </Link>
+              </li>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Hoá đơn
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
+            <h1 className="mb-2 mt-11 font-bold uppercase">chính sách</h1>
+            <ul>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Hướng dẫn mua hàng
+                </Link>
+              </li>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Chính sách vận chuyển - thanh toán
+                </Link>
+              </li>
+              <li className={`${liHover}`}>
+                <Link href={"/"} className="rock:text-base text-sm">
+                  Chính sách đổi trả - bảo hành
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">

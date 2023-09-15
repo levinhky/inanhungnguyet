@@ -15,6 +15,8 @@ export default function BreadCrumb({}: Props) {
         return "về chúng tôi";
       case "lien-he":
         return "liên hệ";
+      case "chinh-sach-van-chuyen-thanh-toan":
+        return "Chính sách vận chuyển và thanh toán";
 
       default:
         return "";

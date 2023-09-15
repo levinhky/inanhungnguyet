@@ -23,7 +23,7 @@ const config: Config = {
       lg: { min: "1025px", max: "1200px" }, // Large screens and desktops
       xl: { min: "1201px" }, // TV and extra large screens
       rock: { min: "769px" }, // common md
-      ky: { min: "320px" }, // common sm
+      ky: { min: "320px", max: "768px" }, // common sm
     },
   },
   plugins: [],
