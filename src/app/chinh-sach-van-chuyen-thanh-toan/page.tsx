@@ -56,7 +56,7 @@ export default function ShippingAndPaymentPolicies({}: Props) {
               className="text-[var(--blue)] ml-1 rock:hover:opacity-80 rock:ease-in-out"
               target="_blank"
               rel="nofollow"
-              href={"tel:0963284451"}
+              href={"tel:0867673358"}
             >
               086.767.3358
             </Link>

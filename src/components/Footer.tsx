@@ -57,7 +57,7 @@ export default function Footer({}: Props) {
               <Link
                 target="_blank"
                 rel="nofollow"
-                href={"tel:0963284451"}
+                href={"tel:0867673358"}
                 className="ml-1 "
               >
                 086.767.3358

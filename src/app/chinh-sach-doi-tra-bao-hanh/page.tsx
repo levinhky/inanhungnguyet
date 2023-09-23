@@ -80,7 +80,7 @@ export default function page({}: Props) {
       </h3>
       <h3 className="mt-3 ">
         <b>Hotline:</b>{" "}
-        <Link target="_blank" rel="nofollow" href={"tel:0963284451"}>
+        <Link target="_blank" rel="nofollow" href={"tel:0867673358"}>
           086.767.3358
         </Link>
       </h3>

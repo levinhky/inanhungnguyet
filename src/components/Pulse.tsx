@@ -42,7 +42,7 @@ export default function Pulse({}: Props) {
         </Link>
       </div>
       <div className="circle pulse rock:w-11 rock:h-11 w-10 h-10 phone-ring bg-[#66ff99] mb-5">
-        <Link target="_blank" rel="nofollow" href={"tel:0963284451"}>
+        <Link target="_blank" rel="nofollow" href={"tel:0867673358"}>
           <Image
             width={100}
             height={100}
