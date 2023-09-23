@@ -1,4 +1,6 @@
 import "./globals.css";
+import "../assets/css/animation.css";
+import "../assets/css/responsive.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
@@ -7,6 +9,7 @@ import { Providers } from "@/redux/provider";
 import { metadataContent } from "@/data/arrays";
 import Script from "next/script";
 import ScrollTop from "@/components/ScrollTop";
+import Pulse from "@/components/Pulse";
 
 export const metadata: Metadata = {
   title: metadataContent.title,
@@ -35,6 +38,7 @@ export default function RootLayout({
           <Footer />
         </Providers>
         <ScrollTop />
+        <Pulse />
       </body>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
