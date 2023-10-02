@@ -4,11 +4,14 @@ import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Tippy from "@tippyjs/react/headless";
+import PopperWrapper from "./Search/PopperWrapper";
 
 type Props = {};
 
 export default function Header({}: Props) {
   const [searchValue, setSearchValue] = useState("");
+
   const searchInputClass =
     "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
      focus:outline-none focus:border-[var(--blue)] block w-full rounded-full sm:text-sm";
@@ -28,20 +31,28 @@ export default function Header({}: Props) {
             />
           </Link>
         </div>
-        <div className="block-search h-[40px] relative hidden rock:block">
-          <div className="field-search w-[500px]">
-            <input
-              type="text"
-              onInput={(e) => setSearchValue(e.currentTarget.value)}
-              value={searchValue}
-              className={searchInputClass}
-              placeholder="Tìm sản phẩm mong muốn ..."
-            />
+        
+        <Tippy
+          interactive={true}
+          visible={searchValue.length > 0}
+          render={(attrs) => <PopperWrapper {...attrs} />}
+        >
+          <div className="block-search h-[40px] relative hidden rock:block">
+            <div className="field-search w-[500px]">
+              <input
+                type="text"
+                onInput={(e) => setSearchValue(e.currentTarget.value)}
+                value={searchValue}
+                className={searchInputClass}
+                placeholder="Tìm sản phẩm mong muốn ..."
+              />
+            </div>
+            <button title="Tìm kiếm" className={searchIconClass}>
+              <SearchOutlined className="text-white text-xl" />
+            </button>
           </div>
-          <button title="Tìm kiếm" className={searchIconClass}>
-          <SearchOutlined className="text-white text-xl" />
-          </button>
-        </div>
+        </Tippy>
+
         <div className="links flex items-center">
           <button title="Tìm kiếm" className="rock:hidden text-2xl">
             <SearchOutlined />
