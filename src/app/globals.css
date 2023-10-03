@@ -80,3 +80,19 @@ body {
 #main-slider {
   overflow-y: visible;
 }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .categories .item:nth-child(n + 5) {
+    display: none;
+  }
+
+  .categories .active.item:nth-child(n + 5) {
+    display: flex;
+    margin-bottom: 25px;
+  }
+}
