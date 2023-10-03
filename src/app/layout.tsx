@@ -1,4 +1,3 @@
-import "../assets/css/responsive.css";
 import "./globals.css";
 import "../assets/css/animation.css";
 import type { Metadata } from "next";
