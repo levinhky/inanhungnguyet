@@ -6,11 +6,13 @@ import Link from "next/link";
 import { useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./Search/PopperWrapper";
+import MobilePopperWrapper from "./Search/MobilePopperWrapper";
 
 type Props = {};
 
 export default function Header({}: Props) {
   const [searchValue, setSearchValue] = useState("");
+  const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
 
   const searchInputClass =
     "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
@@ -31,7 +33,7 @@ export default function Header({}: Props) {
             />
           </Link>
         </div>
-        
+
         <Tippy
           interactive={true}
           visible={searchValue.length > 0}
@@ -54,7 +56,7 @@ export default function Header({}: Props) {
         </Tippy>
 
         <div className="links flex items-center">
-          <button title="Tìm kiếm" className="rock:hidden text-2xl">
+          <button onClick={() => setIsActiveSearchModal(true)} title="Tìm kiếm" className="rock:hidden text-2xl">
             <SearchOutlined />
           </button>
           <button className="rock:hidden text-2xl ml-3">
@@ -68,6 +70,11 @@ export default function Header({}: Props) {
           </button>
         </div>
       </div>
+
+      <MobilePopperWrapper
+        isActiveSearchModal={isActiveSearchModal}
+        setIsActiveSearchModal={setIsActiveSearchModal}
+      />
     </header>
   );
 }

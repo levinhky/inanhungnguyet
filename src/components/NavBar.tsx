@@ -8,14 +8,14 @@ import MenuMobile from "./MenuMobile";
 type Props = {};
 
 export default function NavBar({}: Props) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setMenuIsOpen] = useState(false);
   const [isActiveMenu, setIsActiveMenu] = useState(false);
   const genericHamburgerLine = `h-[3px] w-[16px] mb-[2px] mt-[1px] rounded-full bg-[var(--white)] transition ease transform duration-300`;
   const liClassName =
     "uppercase items-center h-full flex hover:bg-[var(--dark-blue)] cursor-pointer text-[var(--white)]";
 
   const handleMenuMobile = (isActiveMenu: boolean) => {
-    setIsOpen(!isOpen);
+    setMenuIsOpen(!isMenuOpen);
     setIsActiveMenu(isActiveMenu);
   };
 
@@ -44,17 +44,17 @@ export default function NavBar({}: Props) {
               >
                 <div
                   className={`${genericHamburgerLine} ${
-                    isOpen ? "rotate-45 translate-y-[7px] " : ""
+                    isMenuOpen ? "rotate-45 translate-y-[7px] " : ""
                   }`}
                 />
                 <div
                   className={`${genericHamburgerLine} ${
-                    isOpen ? "opacity-0" : ""
+                    isMenuOpen ? "opacity-0" : ""
                   }`}
                 />
                 <div
                   className={`${genericHamburgerLine} ${
-                    isOpen ? "-rotate-45 -translate-y-[9px] " : ""
+                    isMenuOpen ? "-rotate-45 -translate-y-[9px] " : ""
                   }`}
                 />
               </button>
