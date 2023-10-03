@@ -17,7 +17,7 @@ export default function MobilePopperWrapper({
        focus:outline-none focus:border-[var(--blue)] block w-full rounded-full text-sm";
 
   const searchIconClass =
-    "action-search min-w-[70px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-20 rounded-full";
+    "action-search min-w-[70px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-16 rounded-full";
 
   return (
     isActiveSearchModal && (
