@@ -35,7 +35,7 @@ export default function MobilePopperWrapper({
               placeholder="Tìm sản phẩm mong muốn ..."
             />
 
-            <div className="ml-9 mr-2">
+            <div className="ml-10 mr-2">
               <button onClick={() => setIsActiveSearchModal(false)} className="text-[var(--blue-text)] font-bold">Hủy</button>
             </div>
           </div>
