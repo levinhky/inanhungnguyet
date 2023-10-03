@@ -1,6 +1,6 @@
+import "../assets/css/responsive.css";
 import "./globals.css";
 import "../assets/css/animation.css";
-import "../assets/css/responsive.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
