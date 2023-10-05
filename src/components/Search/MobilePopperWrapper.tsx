@@ -41,7 +41,7 @@ export default function MobilePopperWrapper({
           </div>
 
           <button title="Tìm kiếm" className={searchIconClass}>
-            <SearchOutlined className="text-white text-xl" />
+            <SearchOutlined className="text-white text-xl" />                                                                                                                               
           </button>
         </div>
       </div>
