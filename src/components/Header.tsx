@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./Search/PopperWrapper";
-import MobilePopperWrapper from "./Search/MobilePopperWrapper";
+import MobilePopperWrapper from "./Search/SearchModal";
 
 type Props = {};
 

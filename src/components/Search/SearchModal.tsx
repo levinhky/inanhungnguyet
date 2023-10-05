@@ -1,5 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import Tippy from "@tippyjs/react/headless";
+import PopperWrapper from "./PopperWrapper";
 
 type Props = {
   isActiveSearchModal: boolean;
@@ -27,21 +29,32 @@ export default function MobilePopperWrapper({
       >
         <div className="block-search h-[40px] relative rock:hidden">
           <div className="field-search w-full flex items-center">
-            <input
-              type="text"
-              onInput={(e) => setSearchValue(e.currentTarget.value)}
-              value={searchValue}
-              className={searchInputClass}
-              placeholder="Tìm sản phẩm mong muốn ..."
-            />
+            <Tippy
+              interactive={true}
+              visible={searchValue.length > 0}
+              render={(attrs) => <PopperWrapper {...attrs} />}
+            >
+              <input
+                type="text"
+                onInput={(e) => setSearchValue(e.currentTarget.value)}
+                value={searchValue}
+                className={searchInputClass}
+                placeholder="Tìm sản phẩm mong muốn ..."
+              />
+            </Tippy>
 
             <div className="ml-10 mr-2">
-              <button onClick={() => setIsActiveSearchModal(false)} className="text-[var(--blue-text)] font-bold">Hủy</button>
+              <button
+                onClick={() => setIsActiveSearchModal(false)}
+                className="text-[var(--blue-text)] font-bold"
+              >
+                Hủy
+              </button>
             </div>
           </div>
 
           <button title="Tìm kiếm" className={searchIconClass}>
-            <SearchOutlined className="text-white text-xl" />                                                                                                                               
+            <SearchOutlined className="text-white text-xl" />
           </button>
         </div>
       </div>
