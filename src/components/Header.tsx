@@ -56,18 +56,24 @@ export default function Header({}: Props) {
         </Tippy>
 
         <div className="links flex items-center">
-          <button onClick={() => setIsActiveSearchModal(true)} title="Tìm kiếm" className="rock:hidden text-2xl">
+          <button
+            onClick={() => setIsActiveSearchModal(true)}
+            title="Tìm kiếm"
+            className="rock:hidden text-2xl"
+          >
             <SearchOutlined />
           </button>
           <button className="rock:hidden text-2xl ml-3">
             <HeartOutlined />
           </button>
-          <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
-            <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-            <p className="rock:text-base rock:mt-[5px] rock:block hidden">
-              Đăng nhập
-            </p>
-          </button>
+          <Link href={"dang-nhap"}>
+            <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
+              <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
+              <p className="rock:text-base rock:mt-[5px] rock:block hidden">
+                Đăng nhập
+              </p>
+            </button>
+          </Link>
         </div>
       </div>
 

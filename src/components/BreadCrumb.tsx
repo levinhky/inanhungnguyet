@@ -21,6 +21,8 @@ export default function BreadCrumb({}: Props) {
         return "Chính sách đổi trả và bảo hành";
       case "danh-sach-san-pham":
         return "Danh sách sản phẩm";
+      case "dang-nhap":
+        return "Đăng nhập";
 
       default:
         return "";
