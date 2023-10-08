@@ -1,8 +1,8 @@
 export const menuItems = [
   {
     id: "1",
-    url: "/gioi-thieu",
-    label: "Giới thiệu",
+    url: "/danh-sach-san-pham",
+    label: "Sản phẩm",
   },
   {
     id: "2",

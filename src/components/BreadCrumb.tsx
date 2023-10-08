@@ -19,6 +19,8 @@ export default function BreadCrumb({}: Props) {
         return "Chính sách vận chuyển và thanh toán";
       case "chinh-sach-doi-tra-bao-hanh":
         return "Chính sách đổi trả và bảo hành";
+      case "danh-sach-san-pham":
+        return "Danh sách sản phẩm";
 
       default:
         return "";
@@ -35,15 +37,15 @@ export default function BreadCrumb({}: Props) {
       return (
         <>
           <li>
-          <Link
-            className={`${
-              !isLast ? "text-[var(--gray-text)]" : "text-black"
-            } rock:hover:text-gray-700 text-xs capitalize rock:text-sm`}
-            key={currentLink}
-            href={currentLink}
-          >
-            {handleCrumbLabel(crumb)}
-          </Link>
+            <Link
+              className={`${
+                !isLast ? "text-[var(--gray-text)]" : "text-black"
+              } rock:hover:text-gray-700 text-xs capitalize rock:text-sm`}
+              key={currentLink}
+              href={currentLink}
+            >
+              {handleCrumbLabel(crumb)}
+            </Link>
           </li>
           {!isLast && <span className="mx-2 text-[var(--gray-text)]">/</span>}
         </>
