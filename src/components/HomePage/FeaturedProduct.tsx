@@ -37,7 +37,7 @@ export default function FeaturedProduct({}: Props) {
               <div className="product">
                 <div className="thumb">
                 <Link href={"/"}>
-                  <img src="/logommvn.png" className="select-none rounded-lg" alt="" />
+                  <img src="/lynhua1.png" className="select-none rounded-lg" alt="" />
                 </Link>
                 </div>
               <div className="info px-5 py-3">
@@ -62,7 +62,7 @@ export default function FeaturedProduct({}: Props) {
               <div className="product">
                 <div className="thumb">
                 <Link href={"/"}>
-                  <img src="/logommvn.png" className="select-none rounded-lg" alt="" />
+                  <img src="/lynhua1.png" className="select-none rounded-lg" alt="" />
                 </Link>
                 </div>
               <div className="info px-0 py-2">

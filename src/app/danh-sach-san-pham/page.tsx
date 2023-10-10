@@ -99,7 +99,7 @@ export default function ProductListing({}: Props) {
                   <div className="thumb">
                     <Link href={"/"}>
                       <img
-                        src="/logommvn.png"
+                        src="/lynhua1.png"
                         className="select-none rounded-lg"
                         alt=""
                       />
