@@ -1,17 +1,16 @@
-import BreadCrumb from '@/components/BreadCrumb'
-import React from 'react'
+import BreadCrumb from "@/components/BreadCrumb";
+import React from "react";
 
 type Props = {
   params: {
-    slug: string
-  }
-}
+    slug: string;
+  };
+};
 
-export default function page({params}: Props) {
-  
+export default function page({ params }: Props) {
   return (
     <div className="container mx-auto">
-      <BreadCrumb />
+      <BreadCrumb slug={params.slug} />
       <div id="content">
         <h1 className="rock:text-3xl text-2xl text-center rock:mb-4 mb-3">
           Giới thiệu về In Ấn Hùng Nguyệt
@@ -59,5 +58,5 @@ export default function page({params}: Props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

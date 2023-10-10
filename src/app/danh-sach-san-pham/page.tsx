@@ -97,7 +97,7 @@ export default function ProductListing({}: Props) {
               .map((i, a) => (
                 <div key={i} className="product">
                   <div className="thumb">
-                    <Link href={"/"}>
+                    <Link href={"/yen"}>
                       <img
                         src="/lynhua1.png"
                         className="select-none rounded-lg"
