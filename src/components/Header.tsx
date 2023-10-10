@@ -70,7 +70,7 @@ export default function Header({}: Props) {
             <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
               <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
               <p className="rock:text-base rock:mt-[5px] rock:block hidden">
-                Đăng nhập
+              Đăng ký / Đăng nhập
               </p>
             </button>
           </Link>
