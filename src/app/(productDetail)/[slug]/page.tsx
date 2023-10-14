@@ -16,9 +16,9 @@ export default function page({ params }: Props) {
     <div className="container mx-auto">
       <BreadCrumb slug={params.slug} />
       <section id="content">
-        <div className="flex">
-          <div className="images mr-10 w-[600px]">
-            <Carousel showStatus={false}>
+        <div className="flex flex-wrap rock:flex-nowrap">
+          <div className="images rock:w-1/2 rock:mr-10">
+            <Carousel className="rock:w-[600px]" showStatus={false}>
               <div>
                 <img
                   src="/lynhua1.png"
@@ -43,12 +43,12 @@ export default function page({ params }: Props) {
             </Carousel>
           </div>
 
-          <div className="info">
-            <h1 className="font-bold text-2xl my-5">Ly giấy King</h1>
+          <div className="info text-center rock:text-left w-full">
+            <h1 className="font-bold text-2xl rock:my-5 mb-3">Ly giấy King</h1>
 
-            <p className="mb-5"><span className="font-bold">Tình trạng :</span> Còn hàng</p>
+            <p className="rock:mb-5 mb-3"><span className="font-bold">Tình trạng :</span> Còn hàng</p>
 
-            <h2 className="text-[var(--gray-text)] text-sm mb-5">
+            <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">
               SKU: 250702
             </h2>
 
@@ -57,6 +57,18 @@ export default function page({ params }: Props) {
             </button>
           </div>
         </div>
+
+        <div className="additonal-infomation rock:w-1/2">
+              <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">Thông tin thêm</h3>
+
+              <ul className="info mt-5 list-disc list-inside">
+                  <li>Dung tích: 360ml </li>
+                  <li>Màu sắc: Ly trong, bóng & sáng</li>
+                  <li>Đặc tính: Không chịu nhiệt chỉ có thể dùng nắp cầu hoặc nắp cầu</li>
+                  <li>Mẫu mã: Ly đáy bầu là mắt, dung tích nhỏ rất xinh xắn và dễ thương</li>
+                  <li>Công dụng: Đựng trà sữa size S (cỡ nhỏ), đựng cafe take away, đựng trà trái cây, nước ép và sinh tố, đá xay </li>
+              </ul>
+            </div>
       </section>
     </div>
   );
