@@ -1,5 +1,9 @@
+"use client";
+
 import BreadCrumb from "@/components/BreadCrumb";
 import React from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 type Props = {
   params: {
@@ -11,52 +15,49 @@ export default function page({ params }: Props) {
   return (
     <div className="container mx-auto">
       <BreadCrumb slug={params.slug} />
-      <div id="content">
-        <h1 className="rock:text-3xl text-2xl text-center rock:mb-4 mb-3">
-          Giới thiệu về In Ấn Hùng Nguyệt
-        </h1>
+      <section id="content">
+        <div className="flex">
+          <div className="images mr-10 w-[600px]">
+            <Carousel showStatus={false}>
+              <div>
+                <img
+                  src="/lynhua1.png"
+                  className="select-none rounded-lg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  src="/lynhua1.png"
+                  className="select-none rounded-lg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  src="/lynhua1.png"
+                  className="select-none rounded-lg"
+                  alt=""
+                />
+              </div>
+            </Carousel>
+          </div>
 
-        <div id="desc">
-          <p className="mb-2 text-sm rock:text-base">
-            Chào mừng bạn đến với Xưởng In ấn Hùng Nguyệt! Chúng tôi là một
-            xưởng in ấn mới được thành lập, nhưng chúng tôi đã nhanh chóng xây
-            dựng được danh tiếng và khẳng định mình trong lĩnh vực này. Chúng
-            tôi tự hào mang đến cho khách hàng những sản phẩm in ấn chất lượng
-            cao và dịch vụ đáng tin cậy.
-          </p>
-          <p className="mb-2 text-sm rock:text-base">
-            Tầm nhìn của chúng tôi là trở thành một trong những xưởng in ấn hàng
-            đầu và tin cậy nhất trên thị trường. Chúng tôi cam kết đáp ứng các
-            yêu cầu đa dạng của khách hàng và mang đến cho họ những giải pháp in
-            ấn hiệu quả và sáng tạo.
-          </p>
-          <p className="mb-2 text-sm rock:text-base">
-            Chúng tôi cung cấp các dịch vụ in ấn đa dạng, bao gồm in trên các
-            vật liệu như giấy, nhựa, vải, bao bì và nhiều loại sản phẩm khác.
-            Bằng cách sử dụng công nghệ in ấn tiên tiến và trang thiết bị hiện
-            đại, chúng tôi đảm bảo rằng màu sắc và hình ảnh trên sản phẩm in ấn
-            đều rõ ràng, sắc nét và chất lượng cao.
-          </p>
-          <p className="mb-2 text-sm rock:text-base">
-            Chúng tôi không chỉ tập trung vào việc cung cấp sản phẩm in ấn chất
-            lượng, mà còn đặt sự hài lòng của khách hàng lên hàng đầu. Chúng tôi
-            lắng nghe và tương tác chặt chẽ với khách hàng để hiểu rõ nhu cầu và
-            yêu cầu của họ. Chúng tôi đồng hành cùng khách hàng từ giai đoạn
-            thiết kế ban đầu cho đến quy trình in ấn và giao hàng cuối cùng.
-          </p>
-          <p className="mb-2 text-sm rock:text-base">
-            Với cam kết đem lại giá trị và sự tận hưởng cho khách hàng, chúng
-            tôi không ngừng nỗ lực để tạo ra những sản phẩm in ấn độc đáo và ấn
-            tượng. Chúng tôi tin rằng sự sáng tạo và chất lượng là yếu tố quan
-            trọng để đáp ứng và vượt qua sự mong đợi của khách hàng.
-          </p>
-          <p className="mb-2 text-sm rock:text-base">
-            Hãy đến với Xưởng In ấn Hùng Nguyệt nếu bạn đang tìm kiếm một đối
-            tác in ấn chuyên nghiệp và đáng tin cậy. Chúng tôi sẵn lòng hỗ trợ
-            và đồng hành cùng bạn trong mọi dự án in ấn.
-          </p>
+          <div className="info">
+            <h1 className="font-bold text-2xl my-5">Ly giấy King</h1>
+
+            <p className="mb-5"><span className="font-bold">Tình trạng :</span> Còn hàng</p>
+
+            <h2 className="text-[var(--gray-text)] text-sm mb-5">
+              SKU: 250702
+            </h2>
+
+            <button className="text-white bg-[var(--blue-text)] rock:hover:bg-[var(--blue)] rounded-full text-base py-2 px-5 h-12 min-w-[200px]">
+              Nhận báo giá
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

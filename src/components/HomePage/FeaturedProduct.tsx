@@ -36,13 +36,13 @@ export default function FeaturedProduct({}: Props) {
             <SwiperSlide key={slideContent} virtualIndex={index}>
               <div className="product">
                 <div className="thumb">
-                <Link href={"/"}>
+                <Link href={"/jennie"}>
                   <img src="/lynhua1.png" className="select-none rounded-lg" alt="" />
                 </Link>
                 </div>
               <div className="info px-5 py-3">
                 <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">liên hệ chúng tôi...</h2>
-                <h1 className="name font-normal line-clamp-2"><Link href={'/'}>Ly nhựa đáy bầu 500ml</Link></h1>
+                <h1 className="name font-normal line-clamp-2"><Link href={'/jennie'}>Ly nhựa đáy bầu 500ml</Link></h1>
                 <h3 className="sku uppercase text-[var(--gray-text)] text-sm">SKU: 250702</h3>
               </div>
 
