@@ -24,17 +24,16 @@ export default function Header({}: Props) {
   const dispath = useDispatch();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user: any) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         dispath(
           getUserInfo({
-            accessToken: user.accessToken,
-            displayName: user.displayName,
-            email: user.email,
-            emailVerified: user.emailVerified,
-            isAnonymous: user.isAnonymous,
-            phoneNumber: user.phoneNumber,
-            photoURL: user.photoURL,
+            displayName: user.displayName ?? "",
+            email: user.email ?? "",
+            emailVerified: user.emailVerified ?? false,
+            isAnonymous: user.isAnonymous ?? false,
+            phoneNumber: user.phoneNumber ?? "",
+            photoURL: user.photoURL ?? "",
             uid: user.uid,
           })
         );

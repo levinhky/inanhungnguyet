@@ -5,11 +5,10 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { signOut } from "firebase/auth";
 
 export type UserAttributes = {
-  accessToken: string;
   displayName: string;
   email: string;
-  emailVerified: string;
-  isAnonymous: string;
+  emailVerified: boolean;
+  isAnonymous: boolean;
   phoneNumber: string;
   photoURL: string;
   uid: string;
@@ -21,11 +20,10 @@ export interface AuthState {
 
 const initialState: AuthState = {
   userInfo: {
-    accessToken: "",
     displayName: "",
     email: "",
-    emailVerified: "",
-    isAnonymous: "",
+    emailVerified: false,
+    isAnonymous: false,
     phoneNumber: "",
     photoURL: "",
     uid: "",
@@ -41,11 +39,10 @@ export const authSlice = createSlice({
     },
     handleSignOut: (state) => {
       state.userInfo = {
-        accessToken: "",
         displayName: "",
         email: "",
-        emailVerified: "",
-        isAnonymous: "",
+        emailVerified: false,
+        isAnonymous: false,
         phoneNumber: "",
         photoURL: "",
         uid: "",

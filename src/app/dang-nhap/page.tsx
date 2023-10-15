@@ -32,16 +32,15 @@ export default function page({}: Props) {
   const user = useSelector((state: RootState) => state.auth.userInfo);
   const router = useRouter();
 
- useEffect(() => {
-  if (user.accessToken) {
-    setLoginData(defaultLoginFormFields);
-    setSignupData(defaultSignupFormFields);
-   setTimeout(() =>  router.push("/"), 1500)
-    console.log(user);
-    
-  }
- }, [user])
-  
+  useEffect(() => {
+    if (user.uid) {
+      setLoginData(defaultLoginFormFields);
+      setSignupData(defaultSignupFormFields);
+      setTimeout(() => router.push("/"), 1500);
+      console.log(user);
+    }
+  }, [user]);
+
   const handleChangeLoginForm = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setLoginData({ ...loginData, [name]: value });
