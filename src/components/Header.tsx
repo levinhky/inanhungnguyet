@@ -3,16 +3,47 @@
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./Search/PopperWrapper";
 import MobilePopperWrapper from "./Search/SearchModal";
+import { useDispatch } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+import {
+  getUserInfo,
+  handleSignOut,
+} from "@/redux/features/authentication/authSlice";
+import { auth } from "@/data/firebase";
 
 type Props = {};
 
 export default function Header({}: Props) {
   const [searchValue, setSearchValue] = useState("");
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
+  const [isUserLogged, setIsUserLogged] = useState(false);
+  const dispath = useDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user: any) => {
+      if (user) {
+        dispath(
+          getUserInfo({
+            accessToken: user.accessToken,
+            displayName: user.displayName,
+            email: user.email,
+            emailVerified: user.emailVerified,
+            isAnonymous: user.isAnonymous,
+            phoneNumber: user.phoneNumber,
+            photoURL: user.photoURL,
+            uid: user.uid,
+          })
+        );
+        setIsUserLogged(true);
+      } else {
+        setIsUserLogged(false);
+      }
+    });
+  }, []);
 
   const searchInputClass =
     "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
@@ -66,14 +97,26 @@ export default function Header({}: Props) {
           <button className="rock:hidden text-2xl ml-3">
             <HeartOutlined />
           </button>
-          <Link href={"dang-nhap"}>
-            <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
+          {!isUserLogged ? (
+            <Link href={"dang-nhap"}>
+              <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
+                <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
+                <p className="rock:text-base rock:mt-[5px] rock:block hidden">
+                  Đăng ký / Đăng nhập
+                </p>
+              </button>
+            </Link>
+          ) : (
+            <button
+              onClick={() => dispath(handleSignOut())}
+              className="login flex items-center justify-center rock:hover:text-[var(--blue)]"
+            >
               <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
               <p className="rock:text-base rock:mt-[5px] rock:block hidden">
-              Đăng ký / Đăng nhập
+                Đăng xuất
               </p>
             </button>
-          </Link>
+          )}
         </div>
       </div>
 

@@ -1,12 +1,57 @@
 "use client";
 
+import {
+  handleFacebookLogin,
+  handleGoogleLogin,
+  handleLogin,
+  handleSignUp,
+} from "@/assets/authentication/auth";
 import BreadCrumb from "@/components/BreadCrumb";
+import { RootState } from "@/redux/store";
 import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 type Props = {};
 
+const defaultLoginFormFields = {
+  email: "",
+  password: "",
+};
+
+const defaultSignupFormFields = {
+  fullname: "",
+  email: "",
+  password: "",
+};
+
 export default function page({}: Props) {
+  const [loginData, setLoginData] = useState(defaultLoginFormFields);
+  const [signUpData, setSignupData] = useState(defaultSignupFormFields);
+  const user = useSelector((state: RootState) => state.auth.userInfo);
+  const router = useRouter();
+
+ useEffect(() => {
+  if (user.accessToken) {
+    setLoginData(defaultLoginFormFields);
+    setSignupData(defaultSignupFormFields);
+   setTimeout(() =>  router.push("/"), 1500)
+    console.log(user);
+    
+  }
+ }, [user])
+  
+  const handleChangeLoginForm = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const handleChangeSignupForm = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setSignupData({ ...signUpData, [name]: value });
+  };
+
   return (
     <div className="container mx-auto rock:text-base text-center text-sm">
       <style jsx>{`
@@ -21,10 +66,18 @@ export default function page({}: Props) {
       <h1 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h1>
 
       <div className="text-center mt-5">
-        <button className="text-white indent-8 rounded-xl pr-3 mx-1" id="fb">
+        <button
+          onClick={handleFacebookLogin}
+          className="text-white indent-8 rounded-xl pr-3 mx-1"
+          id="fb"
+        >
           Facebook
         </button>
-        <button className="text-white indent-8 rounded-xl pr-3 mx-1" id="gg">
+        <button
+          onClick={handleGoogleLogin}
+          className="text-white indent-8 rounded-xl pr-3 mx-1"
+          id="gg"
+        >
           Google
         </button>
       </div>
@@ -46,6 +99,8 @@ export default function page({}: Props) {
               <MailOutlined />
             </div>
             <input
+              onInput={handleChangeLoginForm}
+              name="email"
               type="email"
               id="email-login"
               className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
@@ -57,6 +112,8 @@ export default function page({}: Props) {
               <LockOutlined />
             </div>
             <input
+              onInput={handleChangeLoginForm}
+              name="password"
               type="password"
               id="password-login"
               className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
@@ -64,7 +121,10 @@ export default function page({}: Props) {
             />
           </div>
 
-          <button className="w-full p-2.5 border rounded-lg text-sm rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out">
+          <button
+            onClick={() => handleLogin(loginData.email, loginData.password)}
+            className="w-full p-2.5 border rounded-lg text-sm rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out"
+          >
             Đăng nhập
           </button>
         </div>
@@ -79,6 +139,8 @@ export default function page({}: Props) {
               <UserOutlined />
             </div>
             <input
+              onInput={handleChangeSignupForm}
+              name="fullname"
               type="text"
               id="fullname-reg"
               className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
@@ -90,6 +152,8 @@ export default function page({}: Props) {
               <MailOutlined />
             </div>
             <input
+              onInput={handleChangeSignupForm}
+              name="email"
               type="email"
               id="email-reg"
               className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
@@ -101,6 +165,8 @@ export default function page({}: Props) {
               <LockOutlined />
             </div>
             <input
+              onInput={handleChangeSignupForm}
+              name="password"
               type="password"
               id="password-reg"
               className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
@@ -108,7 +174,16 @@ export default function page({}: Props) {
             />
           </div>
 
-          <button className="w-full p-2.5 border rounded-lg text-sm rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out">
+          <button
+            onClick={() =>
+              handleSignUp(
+                signUpData.fullname,
+                signUpData.email,
+                signUpData.password
+              )
+            }
+            className="w-full p-2.5 border rounded-lg text-sm rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out"
+          >
             Đăng ký
           </button>
         </div>
