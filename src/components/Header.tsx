@@ -93,7 +93,7 @@ export default function Header({}: Props) {
           >
             <SearchOutlined />
           </button>
-          <button className="rock:hidden text-2xl ml-3">
+          <button className={`${!isUserLogged ? 'hidden' : ''} text-2xl ml-3`}>
             <HeartOutlined />
           </button>
           {!isUserLogged ? (
@@ -111,7 +111,7 @@ export default function Header({}: Props) {
               className="login flex items-center justify-center rock:hover:text-[var(--blue)]"
             >
               <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-              <p className="rock:text-base rock:mt-[5px] rock:block hidden">
+              <p className="rock:text-base ml-1 rock:ml-0 mt-[5px]">
                 Đăng xuất
               </p>
             </button>

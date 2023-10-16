@@ -62,11 +62,11 @@ export default function page({ params }: Props) {
               <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">Thông tin thêm</h3>
 
               <ul className="info mt-5 list-disc list-inside">
-                  <li>Dung tích: 360ml </li>
-                  <li>Màu sắc: Ly trong, bóng & sáng</li>
-                  <li>Đặc tính: Không chịu nhiệt chỉ có thể dùng nắp cầu hoặc nắp cầu</li>
-                  <li>Mẫu mã: Ly đáy bầu là mắt, dung tích nhỏ rất xinh xắn và dễ thương</li>
-                  <li>Công dụng: Đựng trà sữa size S (cỡ nhỏ), đựng cafe take away, đựng trà trái cây, nước ép và sinh tố, đá xay </li>
+                  <li><b>Dung tích:</b> 360ml </li>
+                  <li><b>Màu sắc:</b> Ly trong, bóng & sáng</li>
+                  <li><b>Đặc tính:</b> Không chịu nhiệt chỉ có thể dùng nắp cầu hoặc nắp cầu</li>
+                  <li><b>Mẫu mã:</b> Ly đáy bầu là mắt, dung tích nhỏ rất xinh xắn và dễ thương</li>
+                  <li><b>Công dụng:</b> Đựng trà sữa size S (cỡ nhỏ), đựng cafe take away, đựng trà trái cây, nước ép và sinh tố, đá xay </li>
               </ul>
             </div>
       </section>

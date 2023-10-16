@@ -67,14 +67,14 @@ export default function page({}: Props) {
       <div className="text-center mt-5">
         <button
           onClick={handleFacebookLogin}
-          className="text-white indent-8 rounded-xl pr-3 mx-1"
+          className="text-white indent-8 h-6 rounded-xl pr-3 mx-1"
           id="fb"
         >
           Facebook
         </button>
         <button
           onClick={handleGoogleLogin}
-          className="text-white indent-8 rounded-xl pr-3 mx-1"
+          className="text-white indent-8 h-6 rounded-xl pr-3 mx-1"
           id="gg"
         >
           Google
