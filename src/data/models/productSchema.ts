@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import mongoose, { Schema } from "mongoose";
 
 const productSchema = new Schema(
@@ -20,10 +19,12 @@ const productSchema = new Schema(
     design: String,
     uses: String,
     slug: String,
-    category: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Categories",
-    },
+    fatherCategories: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Categories",
+      },
+    ],
   },
   {
     timestamps: true,
