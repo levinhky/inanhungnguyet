@@ -2,11 +2,35 @@
 
 import BreadCrumb from "@/components/BreadCrumb";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {};
 
 export default function ProductListing({}: Props) {
+  const [categories, setCategories] = useState<[CategoryAttributes]>();
+  const [products, setProducts] = useState<[ProductAttributes]>();
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const res = await fetch(
+        process.env.NEXT_PUBLIC_BASE_URL + "api/categories"
+      );
+      const data = await res.json();
+      data && setCategories(data.categories);
+    };
+
+    const getProducts = async () => {
+      const res = await fetch(
+        process.env.NEXT_PUBLIC_BASE_URL + "api/products"
+      );
+      const data = await res.json();
+      data && setProducts(data.products);
+    };
+
+    getCategories();
+    getProducts();
+  }, []);
+
   return (
     <div className="container mx-auto rock:text-base text-sm">
       <style jsx>{`
@@ -23,7 +47,7 @@ export default function ProductListing({}: Props) {
       <h1 className="font-bold rock:text-2xl text-xl text-center">
         Danh sách sản phẩm{" "}
         <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium">
-          (25 sản phẩm )
+          ({products?.length} sản phẩm )
         </span>
       </h1>
 
@@ -33,57 +57,31 @@ export default function ProductListing({}: Props) {
             Danh mục
           </h3>
           <ul>
-            <li className="mb-1">
-              <Link
-                className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
-                href="aa"
-              >
-                Ly nhựa (5)
-              </Link>
-            </li>
-            <li className="mb-1">
-              <Link
-                className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
-                href="aa"
-              >
-                Bao bì (5)
-              </Link>
-            </li>
-            <li className="mb-1">
-              <Link
-                className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
-                href="aa"
-              >
-                Khăn lạnh (5)
-              </Link>
-            </li>
-            <li className="mb-1">
-              <Link
-                className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
-                href="aa"
-              >
-                Hoá đơn (5)
-              </Link>
-            </li>
-            <li className="mb-1">
-              <Link
-                className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
-                href="aa"
-              >
-                Thẻ (5)
-              </Link>
-            </li>
+            {categories?.length &&
+              categories?.map((category) => (
+                <li key={category._id} className="mb-1">
+                  <Link
+                    className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
+                    href="aa"
+                  >
+                    {category.name} ({category.productsInCategory.length})
+                  </Link>
+                </li>
+              ))}
           </ul>
         </article>
 
         <aside className="rock:ml-10">
           <div className="toolbar-sorter mb-7">
-            <label htmlFor="options" className="text-xs rock:text-sm">Sắp xếp theo:</label>
+            <label htmlFor="options" className="text-xs rock:text-sm">
+              Sắp xếp theo:
+            </label>
             <select
               id="options"
+              defaultValue={'US'}
               className="mx-3 min-w-[150px] py-2 pr-7 appearance-none pl-3 text-xs rock:text-sm border rock:cursor-pointer rounded-lg font-bold focus:border-[#ccc]"
             >
-              <option value="US" selected>
+              <option value="US">
                 Tên sản phẩm (A tới Z)
               </option>
               <option value="CA">Tên sản phẩm (Z tới A) </option>
@@ -92,16 +90,15 @@ export default function ProductListing({}: Props) {
           </div>
 
           <div className="products grid rock:grid-cols-4 grid-cols-2 rock:gap-7 gap-4">
-            {Array(8)
-              .fill("")
-              .map((i, a) => (
-                <div key={i} className="product">
+            {products?.length &&
+              products.map((product, i) => (
+                <div key={product._id} className="product">
                   <div className="thumb">
-                    <Link href={"/yen"}>
+                    <Link href={product.slug}>
                       <img
-                        src="/lynhua1.png"
+                        src={product.thumbs[0]}
                         className="select-none rounded-lg"
-                        alt=""
+                        alt={product.name}
                       />
                     </Link>
                   </div>
@@ -110,10 +107,10 @@ export default function ProductListing({}: Props) {
                       liên hệ chúng tôi...
                     </h2>
                     <h1 className="name font-normal line-clamp-2">
-                      <Link href={"/"}>Ly nhựa đáy bầu 500ml</Link>
+                      <Link href={product.slug}>{product.name}</Link>
                     </h1>
                     <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
-                      SKU: 250702
+                      SKU: {product.sku}
                     </h3>
                   </div>
                 </div>

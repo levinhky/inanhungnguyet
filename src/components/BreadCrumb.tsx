@@ -5,9 +5,10 @@ import { usePathname } from "next/navigation";
 
 type Props = {
   slug?: string;
+  slugName?:string;
 };
 
-export default function BreadCrumb({ slug }: Props) {
+export default function BreadCrumb({ slug, slugName }: Props) {
   const router = usePathname();
   let currentLink = "";
 
@@ -26,7 +27,7 @@ export default function BreadCrumb({ slug }: Props) {
       case "dang-nhap":
         return "Đăng nhập";
       case slug:
-        return slug;
+        return slugName;
 
       default:
         return "";

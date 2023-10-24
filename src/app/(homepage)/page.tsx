@@ -4,12 +4,12 @@ import CategoryList from "@/components/HomePage/FeaturedCategory";
 import ProduceProcess from "@/components/HomePage/ProduceProcess";
 
 async function getProducts() {
-  const res = await fetch(process.env.BASE_URL + "api/products", { cache: 'no-store' });
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "api/products", { cache: 'no-store' });
   return res.json();
 }
 
 async function getCategories() {
-  const res = await fetch(process.env.BASE_URL + "api/categories", { cache: 'no-store' });
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "api/categories", { cache: 'no-store' });
   return res.json();
 }
 
