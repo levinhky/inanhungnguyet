@@ -37,6 +37,7 @@ export default function MobilePopperWrapper({
                 <PopperWrapper
                   searchValue={searchValue}
                   setSearchValue={setSearchValue}
+                  setIsActiveSearchModal={setIsActiveSearchModal}
                   {...attrs}
                 />
               )}

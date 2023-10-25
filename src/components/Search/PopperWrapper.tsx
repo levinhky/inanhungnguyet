@@ -5,9 +5,10 @@ import { SetStateAction, useEffect, useState, Dispatch  } from "react";
 type Props = {
   searchValue: string;
   setSearchValue:Dispatch<SetStateAction<string>>;
+  setIsActiveSearchModal?:(isActiveSearchModal: boolean) => void;
 };
 
-export default function PopperWrapper({ searchValue, setSearchValue }: Props) {
+export default function PopperWrapper({ searchValue, setSearchValue, setIsActiveSearchModal }: Props) {
   const [searchData, setSearchData] = useState<[ProductAttributes]>();
   const [isShow, setIsShow] = useState<boolean>(false);
 
@@ -53,7 +54,10 @@ export default function PopperWrapper({ searchValue, setSearchValue }: Props) {
                 <Link
                   href={product.slug}
                   className="name ml-3 rock:hover:text-[var(--blue)] rock:ease-in-out"
-                  onClick={() => setSearchValue('')}
+                  onClick={() => {
+                    setSearchValue('')
+                    setIsActiveSearchModal?.(false)
+                  }}
                 >
                   {product.name}
                 </Link>
