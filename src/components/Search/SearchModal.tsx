@@ -33,7 +33,13 @@ export default function MobilePopperWrapper({
               interactive={true}
               visible={searchValue.length > 0}
               placement="top-start"
-              render={(attrs) => <PopperWrapper searchValue={searchValue} setSearchValue={setSearchValue} {...attrs} />}
+              render={(attrs) => (
+                <PopperWrapper
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
+                  {...attrs}
+                />
+              )}
             >
               <input
                 type="text"
@@ -46,7 +52,10 @@ export default function MobilePopperWrapper({
 
             <div className="ml-10 mr-2">
               <button
-                onClick={() => setIsActiveSearchModal(false)}
+                onClick={() => {
+                  setIsActiveSearchModal(false);
+                  setSearchValue("");
+                }}
                 className="text-[var(--blue-text)] font-bold"
               >
                 Hủy

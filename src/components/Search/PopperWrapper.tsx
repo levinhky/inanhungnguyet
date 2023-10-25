@@ -27,6 +27,7 @@ export default function PopperWrapper({ searchValue, setSearchValue }: Props) {
     searchValue.length > 0 && getSearchData();
     searchValue.length == 0 && setIsShow(false);
   }, [searchValue]);
+console.log(searchValue);
 
   return (
     <div className="rock:w-[700px] w-full bg-white rock:p-5 p-3 rock:rounded-lg rock:border-[var(--gray)] rock:border">
