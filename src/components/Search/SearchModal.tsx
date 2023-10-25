@@ -31,7 +31,7 @@ export default function MobilePopperWrapper({
           <div className="field-search w-full flex items-center">
             <Tippy
               interactive={true}
-              visible={searchValue.length > 0}
+              visible={true}
               placement="top-start"
               render={(attrs) => (
                 <PopperWrapper
