@@ -32,7 +32,8 @@ export default function MobilePopperWrapper({
             <Tippy
               interactive={true}
               visible={searchValue.length > 0}
-              render={(attrs) => <PopperWrapper {...attrs} />}
+              placement="top-start"
+              render={(attrs) => <PopperWrapper searchValue={searchValue} setSearchValue={setSearchValue} {...attrs} />}
             >
               <input
                 type="text"

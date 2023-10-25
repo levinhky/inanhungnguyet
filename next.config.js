@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     domains: [
-      "localhost",
+      "bizweb.dktcdn.net",
       "inanhungnguyet.vercel.app",
       "images.unsplash.com"
     ],

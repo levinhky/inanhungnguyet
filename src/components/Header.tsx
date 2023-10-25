@@ -14,6 +14,7 @@ import {
   handleSignOut,
 } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
+import useDebounce from "@/assets/libs/hooks";
 
 type Props = {};
 
@@ -49,6 +50,7 @@ export default function Header({}: Props) {
      focus:outline-none focus:border-[var(--blue)] block w-full rounded-full sm:text-sm";
   const searchIconClass =
     "action-search min-w-[80px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-0 rounded-full";
+  const debounceValue = useDebounce(searchValue, 300);
 
   return (
     <header className="mt-[-30px]">
@@ -67,7 +69,9 @@ export default function Header({}: Props) {
         <Tippy
           interactive={true}
           visible={searchValue.length > 0}
-          render={(attrs) => <PopperWrapper {...attrs} />}
+          render={(attrs) => (
+            <PopperWrapper setSearchValue={setSearchValue} searchValue={debounceValue} {...attrs} />
+          )}
         >
           <div className="block-search h-[40px] relative hidden rock:block">
             <div className="field-search w-[500px]">
@@ -93,7 +97,7 @@ export default function Header({}: Props) {
           >
             <SearchOutlined />
           </button>
-          <button className={`${!isUserLogged ? 'hidden' : ''} text-2xl ml-3`}>
+          <button className={`${!isUserLogged ? "hidden" : ""} text-2xl ml-3`}>
             <HeartOutlined />
           </button>
           {!isUserLogged ? (

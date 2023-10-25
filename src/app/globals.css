@@ -81,6 +81,9 @@ body {
   overflow-y: visible;
 }
 
+#tippy-4 {
+  width: 100% !important;
+}
 
 /* responsive */
 
