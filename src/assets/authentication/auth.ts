@@ -14,6 +14,17 @@ import { Toast } from "../libs/toast";
 const googleAuthProvider = new GoogleAuthProvider();
 const facebookAuthProvider = new FacebookAuthProvider();
 
+const handleErrorMessage = (error: any) => {
+  let message = "";
+  if (error.code === "auth/invalid-email") {
+    message = "Email không được để trống!";
+  } else if (error.code === "auth/missing-password") {
+    message = "Mật khẩu không được để trống!";
+  }
+
+  return message;
+};
+
 export function handleGoogleLogin() {
   signInWithPopup(auth, googleAuthProvider)
     .then((result) => {
@@ -47,31 +58,38 @@ export function handleFacebookLogin() {
 }
 
 export function handleSignUp(name: string, email: string, password: string) {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      Toast.fire({
-        icon: "success",
-        title: "Đăng ký thành công!",
-      });
-      setTimeout(() => {
+  if (name !== "") {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
         Toast.fire({
           icon: "success",
-          title: "Bạn đã được đăng nhập tự động",
+          title: "Đăng ký thành công!",
         });
-      }, 2000);
-      if (auth.currentUser) {
-        updateProfile(auth.currentUser, {
-          displayName: name,
+        setTimeout(() => {
+          Toast.fire({
+            icon: "success",
+            title: "Bạn đã được đăng nhập tự động",
+          });
+        }, 2000);
+        if (auth.currentUser) {
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          });
+          sendEmailVerification(auth.currentUser);
+        }
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: "error",
+          title: handleErrorMessage(error),
         });
-        sendEmailVerification(auth.currentUser);
-      }
-    })
-    .catch((error) => {
-      Toast.fire({
-        icon: "error",
-        title: error.message,
       });
+  } else {
+    Toast.fire({
+      icon: "error",
+      title: "Họ và tên không được để trống!",
     });
+  }
 }
 
 export function handleLogin(email: string, password: string) {
@@ -85,7 +103,7 @@ export function handleLogin(email: string, password: string) {
     .catch((error) => {
       Toast.fire({
         icon: "error",
-        title: error.message,
+        title: handleErrorMessage(error),
       });
     });
 }
