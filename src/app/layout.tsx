@@ -17,11 +17,7 @@ export const metadata: Metadata = {
   openGraph: metadataContent,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
 
   return (
@@ -39,10 +35,7 @@ export default function RootLayout({
         <ScrollTop />
         <Pulse />
       </body>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
     window.dataLayer = window.dataLayer || [];

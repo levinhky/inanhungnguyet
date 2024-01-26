@@ -26,10 +26,7 @@ export default function NavBar({}: Props) {
           <ul className="rock:flex h-full hidden">
             {menuItems.map((item) => (
               <li className={liClassName} key={item.id}>
-                <Link
-                  className="px-[20px] h-full flex items-center"
-                  href={item.url}
-                >
+                <Link className="px-[20px] h-full flex items-center" href={item.url}>
                   {item.label}
                 </Link>
               </li>
@@ -42,30 +39,16 @@ export default function NavBar({}: Props) {
                 className="flex flex-col justify-center items-center group"
                 onClick={() => handleMenuMobile(true)}
               >
-                <div
-                  className={`${genericHamburgerLine} ${
-                    isMenuOpen ? "rotate-45 translate-y-[7px] " : ""
-                  }`}
-                />
-                <div
-                  className={`${genericHamburgerLine} ${
-                    isMenuOpen ? "opacity-0" : ""
-                  }`}
-                />
-                <div
-                  className={`${genericHamburgerLine} ${
-                    isMenuOpen ? "-rotate-45 -translate-y-[9px] " : ""
-                  }`}
-                />
+                <div className={`${genericHamburgerLine} ${isMenuOpen ? "rotate-45 translate-y-[7px] " : ""}`} />
+                <div className={`${genericHamburgerLine} ${isMenuOpen ? "opacity-0" : ""}`} />
+                <div className={`${genericHamburgerLine} ${isMenuOpen ? "-rotate-45 -translate-y-[9px] " : ""}`} />
               </button>
               <b className="ml-2">Danh mục</b>
             </div>
           </div>
 
           <div className="switcher-language cursor-pointer">
-            <div className="text-[var(--white)] language flex items-center">
-              VIE
-            </div>
+            <div className="text-[var(--white)] language flex items-center">VIE</div>
           </div>
         </div>
       </nav>
