@@ -2,6 +2,7 @@
 
 import BreadCrumb from "@/components/BreadCrumb";
 import Loading from "@/components/Loading";
+import apiConfig from "@/config/apiConfig";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -14,12 +15,8 @@ export default function ProductListing({}: Props) {
 
   useEffect(() => {
     const getCategories = async () => {
-      const categoryResponse = await fetch(
-        process.env.NEXT_PUBLIC_BASE_URL + "api/categories"
-      );
-      const productResponse = await fetch(
-        process.env.NEXT_PUBLIC_BASE_URL + "api/products"
-      );
+      const categoryResponse = await fetch(apiConfig.baseURL + "categories/all");
+      const productResponse = await fetch(apiConfig.baseURL + "products/all");
 
       const categories = await categoryResponse.json();
       categories && setCategories(categories.categories);
@@ -58,17 +55,12 @@ export default function ProductListing({}: Props) {
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
             <article className="p-5 rounded-xl rock:w-64 w-full h-fit rock:mt-0 mt-5">
-              <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">
-                Danh mục
-              </h3>
+              <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">Danh mục</h3>
               <ul>
                 {categories?.length &&
                   categories?.map((category) => (
                     <li key={category._id} className="mb-1">
-                      <Link
-                        className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
-                        href="aa"
-                      >
+                      <Link className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75" href="aa">
                         {category.name} ({category.productsInCategory.length})
                       </Link>
                     </li>
@@ -98,11 +90,7 @@ export default function ProductListing({}: Props) {
                     <div key={product._id} className="product">
                       <div className="thumb">
                         <Link href={product.slug}>
-                          <img
-                            src={product.thumbs[0]}
-                            className="select-none rounded-lg"
-                            alt={product.name}
-                          />
+                          <img src={product.thumbs[0]} className="select-none rounded-lg" alt={product.name} />
                         </Link>
                       </div>
                       <div className="info px-5 py-3">
@@ -112,9 +100,7 @@ export default function ProductListing({}: Props) {
                         <h1 className="name font-normal line-clamp-2">
                           <Link href={product.slug}>{product.name}</Link>
                         </h1>
-                        <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
-                          SKU: {product.sku}
-                        </h3>
+                        <h3 className="sku uppercase text-[var(--gray-text)] text-sm">SKU: {product.sku}</h3>
                       </div>
                     </div>
                   ))}

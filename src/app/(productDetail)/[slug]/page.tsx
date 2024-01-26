@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Loading from "@/components/Loading";
+import apiConfig from "@/config/apiConfig";
 
 type Props = {
   params: {
@@ -37,7 +38,7 @@ export default function page({ params }: Props) {
   useEffect(() => {
     const getProduct = async () => {
       const response = await fetch(
-        process.env.NEXT_PUBLIC_BASE_URL + "api/products/" + slug,
+        apiConfig.baseURL + "products/" + slug,
         { cache: "no-store" }
       );
       const fetchedProduct = await response.json();
