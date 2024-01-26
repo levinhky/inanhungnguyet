@@ -1,0 +1,9 @@
+{
+    "Index": {
+      "title": "Bonjour le monde!",
+      "select": "Choissisez une langue",
+      "language-one": "anglais",
+      "language-two": "francais",
+      "locale": "{locale, select, fr {Francais} en {Anglais} other {Inconnu}}"
+    }
+  }
