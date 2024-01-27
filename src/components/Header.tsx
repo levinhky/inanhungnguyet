@@ -2,7 +2,7 @@
 
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { useState, useEffect } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./Search/PopperWrapper";
@@ -70,7 +70,11 @@ export default function Header({}: Props) {
           interactive={true}
           visible={searchValue.length > 0}
           render={(attrs) => (
-            <PopperWrapper setSearchValue={setSearchValue} searchValue={debounceValue} {...attrs} />
+            <PopperWrapper
+              setSearchValue={setSearchValue}
+              searchValue={debounceValue}
+              {...attrs}
+            />
           )}
         >
           <div className="block-search h-[40px] relative hidden rock:block">

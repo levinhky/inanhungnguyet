@@ -1,45 +1,30 @@
-"use client";
+import MainSlider from "@/components/HomePage/MainSlider";
+import FeaturedProduct from "@/components/HomePage/FeaturedProduct";
+import CategoryList from "@/components/HomePage/FeaturedCategory";
+import ProduceProcess from "@/components/HomePage/ProduceProcess";
+import apiConfig from "@/config/apiConfig";
 
-import { useTranslations, useLocale } from "next-intl";
-import { useRouter, usePathname } from "next-intl/client";
-import { useTransition } from "react";
+async function getProducts() {
+  const res = await fetch(apiConfig.baseURL + "products/all", { cache: "no-store" });
+  return res.json();
+}
 
-export default function Home() {
-  const t = useTranslations("Index");
-  const router = useRouter();
-  const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
-  const locale = useLocale();
+async function getCategories() {
+  const res = await fetch(apiConfig.baseURL + "categories/all", { cache: "no-store" });
+  return res.json();
+}
 
-  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const lang = e.target.value;
-    startTransition(() => {
-      router.replace(pathname, { locale: lang });
-    });
-  };
-
+export default async function Home({}) {
+  const productResponse = await getProducts();
+  const categoryResponse = await getCategories();
   return (
-    <div
-      className="w-full h-screen bg-orange-500 text-black 
- flex flex-col justify-center items-center"
-    >
-      <h1 className="text-8xl">{t("title")}</h1>
-      <label htmlFor="language" className="text-2xl mt-2">
-        {t("select")}
-      </label>
-      <select
-        name="language"
-        id="language"
-        defaultValue={locale}
-        onChange={handleSelect}
-        className="bg-black text-white rounded py-1 px-2 outline-none"
-      >
-        {["en", "fr"].map((cur) => (
-          <option key={cur} value={cur}>
-            {t("locale", { locale: cur })}
-          </option>
-        ))}
-      </select>
-    </div>
+    <>
+      <MainSlider />
+      <div className="container mx-auto">
+        <FeaturedProduct products={productResponse.products} />
+        <CategoryList categories={categoryResponse.categories} />
+        <ProduceProcess />
+      </div>
+    </>
   );
 }

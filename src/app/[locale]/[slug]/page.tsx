@@ -18,18 +18,22 @@ export default function page({ params }: Props) {
   const [product, setProduct] = useState<ProductAttributes>({
     _id: "",
     name: "",
-    status: false,
     sku: "",
+    status: false,
+    views: "",
     slug: "",
-    capacity: "",
-    color: "",
-    characteristics: "",
-    design: "",
-    uses: "",
+    thumbs: [],
+    attributes: {
+      capacity: "",
+      color: "",
+      characteristics: "",
+      design: "",
+      uses: "",
+      display: false,
+    },
     category: "",
     createdAt: "",
     updatedAt: "",
-    thumbs: [""],
     __v: 0,
   });
   const [slugName, setSlugName] = useState<string>(slug);
@@ -37,18 +41,17 @@ export default function page({ params }: Props) {
 
   useEffect(() => {
     const getProduct = async () => {
-      const response = await fetch(
-        apiConfig.baseURL + "products/" + slug,
-        { cache: "no-store" }
-      );
+      const response = await fetch(apiConfig.baseURL + "products/" + slug, {
+        cache: "no-store",
+      });
       const fetchedProduct = await response.json();
 
       if (
         fetchedProduct &&
         Object.values(fetchedProduct).some((value) => value !== "")
       ) {
-        setProduct(fetchedProduct.product);
-        setSlugName(fetchedProduct.product.name);
+        setProduct(fetchedProduct);
+        setSlugName(fetchedProduct.name);
         setIsLoading(false);
       }
     };
@@ -107,19 +110,19 @@ export default function page({ params }: Props) {
 
               <ul className="info mt-5 list-disc list-inside">
                 <li>
-                  <b>Dung tích:</b> {product.capacity}{" "}
+                  <b>Dung tích:</b> {product.attributes.capacity}{" "}
                 </li>
                 <li>
-                  <b>Màu sắc:</b> {product.color}
+                  <b>Màu sắc:</b> {product.attributes.color}
                 </li>
                 <li>
-                  <b>Đặc tính:</b> {product.characteristics}
+                  <b>Đặc tính:</b> {product.attributes.characteristics}
                 </li>
                 <li>
-                  <b>Mẫu mã:</b> {product.design}
+                  <b>Mẫu mã:</b> {product.attributes.design}
                 </li>
                 <li>
-                  <b>Công dụng:</b> {product.uses}{" "}
+                  <b>Công dụng:</b> {product.attributes.uses}{" "}
                 </li>
               </ul>
             </div>

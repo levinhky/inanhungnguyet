@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -42,7 +42,7 @@ export default function FeaturedProduct({ products }: Props) {
                 <SwiperSlide key={product._id} virtualIndex={index}>
                   <div className="product">
                     <div className="thumb">
-                      <Link href={product.slug}>
+                      <Link href={`/${product.slug}`}>
                         <img
                           src={product.thumbs[0]}
                           className="select-none rounded-lg"
@@ -55,7 +55,7 @@ export default function FeaturedProduct({ products }: Props) {
                         liên hệ chúng tôi...
                       </h2>
                       <h1 className="name font-normal line-clamp-2">
-                        <Link href={product.slug}>{product.name}</Link>
+                        <Link href={`/${product.slug}`}>{product.name}</Link>
                       </h1>
                       <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
                         SKU: {product.sku}
@@ -74,7 +74,7 @@ export default function FeaturedProduct({ products }: Props) {
                 <SwiperSlide key={product._id} virtualIndex={index}>
                   <div className="product">
                     <div className="thumb">
-                      <Link href={product.slug}>
+                      <Link href={`/${product.slug}`}>
                         <img
                           src={product.thumbs[0]}
                           className="select-none rounded-lg"
@@ -87,7 +87,7 @@ export default function FeaturedProduct({ products }: Props) {
                         liên hệ chúng tôi...
                       </h2>
                       <h1 className="name font-normal text-sm line-clamp-2">
-                        <Link href={product.slug}>{product.name}</Link>
+                        <Link href={`/${product.slug}`}>{product.name}</Link>
                       </h1>
                       <h3 className="sku uppercase text-[var(--gray-text)] text-xs">
                         SKU: {product.sku}

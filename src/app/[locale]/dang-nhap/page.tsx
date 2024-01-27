@@ -193,7 +193,6 @@ export default function page({}: Props) {
                       } else {
                         setForgotPasswordError("");
                       }
-                      
                     }}
                     name="email-forgot-password"
                     type="email"

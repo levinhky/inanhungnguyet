@@ -7,7 +7,7 @@ import {
   MailOutlined,
   PhoneOutlined,
 } from "@ant-design/icons";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 type Props = {};
 

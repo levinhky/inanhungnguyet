@@ -1,18 +1,22 @@
 interface ProductAttributes {
   _id: string;
   name: string;
-  status: boolean;
   sku: string;
+  status: boolean;
+  views: string;
   slug: string;
-  capacity: string;
-  color: string;
-  characteristics: string;
-  design: string;
-  uses: string;
+  thumbs: string[];
+  attributes: {
+    capacity: string;
+    color: string;
+    characteristics: string;
+    design: string;
+    uses: string;
+    display: boolean;
+  };
   category: string;
   createdAt: string;
   updatedAt: string;
-  thumbs: [string];
   __v: number;
 }
 

@@ -1,6 +1,6 @@
 import { menuItems } from "@/data/arrays";
 import { CloseOutlined } from "@ant-design/icons";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 type Props = {
   isActiveMenu: boolean;

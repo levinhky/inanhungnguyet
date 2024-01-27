@@ -1,6 +1,6 @@
 import apiConfig from "@/config/apiConfig";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { SetStateAction, useEffect, useState, Dispatch } from "react";
 
 type Props = {
@@ -9,13 +9,19 @@ type Props = {
   setIsActiveSearchModal?: (isActiveSearchModal: boolean) => void;
 };
 
-export default function PopperWrapper({ searchValue, setSearchValue, setIsActiveSearchModal }: Props) {
+export default function PopperWrapper({
+  searchValue,
+  setSearchValue,
+  setIsActiveSearchModal,
+}: Props) {
   const [searchData, setSearchData] = useState<[ProductAttributes]>();
   const [isShow, setIsShow] = useState<boolean>(false);
 
   useEffect(() => {
     const getSearchData = async () => {
-      const res = await fetch(apiConfig.baseURL + "products?query=" + searchValue);
+      const res = await fetch(
+        apiConfig.baseURL + "products?query=" + searchValue
+      );
       const data = await res.json();
 
       if (data) {
@@ -30,7 +36,9 @@ export default function PopperWrapper({ searchValue, setSearchValue, setIsActive
 
   return (
     <div className="rock:w-[700px] w-full bg-white rock:p-5 p-3 rock:rounded-lg rock:border-[var(--gray)] rock:border">
-      <h1 className="font-bold mb-2 rock:text-sm test-base">{isShow ? "Sản Phẩm" : "Lịch Sử Tìm Kiếm"}</h1>
+      <h1 className="font-bold mb-2 rock:text-sm test-base">
+        {isShow ? "Sản Phẩm" : "Lịch Sử Tìm Kiếm"}
+      </h1>
 
       {!isShow ? (
         <p className="text-sm">Lịch sử tìm kiếm rỗng</p>
@@ -49,7 +57,7 @@ export default function PopperWrapper({ searchValue, setSearchValue, setIsActive
                   />
                 </div>
                 <Link
-                  href={product.slug}
+                  href={`/${product.slug}`}
                   className="name ml-3 rock:hover:text-[var(--blue)] rock:ease-in-out"
                   onClick={() => {
                     setSearchValue("");

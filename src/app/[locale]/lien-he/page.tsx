@@ -1,6 +1,6 @@
 import BreadCrumb from "@/components/BreadCrumb";
 import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 type Props = {};
 
@@ -97,11 +97,7 @@ export default function page({}: Props) {
               <div className="form-group mb-4 w-full">
                 <label className="block">
                   <span className={labelClass}>Email</span>
-                  <input
-                    type="email"
-                    name="email"
-                    className={inputClass}
-                  />
+                  <input type="email" name="email" className={inputClass} />
                 </label>
               </div>
             </div>
@@ -109,27 +105,24 @@ export default function page({}: Props) {
             <div className="form-group mb-4">
               <label className="block">
                 <span className={labelClass}>Điện thoại</span>
-                <input
-                  type="phone"
-                  name="phone"
-                  className={inputClass}
-                />
+                <input type="phone" name="phone" className={inputClass} />
               </label>
             </div>
 
             <div className="form-group mb-4">
               <label className="block">
                 <span className={labelClass}>Nội dung</span>
-                <textarea
-                  name="content"
-                  className={inputClass}
-                />
+                <textarea name="content" className={inputClass} />
               </label>
             </div>
           </form>
 
-          <button className="h-10 w-36 border border-[var(--blue)] text-[var(--blue)] uppercase
-           rock:hover:bg-[var(--blue)] rock:hover:text-white ease-in-out delay-75 rounded rock:text-base text-sm">Gửi ngay</button>
+          <button
+            className="h-10 w-36 border border-[var(--blue)] text-[var(--blue)] uppercase
+           rock:hover:bg-[var(--blue)] rock:hover:text-white ease-in-out delay-75 rounded rock:text-base text-sm"
+          >
+            Gửi ngay
+          </button>
         </div>
       </div>
     </section>
