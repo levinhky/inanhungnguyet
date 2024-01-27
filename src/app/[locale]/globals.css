@@ -65,11 +65,19 @@ body {
   width: 32px;
   height: 44px;
   display: block;
-  background: url(/icons/flag-vi.png) no-repeat center center;
-  background-size: auto 32px;
   overflow: hidden;
   float: left;
   margin-right: 10px;
+}
+
+.main-nav .switcher-language .vi-flag::before {
+  background: url(/icons/flag-vi.png) no-repeat center center;
+  background-size: auto 32px;
+}
+
+.main-nav .switcher-language .en-flag::before {
+  background: url(/icons/flag-en.png) no-repeat center center;
+  background-size: auto 32px;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets,
