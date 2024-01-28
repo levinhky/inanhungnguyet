@@ -9,6 +9,9 @@ import ScrollTop from "@/components/ScrollTop";
 import Pulse from "@/components/Pulse";
 import Header from "@/components/Header/Header";
 import NavBar from "@/components/Nav/NavBar";
+import { locales } from "@/navigation";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 
 export const metadata: Metadata = {
   title: metadataContent.title,
@@ -16,6 +19,10 @@ export const metadata: Metadata = {
   keywords: metadataContent.keywords,
   openGraph: metadataContent,
 };
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export default function RootLayout({
   children,
@@ -25,18 +32,22 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
+  unstable_setRequestLocale(locale);
+  const messages = useMessages();
 
   return (
     <html lang={locale}>
       <link rel="icon" href="favicon/favicon.ico" sizes="any" />
       <body suppressHydrationWarning={true}>
         <Providers>
-          <div className="container mx-auto">
-            <Header />
-          </div>
-          <NavBar />
-          {children}
-          <Footer />
+          <NextIntlClientProvider messages={messages}>
+            <div className="container mx-auto">
+              <Header />
+            </div>
+            <NavBar />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
         </Providers>
         <ScrollTop />
         <Pulse />

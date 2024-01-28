@@ -7,12 +7,20 @@ type Props = {
   searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
   setIsActiveSearchModal?: (isActiveSearchModal: boolean) => void;
+  searchHistoryTitle: string;
+  searchHistoryEmpty: string;
+  products: string;
+  noResult: string;
 };
 
 export default function PopperWrapper({
   searchValue,
   setSearchValue,
   setIsActiveSearchModal,
+  searchHistoryTitle,
+  searchHistoryEmpty,
+  products,
+  noResult,
 }: Props) {
   const [searchData, setSearchData] = useState<[ProductAttributes]>();
   const [isShow, setIsShow] = useState<boolean>(false);
@@ -37,11 +45,11 @@ export default function PopperWrapper({
   return (
     <div className="rock:w-[700px] w-full bg-white rock:p-5 p-3 rock:rounded-lg rock:border-[var(--gray)] rock:border">
       <h1 className="font-bold mb-2 rock:text-sm test-base">
-        {isShow ? "Sản Phẩm" : "Lịch Sử Tìm Kiếm"}
+        {isShow ? products : searchHistoryTitle}
       </h1>
 
       {!isShow ? (
-        <p className="text-sm">Lịch sử tìm kiếm rỗng</p>
+        <p className="text-sm">{searchHistoryEmpty}</p>
       ) : (
         <div className="products">
           {searchData?.length ? (
@@ -69,7 +77,7 @@ export default function PopperWrapper({
               </div>
             ))
           ) : (
-            <p className="text-sm">Không kết quả</p>
+            <p className="text-sm">{noResult}</p>
           )}
         </div>
       )}

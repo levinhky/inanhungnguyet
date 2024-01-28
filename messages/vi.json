@@ -1,5 +1,13 @@
 {
-    "Index": {
-      "title": "Hello world!"
-    }
-  }
+  "Header": {
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất",
+    "search": "Tìm sản phẩm mong muốn ...",
+    "searchBtn": "Tìm kiếm",
+    "searchHistoryTitle": "Lịch sử tìm kiếm",
+    "searchHistoryEmpty": "Lịch sử tìm kiếm rỗng"
+  },
+  "products": "Sản Phẩm",
+  "noResult": "Không kết quả"
+}

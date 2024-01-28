@@ -1,5 +1,13 @@
 {
-  "Index": {
-    "title": "Hello world!"
-  }
+  "Header": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "search": "Search products ...",
+    "searchBtn": "Search",
+    "searchHistoryTitle": "Search History",
+    "searchHistoryEmpty": "History Empty"
+  },
+  "products": "Products",
+  "noResult": "No Result"
 }

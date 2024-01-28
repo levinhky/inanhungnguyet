@@ -17,6 +17,7 @@ async function getCategories() {
 export default async function Home({}) {
   const productResponse = await getProducts();
   const categoryResponse = await getCategories();
+  
   return (
     <>
       <MainSlider />

@@ -15,7 +15,7 @@ import {
 } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
 import useDebounce from "@/assets/libs/hooks";
-import HeaderLinks from "./HeaderLinks";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
@@ -24,6 +24,8 @@ export default function Header({}: Props) {
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
   const dispath = useDispatch();
+
+  const t = useTranslations("");
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -53,6 +55,27 @@ export default function Header({}: Props) {
     "action-search min-w-[80px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-0 rounded-full";
   const debounceValue = useDebounce(searchValue, 300);
 
+  const renderHeaderLinks = () => {
+    return !isUserLogged ? (
+      <Link href={"/dang-nhap"}>
+        <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
+          <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
+          <p className="rock:text-base rock:mt-[5px] rock:block hidden">
+            {t("Header.register")} / {t("Header.login")}
+          </p>
+        </button>
+      </Link>
+    ) : (
+      <button
+        onClick={() => dispath(handleSignOut())}
+        className="login flex items-center justify-center rock:hover:text-[var(--blue)]"
+      >
+        <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
+        <p className="rock:text-base ml-1 rock:ml-0 mt-[5px]">{t("Header.logout")}</p>
+      </button>
+    );
+  };
+
   return (
     <header className="mt-[-30px]">
       <div className="flex justify-between items-center">
@@ -74,6 +97,10 @@ export default function Header({}: Props) {
             <PopperWrapper
               setSearchValue={setSearchValue}
               searchValue={debounceValue}
+              searchHistoryTitle={t('Header.searchHistoryTitle')}
+              searchHistoryEmpty={t('Header.searchHistoryEmpty')}
+              products={t('products')}
+              noResult={t('noResult')}
               {...attrs}
             />
           )}
@@ -85,10 +112,10 @@ export default function Header({}: Props) {
                 onInput={(e) => setSearchValue(e.currentTarget.value)}
                 value={searchValue}
                 className={searchInputClass}
-                placeholder="Tìm sản phẩm mong muốn ..."
+                placeholder={t("Header.search")}
               />
             </div>
-            <button title="Tìm kiếm" className={searchIconClass}>
+            <button title={t("Header.searchBtn")} className={searchIconClass}>
               <SearchOutlined className="text-white text-xl" />
             </button>
           </div>
@@ -97,7 +124,7 @@ export default function Header({}: Props) {
         <div className="links flex items-center">
           <button
             onClick={() => setIsActiveSearchModal(true)}
-            title="Tìm kiếm"
+            title={t("Header.searchBtn")}
             className="rock:hidden text-2xl"
           >
             <SearchOutlined />
@@ -105,7 +132,8 @@ export default function Header({}: Props) {
           <button className={`${!isUserLogged ? "hidden" : ""} text-2xl ml-3`}>
             <HeartOutlined />
           </button>
-          <HeaderLinks isUserLogged={isUserLogged} />
+
+          {renderHeaderLinks()}
         </div>
       </div>
 
