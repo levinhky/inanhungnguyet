@@ -5,8 +5,8 @@ import Image from "next/image";
 import { Link } from "@/navigation";
 import { useState, useEffect } from "react";
 import Tippy from "@tippyjs/react/headless";
-import PopperWrapper from "./Search/PopperWrapper";
-import MobilePopperWrapper from "./Search/SearchModal";
+import PopperWrapper from "../Search/PopperWrapper";
+import MobilePopperWrapper from "../Search/SearchModal";
 import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import {
@@ -15,6 +15,7 @@ import {
 } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
 import useDebounce from "@/assets/libs/hooks";
+import HeaderLinks from "./HeaderLinks";
 
 type Props = {};
 
@@ -104,26 +105,7 @@ export default function Header({}: Props) {
           <button className={`${!isUserLogged ? "hidden" : ""} text-2xl ml-3`}>
             <HeartOutlined />
           </button>
-          {!isUserLogged ? (
-            <Link href={"dang-nhap"}>
-              <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
-                <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-                <p className="rock:text-base rock:mt-[5px] rock:block hidden">
-                  Đăng ký / Đăng nhập
-                </p>
-              </button>
-            </Link>
-          ) : (
-            <button
-              onClick={() => dispath(handleSignOut())}
-              className="login flex items-center justify-center rock:hover:text-[var(--blue)]"
-            >
-              <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-              <p className="rock:text-base ml-1 rock:ml-0 mt-[5px]">
-                Đăng xuất
-              </p>
-            </button>
-          )}
+          <HeaderLinks isUserLogged={isUserLogged} />
         </div>
       </div>
 
