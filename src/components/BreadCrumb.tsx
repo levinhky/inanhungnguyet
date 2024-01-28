@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function BreadCrumb({ slug, slugName }: Props) {
-  const router = usePathname();
+  const pathname = usePathname().replace(/^\/(vi|en)\//, "/");
   let currentLink = "";
 
   const handleCrumbLabel = (crumb: string) => {
@@ -34,7 +34,7 @@ export default function BreadCrumb({ slug, slugName }: Props) {
     }
   };
 
-  const crumbs = router
+  const crumbs = pathname
     .split("/")
     .filter((crumb) => crumb !== "")
     .map((crumb, index, array) => {
