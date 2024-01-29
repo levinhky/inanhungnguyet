@@ -5,65 +5,22 @@ import React, { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Loading from "@/components/Loading";
-import apiConfig from "@/config/apiConfig";
 import { useTranslations } from "next-intl";
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  slug: string;
+  product: ProductAttributes;
+  slugName: string;
 };
 
-export async function generateStaticParams() {
-  const products = await fetch(apiConfig.baseURL + "products/all").then((res) => res.json());
-
-  return products.map((product: ProductAttributes) => ({
-    slug: product.slug,
-  }));
-}
-
-export default function ProductDetail({ params }: Props) {
-  const { slug } = params;
-  const [product, setProduct] = useState<ProductAttributes>({
-    _id: "",
-    name: "",
-    sku: "",
-    status: false,
-    views: "",
-    slug: "",
-    thumbs: [],
-    attributes: {
-      capacity: "",
-      color: "",
-      characteristics: "",
-      design: "",
-      uses: "",
-      display: false,
-    },
-    category: "",
-    createdAt: "",
-    updatedAt: "",
-    __v: 0,
-  });
-  const [slugName, setSlugName] = useState<string>(slug);
+export default function ProductDetail({ slug, product, slugName }: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const t = useTranslations("");
 
   useEffect(() => {
-    const getProduct = async () => {
-      const response = await fetch(apiConfig.baseURL + "products/" + slug, {
-        cache: "no-store",
-      });
-      const fetchedProduct = await response.json();
-
-      if (fetchedProduct && Object.values(fetchedProduct).some((value) => value !== "")) {
-        setProduct(fetchedProduct);
-        setSlugName(fetchedProduct.name);
-        setIsLoading(false);
-      }
-    };
-
-    getProduct();
+    if (product._id !== "") {
+      setIsLoading(false);
+    }
   }, [slug]);
 
   return (
@@ -80,21 +37,29 @@ export default function ProductDetail({ params }: Props) {
                   {product.thumbs &&
                     product.thumbs.map((thumb, index) => (
                       <div key={thumb}>
-                        <img src={thumb} className="select-none rounded-lg" alt={thumb} />
+                        <img
+                          src={thumb}
+                          className="select-none rounded-lg"
+                          alt={thumb}
+                        />
                       </div>
                     ))}
                 </Carousel>
               </div>
 
               <div className="info text-center rock:text-left w-full">
-                <h1 className="font-bold text-2xl rock:my-5 mb-3">{product.name}</h1>
+                <h1 className="font-bold text-2xl rock:my-5 mb-3">
+                  {product.name}
+                </h1>
 
                 <p className="rock:mb-5 mb-3">
                   <span className="font-bold">{t("state")} :</span>{" "}
                   {product.status === true ? t("inStock") : t("outStock")}
                 </p>
 
-                <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">SKU: {product.sku}</h2>
+                <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">
+                  SKU: {product.sku}
+                </h2>
 
                 <button className="text-white bg-[var(--blue-text)] rock:hover:bg-[var(--blue)] rounded-full text-base py-2 px-5 h-12 min-w-[200px]">
                   {t("contactUs")}
@@ -115,7 +80,8 @@ export default function ProductDetail({ params }: Props) {
                   <b>{t("color")}:</b> {product.attributes.color}
                 </li>
                 <li>
-                  <b>{t("characteristics")}:</b> {product.attributes.characteristics}
+                  <b>{t("characteristics")}:</b>{" "}
+                  {product.attributes.characteristics}
                 </li>
                 <li>
                   <b>{t("model")}:</b> {product.attributes.design}
