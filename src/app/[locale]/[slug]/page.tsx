@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Loading from "@/components/Loading";
 import apiConfig from "@/config/apiConfig";
+import { useTranslations } from "next-intl";
 
 type Props = {
   params: {
@@ -38,6 +39,7 @@ export default function page({ params }: Props) {
   });
   const [slugName, setSlugName] = useState<string>(slug);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const t = useTranslations("");
 
   useEffect(() => {
     const getProduct = async () => {
@@ -46,10 +48,7 @@ export default function page({ params }: Props) {
       });
       const fetchedProduct = await response.json();
 
-      if (
-        fetchedProduct &&
-        Object.values(fetchedProduct).some((value) => value !== "")
-      ) {
+      if (fetchedProduct && Object.values(fetchedProduct).some((value) => value !== "")) {
         setProduct(fetchedProduct);
         setSlugName(fetchedProduct.name);
         setIsLoading(false);
@@ -73,56 +72,48 @@ export default function page({ params }: Props) {
                   {product.thumbs &&
                     product.thumbs.map((thumb, index) => (
                       <div key={thumb}>
-                        <img
-                          src={thumb}
-                          className="select-none rounded-lg"
-                          alt={thumb}
-                        />
+                        <img src={thumb} className="select-none rounded-lg" alt={thumb} />
                       </div>
                     ))}
                 </Carousel>
               </div>
 
               <div className="info text-center rock:text-left w-full">
-                <h1 className="font-bold text-2xl rock:my-5 mb-3">
-                  {product.name}
-                </h1>
+                <h1 className="font-bold text-2xl rock:my-5 mb-3">{product.name}</h1>
 
                 <p className="rock:mb-5 mb-3">
-                  <span className="font-bold">Tình trạng :</span>{" "}
-                  {product.status === true ? "Còn hàng" : "Hết hàng"}
+                  <span className="font-bold">{t("state")} :</span>{" "}
+                  {product.status === true ? t("inStock") : t("outStock")}
                 </p>
 
-                <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">
-                  SKU: {product.sku}
-                </h2>
+                <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">SKU: {product.sku}</h2>
 
                 <button className="text-white bg-[var(--blue-text)] rock:hover:bg-[var(--blue)] rounded-full text-base py-2 px-5 h-12 min-w-[200px]">
-                  Nhận báo giá
+                  {t("getAQuote")}
                 </button>
               </div>
             </div>
 
             <div className="additonal-infomation rock:w-1/2">
               <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">
-                Thông tin thêm
+                {t("additionalInformation")}
               </h3>
 
               <ul className="info mt-5 list-disc list-inside">
                 <li>
-                  <b>Dung tích:</b> {product.attributes.capacity}{" "}
+                  <b>{t("capacity")}:</b> {product.attributes.capacity}{" "}
                 </li>
                 <li>
-                  <b>Màu sắc:</b> {product.attributes.color}
+                  <b>{t("color")}:</b> {product.attributes.color}
                 </li>
                 <li>
-                  <b>Đặc tính:</b> {product.attributes.characteristics}
+                  <b>{t("characteristics")}:</b> {product.attributes.characteristics}
                 </li>
                 <li>
-                  <b>Mẫu mã:</b> {product.attributes.design}
+                  <b>{t("model")}:</b> {product.attributes.design}
                 </li>
                 <li>
-                  <b>Công dụng:</b> {product.attributes.uses}{" "}
+                  <b>{t("uses")}:</b> {product.attributes.uses}{" "}
                 </li>
               </ul>
             </div>

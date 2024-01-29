@@ -8,6 +8,7 @@
     "searchHistoryTitle": "Lịch sử tìm kiếm",
     "searchHistoryEmpty": "Lịch sử tìm kiếm rỗng"
   },
+  "storeName": "In Ấn Hùng Nguyệt",
   "NotFound": {
     "title": "Trang không tìm thấy",
     "description": "Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển."
@@ -17,13 +18,17 @@
   "mainPhoneNumber": "086.767.3358",
   "products": "Sản Phẩm",
   "productList": "Danh sách sản phẩm",
-  "categories": "Danh mục",
+  "categories": "Danh Mục",
   "social": "Mạng xã hội",
   "policy": {
     "title": "Chính Sách",
     "shoppingGuide": "Hướng dẫn mua hàng",
     "shippingAndPayment": "Chính sách vận chuyển - thanh toán",
     "returnAndWarranty": "Chính sách đổi trả - bảo hành"
+  },
+  "returnAndWarrantyPolicy": {
+    "of": "Chính sách {policy} của {storeName}",
+    "effort": "<b>In Ấn Hùng Nguyệt</b> luôn nỗ lực mang đến cho quý khách những sản phẩm sắm tuyệt và những dịch vụ hậu mãi không ngừng được hoàn thiện. Theo đó, In Ấn Hùng Nguyệt đã cải tiến và áp dụng <b>Chính sách bảo hành</b> đối với sản phẩm <b>của In Ấn Hùng Nguyệt</b>."
   },
   "mainProcess": {
     "inquiries": "Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau: Call/sms/zalo: {phoneNumber} - Email: {email}",
@@ -32,13 +37,23 @@
     "produce": "Chuyển thông tin về đơn hàng cho xưởng sản xuất. Theo dõi tiến độ, duyệt mẫu để sản xuất hàng loạt",
     "delivery": "Giao hàng tới địa chỉ của khách hàng tại Kỳ Anh hoặc gửi hàng tới các đơn vị vận chuyển theo yêu cầu."
   },
-  "homePage": "Trang chủ",
+  "homePage": "Trang Chủ",
   "sortBy": {
     "title": "Sắp xếp theo",
     "productNameASC": "Tên sản phẩm (A tới Z)",
     "productNameDESC": "Tên sản phẩm (Z tới A)",
     "mostViewed": "Xem Nhiều"
   },
+  "inStock": "Còn Hàng",
+  "outStock": "Hết Hàng",
+  "getAQuote": "Nhận báo giá",
+  "additionalInformation": "Thông tin thêm",
+  "capacity": "Dung Tích",
+  "color": "Màu Sắc",
+  "model": "Mẫu Mã",
+  "uses": "Công Dụng",
+  "characteristics": "Đặc Tính",
+  "state": "Tình trạng",
   "featuredProductTitle": "Sản phẩm nổi bật",
   "featuredCategoryTitle": "Danh mục phổ biến",
   "produceProcess": "Quy trình sản xuất",

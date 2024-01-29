@@ -8,6 +8,7 @@
     "searchHistoryTitle": "Search History",
     "searchHistoryEmpty": "History Empty"
   },
+  "storeName": "Hung Nguyet Printing",
   "NotFound": {
     "title": "Page Not Found",
     "description": "Sorry, The Page You Are Looking For Could Not Be Found."
@@ -25,6 +26,10 @@
     "shippingAndPayment": "Shipping And Payment Policy",
     "returnAndWarranty": "Return and Warranty Policy"
   },
+  "returnAndWarrantyPolicy": {
+    "of": "Warranty {policy} of {storeName}",
+    "effort": "<b>Hung Nguyet Printing</b> always strives to bring customers excellent shopping products and continuously improving after-sales services. Therefore, <b>Hung Nguyet Printing</b> has improved and implemented a <b>Warranty Policy</b> for <b>Hung Nguyet Printing's</b> products."
+  },
   "mainProcess": {
     "inquiries": "For customers who have inquiries, please contact us through the following channels: Call/sms/zalo: {phoneNumber} - Email: {email}",
     "gather": "We gather customer information to understand their various needs, such as the main beverage they are selling, whether they require paper or plastic cups, and whether they need single-color or multi-color printing",
@@ -39,6 +44,16 @@
     "productNameDESC": "Product Name (Z - A)",
     "mostViewed": "Most Viewed"
   },
+  "inStock": "In Stock",
+  "outStock": "Out Stock",
+  "getAQuote": "Get A Quote",
+  "additionalInformation": "Additional Information",
+  "capacity": "Capacity",
+  "color": "Color",
+  "model": "Model",
+  "uses": "Uses",
+  "characteristics": "Characteristics",
+  "state": "State",
   "featuredProductTitle": "Featured Product",
   "featuredCategoryTitle": "Featured Category",
   "produceProcess": "Produce Process",
@@ -59,7 +74,7 @@
   "sendInformation": "Send Information",
   "sendInformationMessage": "Please fill in the message content in the form below and send it to us. We will reply to you after receiving it.",
   "SEO": {
-    "title": "In An Hung Nguyet - Address for Quality Plastic Bag Printing, Plastic Cups, and Plastic Mugs",
+    "title": "Hung Nguyet Printing - Address for Quality Plastic Bag Printing, Plastic Cups, and Plastic Mugs",
     "keywords": [
       "Plastic bag printing",
       "Foam bag printing",
@@ -82,6 +97,6 @@
       "Food product storage bags",
       "Plastic cup printing with text, images"
     ],
-    "description": "Welcome to In An Hung Nguyet - Your trusted address for top-quality plastic bag, foam bag, and plastic cup printing services. We take pride in offering a diverse range of packaging products, plastic cups, milk tea cups, and envelopes with unlimited quality in Ky Anh, Ha Tinh. With In An Hung Nguyet, you can trust in the most reasonable prices in the current market. We are committed to providing you with convenience through FREE logo design, FREE delivery, and FREE consultation on building brand identity through product packaging. Emphasizing diversity, we specialize in beautiful plastic bag printing, premium foam bags, cosmetic bag printing, and many other packaging products. If you need to print logos on plastic bags or images on plastic cups, we have a professional team to fulfill that for you. In An Hung Nguyet - The perfect choice for printed plastic bags and cups. Contact us now for the best service!"
+    "description": "Welcome to Hung Nguyet Printing - Your trusted address for top-quality plastic bag, foam bag, and plastic cup printing services. We take pride in offering a diverse range of packaging products, plastic cups, milk tea cups, and envelopes with unlimited quality in Ky Anh, Ha Tinh. With Hung Nguyet Printing, you can trust in the most reasonable prices in the current market. We are committed to providing you with convenience through FREE logo design, FREE delivery, and FREE consultation on building brand identity through product packaging. Emphasizing diversity, we specialize in beautiful plastic bag printing, premium foam bags, cosmetic bag printing, and many other packaging products. If you need to print logos on plastic bags or images on plastic cups, we have a professional team to fulfill that for you. Hung Nguyet Printing - The perfect choice for printed plastic bags and cups. Contact us now for the best service!"
   }
 }
