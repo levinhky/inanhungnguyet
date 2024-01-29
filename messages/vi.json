@@ -26,7 +26,7 @@
     "returnAndWarranty": "Chính sách đổi trả - bảo hành"
   },
   "mainProcess": {
-    "inquiries": "Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau: Call/sms/zalo :",
+    "inquiries": "Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau: Call/sms/zalo: {phoneNumber} - Email: {email}",
     "gather": "Tiếp nhận thông tin khách hàng tổng hợp tất cả các nhu cầu của khách hàng như: thức uống đang kinh doanh chính, cần ly giấy hay ly nhựa. Cần in ấn đơn sắc hay nhiều màu",
     "satisfied": "Tiếp nhận yêu cầu và chuyển thông tin cho bộ phận thiết kế. Gửi bản demo và chỉnh sửa theo yêu cầu đến khi khách hài lòng",
     "produce": "Chuyển thông tin về đơn hàng cho xưởng sản xuất. Theo dõi tiến độ, duyệt mẫu để sản xuất hàng loạt",

@@ -26,7 +26,7 @@
     "returnAndWarranty": "Return and Warranty Policy"
   },
   "mainProcess": {
-    "inquiries": "For customers who have inquiries, please contact us through the following channels: Call/sms/zalo",
+    "inquiries": "For customers who have inquiries, please contact us through the following channels: Call/sms/zalo: {phoneNumber| - Email: {email}",
     "gather": "We gather customer information to understand their various needs, such as the main beverage they are selling, whether they require paper or plastic cups, and whether they need single-color or multi-color printing",
     "satisfied": "Receive requests and transmit information to the design department. Send a demo and make revisions according to the requirements until the customer is satisfied",
     "produce": "Transfer information regarding the order to the production workshop. Monitor progress, approve samples for mass production",

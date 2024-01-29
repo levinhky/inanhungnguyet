@@ -184,7 +184,7 @@ export default function ProduceProcess({}: Props) {
         {active === "lienhe" && (
           <div className="content rock:ml-12 ml-0">
             <p className="line-clamp-3 text-sm rock:text-base">
-              {t("mainProcess.inquiries")} {t("mainPhoneNumber")} - Email :{t("mainEmail")}
+              {t("mainProcess.inquiries", { phoneNumber: t("mainPhoneNumber"), email: t("mainEmail") })}
             </p>
           </div>
         )}
