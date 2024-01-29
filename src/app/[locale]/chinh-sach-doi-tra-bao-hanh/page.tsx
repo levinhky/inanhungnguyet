@@ -1,3 +1,4 @@
+"use client";
 import BreadCrumb from "@/components/BreadCrumb";
 import { useTranslations } from "next-intl";
 import Link from "next/link";

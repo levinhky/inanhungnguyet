@@ -3,6 +3,7 @@
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { useId } from "react";
 
 type Props = {
   slug?: string;
@@ -50,7 +51,7 @@ export default function BreadCrumb({ slug, slugName }: Props) {
               className={`${
                 !isLast ? "text-[var(--gray-text)]" : "text-black"
               } rock:hover:text-gray-700 text-xs capitalize rock:text-sm`}
-              key={currentLink}
+              key={useId()}
               href={currentLink}
             >
               {handleCrumbLabel(crumb)}
