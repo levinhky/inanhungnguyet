@@ -24,7 +24,6 @@ export default function Header({}: Props) {
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
   const dispath = useDispatch();
-
   const t = useTranslations("");
 
   useEffect(() => {

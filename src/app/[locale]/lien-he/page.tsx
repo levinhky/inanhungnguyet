@@ -1,6 +1,7 @@
 import BreadCrumb from "@/components/BreadCrumb";
 import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
@@ -12,6 +13,7 @@ export default function page({}: Props) {
   const labelClass =
     "after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm text-slate-700 \
     font-semibold ";
+  const t = useTranslations("");
 
   return (
     <section className="container mx-auto">
@@ -19,7 +21,7 @@ export default function page({}: Props) {
       <div className="flex justify-center flex-wrap rock:flex-nowrap">
         <div id="contact-info" className="mr-7">
           <h3 className="rock:text-xl text-lg uppercase font-bold mb-3 text-[var(--blue)] text-center rock:text-left">
-            Thông tin liên hệ
+            {t("contactInfo")}
           </h3>
           <div id="info" className="rock:mt-0 mt-[20%]">
             <div className="flex items-center rock:hover:text-[var(--red)] mb-1 ease-linear rock:mt-0 mt-[-50px]">
@@ -32,7 +34,7 @@ export default function page({}: Props) {
                 rel="noopener noreferrer"
                 className="ml-1 rock:text-base text-sm"
               >
-                11 Hà Hoa, P.Hưng Trí, Tx.Kỳ Anh, Hà Tĩnh
+                {t("mainAddress")}
               </Link>
             </div>
 
@@ -41,22 +43,17 @@ export default function page({}: Props) {
               <Link
                 target="_blank"
                 rel="nofollow"
-                href={"mailto:inanhungnguyet@gmail.com"}
+                href={`mailto:${t("mainEmail")}`}
                 className="ml-1 rock:text-base text-sm"
               >
-                inanhungnguyet@gmail.com
+                {t("mainEmail")}
               </Link>
             </div>
 
             <div className="flex items-center rock:hover:text-[var(--red)] mb-1 ease-linear">
               <PhoneOutlined />
-              <Link
-                target="_blank"
-                rel="nofollow"
-                href={"tel:0867673358"}
-                className="ml-1 rock:text-base text-sm"
-              >
-                086.767.3358
+              <Link target="_blank" rel="nofollow" href={"tel:0867673358"} className="ml-1 rock:text-base text-sm">
+                {t("mainPhoneNumber")}
               </Link>
             </div>
           </div>
@@ -74,24 +71,17 @@ export default function page({}: Props) {
 
         <div id="send-info" className="rock:mt-0 mt-7">
           <h3 className="w-fit mx-auto border-[var(--red)] border-b capitalize text-[var(--blue)] rock:text-2xl text-xl font-bold rock:mb-2 mb-3">
-            Gửi thông tin
+            {t("sendInformation")}
           </h3>
 
-          <p className="text-center mb-5 rock:text-base text-xs">
-            Bạn hãy điền nội dung tin nhắn vào form dưới đây và gửi cho chúng
-            tôi. Chúng tôi sẽ trả lời bạn sau khi nhận được.
-          </p>
+          <p className="text-center mb-5 rock:text-base text-xs">{t("sendInformationMessage")}</p>
 
           <form action="">
             <div className="flex">
               <div className="form-group mb-4 w-full mr-3">
                 <label className="block">
-                  <span className={labelClass}>Họ và tên</span>
-                  <input
-                    type="fullname"
-                    name="fullname"
-                    className={inputClass}
-                  />
+                  <span className={labelClass}>{t("fullname")}</span>
+                  <input type="fullname" name="fullname" className={inputClass} />
                 </label>
               </div>
               <div className="form-group mb-4 w-full">
@@ -104,14 +94,14 @@ export default function page({}: Props) {
 
             <div className="form-group mb-4">
               <label className="block">
-                <span className={labelClass}>Điện thoại</span>
+                <span className={labelClass}>{t("phonenumber")}</span>
                 <input type="phone" name="phone" className={inputClass} />
               </label>
             </div>
 
             <div className="form-group mb-4">
               <label className="block">
-                <span className={labelClass}>Nội dung</span>
+                <span className={labelClass}>{t("content")}</span>
                 <textarea name="content" className={inputClass} />
               </label>
             </div>
@@ -121,7 +111,7 @@ export default function page({}: Props) {
             className="h-10 w-36 border border-[var(--blue)] text-[var(--blue)] uppercase
            rock:hover:bg-[var(--blue)] rock:hover:text-white ease-in-out delay-75 rounded rock:text-base text-sm"
           >
-            Gửi ngay
+            {t("buttonSend")}
           </button>
         </div>
       </div>

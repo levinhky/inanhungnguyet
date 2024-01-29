@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
 type Props = {
@@ -11,13 +12,14 @@ type Props = {
 export default function BreadCrumb({ slug, slugName }: Props) {
   const pathname = usePathname().replace(/^\/(vi|en)\//, "/");
   let currentLink = "";
+  const t = useTranslations();
 
   const handleCrumbLabel = (crumb: string) => {
     switch (crumb) {
       case "gioi-thieu":
-        return "về chúng tôi";
+        return "Về chúng tôi";
       case "lien-he":
-        return "liên hệ";
+        return "Liên hệ";
       case "chinh-sach-van-chuyen-thanh-toan":
         return "Chính sách vận chuyển và thanh toán";
       case "chinh-sach-doi-tra-bao-hanh":
@@ -68,7 +70,7 @@ export default function BreadCrumb({ slug, slugName }: Props) {
               href={"/"}
               className="text-[var(--gray-text)] rock:hover:text-gray-700 text-xs rock:text-sm capitalize"
             >
-              Trang chủ
+              {t("homePage")}
             </Link>
             <span className="mx-2 text-[var(--gray-text)]">/</span>
           </li>

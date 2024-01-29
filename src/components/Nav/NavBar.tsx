@@ -5,6 +5,7 @@ import { Link } from "@/navigation";
 import { useState } from "react";
 import MenuMobile from "./MenuMobile";
 import SwitcherLanguage from "./SwitcherLanguage";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
@@ -20,32 +21,18 @@ export default function NavBar({}: Props) {
     setMenuIsOpen(!isMenuOpen);
     setIsActiveMenu(isActiveMenu);
   };
+  const t = useTranslations("");
 
   const renderHamburgerMenu = () => {
     return (
       <div className="rock:hidden">
         <div className="uppercase text-white flex items-center">
-          <button
-            className="flex flex-col justify-center items-center group"
-            onClick={() => handleMenuMobile(true)}
-          >
-            <div
-              className={`${genericHamburgerLine} ${
-                isMenuOpen ? "rotate-45 translate-y-[7px] " : ""
-              }`}
-            />
-            <div
-              className={`${genericHamburgerLine} ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <div
-              className={`${genericHamburgerLine} ${
-                isMenuOpen ? "-rotate-45 -translate-y-[9px] " : ""
-              }`}
-            />
+          <button className="flex flex-col justify-center items-center group" onClick={() => handleMenuMobile(true)}>
+            <div className={`${genericHamburgerLine} ${isMenuOpen ? "rotate-45 translate-y-[7px] " : ""}`} />
+            <div className={`${genericHamburgerLine} ${isMenuOpen ? "opacity-0" : ""}`} />
+            <div className={`${genericHamburgerLine} ${isMenuOpen ? "-rotate-45 -translate-y-[9px] " : ""}`} />
           </button>
-          <b className="ml-2">Danh mục</b>
+          <b className="ml-2">{t('categories')}</b>
         </div>
       </div>
     );
@@ -56,10 +43,7 @@ export default function NavBar({}: Props) {
       <ul className="rock:flex h-full hidden">
         {menuItems.map((item) => (
           <li className={liClassName} key={item.id}>
-            <Link
-              className="px-[20px] h-full flex items-center"
-              href={item.url}
-            >
+            <Link className="px-[20px] h-full flex items-center" href={item.url}>
               {item.label}
             </Link>
           </li>
@@ -78,10 +62,7 @@ export default function NavBar({}: Props) {
         </div>
       </nav>
 
-      <MenuMobile
-        isActiveMenu={isActiveMenu}
-        handleMenuMobile={handleMenuMobile}
-      />
+      <MenuMobile isActiveMenu={isActiveMenu} handleMenuMobile={handleMenuMobile} />
     </>
   );
 }

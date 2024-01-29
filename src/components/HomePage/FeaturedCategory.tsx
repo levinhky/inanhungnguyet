@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/navigation";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 type Props = {
   categories: [CategoryAttributes];
@@ -10,6 +11,7 @@ type Props = {
 
 export default function CategoryList({ categories }: Props) {
   const [active, setActive] = useState(false);
+  const t = useTranslations("");
 
   // const slides = Array.from({ length: 6 }).map(
   //   (el, index) => `Slide ${index + 1}`
@@ -22,9 +24,7 @@ export default function CategoryList({ categories }: Props) {
     rock:before:absolute rock:before:top-0 rock:before:bottom-0 rock:before:right-full rock:before:bg-[#F0F5FF] rock:before:w-full rock:before:block
     rock:after:absolute rock:after:top-0 rock:after:bottom-0 rock:after:left-full rock:after:bg-[#F0F5FF] rock:after:w-full rock:after:block"
       >
-        <h3 className="text-center rock:text-2xl text-base font-bold">
-          Danh mục phổ biến
-        </h3>
+        <h3 className="text-center rock:text-2xl text-base font-bold">{t("featuredCategoryTitle")}</h3>
 
         <div className="categories mt-6 rock:grid-cols-6 grid-cols-2 grid rock:gap-x-5 gap-x-3 rock:gap-y-[2%] gap-y-[4%]">
           {categories.map((category, index) => (
@@ -34,16 +34,8 @@ export default function CategoryList({ categories }: Props) {
             flex items-center justify-center flex-col ${active && "active"}`}
               key={category._id}
             >
-              <h1 className="text-[#595959] text-center mb-3">
-                {category.name}
-              </h1>
-              <Image
-                className="mt-auto"
-                src={category.thumb}
-                width={160}
-                height={160}
-                alt={category.name}
-              />
+              <h1 className="text-[#595959] text-center mb-3">{category.name}</h1>
+              <Image className="mt-auto" src={category.thumb} width={160} height={160} alt={category.name} />
             </Link>
           ))}
         </div>
@@ -52,7 +44,7 @@ export default function CategoryList({ categories }: Props) {
           onClick={() => setActive(!active)}
           className="flex mx-auto capitalize text-[#096dd9] rock:hover:text-[var(--red)] font-bold mt-10 rock:hidden"
         >
-          {active ? "Thu Gọn" : "Xem Thêm"}
+          {active ? t("minimize") : t("seeMore")}
         </button>
       </section>
     )

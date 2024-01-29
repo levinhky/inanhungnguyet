@@ -2,17 +2,16 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./PopperWrapper";
+import { useTranslations } from "next-intl";
 
 type Props = {
   isActiveSearchModal: boolean;
   setIsActiveSearchModal: (isActiveSearchModal: boolean) => void;
 };
 
-export default function MobilePopperWrapper({
-  isActiveSearchModal,
-  setIsActiveSearchModal,
-}: Props) {
+export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSearchModal }: Props) {
   const [searchValue, setSearchValue] = useState("");
+  const t = useTranslations("");
 
   const searchInputClass =
     "px-3 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
@@ -37,6 +36,10 @@ export default function MobilePopperWrapper({
                 <PopperWrapper
                   searchValue={searchValue}
                   setSearchValue={setSearchValue}
+                  searchHistoryTitle={t("Header.searchHistoryTitle")}
+                  searchHistoryEmpty={t("Header.searchHistoryEmpty")}
+                  products={t("products")}
+                  noResult={t("noResult")}
                   setIsActiveSearchModal={setIsActiveSearchModal}
                   {...attrs}
                 />

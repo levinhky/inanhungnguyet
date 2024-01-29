@@ -1,13 +1,87 @@
 {
   "Header": {
-    "login": "Đăng nhập",
-    "register": "Đăng ký",
-    "logout": "Đăng xuất",
+    "login": "Đăng Nhập",
+    "register": "Đăng Ký",
+    "logout": "Đăng Xuất",
     "search": "Tìm sản phẩm mong muốn ...",
-    "searchBtn": "Tìm kiếm",
+    "searchBtn": "Tìm Kiếm",
     "searchHistoryTitle": "Lịch sử tìm kiếm",
     "searchHistoryEmpty": "Lịch sử tìm kiếm rỗng"
   },
+  "NotFound": {
+    "title": "Trang không tìm thấy",
+    "description": "Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển."
+  },
+  "mainAddress": "11 Hà Hoa, P.Hưng Trí, Tx.Kỳ Anh, Hà Tĩnh",
+  "mainEmail": "inanhungnguyet@gmail.com",
+  "mainPhoneNumber": "086.767.3358",
   "products": "Sản Phẩm",
-  "noResult": "Không kết quả"
+  "productList": "Danh sách sản phẩm",
+  "categories": "Danh mục",
+  "social": "Mạng xã hội",
+  "policy": {
+    "title": "Chính Sách",
+    "shoppingGuide": "Hướng dẫn mua hàng",
+    "shippingAndPayment": "Chính sách vận chuyển - thanh toán",
+    "returnAndWarranty": "Chính sách đổi trả - bảo hành"
+  },
+  "mainProcess": {
+    "inquiries": "Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau: Call/sms/zalo :",
+    "gather": "Tiếp nhận thông tin khách hàng tổng hợp tất cả các nhu cầu của khách hàng như: thức uống đang kinh doanh chính, cần ly giấy hay ly nhựa. Cần in ấn đơn sắc hay nhiều màu",
+    "satisfied": "Tiếp nhận yêu cầu và chuyển thông tin cho bộ phận thiết kế. Gửi bản demo và chỉnh sửa theo yêu cầu đến khi khách hài lòng",
+    "produce": "Chuyển thông tin về đơn hàng cho xưởng sản xuất. Theo dõi tiến độ, duyệt mẫu để sản xuất hàng loạt",
+    "delivery": "Giao hàng tới địa chỉ của khách hàng tại Kỳ Anh hoặc gửi hàng tới các đơn vị vận chuyển theo yêu cầu."
+  },
+  "homePage": "Trang chủ",
+  "sortBy": {
+    "title": "Sắp xếp theo",
+    "productNameASC": "Tên sản phẩm (A tới Z)",
+    "productNameDESC": "Tên sản phẩm (Z tới A)",
+    "mostViewed": "Xem Nhiều"
+  },
+  "featuredProductTitle": "Sản phẩm nổi bật",
+  "featuredCategoryTitle": "Danh mục phổ biến",
+  "produceProcess": "Quy trình sản xuất",
+  "fullname": "Họ Và Tên",
+  "phonenumber": "Điện Thoại",
+  "content": "Nội Dung",
+  "contact": "Liên Hệ",
+  "advice": "Tư Vấn",
+  "design": "Thiết Kế",
+  "produce": "Sản Xuất",
+  "delivery": "Giao Hàng",
+  "buttonSend": "Gửi Ngay",
+  "seeMore": "Xem Thêm",
+  "minimize": "Thu Gọn",
+  "contactUs": "Liên hệ chúng tôi...",
+  "noResult": "Không kết quả",
+  "contactInfo": "Thông tin liên hệ",
+  "sendInformation": "Gửi thông tin",
+  "sendInformationMessage": "Bạn hãy điền nội dung tin nhắn vào form dưới đây và gửi cho chúng tôi. Chúng tôi sẽ trả lời bạn sau khi nhận được.",
+  "SEO": {
+    "title": "In Ấn Hùng Nguyệt - Địa Chỉ In Túi Nhựa, Ly Nhựa, Cốc Nhựa Chất Lượng",
+    "keywords": [
+      "In túi nhựa",
+      "In túi xốp",
+      "In túi nilon",
+      "In túi đựng đồ",
+      "In túi quà tặng",
+      "In ly nhựa",
+      "In cốc nhựa",
+      "In cốc thủy tinh",
+      "Túi nhựa đẹp",
+      "Túi xốp cao cấp",
+      "In logo trên túi nhựa",
+      "In hình ảnh trên cốc nhựa",
+      "Túi nilon đựng thực phẩm",
+      "Túi nhựa đựng sản phẩm",
+      "Cốc nhựa đựng nước uống",
+      "Túi đựng mỹ phẩm",
+      "In hình lên ly nhựa",
+      "Túi đựng quà tặng công ty",
+      "Túi đựng sản phẩm thực phẩm",
+      "Cốc nhựa in chữ, hình ảnh"
+    ],
+    "description": "Chào mừng bạn đến với In Ấn Hùng Nguyệt - Địa chỉ tin cậy cho dịch vụ in túi nhựa, túi xốp, và cốc nhựa chất lượng hàng đầu. Chúng tôi tự hào cung cấp các sản phẩm bao bì đa dạng, ly nhựa, ly trà sữa và phong bao với chất lượng không giới hạn tại Kỳ Anh, Hà Tĩnh. Với In Ấn Hùng Nguyệt, bạn có thể tin tưởng vào giá cả hợp lý nhất trên thị trường hiện nay. Chúng tôi cam kết mang đến cho bạn sự tiện lợi với dịch vụ MIỄN PHÍ thiết kế logo, MIỄN PHÍ giao hàng, và MIỄN PHÍ tư vấn giải pháp xây dựng bộ nhận diện thương hiệu thông qua bao bì sản phẩm. Nhấn mạnh vào sự đa dạng, chúng tôi chuyên in túi nhựa đẹp, túi xốp cao cấp, túi đựng mỹ phẩm và nhiều sản phẩm bao bì khác. Nếu bạn cần in logo trên túi nhựa hoặc hình ảnh trên cốc nhựa, chúng tôi có đội ngũ chuyên nghiệp để thực hiện điều đó cho bạn. In Ấn Hùng Nguyệt - Sự lựa chọn hoàn hảo cho các sản phẩm túi nhựa và cốc nhựa in ấn. Hãy liên hệ ngay với chúng tôi để được phục vụ tốt nhất!"
+  }
 }

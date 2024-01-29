@@ -10,15 +10,25 @@ import Pulse from "@/components/Pulse";
 import Header from "@/components/Header/Header";
 import NavBar from "@/components/Nav/NavBar";
 import { locales } from "@/navigation";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
-export const metadata: Metadata = {
-  title: metadataContent.title,
-  description: metadataContent.description,
-  keywords: metadataContent.keywords,
-  openGraph: metadataContent,
-};
+// export const metadata: Metadata = {
+//   title: metadataContent.title,
+//   description: metadataContent.description,
+//   keywords: metadataContent.keywords,
+//   openGraph: metadataContent,
+// };
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  const t = await getTranslations({ locale, namespace: "SEO" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords"),
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -52,10 +62,7 @@ export default function RootLayout({
         <ScrollTop />
         <Pulse />
       </body>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
     window.dataLayer = window.dataLayer || [];
