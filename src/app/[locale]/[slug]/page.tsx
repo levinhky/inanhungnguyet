@@ -89,7 +89,7 @@ export default function page({ params }: Props) {
                 <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">SKU: {product.sku}</h2>
 
                 <button className="text-white bg-[var(--blue-text)] rock:hover:bg-[var(--blue)] rounded-full text-base py-2 px-5 h-12 min-w-[200px]">
-                  {t("getAQuote")}
+                  {t("contactUs")}
                 </button>
               </div>
             </div>
