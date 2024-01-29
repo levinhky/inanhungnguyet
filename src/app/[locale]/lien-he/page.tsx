@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 type Props = {};
 
-export default function page({}: Props) {
+export default function ContactPage({}: Props) {
   const inputClass =
     "mt-1 px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 \
     focus:outline-none focus:border-gray-50 focus:ring-gray-400 block w-full rounded-md rock:text-sm text-xs \

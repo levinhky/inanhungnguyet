@@ -20,7 +20,7 @@ export async function generateStaticParams() {
     : [];
 }
 
-export default async function page({ params }: Props) {
+export default async function ProductDetailPage({ params }: Props) {
   const { slug } = params;
 
   async function getProduct() {

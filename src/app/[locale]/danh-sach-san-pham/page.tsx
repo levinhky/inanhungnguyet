@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 
 type Props = {};
 
-export default function ProductListing({}: Props) {
+export default function ProductListingPage({}: Props) {
   const [categories, setCategories] = useState<[CategoryAttributes]>();
   const [products, setProducts] = useState<[ProductAttributes]>();
   const [isLoading, setIsLoading] = useState<boolean>(true);

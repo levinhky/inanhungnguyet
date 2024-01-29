@@ -2,7 +2,7 @@
 
 import BreadCrumb from "@/components/BreadCrumb";
 
-export default function AboutUs() {
+export default function AboutUsPage() {
   return (
     <div className="container mx-auto">
       <BreadCrumb />

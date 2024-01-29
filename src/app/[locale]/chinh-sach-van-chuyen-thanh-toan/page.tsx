@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type Props = {};
 
-export default function ShippingAndPaymentPolicies({}: Props) {
+export default function ShippingAndPaymentPoliciesPage({}: Props) {
   return (
     <div className="container mx-auto rock:text-base text-sm">
       <BreadCrumb />

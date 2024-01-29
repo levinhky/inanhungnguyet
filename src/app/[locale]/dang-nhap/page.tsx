@@ -26,7 +26,7 @@ const defaultSignupFormFields = {
   password: "",
 };
 
-export default function page({}: Props) {
+export default function AuthenticationPage({}: Props) {
   const [loginData, setLoginData] = useState(defaultLoginFormFields);
   const [signUpData, setSignupData] = useState(defaultSignupFormFields);
   const [isForgotPasswordForm, setIsForgotPasswordForm] = useState(false);

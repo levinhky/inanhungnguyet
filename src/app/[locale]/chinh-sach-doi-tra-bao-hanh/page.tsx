@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type Props = {};
 
-export default function page({}: Props) {
+export default function ReturnAndWarrantyPolicyPage({}: Props) {
   const t = useTranslations("");
 
   return (
@@ -18,43 +18,53 @@ export default function page({}: Props) {
       </h1>
 
       <h3 className="italic my-4 ">
-        <div dangerouslySetInnerHTML={{ __html: t.raw("returnAndWarrantyPolicy.effort") }} />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: t.raw("returnAndWarrantyPolicy.effort"),
+          }}
+        />
       </h3>
 
       <section>
         <h6 className="my-3 font-semibold">► Điều kiện áp dụng:</h6>
         <h5 className="rock:my-5 my-3 ">
-          &ndash; Sản phẩm được bảo hành miễn phí trong thời gian sử dụng <b>tương ứng</b> trong các trường hợp sau:
+          &ndash; Sản phẩm được bảo hành miễn phí trong thời gian sử dụng{" "}
+          <b>tương ứng</b> trong các trường hợp sau:
         </h5>
         <ul>
           <li className="rock:mb-2 mb-1">
-            &bull; Lỗi do sản xuất, không đóng gói theo quy cách, thiếu sản phẩm hoặc chất lượng sản phẩm không như cam
-            kết.
+            &bull; Lỗi do sản xuất, không đóng gói theo quy cách, thiếu sản phẩm
+            hoặc chất lượng sản phẩm không như cam kết.
           </li>
           <li className="rock:mb-2 mb-1">
-            &bull; Lỗi do quá trình vận chuyển từ phía công ty chúng tôi đến quý khách hàng.
+            &bull; Lỗi do quá trình vận chuyển từ phía công ty chúng tôi đến quý
+            khách hàng.
           </li>
         </ul>
         <h5 className="rock:my-5 my-3 ">
-          &ndash; In Ấn Hùng Nguyệt <b>từ chối</b> bảo hành sản phẩm đối với các trường hợp:
+          &ndash; In Ấn Hùng Nguyệt <b>từ chối</b> bảo hành sản phẩm đối với các
+          trường hợp:
         </h5>
         <ul>
           <li className="rock:mb-2 mb-1 ">
-            &bull; Sản phẩm không phải do In Ấn Hùng Nguyệt Sản xuất, Cung cấp hoặc do lỗi do quý Khách hàng tác động
-            hoặc do thiên tai hỏa hoạn.
+            &bull; Sản phẩm không phải do In Ấn Hùng Nguyệt Sản xuất, Cung cấp
+            hoặc do lỗi do quý Khách hàng tác động hoặc do thiên tai hỏa hoạn.
           </li>
           <li className="rock:mb-2 mb-1 ">
-            &bull; Sản phẩm bị hư hỏng và lỗi từ phía khách hàng gây nên như trầy xước, sản phẩm không còn nguyên vẹn do
-            các tác động ngoại lực hoặc bị ảnh hưởng bởi thời tiết (gió, mưa) trong quá trình sử dụng.
+            &bull; Sản phẩm bị hư hỏng và lỗi từ phía khách hàng gây nên như
+            trầy xước, sản phẩm không còn nguyên vẹn do các tác động ngoại lực
+            hoặc bị ảnh hưởng bởi thời tiết (gió, mưa) trong quá trình sử dụng.
           </li>
         </ul>
         <h5 className="mb-2 ">
-          &ndash; Trong mọi trường hợp, quyết định của In Ấn Hùng Nguyệt là quyết định cuối cùng.
+          &ndash; Trong mọi trường hợp, quyết định của In Ấn Hùng Nguyệt là
+          quyết định cuối cùng.
         </h5>
         <h5>
           {" "}
-          &ndash; Lưu ý: Tránh để xảy ra những trường hợp không mong muốn, khi nhận sản phẩm quý khách nên kiểm tra kỹ
-          sản phẩm, quy cách đóng gói và chất lượng sản phẩm.
+          &ndash; Lưu ý: Tránh để xảy ra những trường hợp không mong muốn, khi
+          nhận sản phẩm quý khách nên kiểm tra kỹ sản phẩm, quy cách đóng gói và
+          chất lượng sản phẩm.
         </h5>
       </section>
 
@@ -70,7 +80,10 @@ export default function page({}: Props) {
       </div>
 
       <h3>
-        <b>In Ấn Hùng Nguyệt luôn mong muốn mang đến cho khách những sự hài lòng tuyệt đối nhất!</b>
+        <b>
+          In Ấn Hùng Nguyệt luôn mong muốn mang đến cho khách những sự hài lòng
+          tuyệt đối nhất!
+        </b>
       </h3>
       <h3 className="mt-3 ">
         <b>Hotline:</b>{" "}
