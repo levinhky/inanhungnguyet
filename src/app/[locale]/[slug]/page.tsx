@@ -14,6 +14,14 @@ type Props = {
   };
 };
 
+export async function generateStaticParams() {
+  const products = await fetch(apiConfig.baseURL + "products/all").then((res) => res.json())
+ 
+  return products.map((product: ProductAttributes) => ({
+    slug: product.slug,
+  }))
+}
+
 export default function page({ params }: Props) {
   const { slug } = params;
   const [product, setProduct] = useState<ProductAttributes>({
