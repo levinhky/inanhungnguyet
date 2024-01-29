@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import apiConfig from "@/config/apiConfig";
 import ProductDetail from "@/components/ProductDetail/page";
 
@@ -25,11 +27,17 @@ export default async function page({ params }: Props) {
     const res = await fetch(apiConfig.baseURL + "products/" + slug, {
       cache: "no-store",
     });
-    
+
     return res.json();
   }
 
   const productResponse = await getProduct();
 
-  return <ProductDetail slug={slug} product={productResponse} slugName={productResponse.name} />;
+  return (
+    <ProductDetail
+      slug={slug}
+      product={productResponse}
+      slugName={productResponse.name}
+    />
+  );
 }
