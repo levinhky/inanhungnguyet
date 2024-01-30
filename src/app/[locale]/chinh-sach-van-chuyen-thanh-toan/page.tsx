@@ -1,3 +1,4 @@
+"use client";
 import BreadCrumb from "@/components/BreadCrumb";
 import { FacebookOutlined } from "@ant-design/icons";
 import { useTranslations } from "next-intl";
