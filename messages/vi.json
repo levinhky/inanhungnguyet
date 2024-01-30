@@ -1,14 +1,13 @@
 {
-  "Header": {
-    "login": "Đăng Nhập",
-    "register": "Đăng Ký",
-    "logout": "Đăng Xuất",
-    "search": "Tìm sản phẩm mong muốn ...",
-    "searchBtn": "Tìm Kiếm",
-    "searchHistoryTitle": "Lịch sử tìm kiếm",
-    "searchHistoryEmpty": "Lịch sử tìm kiếm rỗng"
-  },
+  "login": "Đăng Nhập",
+  "register": "Đăng Ký",
+  "logout": "Đăng Xuất",
+  "search": "Tìm sản phẩm mong muốn ...",
+  "searchBtn": "Tìm Kiếm",
+  "searchHistoryTitle": "Lịch sử tìm kiếm",
+  "searchHistoryEmpty": "Lịch sử tìm kiếm rỗng",
   "storeName": "In Ấn Hùng Nguyệt",
+  "aboutUs": "Về chúng tôi",
   "NotFound": {
     "title": "Trang không tìm thấy",
     "description": "Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển."
@@ -28,7 +27,21 @@
   },
   "returnAndWarrantyPolicy": {
     "of": "Chính sách {policy} của {storeName}",
-    "effort": "<b>In Ấn Hùng Nguyệt</b> luôn nỗ lực mang đến cho quý khách những sản phẩm sắm tuyệt và những dịch vụ hậu mãi không ngừng được hoàn thiện. Theo đó, In Ấn Hùng Nguyệt đã cải tiến và áp dụng <b>Chính sách bảo hành</b> đối với sản phẩm <b>của In Ấn Hùng Nguyệt</b>."
+    "effort": "<b>In Ấn Hùng Nguyệt</b> luôn nỗ lực mang đến cho quý khách những sản phẩm sắm tuyệt và những dịch vụ hậu mãi không ngừng được hoàn thiện. Theo đó, In Ấn Hùng Nguyệt đã cải tiến và áp dụng <b>Chính sách bảo hành</b> đối với sản phẩm <b>của In Ấn Hùng Nguyệt</b>.",
+    "applicable": {
+      "title": "Điều kiện áp dụng:",
+      "freeCase": "Sản phẩm được bảo hành miễn phí trong thời gian sử dụng <b>tương ứng</b> trong các trường hợp sau:",
+      "packagingError": "Lỗi do sản xuất, không đóng gói theo quy cách, thiếu sản phẩm hoặc chất lượng sản phẩm không như cam kết.",
+      "shippingError": "Lỗi do quá trình vận chuyển từ phía công ty chúng tôi đến quý khách hàng."
+    },
+    "refuse": {
+      "title": "In Ấn Hùng Nguyệt <b>từ chối</b> bảo hành sản phẩm đối với các trường hợp:",
+      "notFromUs": "Sản phẩm không phải do In Ấn Hùng Nguyệt Sản xuất, Cung cấp hoặc do lỗi do quý Khách hàng tác động hoặc do thiên tai hỏa hoạn.",
+      "customerFactor": "Sản phẩm bị hư hỏng và lỗi từ phía khách hàng gây nên như trầy xước, sản phẩm không còn nguyên vẹn do các tác động ngoại lực hoặc bị ảnh hưởng bởi thời tiết (gió, mưa) trong quá trình sử dụng.",
+      "allCaseDecision": "Trong mọi trường hợp, quyết định của In Ấn Hùng Nguyệt là quyết định cuối cùng."
+    },
+    "note": "Lưu ý: Tránh để xảy ra những trường hợp không mong muốn, khi nhận sản phẩm quý khách nên kiểm tra kỹ sản phẩm, quy cách đóng gói và chất lượng sản phẩm.",
+    "finalNote": "{storeName} luôn mong muốn mang đến cho khách những sự hài lòng tuyệt đối nhất!"
   },
   "mainProcess": {
     "inquiries": "Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau: Call/sms/zalo: {phoneNumber} - Email: {email}",

@@ -13,22 +13,22 @@ type Props = {
 export default function BreadCrumb({ slug, slugName }: Props) {
   const pathname = usePathname().replace(/^\/(vi|en)\//, "/");
   let currentLink = "";
-  const t = useTranslations();
+  const t = useTranslations("");
 
   const handleCrumbLabel = (crumb: string) => {
     switch (crumb) {
       case "gioi-thieu":
-        return "Về chúng tôi";
+        return t("aboutUs");
       case "lien-he":
-        return "Liên hệ";
+        return t("contact");
       case "chinh-sach-van-chuyen-thanh-toan":
-        return "Chính sách vận chuyển và thanh toán";
+        return t("policy.shippingAndPayment");
       case "chinh-sach-doi-tra-bao-hanh":
-        return "Chính sách đổi trả và bảo hành";
+        return t("policy.returnAndWarranty");
       case "danh-sach-san-pham":
-        return "Danh sách sản phẩm";
+        return t("productList");
       case "dang-nhap":
-        return "Đăng nhập";
+        return t("login");
       case slug:
         return slugName;
 

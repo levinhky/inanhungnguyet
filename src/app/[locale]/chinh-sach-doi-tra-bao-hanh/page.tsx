@@ -27,46 +27,33 @@ export default function ReturnAndWarrantyPolicyPage({}: Props) {
       </h3>
 
       <section>
-        <h6 className="my-3 font-semibold">► Điều kiện áp dụng:</h6>
+        <h6 className="my-3 font-semibold">► {t("returnAndWarrantyPolicy.applicable.title")}</h6>
         <h5 className="rock:my-5 my-3 ">
-          &ndash; Sản phẩm được bảo hành miễn phí trong thời gian sử dụng{" "}
-          <b>tương ứng</b> trong các trường hợp sau:
+          &ndash;{" "}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: t.raw("returnAndWarrantyPolicy.applicable.freeCase"),
+            }}
+          />
         </h5>
         <ul>
-          <li className="rock:mb-2 mb-1">
-            &bull; Lỗi do sản xuất, không đóng gói theo quy cách, thiếu sản phẩm
-            hoặc chất lượng sản phẩm không như cam kết.
-          </li>
-          <li className="rock:mb-2 mb-1">
-            &bull; Lỗi do quá trình vận chuyển từ phía công ty chúng tôi đến quý
-            khách hàng.
-          </li>
+          <li className="rock:mb-2 mb-1">&bull; {t("returnAndWarrantyPolicy.applicable.packagingError")}</li>
+          <li className="rock:mb-2 mb-1">&bull; {t("returnAndWarrantyPolicy.applicable.shippingError")}</li>
         </ul>
         <h5 className="rock:my-5 my-3 ">
-          &ndash; In Ấn Hùng Nguyệt <b>từ chối</b> bảo hành sản phẩm đối với các
-          trường hợp:
+          &ndash;{" "}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: t.raw("returnAndWarrantyPolicy.refuse.title"),
+            }}
+          />
         </h5>
         <ul>
-          <li className="rock:mb-2 mb-1 ">
-            &bull; Sản phẩm không phải do In Ấn Hùng Nguyệt Sản xuất, Cung cấp
-            hoặc do lỗi do quý Khách hàng tác động hoặc do thiên tai hỏa hoạn.
-          </li>
-          <li className="rock:mb-2 mb-1 ">
-            &bull; Sản phẩm bị hư hỏng và lỗi từ phía khách hàng gây nên như
-            trầy xước, sản phẩm không còn nguyên vẹn do các tác động ngoại lực
-            hoặc bị ảnh hưởng bởi thời tiết (gió, mưa) trong quá trình sử dụng.
-          </li>
+          <li className="rock:mb-2 mb-1 ">&bull; {t("returnAndWarrantyPolicy.refuse.notFromUs")}</li>
+          <li className="rock:mb-2 mb-1 ">&bull; {t("returnAndWarrantyPolicy.refuse.customerFactor")}</li>
         </ul>
-        <h5 className="mb-2 ">
-          &ndash; Trong mọi trường hợp, quyết định của In Ấn Hùng Nguyệt là
-          quyết định cuối cùng.
-        </h5>
-        <h5>
-          {" "}
-          &ndash; Lưu ý: Tránh để xảy ra những trường hợp không mong muốn, khi
-          nhận sản phẩm quý khách nên kiểm tra kỹ sản phẩm, quy cách đóng gói và
-          chất lượng sản phẩm.
-        </h5>
+        <h5 className="mb-2 ">&ndash; {t("returnAndWarrantyPolicy.refuse.allCaseDecision")}</h5>
+        <h5> &ndash; {t("returnAndWarrantyPolicy.note")}</h5>
       </section>
 
       <div id="map" className="my-7">
@@ -81,10 +68,7 @@ export default function ReturnAndWarrantyPolicyPage({}: Props) {
       </div>
 
       <h3>
-        <b>
-          In Ấn Hùng Nguyệt luôn mong muốn mang đến cho khách những sự hài lòng
-          tuyệt đối nhất!
-        </b>
+        <b>{t("returnAndWarrantyPolicy.finalNote", { storeName: t("storeName") })}</b>
       </h3>
       <h3 className="mt-3 ">
         <b>Hotline:</b>{" "}

@@ -1,14 +1,13 @@
 {
-  "Header": {
-    "login": "Login",
-    "register": "Register",
-    "logout": "Logout",
-    "search": "Search products ...",
-    "searchBtn": "Search",
-    "searchHistoryTitle": "Search History",
-    "searchHistoryEmpty": "History Empty"
-  },
+  "login": "Login",
+  "register": "Register",
+  "logout": "Logout",
+  "search": "Search Products ...",
+  "searchBtn": "Search",
+  "searchHistoryTitle": "Search History",
+  "searchHistoryEmpty": "History Empty",
   "storeName": "Hung Nguyet Printing",
+  "aboutUs": "About Us",
   "NotFound": {
     "title": "Page Not Found",
     "description": "Sorry, The Page You Are Looking For Could Not Be Found."
@@ -28,7 +27,21 @@
   },
   "returnAndWarrantyPolicy": {
     "of": "Warranty {policy} of {storeName}",
-    "effort": "<b>Hung Nguyet Printing</b> always strives to bring customers excellent shopping products and continuously improving after-sales services. Therefore, <b>Hung Nguyet Printing</b> has improved and implemented a <b>Warranty Policy</b> for <b>Hung Nguyet Printing's</b> products."
+    "effort": "<b>Hung Nguyet Printing</b> always strives to bring customers excellent shopping products and continuously improving after-sales services. Therefore, <b>Hung Nguyet Printing</b> has improved and implemented a <b>Warranty Policy</b> for <b>Hung Nguyet Printing's</b> products.",
+    "applicable": {
+      "title": "Applicable Conditions:",
+      "freeCase": "The product is warranted free of charge for the corresponding <b>period of use</b> in the following cases:",
+      "packagingError": "Defects caused by manufacturing, improper packaging, missing product components, or product quality not meeting the promised specifications.",
+      "shippingError": "Defects caused during the transportation process from our company to the customer."
+    },
+    "refuse": {
+      "title": "Hung Nguyet Printing <b>refuses</b> to warranty the product in the following cases:",
+      "notFromUs": "The product is not manufactured or supplied by Hung Nguyet Printing, or the defects are caused by customer interference or natural disasters.",
+      "customerFactor": "The product is damaged and faulty due to customer-caused factors such as scratches, product no longer being intact due to external forces, or being affected by weather conditions (wind, rain) during the usage process.",
+      "allCaseDecision": "In all cases, the decision of Hung Nguyet Printing is final."
+    },
+    "note": "Note: To avoid unwanted situations, when receiving the product, customers should carefully inspect the product, packaging specifications, and product quality.",
+    "finalNote": "{storeName} always aims to bring the utmost satisfaction to customers!"
   },
   "mainProcess": {
     "inquiries": "For customers who have inquiries, please contact us through the following channels: Call/sms/zalo: {phoneNumber} - Email: {email}",
@@ -52,7 +65,7 @@
   "model": "Model",
   "uses": "Uses",
   "characteristics": "Characteristics",
-  "state": "State",
+  "state": "Status",
   "featuredProductTitle": "Featured Product",
   "featuredCategoryTitle": "Featured Category",
   "produceProcess": "Produce Process",

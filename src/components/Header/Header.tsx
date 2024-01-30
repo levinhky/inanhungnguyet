@@ -9,10 +9,7 @@ import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModal";
 import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
-import {
-  getUserInfo,
-  handleSignOut,
-} from "@/redux/features/authentication/authSlice";
+import { getUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
 import useDebounce from "@/assets/libs/hooks";
 import { useTranslations } from "next-intl";
@@ -60,7 +57,7 @@ export default function Header({}: Props) {
         <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
           <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
           <p className="rock:text-base rock:mt-[5px] rock:block hidden">
-            {t("Header.register")} / {t("Header.login")}
+            {t("register")} / {t("login")}
           </p>
         </button>
       </Link>
@@ -70,7 +67,7 @@ export default function Header({}: Props) {
         className="login flex items-center justify-center rock:hover:text-[var(--blue)]"
       >
         <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-        <p className="rock:text-base ml-1 rock:ml-0 mt-[5px]">{t("Header.logout")}</p>
+        <p className="rock:text-base ml-1 rock:ml-0 mt-[5px]">{t("logout")}</p>
       </button>
     );
   };
@@ -80,12 +77,7 @@ export default function Header({}: Props) {
       <div className="flex justify-between items-center">
         <div className="main-logo cursor-pointer" title="In Ấn Hùng Nguyệt">
           <Link href={"/"}>
-            <Image
-              src={"/logo.svg"}
-              alt="inanhungnguyetlogo"
-              width={150}
-              height={150}
-            />
+            <Image src={"/logo.svg"} alt="inanhungnguyetlogo" width={150} height={150} />
           </Link>
         </div>
 
@@ -96,10 +88,10 @@ export default function Header({}: Props) {
             <PopperWrapper
               setSearchValue={setSearchValue}
               searchValue={debounceValue}
-              searchHistoryTitle={t('Header.searchHistoryTitle')}
-              searchHistoryEmpty={t('Header.searchHistoryEmpty')}
-              products={t('products')}
-              noResult={t('noResult')}
+              searchHistoryTitle={t("searchHistoryTitle")}
+              searchHistoryEmpty={t("searchHistoryEmpty")}
+              products={t("products")}
+              noResult={t("noResult")}
               {...attrs}
             />
           )}
@@ -111,21 +103,17 @@ export default function Header({}: Props) {
                 onInput={(e) => setSearchValue(e.currentTarget.value)}
                 value={searchValue}
                 className={searchInputClass}
-                placeholder={t("Header.search")}
+                placeholder={t("search")}
               />
             </div>
-            <button title={t("Header.searchBtn")} className={searchIconClass}>
+            <button title={t("searchBtn")} className={searchIconClass}>
               <SearchOutlined className="text-white text-xl" />
             </button>
           </div>
         </Tippy>
 
         <div className="links flex items-center">
-          <button
-            onClick={() => setIsActiveSearchModal(true)}
-            title={t("Header.searchBtn")}
-            className="rock:hidden text-2xl"
-          >
+          <button onClick={() => setIsActiveSearchModal(true)} title={t("searchBtn")} className="rock:hidden text-2xl">
             <SearchOutlined />
           </button>
           <button className={`${!isUserLogged ? "hidden" : ""} text-2xl ml-3`}>
@@ -136,10 +124,7 @@ export default function Header({}: Props) {
         </div>
       </div>
 
-      <MobilePopperWrapper
-        isActiveSearchModal={isActiveSearchModal}
-        setIsActiveSearchModal={setIsActiveSearchModal}
-      />
+      <MobilePopperWrapper isActiveSearchModal={isActiveSearchModal} setIsActiveSearchModal={setIsActiveSearchModal} />
     </header>
   );
 }
