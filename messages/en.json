@@ -1,6 +1,9 @@
 {
   "login": "Login",
+  "loginWith": "Login With",
   "register": "Register",
+  "or": "Or",
+  "forgotPassword": "Forgot Password?",
   "logout": "Logout",
   "search": "Search Products ...",
   "searchBtn": "Search",
@@ -19,29 +22,53 @@
   "productList": "Product List",
   "categories": "Categories",
   "social": "Social",
+  "orderFrom": "Order From",
+  "deliveryFrom": "Delivery From",
   "policy": {
     "title": "Policy",
     "shoppingGuide": "Shopping Guide",
-    "shippingAndPayment": "Shipping And Payment Policy",
-    "returnAndWarranty": "Return and Warranty Policy"
-  },
-  "returnAndWarrantyPolicy": {
-    "of": "Warranty {policy} of {storeName}",
-    "effort": "<b>Hung Nguyet Printing</b> always strives to bring customers excellent shopping products and continuously improving after-sales services. Therefore, <b>Hung Nguyet Printing</b> has improved and implemented a <b>Warranty Policy</b> for <b>Hung Nguyet Printing's</b> products.",
-    "applicable": {
-      "title": "Applicable Conditions:",
-      "freeCase": "The product is warranted free of charge for the corresponding <b>period of use</b> in the following cases:",
-      "packagingError": "Defects caused by manufacturing, improper packaging, missing product components, or product quality not meeting the promised specifications.",
-      "shippingError": "Defects caused during the transportation process from our company to the customer."
+    "shippingAndPayment": {
+      "title": "Shipping And Payment Policy",
+      "policyOf": "TRansportation and payment policy of {storeName}",
+      "interactiveService": {
+        "headline": "1. Interactive Service:",
+        "description": "All customers when buying wholesale or retail at {storeName} can interact at:"
+      },
+      "deliveryAndOrderingTime": {
+        "headline": "2. Delivery and ordering time:",
+        "orderTime": "+ From 8:00 to 20:00 every day",
+        "deliveryMorning": "+ Morning: From 8:30 to 12:00",
+        "deliveryAfternoon": "+ Afternoon: From 13:30 to 20:00",
+        "deliverySchedule": "Placed order: Delivering goods as scheduled by both parties.",
+        "objectiveCase": "In objective case: Return the goods afters 3 days or have direct communication with the customer.",
+        "highBuildingCase": "For customer in hight-rise condominiums, offices, and restaurant located on upper floors, please receive the goods on the ground floor or at the most convenient location to pick-up."
+      },
+      "paymentMethod": {
+        "headline": "3. Payment Methods:",
+        "cod": "COD",
+        "banking": "Internet Banking.",
+        "outsideProvince": "For orders outside province, we only accept payment via 100% bank transfer in advance or receiving payment and delivering the goods at the designated location provided by the customer."
+      }
     },
-    "refuse": {
-      "title": "Hung Nguyet Printing <b>refuses</b> to warranty the product in the following cases:",
-      "notFromUs": "The product is not manufactured or supplied by Hung Nguyet Printing, or the defects are caused by customer interference or natural disasters.",
-      "customerFactor": "The product is damaged and faulty due to customer-caused factors such as scratches, product no longer being intact due to external forces, or being affected by weather conditions (wind, rain) during the usage process.",
-      "allCaseDecision": "In all cases, the decision of Hung Nguyet Printing is final."
-    },
-    "note": "Note: To avoid unwanted situations, when receiving the product, customers should carefully inspect the product, packaging specifications, and product quality.",
-    "finalNote": "{storeName} always aims to bring the utmost satisfaction to customers!"
+    "returnAndWarranty": {
+      "title": "Return and Warranty Policy",
+      "ofStore": "Warranty {policy} of {storeName}",
+      "effort": "<b>Hung Nguyet Printing</b> always strives to bring customers excellent shopping products and continuously improving after-sales services. Therefore, <b>Hung Nguyet Printing</b> has improved and implemented a <b>Warranty Policy</b> for <b>Hung Nguyet Printing's</b> products.",
+      "applicable": {
+        "title": "Applicable Conditions:",
+        "freeCase": "The product is warranted free of charge for the corresponding <b>period of use</b> in the following cases:",
+        "packagingError": "Defects caused by manufacturing, improper packaging, missing product components, or product quality not meeting the promised specifications.",
+        "shippingError": "Defects caused during the transportation process from our company to the customer."
+      },
+      "refuse": {
+        "title": "Hung Nguyet Printing <b>refuses</b> to warranty the product in the following cases:",
+        "notFromUs": "The product is not manufactured or supplied by Hung Nguyet Printing, or the defects are caused by customer interference or natural disasters.",
+        "customerFactor": "The product is damaged and faulty due to customer-caused factors such as scratches, product no longer being intact due to external forces, or being affected by weather conditions (wind, rain) during the usage process.",
+        "allCaseDecision": "In all cases, the decision of Hung Nguyet Printing is final."
+      },
+      "note": "Note: To avoid unwanted situations, when receiving the product, customers should carefully inspect the product, packaging specifications, and product quality.",
+      "finalNote": "{storeName} always aims to bring the utmost satisfaction to customers!"
+    }
   },
   "mainProcess": {
     "inquiries": "For customers who have inquiries, please contact us through the following channels: Call/sms/zalo: {phoneNumber} - Email: {email}",
@@ -57,6 +84,14 @@
     "productNameDESC": "Product Name (Z - A)",
     "mostViewed": "Most Viewed"
   },
+  "validation": {
+    "invalidEmail": "Invalid Email!",
+    "passwordNotEmpty": "Password cannot be empty!",
+    "nameNotEmpty": "Fullname cannot be empty!",
+    "min": {
+      "passwordSix": "Minimum password length is 6 characters!"
+    }
+  },
   "inStock": "In Stock",
   "outStock": "Out Stock",
   "additionalInformation": "Additional Information",
@@ -70,6 +105,12 @@
   "featuredCategoryTitle": "Featured Category",
   "produceProcess": "Produce Process",
   "fullname": "Full Name",
+  "password": "Password",
+  "signUp": "Sign Up",
+  "resetMyPassword": "Reset My Password",
+  "enterPassword": "Enter Password",
+  "yourEmail": "Your Email",
+  "resetPasswordNote": "Please enter your email address below to receive a password reset link.",
   "phonenumber": "Phone Number",
   "content": "Content",
   "contact": "Contact",

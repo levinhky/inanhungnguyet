@@ -1,6 +1,9 @@
 {
   "login": "Đăng Nhập",
+  "loginWith": "Đăng nhập bằng",
   "register": "Đăng Ký",
+  "or": "Hoặc",
+  "forgotPassword": "Quên mật khẩu?",
   "logout": "Đăng Xuất",
   "search": "Tìm sản phẩm mong muốn ...",
   "searchBtn": "Tìm Kiếm",
@@ -19,29 +22,53 @@
   "productList": "Danh sách sản phẩm",
   "categories": "Danh Mục",
   "social": "Mạng xã hội",
+  "orderFrom": "Đặt hàng từ",
+  "deliveryFrom": "Giao hàng từ",
   "policy": {
     "title": "Chính Sách",
     "shoppingGuide": "Hướng dẫn mua hàng",
-    "shippingAndPayment": "Chính sách vận chuyển - thanh toán",
-    "returnAndWarranty": "Chính sách đổi trả - bảo hành"
-  },
-  "returnAndWarrantyPolicy": {
-    "of": "Chính sách {policy} của {storeName}",
-    "effort": "<b>In Ấn Hùng Nguyệt</b> luôn nỗ lực mang đến cho quý khách những sản phẩm sắm tuyệt và những dịch vụ hậu mãi không ngừng được hoàn thiện. Theo đó, In Ấn Hùng Nguyệt đã cải tiến và áp dụng <b>Chính sách bảo hành</b> đối với sản phẩm <b>của In Ấn Hùng Nguyệt</b>.",
-    "applicable": {
-      "title": "Điều kiện áp dụng:",
-      "freeCase": "Sản phẩm được bảo hành miễn phí trong thời gian sử dụng <b>tương ứng</b> trong các trường hợp sau:",
-      "packagingError": "Lỗi do sản xuất, không đóng gói theo quy cách, thiếu sản phẩm hoặc chất lượng sản phẩm không như cam kết.",
-      "shippingError": "Lỗi do quá trình vận chuyển từ phía công ty chúng tôi đến quý khách hàng."
+    "shippingAndPayment": {
+      "title": "Chính sách vận chuyển - thanh toán",
+      "policyOf": "Chính sách vận chuyển và thanh toán của {storeName}",
+      "interactiveService": {
+        "headline": "1. Dịch vụ tương tác:",
+        "description": "Tất cả các khách hàng khi mua sỉ, lẻ tại {storeName} có thể tương tác:"
+      },
+      "deliveryAndOrderingTime": {
+        "headline": "2. Thời gian giao hàng và đặt hàng:",
+        "orderTime": "+ Từ 8:00 đến 20:00 hàng ngày",
+        "deliveryMorning": "+ Buổi sáng: Từ 8:30 đến 12:00",
+        "deliveryAfternoon": "+ Buổi chiều: Từ 13:30 đến 20:00",
+        "deliverySchedule": "Đơn hàng đặt: Trả hàng đúng theo lịch hai bên đã hẹn.",
+        "objectiveCase": "Trường hợp khách quan: Trả hàng sau 3 ngày hoặc có thông báo trực tiếp với khách hàng.",
+        "highBuildingCase": "Với những khách hàng tại chung cư cao tầng, cơ quan, văn phòng, nhà hàng ở trên cao vui lòng nhận hàng tại tầng trệt hoặc nơi nhận thuận tiện nhất."
+      },
+      "paymentMethod": {
+        "headline": "3. Phương thức thanh toán:",
+        "cod": "Thanh toán trực tiếp: Ngay sau khi giao và nhận hàng.",
+        "banking": "Thanh toán chuyển khoản.",
+        "outsideProvince": "Với đơn hàng ngoại tỉnh, chúng tôi chỉ nhận thanh toán chuyển khoản trước 100% tiền hàng hoặc nhận tiền và giao hàng tại nhà xe do quý khách cung cấp."
+      }
     },
-    "refuse": {
-      "title": "In Ấn Hùng Nguyệt <b>từ chối</b> bảo hành sản phẩm đối với các trường hợp:",
-      "notFromUs": "Sản phẩm không phải do In Ấn Hùng Nguyệt Sản xuất, Cung cấp hoặc do lỗi do quý Khách hàng tác động hoặc do thiên tai hỏa hoạn.",
-      "customerFactor": "Sản phẩm bị hư hỏng và lỗi từ phía khách hàng gây nên như trầy xước, sản phẩm không còn nguyên vẹn do các tác động ngoại lực hoặc bị ảnh hưởng bởi thời tiết (gió, mưa) trong quá trình sử dụng.",
-      "allCaseDecision": "Trong mọi trường hợp, quyết định của In Ấn Hùng Nguyệt là quyết định cuối cùng."
-    },
-    "note": "Lưu ý: Tránh để xảy ra những trường hợp không mong muốn, khi nhận sản phẩm quý khách nên kiểm tra kỹ sản phẩm, quy cách đóng gói và chất lượng sản phẩm.",
-    "finalNote": "{storeName} luôn mong muốn mang đến cho khách những sự hài lòng tuyệt đối nhất!"
+    "returnAndWarranty": {
+      "title": "Chính sách đổi trả - bảo hành",
+      "ofStore": "Chính sách {policy} của {storeName}",
+      "effort": "<b>In Ấn Hùng Nguyệt</b> luôn nỗ lực mang đến cho quý khách những sản phẩm sắm tuyệt và những dịch vụ hậu mãi không ngừng được hoàn thiện. Theo đó, In Ấn Hùng Nguyệt đã cải tiến và áp dụng <b>Chính sách bảo hành</b> đối với sản phẩm <b>của In Ấn Hùng Nguyệt</b>.",
+      "applicable": {
+        "title": "Điều kiện áp dụng:",
+        "freeCase": "Sản phẩm được bảo hành miễn phí trong thời gian sử dụng <b>tương ứng</b> trong các trường hợp sau:",
+        "packagingError": "Lỗi do sản xuất, không đóng gói theo quy cách, thiếu sản phẩm hoặc chất lượng sản phẩm không như cam kết.",
+        "shippingError": "Lỗi do quá trình vận chuyển từ phía công ty chúng tôi đến quý khách hàng."
+      },
+      "refuse": {
+        "title": "In Ấn Hùng Nguyệt <b>từ chối</b> bảo hành sản phẩm đối với các trường hợp:",
+        "notFromUs": "Sản phẩm không phải do In Ấn Hùng Nguyệt Sản xuất, Cung cấp hoặc do lỗi do quý Khách hàng tác động hoặc do thiên tai hỏa hoạn.",
+        "customerFactor": "Sản phẩm bị hư hỏng và lỗi từ phía khách hàng gây nên như trầy xước, sản phẩm không còn nguyên vẹn do các tác động ngoại lực hoặc bị ảnh hưởng bởi thời tiết (gió, mưa) trong quá trình sử dụng.",
+        "allCaseDecision": "Trong mọi trường hợp, quyết định của In Ấn Hùng Nguyệt là quyết định cuối cùng."
+      },
+      "note": "Lưu ý: Tránh để xảy ra những trường hợp không mong muốn, khi nhận sản phẩm quý khách nên kiểm tra kỹ sản phẩm, quy cách đóng gói và chất lượng sản phẩm.",
+      "finalNote": "{storeName} luôn mong muốn mang đến cho khách những sự hài lòng tuyệt đối nhất!"
+    }
   },
   "mainProcess": {
     "inquiries": "Quý khách hàng có nhu cầu vui lòng liên hệ qua các kênh sau: Call/sms/zalo: {phoneNumber} - Email: {email}",
@@ -57,6 +84,14 @@
     "productNameDESC": "Tên sản phẩm (Z tới A)",
     "mostViewed": "Xem Nhiều"
   },
+  "validation": {
+    "invalidEmail": "Email không hợp lệ!",
+    "passwordNotEmpty": "Mật khẩu không được để trống!",
+    "nameNotEmpty": "Họ và tên không được để trống!",
+    "min": {
+      "passwordSix": "Mật khẩu ít nhất 6 ký tự!"
+    }
+  },
   "inStock": "Còn Hàng",
   "outStock": "Hết Hàng",
   "additionalInformation": "Thông tin thêm",
@@ -70,6 +105,12 @@
   "featuredCategoryTitle": "Danh mục phổ biến",
   "produceProcess": "Quy trình sản xuất",
   "fullname": "Họ Và Tên",
+  "password": "Mật khẩu",
+  "signUp": "Đăng ký thành viên mới",
+  "resetMyPassword": "Đặt lại mật khẩu của tôi",
+  "enterPassword": "Nhập mật khẩu",
+  "yourEmail": "Email của bạn",
+  "resetPasswordNote": "Vui lòng nhập địa chỉ email của bạn dưới đây để nhận được một liên kết đặt lại mật khẩu.",
   "phonenumber": "Điện Thoại",
   "content": "Nội Dung",
   "contact": "Liên Hệ",

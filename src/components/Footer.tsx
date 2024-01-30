@@ -76,10 +76,10 @@ export default function Footer({}: Props) {
               <Link href={"/"}>{t("policy.shoppingGuide")}</Link>
             </li>
             <li className={`${liHover}`}>
-              <Link href={"/chinh-sach-van-chuyen-thanh-toan"}>{t("policy.shippingAndPayment")}</Link>
+              <Link href={"/chinh-sach-van-chuyen-thanh-toan"}>{t("policy.shippingAndPayment.title")}</Link>
             </li>
             <li className={`${liHover}`}>
-              <Link href={"/chinh-sach-doi-tra-bao-hanh"}>{t("policy.returnAndWarranty")}</Link>
+              <Link href={"/chinh-sach-doi-tra-bao-hanh"}>{t("policy.returnAndWarranty.title")}</Link>
             </li>
           </ul>
         </div>
@@ -113,10 +113,10 @@ export default function Footer({}: Props) {
                 <Link href={"/"}>{t("policy.shoppingGuide")}</Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/chinh-sach-van-chuyen-thanh-toan"}>{t("policy.shippingAndPayment")}</Link>
+                <Link href={"/chinh-sach-van-chuyen-thanh-toan"}>{t("policy.shippingAndPayment.title")}</Link>
               </li>
               <li className={`${liHover}`}>
-                <Link href={"/chinh-sach-doi-tra-bao-hanh"}>{t("policy.returnAndWarranty")}</Link>
+                <Link href={"/chinh-sach-doi-tra-bao-hanh"}>{t("policy.returnAndWarranty.title")}</Link>
               </li>
             </ul>
           </div>

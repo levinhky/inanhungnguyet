@@ -6,54 +6,55 @@ import Link from "next/link";
 type Props = {};
 
 export default function ReturnAndWarrantyPolicyPage({}: Props) {
-  const t = useTranslations("");
+  const t = useTranslations("policy.returnAndWarranty");
+  const t_global = useTranslations("");
 
   return (
     <div className="container mx-auto rock:text-base text-sm">
       <BreadCrumb />
       <h1 className="font-bold rock:text-2xl text-xl">
-        {t("returnAndWarrantyPolicy.of", {
-          policy: t("policy.title"),
-          storeName: t("storeName"),
+        {t("ofStore", {
+          policy: t_global("policy.title"),
+          storeName: t_global("storeName"),
         })}
       </h1>
 
       <h3 className="italic my-4 ">
         <div
           dangerouslySetInnerHTML={{
-            __html: t.raw("returnAndWarrantyPolicy.effort"),
+            __html: t.raw("effort"),
           }}
         />
       </h3>
 
       <section>
-        <h6 className="my-3 font-semibold">► {t("returnAndWarrantyPolicy.applicable.title")}</h6>
+        <h6 className="my-3 font-semibold">► {t("applicable.title")}</h6>
         <h5 className="rock:my-5 my-3 ">
           &ndash;{" "}
           <div
             dangerouslySetInnerHTML={{
-              __html: t.raw("returnAndWarrantyPolicy.applicable.freeCase"),
+              __html: t.raw("applicable.freeCase"),
             }}
           />
         </h5>
         <ul>
-          <li className="rock:mb-2 mb-1">&bull; {t("returnAndWarrantyPolicy.applicable.packagingError")}</li>
-          <li className="rock:mb-2 mb-1">&bull; {t("returnAndWarrantyPolicy.applicable.shippingError")}</li>
+          <li className="rock:mb-2 mb-1">&bull; {t("applicable.packagingError")}</li>
+          <li className="rock:mb-2 mb-1">&bull; {t("applicable.shippingError")}</li>
         </ul>
         <h5 className="rock:my-5 my-3 ">
           &ndash;{" "}
           <div
             dangerouslySetInnerHTML={{
-              __html: t.raw("returnAndWarrantyPolicy.refuse.title"),
+              __html: t.raw("refuse.title"),
             }}
           />
         </h5>
         <ul>
-          <li className="rock:mb-2 mb-1 ">&bull; {t("returnAndWarrantyPolicy.refuse.notFromUs")}</li>
-          <li className="rock:mb-2 mb-1 ">&bull; {t("returnAndWarrantyPolicy.refuse.customerFactor")}</li>
+          <li className="rock:mb-2 mb-1 ">&bull; {t("refuse.notFromUs")}</li>
+          <li className="rock:mb-2 mb-1 ">&bull; {t("refuse.customerFactor")}</li>
         </ul>
-        <h5 className="mb-2 ">&ndash; {t("returnAndWarrantyPolicy.refuse.allCaseDecision")}</h5>
-        <h5> &ndash; {t("returnAndWarrantyPolicy.note")}</h5>
+        <h5 className="mb-2 ">&ndash; {t("refuse.allCaseDecision")}</h5>
+        <h5> &ndash; {t("note")}</h5>
       </section>
 
       <div id="map" className="my-7">
@@ -68,12 +69,12 @@ export default function ReturnAndWarrantyPolicyPage({}: Props) {
       </div>
 
       <h3>
-        <b>{t("returnAndWarrantyPolicy.finalNote", { storeName: t("storeName") })}</b>
+        <b>{t("finalNote", { storeName: t_global("storeName") })}</b>
       </h3>
       <h3 className="mt-3 ">
         <b>Hotline:</b>{" "}
         <Link target="_blank" rel="nofollow" href={"tel:0867673358"}>
-          {t("mainPhoneNumber")}
+          {t_global("mainPhoneNumber")}
         </Link>
       </h3>
     </div>

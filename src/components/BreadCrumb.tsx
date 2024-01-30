@@ -22,9 +22,9 @@ export default function BreadCrumb({ slug, slugName }: Props) {
       case "lien-he":
         return t("contact");
       case "chinh-sach-van-chuyen-thanh-toan":
-        return t("policy.shippingAndPayment");
+        return t("policy.shippingAndPayment.title");
       case "chinh-sach-doi-tra-bao-hanh":
-        return t("policy.returnAndWarranty");
+        return t("policy.returnAndWarranty.title");
       case "danh-sach-san-pham":
         return t("productList");
       case "dang-nhap":
