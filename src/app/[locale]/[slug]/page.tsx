@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
+import ProductDetail from "@/components/ProductDetail";
 import apiConfig from "@/config/apiConfig";
-import ProductDetail from "@/components/ProductDetail/page";
 
 type Props = {
   params: {
@@ -33,11 +33,5 @@ export default async function ProductDetailPage({ params }: Props) {
 
   const productResponse = await getProduct();
 
-  return (
-    <ProductDetail
-      slug={slug}
-      product={productResponse}
-      slugName={productResponse.name}
-    />
-  );
+  return <ProductDetail slug={slug} product={productResponse} slugName={productResponse.name} />;
 }
