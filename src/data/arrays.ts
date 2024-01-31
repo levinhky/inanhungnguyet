@@ -2,23 +2,22 @@ export const menuItems = [
   {
     id: "1",
     url: "/danh-sach-san-pham",
-    label: "Sản phẩm",
+    label: "products",
   },
   {
     id: "2",
     url: "/gioi-thieu",
-    label: "Giới thiệu",
+    label: "introduce",
   },
   {
     id: "3",
     url: "/lien-he",
-    label: "Liên hệ",
+    label: "contact",
   },
 ];
 
 export const metadataContent = {
-  title:
-    "In Ấn Hùng Nguyệt - Địa Chỉ In Túi Nhựa, Ly Nhựa, Cốc Nhựa Chất Lượng",
+  title: "In Ấn Hùng Nguyệt - Địa Chỉ In Túi Nhựa, Ly Nhựa, Cốc Nhựa Chất Lượng",
   keywords: [
     "In túi nhựa",
     "In túi xốp",

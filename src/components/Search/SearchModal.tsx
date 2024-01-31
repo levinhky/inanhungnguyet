@@ -50,7 +50,7 @@ export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSe
                 onInput={(e) => setSearchValue(e.currentTarget.value)}
                 value={searchValue}
                 className={searchInputClass}
-                placeholder="Tìm sản phẩm mong muốn ..."
+                placeholder={t("search")}
               />
             </Tippy>
 
@@ -62,12 +62,12 @@ export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSe
                 }}
                 className="text-[var(--blue-text)] font-bold"
               >
-                Hủy
+                {t("cancel")}
               </button>
             </div>
           </div>
 
-          <button title="Tìm kiếm" className={searchIconClass}>
+          <button title={t("searchBtn")} className={searchIconClass}>
             <SearchOutlined className="text-white text-xl" />
           </button>
         </div>

@@ -6,6 +6,7 @@
   "forgotPassword": "Forgot Password?",
   "logout": "Logout",
   "search": "Search Products ...",
+  "cancel": "Cancel",
   "searchBtn": "Search",
   "searchHistoryTitle": "Search History",
   "searchHistoryEmpty": "History Empty",
@@ -92,6 +93,15 @@
       "passwordSix": "Minimum password length is 6 characters!"
     }
   },
+  "aboutPage": {
+    "title": "Introduce About Hung Nguyet Printing",
+    "welcome": "Welcome to Hung Nguyet Printing! We are a newly established printing studio, but we have quickly built a reputation and established ourselves in this field. We pride ourselves on delivering hight-quality printing products and reliable services to our customers.",
+    "vision": "Our vision is to become one of the leading and most trusted printing studios in the market. We are committed to metting the diverse requirements of our customers and providing them with effective and creative printing solutions",
+    "service": "We provide a wide range of printing services, including printing on materials such as paper, plastic, fabric, packaging, and many other types of products. By ultilizing advanced printing technology and modern equipment, we ensure that the colors and images on the printed products are clear, sharp, and high quality.",
+    "satisfaction": "We not only focus on delivering high-quality printing products but alse prioritize customer satisfaction. We listen to and closely interact with our customers to understand their needs and requirements. We accompany our customer throughtout the entire process, from the initital design stage to the printing process and final delivery.",
+    "value": "With a commitment to delivering value and enjoyment to our customers, we continuously strive to create unique and impressive printing products. We believe that creativity and quality are essential elements to meet and exceed customer expectations.",
+    "visitUs": "Visit Hung Nguyet Printing if you are seeking a professional and trustworthy printing parnet. We are more than willing to support and accompany you in every printing project."
+  },
   "inStock": "In Stock",
   "outStock": "Out Stock",
   "additionalInformation": "Additional Information",
@@ -114,6 +124,7 @@
   "phonenumber": "Phone Number",
   "content": "Content",
   "contact": "Contact",
+  "introduce": "Introduce",
   "advice": "Advice",
   "design": "Design",
   "produce": "Produce",

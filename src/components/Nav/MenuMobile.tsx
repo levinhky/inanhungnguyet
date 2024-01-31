@@ -1,6 +1,7 @@
 import { menuItems } from "@/data/arrays";
 import { CloseOutlined } from "@ant-design/icons";
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 type Props = {
   isActiveMenu: boolean;
@@ -8,8 +9,8 @@ type Props = {
 };
 
 export default function MenuMobile({ isActiveMenu, handleMenuMobile }: Props) {
-  const liClassNameMobile =
-    "text-sm uppercase text-[var(--blue)] font-semibold py-2.5 px-1";
+  const liClassNameMobile = "text-sm uppercase text-[var(--blue)] font-semibold py-2.5 px-1";
+  const t = useTranslations();
 
   return (
     <>
@@ -22,11 +23,7 @@ export default function MenuMobile({ isActiveMenu, handleMenuMobile }: Props) {
         id="menu-mobile"
         className={`rock:hidden w-screen h-screen
       fixed top-0 right-auto z-50 bg-white px-[15px] py-[20px] 
-      ${
-        !isActiveMenu
-          ? "-left-full opacity-50 invisible"
-          : "left-0 opacity-100 visible"
-      }`}
+      ${!isActiveMenu ? "-left-full opacity-50 invisible" : "left-0 opacity-100 visible"}`}
       >
         <button
           onClick={() => handleMenuMobile(false)}
@@ -38,7 +35,7 @@ export default function MenuMobile({ isActiveMenu, handleMenuMobile }: Props) {
           {menuItems.map((item) => (
             <li className={liClassNameMobile} key={item.id}>
               <Link onClick={() => handleMenuMobile(false)} href={item.url}>
-                {item.label}
+                {t(item.label)}
               </Link>
             </li>
           ))}

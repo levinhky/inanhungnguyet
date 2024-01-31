@@ -32,7 +32,7 @@ export default function NavBar({}: Props) {
             <div className={`${genericHamburgerLine} ${isMenuOpen ? "opacity-0" : ""}`} />
             <div className={`${genericHamburgerLine} ${isMenuOpen ? "-rotate-45 -translate-y-[9px] " : ""}`} />
           </button>
-          <b className="ml-2">{t('categories')}</b>
+          <b className="ml-2">{t("categories")}</b>
         </div>
       </div>
     );
@@ -44,7 +44,7 @@ export default function NavBar({}: Props) {
         {menuItems.map((item) => (
           <li className={liClassName} key={item.id}>
             <Link className="px-[20px] h-full flex items-center" href={item.url}>
-              {item.label}
+              {t(item.label)}
             </Link>
           </li>
         ))}

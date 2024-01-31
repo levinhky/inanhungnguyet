@@ -6,6 +6,7 @@
   "forgotPassword": "Quên mật khẩu?",
   "logout": "Đăng Xuất",
   "search": "Tìm sản phẩm mong muốn ...",
+  "cancel": "Hủy",
   "searchBtn": "Tìm Kiếm",
   "searchHistoryTitle": "Lịch sử tìm kiếm",
   "searchHistoryEmpty": "Lịch sử tìm kiếm rỗng",
@@ -92,6 +93,15 @@
       "passwordSix": "Mật khẩu ít nhất 6 ký tự!"
     }
   },
+  "aboutPage": {
+    "title": "Giới thiệu về In Ấn Hùng Nguyệt",
+    "welcome": "Chào mừng bạn đến với Xưởng In ấn Hùng Nguyệt! Chúng tôi là một xưởng in ấn mới được thành lập, nhưng chúng tôi đã nhanh chóng xây dựng được danh tiếng và khẳng định mình trong lĩnh vực này. Chúng tôi tự hào mang đến cho khách hàng những sản phẩm in ấn chất lượng cao và dịch vụ đáng tin cậy.",
+    "vision": "Tầm nhìn của chúng tôi là trở thành một trong những xưởng in ấn hàng đầu và tin cậy nhất trên thị trường. Chúng tôi cam kết đáp ứng các yêu cầu đa dạng của khách hàng và mang đến cho họ những giải pháp in ấn hiệu quả và sáng tạo.",
+    "service": "Chúng tôi cung cấp các dịch vụ in ấn đa dạng, bao gồm in trên các vật liệu như giấy, nhựa, vải, bao bì và nhiều loại sản phẩm khác. Bằng cách sử dụng công nghệ in ấn tiên tiến và trang thiết bị hiện đại, chúng tôi đảm bảo rằng màu sắc và hình ảnh trên sản phẩm in ấn đều rõ ràng, sắc nét và chất lượng cao.",
+    "satisfaction": "Chúng tôi không chỉ tập trung vào việc cung cấp sản phẩm in ấn chất lượng, mà còn đặt sự hài lòng của khách hàng lên hàng đầu. Chúng tôi lắng nghe và tương tác chặt chẽ với khách hàng để hiểu rõ nhu cầu và yêu cầu của họ. Chúng tôi đồng hành cùng khách hàng từ giai đoạn thiết kế ban đầu cho đến quy trình in ấn và giao hàng cuối cùng.",
+    "value": "Với cam kết đem lại giá trị và sự tận hưởng cho khách hàng, chúng tôi không ngừng nỗ lực để tạo ra những sản phẩm in ấn độc đáo và ấn tượng. Chúng tôi tin rằng sự sáng tạo và chất lượng là yếu tố quan trọng để đáp ứng và vượt qua sự mong đợi của khách hàng.",
+    "visitUs": "Hãy đến với Xưởng In ấn Hùng Nguyệt nếu bạn đang tìm kiếm một đối tác in ấn chuyên nghiệp và đáng tin cậy. Chúng tôi sẵn lòng hỗ trợ và đồng hành cùng bạn trong mọi dự án in ấn."
+  },
   "inStock": "Còn Hàng",
   "outStock": "Hết Hàng",
   "additionalInformation": "Thông tin thêm",
@@ -114,6 +124,7 @@
   "phonenumber": "Điện Thoại",
   "content": "Nội Dung",
   "contact": "Liên Hệ",
+  "introduce": "Giới Thiệu",
   "advice": "Tư Vấn",
   "design": "Thiết Kế",
   "produce": "Sản Xuất",
