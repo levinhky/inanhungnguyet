@@ -13,12 +13,9 @@ import { locales } from "@/navigation";
 import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
-// export const metadata: Metadata = {
-//   title: metadataContent.title,
-//   description: metadataContent.description,
-//   keywords: metadataContent.keywords,
-//   openGraph: metadataContent,
-// };
+export const metadata: Metadata = {
+  openGraph: metadataContent,
+};
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations({ locale, namespace: "SEO" });
