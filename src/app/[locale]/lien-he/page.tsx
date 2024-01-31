@@ -1,3 +1,5 @@
+"use client";
+
 import BreadCrumb from "@/components/BreadCrumb";
 import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import { Link } from "@/navigation";
