@@ -3,7 +3,6 @@ import { auth } from "@/data/firebase";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { signOut } from "firebase/auth";
-import { useTranslations } from "next-intl";
 
 export type UserAttributes = {
   displayName: string;
@@ -31,8 +30,6 @@ const initialState: AuthState = {
   },
 };
 
-const t = useTranslations("validation");
-
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -55,13 +52,13 @@ export const authSlice = createSlice({
         .then(() => {
           Toast.fire({
             icon: "success",
-            title: t("logoutSuccess"),
+            title: "Đăng xuất thành công!",
           });
         })
         .catch((error) => {
           Toast.fire({
             icon: "error",
-            title: t("authError"),
+            title: error.message,
           });
         });
     },
