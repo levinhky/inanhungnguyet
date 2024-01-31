@@ -42,7 +42,6 @@ export default function AuthenticationPage({}: Props) {
       setLoginData(defaultLoginFormFields);
       setSignupData(defaultSignupFormFields);
       setTimeout(() => router.push("/"), 1500);
-      console.log(user);
     }
   }, [user]);
 
