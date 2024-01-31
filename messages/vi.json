@@ -88,10 +88,17 @@
   "validation": {
     "invalidEmail": "Email không hợp lệ!",
     "passwordNotEmpty": "Mật khẩu không được để trống!",
+    "emailNotEmpty": "Email không được để trống!",
     "nameNotEmpty": "Họ và tên không được để trống!",
     "min": {
       "passwordSix": "Mật khẩu ít nhất 6 ký tự!"
-    }
+    },
+    "loginSuccess": "Đăng nhập thành công!",
+    "registerSuccess": "Đăng ký thành công!",
+    "logoutSuccess": "Đăng xuất thành công!",
+    "loginAutomatic": "Bạn đã được đăng nhập tự động",
+    "resetPasswordSend": "Thư đặt lại mật khẩu đã gửi!",
+    "authError": "Đã xảy ra lỗi!"
   },
   "aboutPage": {
     "title": "Giới thiệu về In Ấn Hùng Nguyệt",

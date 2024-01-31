@@ -3,6 +3,7 @@ import { auth } from "@/data/firebase";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { signOut } from "firebase/auth";
+import { useTranslations } from "next-intl";
 
 export type UserAttributes = {
   displayName: string;
@@ -30,11 +31,13 @@ const initialState: AuthState = {
   },
 };
 
+const t = useTranslations("validation");
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    getUserInfo: (state, action: PayloadAction<UserAttributes>) => {
+    setUserInfo: (state, action: PayloadAction<UserAttributes>) => {
       state.userInfo = action.payload;
     },
     handleSignOut: (state) => {
@@ -52,19 +55,19 @@ export const authSlice = createSlice({
         .then(() => {
           Toast.fire({
             icon: "success",
-            title: "Đăng xuất thành công!",
+            title: t("logoutSuccess"),
           });
         })
         .catch((error) => {
           Toast.fire({
             icon: "error",
-            title: error.message,
+            title: t("authError"),
           });
         });
     },
   },
 });
 
-export const { getUserInfo, handleSignOut } = authSlice.actions;
+export const { setUserInfo, handleSignOut } = authSlice.actions;
 
 export default authSlice.reducer;

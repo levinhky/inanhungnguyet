@@ -7,12 +7,12 @@ import { useState, useEffect } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModal";
-import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
-import { getUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
+import { setUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
 import useDebounce from "@/assets/libs/hooks";
 import { useTranslations } from "next-intl";
+import { useAppDispatch } from "@/redux/hooks";
 
 type Props = {};
 
@@ -20,14 +20,14 @@ export default function Header({}: Props) {
   const [searchValue, setSearchValue] = useState("");
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
-  const dispath = useDispatch();
+  const dispath = useAppDispatch();
   const t = useTranslations("");
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         dispath(
-          getUserInfo({
+          setUserInfo({
             displayName: user.displayName ?? "",
             email: user.email ?? "",
             emailVerified: user.emailVerified ?? false,

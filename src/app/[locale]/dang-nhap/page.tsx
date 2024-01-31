@@ -2,12 +2,12 @@
 
 import { handleFacebookLogin, handleGoogleLogin, handleLogin, handleSignUp } from "@/assets/authentication/auth";
 import BreadCrumb from "@/components/BreadCrumb";
+import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 type Props = {};
 
@@ -32,7 +32,7 @@ export default function AuthenticationPage({}: Props) {
   const [signupErrors, setSignupErrors] = useState(defaultSignupFormFields);
   const [forgotPasswordError, setForgotPasswordError] = useState("");
 
-  const user = useSelector((state: RootState) => state.auth.userInfo);
+  const user = useAppSelector((state: RootState) => state.auth.userInfo);
   const router = useRouter();
   const t = useTranslations("validation");
   const t_global = useTranslations("");

@@ -88,10 +88,17 @@
   "validation": {
     "invalidEmail": "Invalid Email!",
     "passwordNotEmpty": "Password cannot be empty!",
+    "emailNotEmpty": "Email cannot be empty!",
     "nameNotEmpty": "Fullname cannot be empty!",
     "min": {
       "passwordSix": "Minimum password length is 6 characters!"
-    }
+    },
+    "loginSuccess": "Login Successful!",
+    "registerSuccess": "Register Successful!",
+    "logoutSuccess": "Logout Successful!",
+    "loginAutomatic": "You have been logged in automatically",
+    "resetPasswordSend": "Password reset email has been sent!",
+    "authError": "An error occurred!"
   },
   "aboutPage": {
     "title": "Introduce About Hung Nguyet Printing",
