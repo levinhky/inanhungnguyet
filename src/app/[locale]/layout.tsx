@@ -17,7 +17,11 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 //   openGraph: metadataContent,
 // };
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const t = await getTranslations({ locale, namespace: "SEO" });
 
   return {
@@ -45,7 +49,9 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body suppressHydrationWarning={true}>
         <Providers>
           <NextIntlClientProvider messages={messages}>
@@ -60,7 +66,10 @@ export default function RootLayout({
         <ScrollTop />
         <Pulse />
       </body>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
     window.dataLayer = window.dataLayer || [];

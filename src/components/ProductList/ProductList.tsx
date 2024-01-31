@@ -45,7 +45,7 @@ export default function ProductList({ categories, products }: Props) {
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
             <article className="p-5 rounded-xl rock:w-64 w-full h-fit rock:mt-0 mt-5">
-              <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">{t("categories")}</h3>
+            <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">{t("featuredCategoryTitle")}</h3>
               <ul>
                 {categories?.length &&
                   categories?.map((category) => (
