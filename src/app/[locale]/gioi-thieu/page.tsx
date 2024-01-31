@@ -10,7 +10,7 @@ export default function AboutUsPage() {
     <div className="container mx-auto">
       <BreadCrumb />
       <div id="content">
-        <h1 className="rock:text-3xl text-2xl text-center rock:mb-4 mb-3">{t("title")}</h1>
+        <h3 className="rock:text-3xl text-2xl text-center rock:mb-4 mb-3">{t("title")}</h3>
 
         <div id="desc">
           <p className="mb-2 text-sm rock:text-base">{t("welcome")}</p>

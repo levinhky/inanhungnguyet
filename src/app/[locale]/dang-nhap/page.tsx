@@ -135,7 +135,7 @@ export default function AuthenticationPage({}: Props) {
         }
       `}</style>
       <BreadCrumb />
-      <h1 className="font-bold rock:text-xl text-lg">{t_global("loginWith")}</h1>
+      <h3 className="font-bold rock:text-xl text-lg">{t_global("loginWith")}</h3>
 
       <div className="text-center mt-5">
         <button onClick={handleFacebookLogin} className="text-white indent-8 h-6 rounded-xl pr-3 mx-1" id="fb">

@@ -12,12 +12,12 @@ export default function ReturnAndWarrantyPolicyPage({}: Props) {
   return (
     <div className="container mx-auto rock:text-base text-sm">
       <BreadCrumb />
-      <h1 className="font-bold rock:text-2xl text-xl">
+      <h3 className="font-bold rock:text-2xl text-xl">
         {t("ofStore", {
           policy: t_global("policy.title"),
           storeName: t_global("storeName"),
         })}
-      </h1>
+      </h3>
 
       <h3 className="italic my-4 ">
         <div

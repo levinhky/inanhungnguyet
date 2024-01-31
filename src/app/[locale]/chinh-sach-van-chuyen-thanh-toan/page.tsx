@@ -13,7 +13,7 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
   return (
     <div className="container mx-auto rock:text-base text-sm">
       <BreadCrumb />
-      <h1 className="font-bold rock:text-2xl text-xl">{t("policyOf", { storeName: t_global("storeName") })}</h1>
+      <h3 className="font-bold rock:text-2xl text-xl">{t("policyOf", { storeName: t_global("storeName") })}</h3>
 
       <section>
         <h6 className="rock:my-5 my-3  font-semibold">{t("interactiveService.headline")}</h6>
