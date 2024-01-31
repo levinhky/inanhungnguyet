@@ -59,9 +59,9 @@ export default function FeaturedProduct({ products }: Props) {
                     <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
                       {t("contactUs")}
                     </h2>
-                    <h1 className="name font-normal line-clamp-2">
+                    <h3 className="name font-normal line-clamp-2">
                       <Link href={`/${product.slug}`}>{product.name}</Link>
-                    </h1>
+                    </h3>
                     <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
                       SKU: {product.sku}
                     </h3>
@@ -95,9 +95,9 @@ export default function FeaturedProduct({ products }: Props) {
                     <h2 className="contact uppercase text-sm text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
                       {t("contactUs")}
                     </h2>
-                    <h1 className="name font-normal text-sm line-clamp-2">
+                    <h3 className="name font-normal text-sm line-clamp-2">
                       <Link href={`/${product.slug}`}>{product.name}</Link>
-                    </h1>
+                    </h3>
                     <h3 className="sku uppercase text-[var(--gray-text)] text-xs">
                       SKU: {product.sku}
                     </h3>

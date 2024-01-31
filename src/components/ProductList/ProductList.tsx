@@ -36,12 +36,12 @@ export default function ProductList({ categories, products }: Props) {
             }
           `}</style>
           <BreadCrumb />
-          <h1 className="font-bold rock:text-2xl text-xl text-center">
+          <h6 className="font-bold rock:text-2xl text-xl text-center">
             {t("productList")}{" "}
             <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium">
               ({products?.length} {t("products")} )
             </span>
-          </h1>
+          </h6>
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
             <article className="p-5 rounded-xl rock:w-64 w-full h-fit rock:mt-0 mt-5">
@@ -87,9 +87,9 @@ export default function ProductList({ categories, products }: Props) {
                         <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
                           {t("contactUs")}
                         </h2>
-                        <h1 className="name font-normal line-clamp-2">
+                        <h3 className="name font-normal line-clamp-2">
                           <Link href={`/${product.slug}`}>{product.name}</Link>
-                        </h1>
+                        </h3>
                         <h3 className="sku uppercase text-[var(--gray-text)] text-sm">SKU: {product.sku}</h3>
                       </div>
                     </div>

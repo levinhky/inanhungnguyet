@@ -154,9 +154,9 @@ export default function AuthenticationPage({}: Props) {
 
       <section className="flex rock:flex-nowrap flex-wrap rock:gap-10 gap-7">
         <div className="w-full" id="login-form">
-          <h1 className="text-center rock:text-lg text-base uppercase mb-3">
+          <h2 className="text-center rock:text-lg text-base uppercase mb-3">
             {isForgotPasswordForm ? t_global("forgotPassword") : t_global("login")}
-          </h1>
+          </h2>
 
           {isForgotPasswordForm ? (
             <>
@@ -256,7 +256,7 @@ export default function AuthenticationPage({}: Props) {
         </div>
 
         <div className="w-full" id="reg-form">
-          <h1 className="text-center rock:text-lg text-base uppercase mb-3">{t_global("signUp")}</h1>
+          <h2 className="text-center rock:text-lg text-base uppercase mb-3">{t_global("signUp")}</h2>
 
           <div className="relative rock:mb-6 mb-3 form-group">
             <div className="absolute inset-y-0 left-0 max-h-10 flex items-center pl-3.5 pointer-events-none">

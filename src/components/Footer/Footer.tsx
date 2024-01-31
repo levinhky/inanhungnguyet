@@ -49,7 +49,7 @@ export default function Footer({}: Props) {
         </div>
 
         <div className="rock:flex items-start flex-col  hidden rock:mt-0 mt-[-50px] rock:mr-0 mr-8 mb-5 rock:mb-0">
-          <h1 className="mb-2 mt-11 font-bold uppercase">{t("products")}</h1>
+          <h4 className="mb-2 mt-11 font-bold uppercase">{t("products")}</h4>
           <ul>
             <li className={`${liHover}`}>
               <Link href={"/"}>Bao bì</Link>
@@ -70,7 +70,7 @@ export default function Footer({}: Props) {
         </div>
 
         <div className="rock:flex hidden items-start flex-col rock:mt-0 mt-[-50px]">
-          <h1 className="mb-2 mt-11 font-bold uppercase">{t("policy.title")}</h1>
+          <h4 className="mb-2 mt-11 font-bold uppercase">{t("policy.title")}</h4>
           <ul>
             <li className={`${liHover}`}>
               <Link href={"/"}>{t("policy.shoppingGuide")}</Link>
@@ -86,7 +86,7 @@ export default function Footer({}: Props) {
 
         <div className="rock:hidden flex justify-between w-full">
           <div className="flex items-start flex-col rock:mt-0 mt-[-50px] rock:mr-0 mb-5 rock:mb-0">
-            <h1 className="mb-2 mt-11 font-bold uppercase">{t("products")}</h1>
+            <h4 className="mb-2 mt-11 font-bold uppercase">{t("products")}</h4>
             <ul>
               <li className={`${liHover}`}>
                 <Link href={"/"}>Bao bì</Link>
@@ -107,7 +107,7 @@ export default function Footer({}: Props) {
           </div>
 
           <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
-            <h1 className="mb-2 mt-11 font-bold uppercase">{t("policy.title")}</h1>
+            <h4 className="mb-2 mt-11 font-bold uppercase">{t("policy.title")}</h4>
             <ul>
               <li className={`${liHover}`}>
                 <Link href={"/"}>{t("policy.shoppingGuide")}</Link>
@@ -123,7 +123,7 @@ export default function Footer({}: Props) {
         </div>
 
         <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
-          <h1 className="rock:mb-2 mb-0 mt-11 font-bold uppercase">{t("social")}</h1>
+          <h4 className="rock:mb-2 mb-0 mt-11 font-bold uppercase">{t("social")}</h4>
           <ul>
             <li className={`${liHover}`}>
               <Link href={"https://www.facebook.com/levinhhoa.levinhhoa"} target="_blank" rel="noopener noreferrer">

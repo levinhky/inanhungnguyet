@@ -48,9 +48,9 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
               </div>
 
               <div className="info text-center rock:text-left w-full">
-                <h1 className="font-bold text-2xl rock:my-5 mb-3">
+                <h3 className="font-bold text-2xl rock:my-5 mb-3">
                   {product.name}
-                </h1>
+                </h3>
 
                 <p className="rock:mb-5 mb-3">
                   <span className="font-bold">{t("state")} :</span>{" "}

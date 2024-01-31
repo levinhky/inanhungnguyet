@@ -35,9 +35,9 @@ export default function MainSlider({}: Props) {
             <img src="/slider1.png" className="w-full h-[400px]" alt="" />
             <div className="banner-container absolute bottom-[-30px] right-[20%]
              w-[320px] h-[270px] max-h-[80%] bg-[var(--red)] pt-[30px] px-[24px]">
-              <h1 className="title text-[var(--white)] text-lg font-bold mb-3">
+              <h5 className="title text-[var(--white)] text-lg font-bold mb-3">
                 Sáng Tạo và Màu Sắc Trên Ly Nhựa và Bao Bì In ấn
-              </h1>
+              </h5>
               <p className="desc text-[var(--white)]">
                 Khám phá sự sáng tạo và màu sắc độc đáo trên các sản phẩm ly
                 nhựa và bao bì in ấn. Tạo điểm nhấn cho thương hiệu của bạn với
@@ -66,9 +66,9 @@ export default function MainSlider({}: Props) {
           <SwiperSlide key={slideContent} virtualIndex={index}>
             <img src="/slider2.png" className="w-full h-[400px]  min-h-[320px] object-cover" alt="" />
             <div className="banner-container bg-[var(--red)] py-[30px] px-[24px]">
-              <h1 className="title text-[var(--white)] text-2xl font-bold mb-3">
+              <h5 className="title text-[var(--white)] text-2xl font-bold mb-3">
                 Sáng Tạo và Màu Sắc Trên Ly Nhựa và Bao Bì In ấn
-              </h1>
+              </h5>
               <p className="desc text- text-[var(--white)] line-clamp-3">
                 Khám phá sự sáng tạo và màu sắc độc đáo trên các sản phẩm ly
                 nhựa và bao bì in ấn. Tạo điểm nhấn cho thương hiệu của bạn với

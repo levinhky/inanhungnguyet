@@ -34,7 +34,7 @@ export default function CategoryList({ categories }: Props) {
             flex items-center justify-center flex-col ${active && "active"}`}
               key={category._id}
             >
-              <h1 className="text-[#595959] text-center mb-3">{category.name}</h1>
+              <h3 className="text-[#595959] text-center mb-3">{category.name}</h3>
               <Image className="mt-auto" src={category.thumb} width={160} height={160} alt={category.name} />
             </Link>
           ))}
