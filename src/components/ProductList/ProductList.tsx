@@ -13,6 +13,7 @@ type Props = {
 
 export default function ProductList({ categories, products }: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [sortOption, setSortOption] = useState<string>("name-asc");
   const t = useTranslations("");
 
   useEffect(() => {
@@ -65,12 +66,13 @@ export default function ProductList({ categories, products }: Props) {
                 </label>
                 <select
                   id="options"
-                  defaultValue={"US"}
+                  defaultValue={sortOption}
+                  onChange={(e) => setSortOption(e.target.value)}
                   className="mx-3 min-w-[150px] py-2 pr-7 appearance-none pl-3 text-xs rock:text-sm border rock:cursor-pointer rounded-lg font-bold focus:border-[#ccc]"
                 >
-                  <option value="US">{t("sortBy.productNameASC")}</option>
-                  <option value="CA">{t("sortBy.productNameDESC")}</option>
-                  <option value="FR">{t("sortBy.mostViewed")}</option>
+                  <option value="name-asc">{t("sortBy.productNameASC")}</option>
+                  <option value="name-desc">{t("sortBy.productNameDESC")}</option>
+                  <option value="views-desc">{t("sortBy.mostViewed")}</option>
                 </select>
               </div>
 
