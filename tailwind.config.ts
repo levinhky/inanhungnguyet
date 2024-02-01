@@ -17,13 +17,13 @@ const config: Config = {
     //   },
     // },
     screens: {
-      xs: { min: "320px", max: "480px" }, // Mobile devices
-      sm: { min: "481px", max: "768px" }, // iPads and tablets
-      md: { min: "769px", max: "1024px" }, // Laptops and small screens
+      xs: { min: "320px", max: "479px" }, // Mobile devices
+      sm: { min: "480px", max: "767px" }, // iPads and tablets
+      md: { min: "768px", max: "1024px" }, // Laptops and small screens
       lg: { min: "1025px", max: "1200px" }, // Large screens and desktops
       xl: { min: "1201px" }, // TV and extra large screens
-      rock: { min: "769px" }, // common md
-      ky: { min: "320px", max: "768px" }, // common sm
+      rock: { min: "768px" }, // common md
+      ky: { min: "320px", max: "767px" }, // common sm
     },
   },
   plugins: [],
