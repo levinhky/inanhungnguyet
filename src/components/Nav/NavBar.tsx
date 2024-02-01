@@ -32,7 +32,7 @@ export default function NavBar({}: Props) {
             <div className={`${genericHamburgerLine} ${isMenuOpen ? "opacity-0" : ""}`} />
             <div className={`${genericHamburgerLine} ${isMenuOpen ? "-rotate-45 -translate-y-[9px] " : ""}`} />
           </button>
-          <b className="ml-2">{t("categories")}</b>
+          <b className="ml-2">{t("category")}</b>
         </div>
       </div>
     );

@@ -40,7 +40,7 @@ export default function ProductList({ categories, products }: Props) {
           <h6 className="font-bold rock:text-2xl text-xl text-center">
             {t("productList")}{" "}
             <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium">
-              ({products?.length} {t("products")} )
+              ({products?.length} {t("product")} )
             </span>
           </h6>
 

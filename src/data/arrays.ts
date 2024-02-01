@@ -2,7 +2,7 @@ export const menuItems = [
   {
     id: "1",
     url: "/danh-sach-san-pham",
-    label: "products",
+    label: "product",
   },
   {
     id: "2",

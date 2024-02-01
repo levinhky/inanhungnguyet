@@ -38,7 +38,7 @@ export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSe
                   setSearchValue={setSearchValue}
                   searchHistoryTitle={t("Header.searchHistoryTitle")}
                   searchHistoryEmpty={t("Header.searchHistoryEmpty")}
-                  products={t("products")}
+                  products={t("product")}
                   noResult={t("noResult")}
                   setIsActiveSearchModal={setIsActiveSearchModal}
                   {...attrs}

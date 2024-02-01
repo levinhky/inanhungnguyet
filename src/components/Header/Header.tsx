@@ -90,7 +90,7 @@ export default function Header({}: Props) {
               searchValue={debounceValue}
               searchHistoryTitle={t("searchHistoryTitle")}
               searchHistoryEmpty={t("searchHistoryEmpty")}
-              products={t("products")}
+              products={t("product")}
               noResult={t("noResult")}
               {...attrs}
             />
