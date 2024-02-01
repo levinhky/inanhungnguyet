@@ -11,7 +11,9 @@ type Props = {
   products: [ProductAttributes];
 };
 
-export default function ProductList({ categories, products }: Props) {
+export default function ProductList(props: Props) {
+  const { categories, products } = props;
+  
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [sortOption, setSortOption] = useState<string>("name-asc");
   const t = useTranslations("");
@@ -46,7 +48,7 @@ export default function ProductList({ categories, products }: Props) {
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
             <article className="p-5 rounded-xl rock:w-64 w-full h-fit rock:mt-0 mt-5">
-            <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">{t("featuredCategoryTitle")}</h3>
+            <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">{t("category")}</h3>
               <ul>
                 {categories?.length &&
                   categories?.map((category) => (

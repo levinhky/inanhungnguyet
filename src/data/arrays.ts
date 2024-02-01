@@ -1,7 +1,7 @@
 export const menuItems = [
   {
     id: "1",
-    url: "/danh-sach-san-pham",
+    url: "/danh-sach-san-pham?page=1&limit=8",
     label: "product",
   },
   {
