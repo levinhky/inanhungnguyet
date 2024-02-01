@@ -7,7 +7,7 @@ export const menuItems = [
   {
     id: "2",
     url: "/gioi-thieu",
-    label: "introduce",
+    label: "aboutUs",
   },
   {
     id: "3",
