@@ -24,7 +24,7 @@ export default function FeaturedProduct({ products }: Props) {
           {t("featuredProductTitle")}
         </h1>
         <Link
-          href={"/danh-sach-san-pham?page=1&limit=8"}
+          href={"/danh-sach-san-pham?page=1&limit=8&sort=name-asc"}
           className="text-[var(--blue)] capitalize font-bold rock:text-base text-lg rock:hover:text-[var(--red)]"
         >
           {t("seeMore")}

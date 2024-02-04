@@ -77,7 +77,7 @@ export default function Header({}: Props) {
       <div className="flex justify-between items-center">
         <div className="main-logo cursor-pointer" title="In Ấn Hùng Nguyệt">
           <Link href={"/"}>
-            <Image src={"/logo.svg"} alt="inanhungnguyetlogo" width={150} height={150} />
+            <Image src={"/logo.svg"} alt="inanhungnguyetlogo" width={150} height={150} priority={true} />
           </Link>
         </div>
 

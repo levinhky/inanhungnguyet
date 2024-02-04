@@ -16,7 +16,7 @@ export default function Footer({}: Props) {
       <div className="flex rock:justify-around container mx-auto flex-wrap">
         <div className="rock:mb-0 mb-5">
           <Link href={"/"} className="logo rock:mt-0 mt-[-40px]">
-            <Image src={"/logo.svg"} alt="inanhungnguyetlogo" className="rock:-mt-5 -mb-8" width={150} height={150} />
+            <Image src={"/logo.svg"} alt="inanhungnguyetlogo" className="rock:-mt-5 -mb-8" width={150} height={150} priority={true} />
           </Link>
 
           <ul>
