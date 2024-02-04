@@ -65,7 +65,7 @@ export default function ProductList(props: Props) {
           </h6>
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
-            <article className="p-5 rounded-xl rock:w-64 w-full h-fit rock:mt-0 mt-5">
+            <article className="p-5 rounded-xl rock:w-[500px] w-full h-fit rock:mt-0 mt-5">
               <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">
                 {t("category")}
               </h3>
@@ -109,31 +109,34 @@ export default function ProductList(props: Props) {
               </div>
 
               <div className="products grid rock:grid-cols-4 grid-cols-2 rock:gap-7 gap-4">
-                {products?.length &&
-                  products.map((product, i) => (
-                    <div key={product._id} className="product">
-                      <div className="thumb">
-                        <Link href={`/${product.slug}`}>
-                          <img
-                            src={product.thumbs[0]}
-                            className="select-none rounded-lg"
-                            alt={product.name}
-                          />
-                        </Link>
+                {products?.length
+                  ? products.map((product, i) => (
+                      <div key={product._id} className="product">
+                        <div className="thumb">
+                          <Link href={`/${product.slug}`}>
+                            <img
+                              src={product.thumbs[0]}
+                              className="select-none rounded-lg w-[500px]"
+                              alt={product.name}
+                            />
+                          </Link>
+                        </div>
+                        <div className="info px-5 py-3">
+                          <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
+                            {t("contactUs")}
+                          </h2>
+                          <h3 className="name font-normal line-clamp-2">
+                            <Link href={`/${product.slug}`}>
+                              {product.name}
+                            </Link>
+                          </h3>
+                          <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
+                            SKU: {product.sku}
+                          </h3>
+                        </div>
                       </div>
-                      <div className="info px-5 py-3">
-                        <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
-                          {t("contactUs")}
-                        </h2>
-                        <h3 className="name font-normal line-clamp-2">
-                          <Link href={`/${product.slug}`}>{product.name}</Link>
-                        </h3>
-                        <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
-                          SKU: {product.sku}
-                        </h3>
-                      </div>
-                    </div>
-                  ))}
+                    ))
+                  : "Không tìm thấy sản phẩm!"}
               </div>
             </aside>
           </section>
