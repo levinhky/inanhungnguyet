@@ -111,8 +111,11 @@ export default function ProductList(props: Props) {
               <div className="products grid rock:grid-cols-4 grid-cols-2 rock:gap-7 gap-4">
                 {products?.length
                   ? products.map((product, i) => (
-                      <div key={product._id} className="product">
-                        <div className="thumb">
+                      <div
+                        key={product._id}
+                        className="product shadow-md flex flex-col"
+                      >
+                        <div className="thumb mt-auto">
                           <Link href={`/${product.slug}`}>
                             <img
                               src={product.thumbs[0]}
@@ -121,7 +124,7 @@ export default function ProductList(props: Props) {
                             />
                           </Link>
                         </div>
-                        <div className="info px-5 py-3">
+                        <div className="info px-5 py-3 mt-auto">
                           <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
                             {t("contactUs")}
                           </h2>

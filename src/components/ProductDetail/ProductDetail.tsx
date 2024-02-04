@@ -73,22 +73,32 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
               </h3>
 
               <ul className="info mt-5 list-disc list-inside">
-                <li>
-                  <b>{t("capacity")}:</b> {product.attributes.capacity}{" "}
-                </li>
-                <li>
-                  <b>{t("color")}:</b> {product.attributes.color}
-                </li>
-                <li>
-                  <b>{t("characteristics")}:</b>{" "}
-                  {product.attributes.characteristics}
-                </li>
-                <li>
-                  <b>{t("model")}:</b> {product.attributes.design}
-                </li>
-                <li>
-                  <b>{t("uses")}:</b> {product.attributes.uses}{" "}
-                </li>
+                {product.attributes.capacity !== "" && (
+                  <li>
+                    <b>{t("capacity")}:</b> {product.attributes.capacity}
+                  </li>
+                )}
+                {product.attributes.color !== "" && (
+                  <li>
+                    <b>{t("color")}:</b> {product.attributes.color}
+                  </li>
+                )}
+                {product.attributes.characteristics !== "" && (
+                  <li>
+                    <b>{t("characteristics")}:</b>
+                    {product.attributes.characteristics}
+                  </li>
+                )}
+                {product.attributes.design !== "" && (
+                  <li>
+                    <b>{t("model")}:</b> {product.attributes.design}
+                  </li>
+                )}
+                {product.attributes.uses !== "" && (
+                  <li>
+                    <b>{t("uses")}:</b> {product.attributes.uses}
+                  </li>
+                )}
               </ul>
             </div>
           </section>
