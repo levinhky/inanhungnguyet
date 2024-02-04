@@ -8,13 +8,19 @@ type Props = {
 
 export default async function ProductListingPage({ searchParams }: Props) {
   const sortParam = searchParams?.sort;
-  const productResponse = await getProducts(sortParam);
+  const page = Number(searchParams?.page);
+  const limit = Number(searchParams?.limit);
+  const productResponse = await getProducts(sortParam, page, limit);
   const categoryResponse = await getCategories();
 
   return (
     <ProductList
       categories={categoryResponse.categories}
       products={productResponse.products}
+      totalPages={productResponse.totalPages}
+      totalCount={productResponse.totalCount}
+      page={page}
+      limit={limit}
     />
   );
 }

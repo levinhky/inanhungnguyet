@@ -4,8 +4,8 @@ const apiConfig = {
 
 export async function getProducts(
   sort: string = "name=-asc",
-  limit: number = 8,
-  page: number = 1
+  page: number | undefined = 1,
+  limit: number | undefined = 8
 ) {
   const res = await fetch(
     `${apiConfig.baseURL}products/all?page=${page}&limit=${limit}&sort=${sort}`,

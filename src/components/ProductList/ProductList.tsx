@@ -10,13 +10,18 @@ import React, { useCallback, useEffect, useState } from "react";
 type Props = {
   categories: [CategoryAttributes];
   products: [ProductAttributes];
+  totalPages: number;
+  totalCount: number;
+  page: number;
+  limit: number;
 };
 
 export default function ProductList(props: Props) {
-  const { categories, products } = props;
+  const { categories, products, totalCount, totalPages, page, limit } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [sortOption, setSortOption] = useState<string>("name-asc");
+  const [pagination, setPagination] = useState<number[]>([]);
   const t = useTranslations("");
   const router = useRouter();
   const pathname = usePathname();
@@ -40,6 +45,12 @@ export default function ProductList(props: Props) {
     setIsLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (totalPages > 0) {
+      setPagination(Array.from({ length: totalPages }, (v, i) => i + 1));
+    }
+  }, [totalPages]);
+
   return (
     <>
       {isLoading ? (
@@ -60,7 +71,7 @@ export default function ProductList(props: Props) {
           <h6 className="font-bold rock:text-2xl text-xl text-center">
             {t("productList")}{" "}
             <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium">
-              ({products?.length} {t("product")} )
+              ({totalCount} {t("product")} )
             </span>
           </h6>
 
@@ -75,7 +86,7 @@ export default function ProductList(props: Props) {
                     <li key={category._id} className="mb-1">
                       <Link
                         className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
-                        href="aa"
+                        href={"/category/" + category.slug}
                       >
                         {category.name} ({category.productsInCategory.length})
                       </Link>
@@ -141,6 +152,81 @@ export default function ProductList(props: Props) {
                     ))
                   : "Không tìm thấy sản phẩm!"}
               </div>
+
+              <nav aria-label="Navigation" className="mt-7 flex justify-end">
+                <ul className="flex items-center -space-x-px h-10 text-base">
+                  {page > 1 && (
+                    <li>
+                      <button
+                        className="flex items-center justify-center px-4 h-10 ms-0 leading-tight
+                     text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg 
+                     rock:hover:bg-gray-100 rock:hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700
+                      dark:text-gray-400 dark:rock:hover:bg-gray-700 dark:rock:hover:text-white"
+                      >
+                        <span className="sr-only">Previous</span>
+                        <svg
+                          className="w-3 h-3 rtl:rotate-180"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 6 10"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 1 1 5l4 4"
+                          />
+                        </svg>
+                      </button>
+                    </li>
+                  )}
+                  {pagination.length &&
+                    pagination.map((pageNum) => (
+                      <li>
+                        <button
+                          className={`flex items-center justify-center px-4 h-10 leading-tight  border
+                         border-gray-300  dark:bg-gray-800 dark:border-gray-700 
+                         dark:text-gray-400 dark:rock:hover:bg-gray-700 dark:rock:hover:text-white ${
+                           page === pageNum
+                             ? "bg-[var(--blue)] text-white"
+                             : "bg-white text-gray-500 rock:hover:bg-gray-100 rock:hover:text-gray-700"
+                         }`}
+                        >
+                          {pageNum}
+                        </button>
+                      </li>
+                    ))}
+                  {page < totalPages && (
+                    <li>
+                      <button
+                        className="flex items-center justify-center px-4 h-10 leading-tight 
+                    text-gray-500 bg-white border border-gray-300 rounded-e-lg rock:hover:bg-gray-100 
+                    rock:hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400
+                     dark:rock:hover:bg-gray-700 dark:rock:hover:text-white"
+                      >
+                        <span className="sr-only">Next</span>
+                        <svg
+                          className="w-3 h-3 rtl:rotate-180"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 6 10"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="m1 9 4-4-4-4"
+                          />
+                        </svg>
+                      </button>
+                    </li>
+                  )}
+                </ul>
+              </nav>
             </aside>
           </section>
         </div>
