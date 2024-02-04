@@ -46,11 +46,11 @@ export default function FeaturedProduct({ products }: Props) {
             products.map((product, index) => (
               <SwiperSlide key={product._id} virtualIndex={index}>
                 <div className="product">
-                  <div className="thumb">
+                  <div className="thumb flex justify-center">
                     <Link href={`/${product.slug}`}>
                       <img
                         src={product.thumbs[0]}
-                        className="select-none rounded-lg"
+                        className="select-none rounded-lg w-36"
                         alt={product.name}
                       />
                     </Link>

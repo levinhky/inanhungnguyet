@@ -65,7 +65,7 @@ export default function ProductList(props: Props) {
           </h6>
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
-            <article className="p-5 rounded-xl rock:w-[500px] w-full h-fit rock:mt-0 mt-5">
+            <article className="p-5 rounded-xl rock:w-[250px] w-full h-fit rock:mt-0 mt-5">
               <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">
                 {t("category")}
               </h3>
@@ -115,11 +115,11 @@ export default function ProductList(props: Props) {
                         key={product._id}
                         className="product shadow-md flex flex-col"
                       >
-                        <div className="thumb mt-auto">
+                        <div className="thumb mt-auto flex justify-center">
                           <Link href={`/${product.slug}`}>
                             <img
                               src={product.thumbs[0]}
-                              className="select-none rounded-lg w-[500px]"
+                              className="select-none rounded-lg w-36"
                               alt={product.name}
                             />
                           </Link>
