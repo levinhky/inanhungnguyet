@@ -6,6 +6,7 @@
   "forgotPassword": "Forgot Password?",
   "logout": "Logout",
   "search": "Search Product ...",
+  "noProductsFound": "No Products Found",
   "cancel": "Cancel",
   "searchBtn": "Search",
   "searchHistoryTitle": "Search History",

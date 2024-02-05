@@ -10,7 +10,7 @@ import MobilePopperWrapper from "../Search/SearchModal";
 import { onAuthStateChanged } from "firebase/auth";
 import { setUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
-import useDebounce from "@/assets/libs/hooks";
+import useDebounce from "@/assets/libs/hooks/useDebounce";
 import { useTranslations } from "next-intl";
 import { useAppDispatch } from "@/redux/hooks";
 

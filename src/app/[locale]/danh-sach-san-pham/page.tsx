@@ -19,7 +19,7 @@ export default async function ProductListingPage({ searchParams }: Props) {
       products={productResponse.products}
       totalPages={productResponse.totalPages}
       totalCount={productResponse.totalCount}
-      page={page}
+      currentPage={page}
       limit={limit}
     />
   );
