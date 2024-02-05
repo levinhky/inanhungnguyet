@@ -26,7 +26,7 @@ const ProductsInCategoryPage = async ({ params, searchParams }: Props) => {
       currentPage={page}
       limit={limit}
       slug={slug}
-      slugName={categoryResponse.category?.name}
+      categoryName={categoryResponse.category?.name}
     />
   );
 };

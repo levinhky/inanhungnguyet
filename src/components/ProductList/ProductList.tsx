@@ -18,7 +18,7 @@ type Props = {
   currentPage: number;
   limit: number;
   slug?: string;
-  slugName?: string;
+  categoryName?: string;
 };
 
 export default function ProductList(props: Props) {
@@ -55,9 +55,9 @@ export default function ProductList(props: Props) {
               background-position: right;
             }
           `}</style>
-          <BreadCrumb slug={props?.slug} slugName={props?.slugName} />
+          <BreadCrumb slug={props?.slug} slugName={props?.categoryName} />
           <h6 className="font-bold rock:text-2xl text-xl text-center">
-            {props?.slugName ? props?.slugName : t("productList")}{" "}
+            {props?.categoryName ? props?.categoryName : t("productList")}{" "}
             <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium">
               ({totalCount} {t("product")} )
             </span>
