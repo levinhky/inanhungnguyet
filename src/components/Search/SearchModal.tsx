@@ -43,7 +43,7 @@ const MobilePopperWrapper = ({
                   setSearchValue={setSearchValue}
                   searchHistoryTitle={t("searchHistoryTitle")}
                   searchHistoryEmpty={t("searchHistoryEmpty")}
-                  products={t("product")}
+                  products={t("products")}
                   noResult={t("noResult")}
                   setIsActiveSearchModal={setIsActiveSearchModal}
                   {...attrs}

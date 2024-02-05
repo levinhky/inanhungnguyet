@@ -49,7 +49,7 @@ export default function Footer({}: Props) {
         </div>
 
         <div className="rock:flex items-start flex-col  hidden rock:mt-0 mt-[-50px] rock:mr-0 mr-8 mb-5 rock:mb-0">
-          <h4 className="mb-2 mt-11 font-bold uppercase">{t("product")}</h4>
+          <h4 className="mb-2 mt-11 font-bold uppercase">{t("products")}</h4>
           <ul>
             <li className={`${liHover}`}>
               <Link href={"/"}>Bao bì</Link>
@@ -86,7 +86,7 @@ export default function Footer({}: Props) {
 
         <div className="rock:hidden flex justify-between w-full">
           <div className="flex items-start flex-col rock:mt-0 mt-[-50px] rock:mr-0 mb-5 rock:mb-0">
-            <h4 className="mb-2 mt-11 font-bold uppercase">{t("product")}</h4>
+            <h4 className="mb-2 mt-11 font-bold uppercase">{t("products")}</h4>
             <ul>
               <li className={`${liHover}`}>
                 <Link href={"/"}>Bao bì</Link>

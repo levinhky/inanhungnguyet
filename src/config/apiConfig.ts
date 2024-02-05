@@ -4,11 +4,26 @@ const apiConfig = {
 
 export async function getProducts(
   sort: string = "name=-asc",
-  page: number | undefined = 1,
-  limit: number | undefined = 8
+  page: number | undefined,
+  limit: number | undefined
 ) {
   const res = await fetch(
     `${apiConfig.baseURL}products/all?page=${page}&limit=${limit}&sort=${sort}`,
+    {
+      cache: "no-store",
+    }
+  );
+  return res.json();
+}
+
+export async function getProductsSearch(
+  query: string | undefined,
+  sort: string = "name=-asc",
+  page: number | undefined,
+  limit: number | undefined
+) {
+  const res = await fetch(
+    `${apiConfig.baseURL}products?query=${query}&page=${page}&limit=${limit}&sort=${sort}`,
     {
       cache: "no-store",
     }
@@ -26,8 +41,8 @@ export async function getCategories() {
 export async function getCategory(
   slug: string,
   sort: string = "name=-asc",
-  page: number | undefined = 1,
-  limit: number | undefined = 8
+  page: number | undefined,
+  limit: number | undefined
 ) {
   const res = await fetch(
     `${apiConfig.baseURL}categories/${slug}?page=${page}&limit=${limit}&sort=${sort}`,
@@ -35,6 +50,14 @@ export async function getCategory(
       cache: "no-store",
     }
   );
+  return res.json();
+}
+
+export async function getProduct(slug: string) {
+  const res = await fetch(apiConfig.baseURL + "products/" + slug, {
+    cache: "no-store",
+  });
+
   return res.json();
 }
 

@@ -2,8 +2,8 @@
 
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import { Link } from "@/navigation";
-import { useState, useEffect } from "react";
+import { Link, useRouter } from "@/navigation";
+import { useState, useEffect, KeyboardEvent } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModal";
@@ -25,6 +25,7 @@ export default function Header({}: Props) {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const dispath = useAppDispatch();
   const t = useTranslations("");
+  const route = useRouter();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -75,6 +76,17 @@ export default function Header({}: Props) {
     );
   };
 
+  const handlePushSearch = () => {
+    route.push("/search/" + debounceValue);
+    setSearchValue("");
+  };
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handlePushSearch();
+    }
+  };
+
   return (
     <header className="mt-[-30px]">
       <div className="flex justify-between items-center">
@@ -99,7 +111,7 @@ export default function Header({}: Props) {
               searchValue={debounceValue}
               searchHistoryTitle={t("searchHistoryTitle")}
               searchHistoryEmpty={t("searchHistoryEmpty")}
-              products={t("product")}
+              products={t("products")}
               noResult={t("noResult")}
               {...attrs}
             />
@@ -113,9 +125,14 @@ export default function Header({}: Props) {
                 value={searchValue}
                 className={searchInputClass}
                 placeholder={t("search")}
+                onKeyDown={(e) => handleKeyDown(e)}
               />
             </div>
-            <button title={t("searchBtn")} className={searchIconClass}>
+            <button
+              title={t("searchBtn")}
+              onClick={handlePushSearch}
+              className={searchIconClass}
+            >
               <SearchOutlined className="text-white text-xl" />
             </button>
           </div>

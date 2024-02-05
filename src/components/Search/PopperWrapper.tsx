@@ -27,24 +27,29 @@ export default function PopperWrapper({
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const getSearchData = async () => {
-      const res = await fetch(
-        apiConfig.baseURL + "products?query=" + searchValue
-      );
-      const data = await res.json();
-      if (data.products.length === 0) {
+    const fetchData = async () => {
+      if (searchValue.trim() !== "") {
         setIsLoading(true);
-      }
-
-      if (data.products.length > 0) {
-        setSearchData(data.products);
-        setIsShow(true);
-        setIsLoading(false);
+        setIsShow(false);
+        try {
+          const response = await fetch(
+            apiConfig.baseURL + "products?query=" + searchValue
+          );
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          setSearchData(data.products);
+          setIsShow(true);
+          setIsLoading(false);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          setIsLoading(false);
+        }
       }
     };
 
-    searchValue.length > 0 && getSearchData();
-    searchValue.length == 0 && setIsShow(false);
+    fetchData();
   }, [searchValue]);
 
   return (

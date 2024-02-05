@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
 
-export default async function NotFound() {
+export default function NotFound() {
   const t = useTranslations("");
 
   return (
@@ -15,8 +15,12 @@ export default async function NotFound() {
           <div className="relative">
             <div className="absolute">
               <div className="mt-[150px]">
-                <h3 className="my-2 text-gray-800 font-bold text-2xl">{t("NotFound.title")}</h3>
-                <p className="my-2 text-gray-800">{t("NotFound.description")}</p>
+                <h3 className="my-2 text-gray-800 font-bold text-2xl">
+                  {t("NotFound.title")}
+                </h3>
+                <p className="my-2 text-gray-800">
+                  {t("NotFound.description")}
+                </p>
                 <button
                   className="sm:w-full lg:w-auto my-2 border-2 border-[var(--blue)] rounded-full md py-4 px-8 text-center
                  bg-white text-[var(--blue)] font-bold
