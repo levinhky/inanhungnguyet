@@ -6,7 +6,7 @@ import { Link, useRouter } from "@/navigation";
 import { useState, useEffect, KeyboardEvent } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
-import MobilePopperWrapper from "../Search/SearchModal";
+import MobilePopperWrapper from "../Search/SearchModalMobile";
 import { onAuthStateChanged } from "firebase/auth";
 import {
   setUserInfo,
