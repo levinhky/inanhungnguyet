@@ -35,7 +35,9 @@ export default function CategoryList({ categories }: Props) {
         >
           {categories.map((category, index) => (
             <Link
-              href={"/category/" + category.slug}
+              href={
+                "/category/" + category.slug + "?page=1&limit=8&sort=name-asc"
+              }
               className={`item select-none rock:hover:shadow-xl bg-white p-3 border border-[#d9d9d9] rounded-xl 
             flex items-center justify-center flex-col ${active && "active"}`}
               key={category._id}

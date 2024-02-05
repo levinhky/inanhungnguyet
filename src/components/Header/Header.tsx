@@ -8,7 +8,10 @@ import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModal";
 import { onAuthStateChanged } from "firebase/auth";
-import { setUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
+import {
+  setUserInfo,
+  handleSignOut,
+} from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
 import useDebounce from "@/assets/libs/hooks/useDebounce";
 import { useTranslations } from "next-intl";
@@ -49,7 +52,7 @@ export default function Header({}: Props) {
      focus:outline-none focus:border-[var(--blue)] block w-full rounded-full sm:text-sm";
   const searchIconClass =
     "action-search min-w-[80px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-0 rounded-full";
-  const debounceValue = useDebounce(searchValue, 300);
+  const debounceValue = useDebounce(searchValue, 150);
 
   const renderHeaderLinks = () => {
     return !isUserLogged ? (
@@ -77,7 +80,13 @@ export default function Header({}: Props) {
       <div className="flex justify-between items-center">
         <div className="main-logo cursor-pointer" title="In Ấn Hùng Nguyệt">
           <Link href={"/"}>
-            <Image src={"/logo.svg"} alt="inanhungnguyetlogo" width={150} height={150} priority={true} />
+            <Image
+              src={"/logo.svg"}
+              alt="inanhungnguyetlogo"
+              width={150}
+              height={150}
+              priority={true}
+            />
           </Link>
         </div>
 
@@ -113,7 +122,11 @@ export default function Header({}: Props) {
         </Tippy>
 
         <div className="links flex items-center">
-          <button onClick={() => setIsActiveSearchModal(true)} title={t("searchBtn")} className="rock:hidden text-2xl">
+          <button
+            onClick={() => setIsActiveSearchModal(true)}
+            title={t("searchBtn")}
+            className="rock:hidden text-2xl"
+          >
             <SearchOutlined />
           </button>
           <button className={`${!isUserLogged ? "hidden" : ""} text-2xl ml-3`}>
@@ -124,7 +137,10 @@ export default function Header({}: Props) {
         </div>
       </div>
 
-      <MobilePopperWrapper isActiveSearchModal={isActiveSearchModal} setIsActiveSearchModal={setIsActiveSearchModal} />
+      <MobilePopperWrapper
+        isActiveSearchModal={isActiveSearchModal}
+        setIsActiveSearchModal={setIsActiveSearchModal}
+      />
     </header>
   );
 }

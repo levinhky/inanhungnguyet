@@ -1,15 +1,19 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { memo, useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./PopperWrapper";
 import { useTranslations } from "next-intl";
+import useDebounce from "@/assets/libs/hooks/useDebounce";
 
 type Props = {
   isActiveSearchModal: boolean;
   setIsActiveSearchModal: (isActiveSearchModal: boolean) => void;
 };
 
-export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSearchModal }: Props) {
+const MobilePopperWrapper = ({
+  isActiveSearchModal,
+  setIsActiveSearchModal,
+}: Props) => {
   const [searchValue, setSearchValue] = useState("");
   const t = useTranslations("");
 
@@ -19,6 +23,7 @@ export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSe
 
   const searchIconClass =
     "action-search min-w-[70px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-16 rounded-full";
+  const valueDebounce = useDebounce(searchValue, 150);
 
   return (
     isActiveSearchModal && (
@@ -34,10 +39,10 @@ export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSe
               placement="top-start"
               render={(attrs) => (
                 <PopperWrapper
-                  searchValue={searchValue}
+                  searchValue={valueDebounce}
                   setSearchValue={setSearchValue}
-                  searchHistoryTitle={t("Header.searchHistoryTitle")}
-                  searchHistoryEmpty={t("Header.searchHistoryEmpty")}
+                  searchHistoryTitle={t("searchHistoryTitle")}
+                  searchHistoryEmpty={t("searchHistoryEmpty")}
                   products={t("product")}
                   noResult={t("noResult")}
                   setIsActiveSearchModal={setIsActiveSearchModal}
@@ -74,4 +79,6 @@ export default function MobilePopperWrapper({ isActiveSearchModal, setIsActiveSe
       </div>
     )
   );
-}
+};
+
+export default memo(MobilePopperWrapper);

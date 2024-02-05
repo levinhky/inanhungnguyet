@@ -24,6 +24,7 @@ export default function PopperWrapper({
 }: Props) {
   const [searchData, setSearchData] = useState<[ProductAttributes]>();
   const [isShow, setIsShow] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const getSearchData = async () => {
@@ -31,10 +32,14 @@ export default function PopperWrapper({
         apiConfig.baseURL + "products?query=" + searchValue
       );
       const data = await res.json();
+      if (data.products.length === 0) {
+        setIsLoading(true);
+      }
 
-      if (data) {
+      if (data.products.length > 0) {
         setSearchData(data.products);
         setIsShow(true);
+        setIsLoading(false);
       }
     };
 
@@ -52,9 +57,11 @@ export default function PopperWrapper({
         <p className="text-sm">{searchHistoryEmpty}</p>
       ) : (
         <div className="products">
-          {searchData?.length ? (
-            searchData?.map((product) => (
-              <div key={product._id} className="flex items-center">
+          {isLoading ? (
+            "Loading..."
+          ) : searchData?.length ? (
+            searchData.map((product) => (
+              <div key={product._id} className="flex items-center mb-3">
                 <div className="thumb">
                   <Image
                     src={product.thumbs[0]}
