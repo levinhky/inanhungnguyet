@@ -57,7 +57,7 @@ export default function ProductList(props: Props) {
           `}</style>
           <BreadCrumb slug={props?.slug} slugName={props?.slugName} />
           <h6 className="font-bold rock:text-2xl text-xl text-center">
-            {t("productList")}{" "}
+            {props?.slugName ? props?.slugName : t("productList")}{" "}
             <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium">
               ({totalCount} {t("product")} )
             </span>
