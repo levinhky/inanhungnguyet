@@ -19,7 +19,8 @@ type Props = {
 };
 
 export default function ProductList(props: Props) {
-  const { categories, products, totalCount, totalPages, currentPage, limit } = props;
+  const { categories, products, totalCount, totalPages, currentPage, limit } =
+    props;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pagination, setPagination] = useState<number[]>([]);
@@ -70,10 +71,17 @@ export default function ProductList(props: Props) {
               <div className="products grid rock:grid-cols-4 grid-cols-2 rock:gap-7 gap-4">
                 {products?.length
                   ? products.map((product, i) => (
-                      <div key={product._id} className="product shadow-md flex flex-col">
+                      <div
+                        key={product._id}
+                        className="product shadow-md flex flex-col"
+                      >
                         <div className="thumb mt-auto flex justify-center">
                           <Link href={`/${product.slug}`}>
-                            <img src={product.thumbs[0]} className="select-none rounded-lg w-36" alt={product.name} />
+                            <img
+                              src={product.thumbs[0]}
+                              className="select-none rounded-lg w-36"
+                              alt={product.name}
+                            />
                           </Link>
                         </div>
                         <div className="info px-5 py-3 mt-auto">
@@ -81,16 +89,25 @@ export default function ProductList(props: Props) {
                             {t("contactUs")}
                           </h2>
                           <h3 className="name font-normal line-clamp-2">
-                            <Link href={`/${product.slug}`}>{product.name}</Link>
+                            <Link href={`/${product.slug}`}>
+                              {product.name}
+                            </Link>
                           </h3>
-                          <h3 className="sku uppercase text-[var(--gray-text)] text-sm">SKU: {product.sku}</h3>
+                          <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
+                            SKU: {product.sku}
+                          </h3>
                         </div>
                       </div>
                     ))
                   : t("noProductsFound")}
               </div>
 
-              <Pagination currentPage={currentPage} totalPages={totalPages} pagination={pagination} />
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                pagination={pagination}
+                limit={limit}
+              />
             </aside>
           </section>
         </div>
