@@ -17,10 +17,13 @@ type Props = {
   totalCount: number;
   currentPage: number;
   limit: number;
+  slug?: string;
+  slugName?: string;
 };
 
 export default function ProductList(props: Props) {
-  const { categories, products, totalCount, totalPages, currentPage, limit } = props;
+  const { categories, products, totalCount, totalPages, currentPage, limit } =
+    props;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pagination, setPagination] = useState<number[]>([]);
@@ -52,9 +55,9 @@ export default function ProductList(props: Props) {
               background-position: right;
             }
           `}</style>
-          <BreadCrumb />
+          <BreadCrumb slug={props?.slug} slugName={props?.slugName} />
           <h6 className="font-bold rock:text-2xl text-xl text-center">
-            {t("productList")}
+            {t("productList")}{" "}
             <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium">
               ({totalCount} {t("product")} )
             </span>
@@ -68,7 +71,14 @@ export default function ProductList(props: Props) {
             <aside className="rock:ml-10">
               <SortOption />
               <ProductsGrid products={products} />
-              <Pagination currentPage={currentPage} totalPages={totalPages} pagination={pagination} limit={limit} />
+              {pagination.length > 0 && (
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  pagination={pagination}
+                  limit={limit}
+                />
+              )}
             </aside>
           </section>
         </div>

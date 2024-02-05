@@ -11,7 +11,10 @@ type Props = {
 };
 
 export default function BreadCrumb({ slug, slugName }: Props) {
-  const pathname = usePathname().replace(/^\/(vi|en)\//, "/");
+  const pathname = usePathname()
+    .replace(/^\/(vi|en)\//, "/")
+    .replace(/\/category\//, "/");
+
   let currentLink = "";
   const t = useTranslations("");
 

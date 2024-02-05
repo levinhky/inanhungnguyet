@@ -23,4 +23,19 @@ export async function getCategories() {
   return res.json();
 }
 
+export async function getCategory(
+  slug: string,
+  sort: string = "name=-asc",
+  page: number | undefined = 1,
+  limit: number | undefined = 8
+) {
+  const res = await fetch(
+    `${apiConfig.baseURL}categories/${slug}?page=${page}&limit=${limit}&sort=${sort}`,
+    {
+      cache: "no-store",
+    }
+  );
+  return res.json();
+}
+
 export default apiConfig;
