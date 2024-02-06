@@ -30,9 +30,9 @@ export async function getCategories(page?: number | undefined, limit?: number | 
 
 export async function getCategory(
   slug: string,
-  sort: string | undefined,
   page: number | undefined,
-  limit: number | undefined
+  limit: number | undefined,
+  sort: string | undefined
 ) {
   const res = await fetch(`${apiConfig.baseURL}categories/${slug}?page=${page}&limit=${limit}&sort=${sort}`, {
     cache: "no-store",

@@ -25,7 +25,7 @@ const ProductsInCategoryPage = async ({ params, searchParams }: Props) => {
   const page = Number(searchParams?.page);
   const limit = Number(searchParams?.limit);
   const categoryListResponse = await getCategories();
-  const categoryResponse = await getCategory(slug, sortParam, page, limit);
+  const categoryResponse = await getCategory(slug, page, limit, sortParam);
 
   return (
     <ProductList
