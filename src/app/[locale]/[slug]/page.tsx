@@ -4,6 +4,7 @@ import ProductDetail from "@/components/ProductDetail";
 import apiConfig, { getProduct, getProducts } from "@/config/apiConfig";
 import NotFound from "../not-found";
 import { isEmptyObject } from "@/assets/libs/functions";
+import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -22,6 +23,15 @@ export async function generateStaticParams() {
     : [];
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+  const product = await getProduct(slug);
+
+  return {
+    title: product.name,
+  };
+}
+
 export default async function ProductDetailPage({ params }: Props) {
   const { slug } = params;
   const productResponse = await getProduct(slug);
@@ -29,5 +39,11 @@ export default async function ProductDetailPage({ params }: Props) {
     return <NotFound />;
   }
 
-  return <ProductDetail slug={slug} product={productResponse} slugName={productResponse.name} />;
+  return (
+    <ProductDetail
+      slug={slug}
+      product={productResponse}
+      slugName={productResponse.name}
+    />
+  );
 }
