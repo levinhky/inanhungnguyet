@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { memo, useState } from "react";
+import { KeyboardEvent, memo, useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./PopperWrapper";
 import { useTranslations } from "next-intl";
@@ -8,6 +8,8 @@ import useDebounce from "@/assets/libs/hooks/useDebounce";
 type Props = {
   isActiveSearchModal: boolean;
   setIsActiveSearchModal: (isActiveSearchModal: boolean) => void;
+  // handlePushSearch: () => void;
+  // handleKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
 };
 
 const MobilePopperWrapper = ({

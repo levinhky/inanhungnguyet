@@ -2,6 +2,8 @@ export const dynamic = "force-dynamic";
 
 import ProductDetail from "@/components/ProductDetail";
 import apiConfig, { getProduct } from "@/config/apiConfig";
+import NotFound from "../not-found";
+import { isEmptyObject } from "@/assets/libs/functions";
 
 type Props = {
   params: {
@@ -23,6 +25,9 @@ export async function generateStaticParams() {
 export default async function ProductDetailPage({ params }: Props) {
   const { slug } = params;
   const productResponse = await getProduct(slug);
+  if (isEmptyObject(productResponse)) {
+    return <NotFound />;
+  }
 
   return (
     <ProductDetail

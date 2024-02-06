@@ -82,7 +82,7 @@ export default function Header({}: Props) {
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.keyCode === 13) {
       handlePushSearch();
     }
   };
