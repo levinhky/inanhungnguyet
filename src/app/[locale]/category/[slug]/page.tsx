@@ -1,6 +1,5 @@
 import ProductList from "@/components/ProductList";
 import { getCategories, getCategory } from "@/config/apiConfig";
-import { Fragment } from "react";
 
 type Props = {
   params: {
@@ -8,6 +7,17 @@ type Props = {
   };
   searchParams?: { [key: string]: string };
 };
+
+export async function generateStaticParams() {
+  const categoryResponse = await getCategories();
+  const categories = await categoryResponse.categories;
+
+  return categories.length > 0
+    ? categories.map((category: CategoryAttributes) => ({
+        slug: category.slug,
+      }))
+    : [];
+}
 
 const ProductsInCategoryPage = async ({ params, searchParams }: Props) => {
   const { slug } = params;

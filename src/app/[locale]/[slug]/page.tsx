@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import ProductDetail from "@/components/ProductDetail";
-import apiConfig, { getProduct } from "@/config/apiConfig";
+import apiConfig, { getProduct, getProducts } from "@/config/apiConfig";
 import NotFound from "../not-found";
 import { isEmptyObject } from "@/assets/libs/functions";
 
@@ -12,8 +12,8 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const res = await fetch(apiConfig.baseURL + "products/all");
-  const products = await res.json();
+  const productResponse = await getProducts(1, 9999);
+  const products = await productResponse.products;
 
   return products.length > 0
     ? products.map((product: ProductAttributes) => ({
@@ -29,11 +29,5 @@ export default async function ProductDetailPage({ params }: Props) {
     return <NotFound />;
   }
 
-  return (
-    <ProductDetail
-      slug={slug}
-      product={productResponse}
-      slugName={productResponse.name}
-    />
-  );
+  return <ProductDetail slug={slug} product={productResponse} slugName={productResponse.name} />;
 }
