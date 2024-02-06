@@ -5,7 +5,7 @@ import ProduceProcess from "@/components/HomePage/ProduceProcess";
 import { getCategories, getProducts } from "@/config/apiConfig";
 
 export default async function Home({}) {
-  const productResponse = await getProducts();
+  const productResponse = await getProducts("name-asc", 1, 8);
   const categoryResponse = await getCategories();
 
   return (

@@ -2,7 +2,7 @@ const apiConfig = {
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 };
 
-export async function getProducts(sort: string | undefined, page: number | undefined, limit: number | undefined) {
+export async function getProducts(sort?: string | undefined, page?: number | undefined, limit?: number | undefined) {
   const res = await fetch(`${apiConfig.baseURL}products/all?page=${page}&limit=${limit}&sort=${sort}`, {
     cache: "no-store",
   });
