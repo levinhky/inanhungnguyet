@@ -9,6 +9,7 @@ type Props = {};
 
 export default async function Footer({}: Props) {
   const liHover = "rock:hover:text-[var(--red)] ease-linear";
+  const mobileClasss = "flex items-start flex-col rock:mt-0 mt-[-50px]";
   const categoryResponse = await getCategories(1, 5);
   const categories = categoryResponse.categories;
 
@@ -34,19 +35,19 @@ export default async function Footer({}: Props) {
 
         {/* mobile */}
         <div className="rock:hidden flex justify-between w-full">
-          <div className="flex items-start flex-col rock:mt-0 mt-[-50px] rock:mr-0 mb-5 rock:mb-0">
+          <div className={`${mobileClasss} rock:mr-0 mb-5 rock:mb-0`}>
             <RenderCategories categories={categories} liHover={liHover} />
           </div>
           {/* end */}
 
           {/* mobile */}
-          <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
+          <div className={mobileClasss}>
             <RenderPolicy liHover={liHover} />
           </div>
         </div>
         {/* end */}
 
-        <div className="flex items-start flex-col rock:mt-0 mt-[-50px]">
+        <div className={mobileClasss}>
           <RenderSocial liHover={liHover} />
         </div>
       </div>
