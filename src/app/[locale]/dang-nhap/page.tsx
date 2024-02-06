@@ -1,6 +1,12 @@
 "use client";
 
-import { handleFacebookLogin, handleGoogleLogin, handleLogin, handleSignUp } from "@/assets/authentication/auth";
+import {
+  handleFacebookLogin,
+  handleGoogleLogin,
+  handleLogin,
+  handleResetPassword,
+  handleSignUp,
+} from "@/assets/authentication/auth";
 import BreadCrumb from "@/components/BreadCrumb";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
@@ -235,7 +241,11 @@ export default function AuthenticationPage({}: Props) {
           )}
 
           <button
-            onClick={() => handleLogin(loginData.email, loginData.password)}
+            onClick={() =>
+              isForgotPasswordForm
+                ? handleResetPassword(forgotPasswordValue)
+                : handleLogin(loginData.email, loginData.password)
+            }
             disabled={hasLoginErrors || forgotPasswordError.length > 0 ? true : false}
             className={`w-full p-2.5 border rounded-lg text-sm ${
               hasLoginErrors
