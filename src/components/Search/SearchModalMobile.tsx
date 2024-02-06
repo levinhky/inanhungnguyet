@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { KeyboardEvent, memo, useState } from "react";
+import { Dispatch, KeyboardEvent, SetStateAction, memo, useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./PopperWrapper";
 import { useTranslations } from "next-intl";
@@ -8,24 +8,29 @@ import useDebounce from "@/assets/libs/hooks/useDebounce";
 type Props = {
   isActiveSearchModal: boolean;
   setIsActiveSearchModal: (isActiveSearchModal: boolean) => void;
-  // handlePushSearch: () => void;
-  // handleKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
+  handlePushSearch: (value: string) => void;
+  handleKeyDown: (e: KeyboardEvent<HTMLInputElement>, value: string) => void;
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
 };
 
 const MobilePopperWrapper = ({
   isActiveSearchModal,
   setIsActiveSearchModal,
+  handlePushSearch,
+  handleKeyDown,
+  searchValue,
+  setSearchValue,
 }: Props) => {
-  const [searchValue, setSearchValue] = useState("");
   const t = useTranslations("");
 
   const searchInputClass =
     "px-3 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
-       focus:outline-none focus:border-[var(--blue)] block w-full rounded-full text-sm";
+       focus:outline-none focus:border-[var(--blue)] block w-full rounded-full text-base";
 
   const searchIconClass =
     "action-search min-w-[70px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-16 rounded-full";
-  const valueDebounce = useDebounce(searchValue, 150);
+  const debounceValue = useDebounce(searchValue, 150);
 
   return (
     isActiveSearchModal && (
@@ -41,7 +46,7 @@ const MobilePopperWrapper = ({
               placement="top-start"
               render={(attrs) => (
                 <PopperWrapper
-                  searchValue={valueDebounce}
+                  searchValue={debounceValue}
                   setSearchValue={setSearchValue}
                   searchHistoryTitle={t("searchHistoryTitle")}
                   searchHistoryEmpty={t("searchHistoryEmpty")}
@@ -58,6 +63,7 @@ const MobilePopperWrapper = ({
                 value={searchValue}
                 className={searchInputClass}
                 placeholder={t("search")}
+                onKeyDown={(e) => handleKeyDown(e, debounceValue)}
               />
             </Tippy>
 
@@ -74,7 +80,14 @@ const MobilePopperWrapper = ({
             </div>
           </div>
 
-          <button title={t("searchBtn")} className={searchIconClass}>
+          <button
+            title={t("searchBtn")}
+            onClick={() => {
+              handlePushSearch(debounceValue);
+              setIsActiveSearchModal(false);
+            }}
+            className={searchIconClass}
+          >
             <SearchOutlined className="text-white text-xl" />
           </button>
         </div>

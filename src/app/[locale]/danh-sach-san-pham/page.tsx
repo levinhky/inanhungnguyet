@@ -12,7 +12,7 @@ export default async function ProductListingPage({ searchParams }: Props) {
   const limit = Number(searchParams?.limit);
   const productResponse = await getProducts(page, limit, sortParam);
   const categoryResponse = await getCategories();
-
+  
   return (
     <ProductList
       categories={categoryResponse.categories}

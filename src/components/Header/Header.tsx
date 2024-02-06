@@ -3,7 +3,7 @@
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import { Link, useRouter } from "@/navigation";
-import { useState, useEffect, KeyboardEvent } from "react";
+import { useState, useEffect, KeyboardEvent, useCallback, memo } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModalMobile";
@@ -19,8 +19,9 @@ import { useAppDispatch } from "@/redux/hooks";
 
 type Props = {};
 
-export default function Header({}: Props) {
+const Header = ({}: Props) => {
   const [searchValue, setSearchValue] = useState("");
+  const [searchValueMobile, setSearchValueMobile] = useState("");
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
   const dispath = useAppDispatch();
@@ -76,16 +77,21 @@ export default function Header({}: Props) {
     );
   };
 
-  const handlePushSearch = () => {
-    route.push("/search/" + debounceValue);
+  const handlePushSearch = useCallback((value: string) => {
+    route.push("/search/" + value);
     setSearchValue("");
-  };
+    setSearchValueMobile("");
+  }, []);
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.keyCode === 13) {
-      handlePushSearch();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLInputElement>, value: string) => {
+      if (e.nativeEvent.key === "Enter") {
+        handlePushSearch(value);
+        setIsActiveSearchModal(false);
+      }
+    },
+    []
+  );
 
   return (
     <header className="mt-[-30px]">
@@ -125,12 +131,12 @@ export default function Header({}: Props) {
                 value={searchValue}
                 className={searchInputClass}
                 placeholder={t("search")}
-                onKeyDown={(e) => handleKeyDown(e)}
+                onKeyDown={(e) => handleKeyDown(e, debounceValue)}
               />
             </div>
             <button
               title={t("searchBtn")}
-              onClick={handlePushSearch}
+              onClick={() => handlePushSearch(debounceValue)}
               className={searchIconClass}
             >
               <SearchOutlined className="text-white text-xl" />
@@ -157,7 +163,13 @@ export default function Header({}: Props) {
       <MobilePopperWrapper
         isActiveSearchModal={isActiveSearchModal}
         setIsActiveSearchModal={setIsActiveSearchModal}
+        handleKeyDown={handleKeyDown}
+        handlePushSearch={handlePushSearch}
+        searchValue={searchValueMobile}
+        setSearchValue={setSearchValueMobile}
       />
     </header>
   );
-}
+};
+
+export default memo(Header);
