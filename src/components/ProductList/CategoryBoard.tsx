@@ -8,6 +8,7 @@ const CategoryBoard = ({
   categories: [CategoryAttributes];
   title: string;
 }) => {
+  
   return (
     <Fragment>
       <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">

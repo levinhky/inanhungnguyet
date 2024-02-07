@@ -1,29 +1,12 @@
 import { useTranslations } from "next-intl";
-import { ChangeEvent, useCallback, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ChangeEvent } from "react";
 
-const SortOption = () => {
-  const [sortOption, setSortOption] = useState<string>("name-asc");
+const SortOption = (props: {
+  sortOption: string;
+  handleSort: (e: ChangeEvent<HTMLSelectElement>) => void;
+}) => {
+  const { sortOption, handleSort } = props;
   const t = useTranslations("sortBy");
-
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams]
-  );
-
-  const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSortOption(e.target.value);
-    router.push(pathname + "?" + createQueryString("sort", e.target.value));
-  };
 
   return (
     <div className="toolbar-sorter mb-7">

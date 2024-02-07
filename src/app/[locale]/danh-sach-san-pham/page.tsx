@@ -21,6 +21,7 @@ export default async function ProductListingPage({ searchParams }: Props) {
       totalCount={productResponse.totalCount}
       currentPage={page}
       limit={limit}
+      sortParam={sortParam}
     />
   );
 }

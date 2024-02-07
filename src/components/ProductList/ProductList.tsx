@@ -2,13 +2,13 @@
 
 import BreadCrumb from "@/components/BreadCrumb";
 import Loading from "@/components/Loading";
-import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ChangeEvent, useCallback } from "react";
 import Pagination from "@/components/Pagination";
 import SortOption from "@/components/ProductList/SortOption";
 import CategoryBoard from "@/components/ProductList/CategoryBoard";
 import ProductsGrid from "./ProductsGrid";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type Props = {
   categories: [CategoryAttributes];
@@ -19,14 +19,23 @@ type Props = {
   limit: number;
   slug?: string;
   categoryName?: string;
+  sortParam?: string;
 };
 
 export default function ProductList(props: Props) {
-  const { categories, products, totalCount, totalPages, currentPage, limit } =
-    props;
+  const {
+    categories,
+    products,
+    totalCount,
+    totalPages,
+    currentPage,
+    limit,
+    sortParam,
+  } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pagination, setPagination] = useState<number[]>([]);
+  const [sortOption, setSortOption] = useState<string>("name-asc");
   const t = useTranslations("");
 
   useEffect(() => {
@@ -38,6 +47,22 @@ export default function ProductList(props: Props) {
       setPagination(Array.from({ length: totalPages }, (v, i) => i + 1));
     }
   }, [totalPages]);
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const createQueryString = useCallback((name: string, value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(name, value);
+
+    return params.toString();
+  }, []);
+
+  const handleSort = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
+    setSortOption(e.target.value);
+    router.push(pathname + "?" + createQueryString("sort", e.target.value));
+  }, []);
 
   return (
     <>
@@ -69,7 +94,7 @@ export default function ProductList(props: Props) {
             </article>
 
             <aside className="rock:ml-10">
-              <SortOption />
+              <SortOption sortOption={sortOption} handleSort={handleSort} />
               <ProductsGrid products={products} />
               {pagination.length > 0 && (
                 <Pagination
@@ -77,6 +102,7 @@ export default function ProductList(props: Props) {
                   totalPages={totalPages}
                   pagination={pagination}
                   limit={limit}
+                  sortParam={sortParam}
                 />
               )}
             </aside>

@@ -5,27 +5,29 @@ const Pagination = ({
   totalPages,
   pagination,
   limit,
+  sortParam,
 }: {
   currentPage: number;
   totalPages: number;
   pagination: number[];
   limit: number;
+  sortParam: string | undefined;
 }) => {
   const router = useRouter();
   const pathname = usePathname();
 
   const handlePage = (page: number) => {
-    router.push(`${pathname}?page=${page}&limit=${limit}`);
+    router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
   };
 
   const handlePrev = () => {
     const page = currentPage > 1 ? currentPage - 1 : 1;
-    router.push(`${pathname}?page=${page}&limit=${limit}`);
+    router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
   };
 
   const handleNext = () => {
     const page = currentPage < totalPages ? currentPage + 1 : totalPages;
-    router.push(`${pathname}?page=${page}&limit=${limit}`);
+    router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
   };
 
   return (
@@ -61,7 +63,7 @@ const Pagination = ({
         )}
         {pagination.length &&
           pagination.map((page: number) => (
-            <li>
+            <li key={page}>
               <button
                 onClick={() => handlePage(page)}
                 className={`flex items-center justify-center px-4 h-10 leading-tight  border
