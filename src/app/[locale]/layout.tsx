@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="favicon/favicon.ico" />
       </head>
       <body suppressHydrationWarning={true}>
         <Providers>
