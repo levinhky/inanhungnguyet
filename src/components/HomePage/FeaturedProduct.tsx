@@ -87,21 +87,21 @@ export default function FeaturedProduct({ products }: Props) {
               return (
                 product.attributes.display && (
                   <SwiperSlide key={product._id} virtualIndex={index}>
-                    <div className="product">
-                      <div className="thumb">
+                    <div className="product flex flex-col h-[350px]">
+                      <div className="thumb mt-auto flex justify-center">
                         <Link href={`/${product.slug}`}>
                           <img
                             src={product.thumbs[0]}
-                            className="select-none rounded-lg"
+                            className="select-none rounded-lg h-[170px]"
                             alt={product.name}
                           />
                         </Link>
                       </div>
-                      <div className="info px-0 py-2">
+                      <div className="info px-0 py-2 mt-auto">
                         <h2 className="contact uppercase text-sm text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
                           {t("contactUs")}
                         </h2>
-                        <h3 className="name font-normal text-sm line-clamp-2">
+                        <h3 className="name font-normal text-sm rock:line-clamp-2 line-clamp-1 text-ellipsis">
                           <Link href={`/${product.slug}`}>{product.name}</Link>
                         </h3>
                         <h3 className="sku uppercase text-[var(--gray-text)] text-xs">
