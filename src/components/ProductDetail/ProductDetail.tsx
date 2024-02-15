@@ -34,7 +34,12 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
           <section id="content">
             <div className="flex flex-wrap rock:flex-nowrap">
               <div className="images rock:w-1/2 rock:mr-10">
-                <Carousel className="rock:w-[500px]" showStatus={false}>
+                <Carousel
+                  className="rock:w-[500px]"
+                  swipeable={false}
+                  showStatus={false}
+                  thumbWidth={50}
+                >
                   {product.thumbs &&
                     product.thumbs.map((thumb, index) => (
                       <div key={thumb}>
@@ -48,7 +53,7 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
                 </Carousel>
               </div>
 
-              <div className="info text-center rock:text-left w-full">
+              <div className="info text-center rock:text-left w-full flex flex-col items-center rock:block">
                 <h1 className="font-bold text-2xl rock:my-5 mb-3">
                   {product.name}
                 </h1>
