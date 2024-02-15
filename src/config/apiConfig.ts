@@ -67,4 +67,12 @@ export async function getProduct(slug: string) {
   return res.json();
 }
 
+export async function getSlideList() {
+  const res = await fetch(apiConfig.baseURL + "slides/all", {
+    cache: "no-store",
+  });
+
+  return res.json();
+}
+
 export default apiConfig;

@@ -32,3 +32,15 @@ interface CategoryAttributes {
   updatedAt: string;
   __v: number;
 }
+
+interface SlideAttributes {
+  _id: string;
+  title: string;
+  thumb: string;
+  description: string;
+  buttonText: string;
+  display: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

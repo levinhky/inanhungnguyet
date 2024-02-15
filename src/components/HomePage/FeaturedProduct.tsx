@@ -12,9 +12,9 @@ type Props = {
 };
 
 export default function FeaturedProduct({ products }: Props) {
-  const slides = Array.from({ length: 12 }).map(
-    (el, index) => `Slide ${index + 1}`
-  );
+  // const slides = Array.from({ length: 12 }).map(
+  //   (el, index) => `Slide ${index + 1}`
+  // );
   const t = useTranslations("");
 
   const renderSeeMoreBtn = () => {
@@ -43,32 +43,36 @@ export default function FeaturedProduct({ products }: Props) {
           navigation
         >
           {products.length > 0 &&
-            products.map((product, index) => (
-              <SwiperSlide key={product._id} virtualIndex={index}>
-                <div className="product">
-                  <div className="thumb flex justify-center">
-                    <Link href={`/${product.slug}`}>
-                      <img
-                        src={product.thumbs[0]}
-                        className="select-none rounded-lg w-36"
-                        alt={product.name}
-                      />
-                    </Link>
-                  </div>
-                  <div className="info px-5 py-3">
-                    <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
-                      {t("contactUs")}
-                    </h2>
-                    <h3 className="name font-normal line-clamp-2">
-                      <Link href={`/${product.slug}`}>{product.name}</Link>
-                    </h3>
-                    <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
-                      SKU: {product.sku}
-                    </h3>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
+            products.map((product, index) => {
+              return (
+                product.attributes.display && (
+                  <SwiperSlide key={product._id} virtualIndex={index}>
+                    <div className="product flex flex-col h-[350px]">
+                      <div className="thumb flex justify-center mt-auto">
+                        <Link href={`/${product.slug}`}>
+                          <img
+                            src={product.thumbs[0]}
+                            className="select-none rounded-lg w-36"
+                            alt={product.name}
+                          />
+                        </Link>
+                      </div>
+                      <div className="info px-5 py-3 mt-auto h-28">
+                        <h2 className="contact uppercase text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
+                          {t("contactUs")}
+                        </h2>
+                        <h3 className="name font-normal line-clamp-2">
+                          <Link href={`/${product.slug}`}>{product.name}</Link>
+                        </h3>
+                        <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
+                          SKU: {product.sku}
+                        </h3>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                )
+              );
+            })}
         </Swiper>
       </div>
     );
@@ -79,32 +83,36 @@ export default function FeaturedProduct({ products }: Props) {
       <div className="mt-7 rock:hidden">
         <Swiper spaceBetween={15} slidesPerView={2}>
           {products.length > 0 &&
-            products.map((product, index) => (
-              <SwiperSlide key={product._id} virtualIndex={index}>
-                <div className="product">
-                  <div className="thumb">
-                    <Link href={`/${product.slug}`}>
-                      <img
-                        src={product.thumbs[0]}
-                        className="select-none rounded-lg"
-                        alt={product.name}
-                      />
-                    </Link>
-                  </div>
-                  <div className="info px-0 py-2">
-                    <h2 className="contact uppercase text-sm text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
-                      {t("contactUs")}
-                    </h2>
-                    <h3 className="name font-normal text-sm line-clamp-2">
-                      <Link href={`/${product.slug}`}>{product.name}</Link>
-                    </h3>
-                    <h3 className="sku uppercase text-[var(--gray-text)] text-xs">
-                      SKU: {product.sku}
-                    </h3>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
+            products.map((product, index) => {
+              return (
+                product.attributes.display && (
+                  <SwiperSlide key={product._id} virtualIndex={index}>
+                    <div className="product">
+                      <div className="thumb">
+                        <Link href={`/${product.slug}`}>
+                          <img
+                            src={product.thumbs[0]}
+                            className="select-none rounded-lg"
+                            alt={product.name}
+                          />
+                        </Link>
+                      </div>
+                      <div className="info px-0 py-2">
+                        <h2 className="contact uppercase text-sm text-[var(--blue)] font-bold my-2 py-1 border-b border-[var(--gray)]">
+                          {t("contactUs")}
+                        </h2>
+                        <h3 className="name font-normal text-sm line-clamp-2">
+                          <Link href={`/${product.slug}`}>{product.name}</Link>
+                        </h3>
+                        <h3 className="sku uppercase text-[var(--gray-text)] text-xs">
+                          SKU: {product.sku}
+                        </h3>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                )
+              );
+            })}
         </Swiper>
       </div>
     );
