@@ -2,7 +2,6 @@
 
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import { Link, useRouter } from "@/navigation";
 import { useState, useEffect, KeyboardEvent, useCallback, memo } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
@@ -14,8 +13,9 @@ import {
 } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
 import useDebounce from "@/assets/libs/hooks/useDebounce";
-import { useTranslations } from "next-intl";
 import { useAppDispatch } from "@/redux/hooks";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = {};
 
@@ -25,7 +25,6 @@ const Header = ({}: Props) => {
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
   const dispath = useAppDispatch();
-  const t = useTranslations("");
   const route = useRouter();
 
   useEffect(() => {
@@ -62,7 +61,7 @@ const Header = ({}: Props) => {
         <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
           <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
           <p className="rock:text-base rock:mt-[5px] rock:block hidden">
-            {t("register")} / {t("login")}
+            Đăng ký / Đăng nhập
           </p>
         </button>
       </Link>
@@ -72,7 +71,7 @@ const Header = ({}: Props) => {
         className="login flex items-center justify-center rock:hover:text-[var(--blue)]"
       >
         <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-        <p className="rock:text-base ml-1 rock:ml-0 mt-[5px]">{t("logout")}</p>
+        <p className="rock:text-base ml-1 rock:ml-0 mt-[5px]">Đăng Xuất</p>
       </button>
     );
   };
@@ -115,10 +114,10 @@ const Header = ({}: Props) => {
             <PopperWrapper
               setSearchValue={setSearchValue}
               searchValue={debounceValue}
-              searchHistoryTitle={t("searchHistoryTitle")}
-              searchHistoryEmpty={t("searchHistoryEmpty")}
-              products={t("products")}
-              noResult={t("noResult")}
+              searchHistoryTitle={"Lịch sử tìm kiếm"}
+              searchHistoryEmpty={"Lịch sử tìm kiếm rỗng"}
+              products={"Sản Phẩm"}
+              noResult={"Không tìm thấy kết quả"}
               {...attrs}
             />
           )}
@@ -130,12 +129,12 @@ const Header = ({}: Props) => {
                 onInput={(e) => setSearchValue(e.currentTarget.value)}
                 value={searchValue}
                 className={searchInputClass}
-                placeholder={t("search")}
+                placeholder={"Tìm sản phẩm mong muốn ..."}
                 onKeyDown={(e) => handleKeyDown(e, debounceValue)}
               />
             </div>
             <button
-              title={t("searchBtn")}
+              title={"Tìm Kiếm"}
               onClick={() => handlePushSearch(debounceValue)}
               className={searchIconClass}
             >
@@ -147,7 +146,7 @@ const Header = ({}: Props) => {
         <div className="links flex items-center">
           <button
             onClick={() => setIsActiveSearchModal(true)}
-            title={t("searchBtn")}
+            title={"Tìm Kiếm"}
             className="rock:hidden text-2xl"
           >
             <SearchOutlined />

@@ -9,59 +9,32 @@ import ScrollTop from "@/components/ScrollTop";
 import Pulse from "@/components/Pulse";
 import Header from "@/components/Header";
 import NavBar from "@/components/Nav";
-import { locales } from "@/navigation";
-import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
-import { NextIntlClientProvider, useMessages } from "next-intl";
 
-// export const metadata: Metadata = {
-//   openGraph: metadataContent,
-// };
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  const t = await getTranslations({ locale, namespace: "SEO" });
-
-  return {
-    title: t("title"),
-    description: t("description"),
-    keywords: t("keywords"),
-    openGraph: metadataContent,
-  };
-}
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+export const metadata: Metadata = {
+  openGraph: metadataContent,
+};
 
 export default function RootLayout({
-  children,
-  params: { locale },
+  children
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
-  unstable_setRequestLocale(locale);
-  const messages = useMessages();
 
   return (
-    <html lang={locale}>
+    <html lang="vi">
       <head>
         <link rel="icon" href="favicon/favicon.ico" />
       </head>
       <body suppressHydrationWarning={true}>
         <Providers>
-          <NextIntlClientProvider messages={messages}>
-            <div className="container mx-auto">
-              <Header />
-            </div>
-            <NavBar />
-            {children}
-            <Footer />
-          </NextIntlClientProvider>
+          <div className="container mx-auto">
+            <Header />
+          </div>
+          <NavBar />
+          {children}
+          <Footer />
         </Providers>
         <ScrollTop />
         <Pulse />

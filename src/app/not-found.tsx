@@ -1,10 +1,7 @@
 import Image from "next/image";
-import { Link } from "@/navigation";
-import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function NotFound() {
-  const t = useTranslations("");
-
   return (
     <>
       <div
@@ -16,17 +13,18 @@ export default function NotFound() {
             <div className="absolute">
               <div className="mt-[150px]">
                 <h3 className="my-2 text-gray-800 font-bold text-2xl">
-                  {t("NotFound.title")}
+                  Trang không tìm thấy
                 </h3>
                 <p className="my-2 text-gray-800">
-                  {t("NotFound.description")}
+                  Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di
+                  chuyển.
                 </p>
                 <button
                   className="sm:w-full lg:w-auto my-2 border-2 border-[var(--blue)] rounded-full md py-4 px-8 text-center
                  bg-white text-[var(--blue)] font-bold
                  rock:hover:bg-[var(--blue)] rock:hover:text-white ease-in-out"
                 >
-                  <Link href={"/"}>{t("homePage")}</Link>
+                  <Link href={"/"}>Trang chủ</Link>
                 </button>
               </div>
             </div>

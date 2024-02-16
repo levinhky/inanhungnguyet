@@ -1,7 +1,6 @@
 "use client";
 
-import { Link } from "@/navigation";
-import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useId } from "react";
 
@@ -17,27 +16,26 @@ export default function BreadCrumb({ slug, slugName }: Props) {
     .replace(/\/search\//, "/");
 
   let currentLink = "";
-  const t = useTranslations("");
 
   const handleCrumbLabel = (crumb: string) => {
     switch (crumb) {
       case "gioi-thieu":
-        return t("aboutUs");
+        return "Về chúng tôi";
       case "lien-he":
-        return t("contact");
+        return "Liên hệ";
       case "chinh-sach-van-chuyen-thanh-toan":
-        return t("policy.shippingAndPayment.title");
+        return "Chính sách vận chuyển - thanh toán";
       case "chinh-sach-doi-tra-bao-hanh":
-        return t("policy.returnAndWarranty.title");
+        return "Chính sách đổi trả - bảo hành";
       case "danh-sach-san-pham":
-        return t("productList");
+        return "Danh sách sản phẩm";
       case "dang-nhap":
-        return t("login");
+        return "Đăng nhập";
       case slug:
         return slugName;
 
       default:
-        return t("products");
+        return "Sản Phẩm";
     }
   };
 
@@ -75,7 +73,7 @@ export default function BreadCrumb({ slug, slugName }: Props) {
               href={"/"}
               className="text-[var(--gray-text)] rock:hover:text-gray-700 text-xs rock:text-sm capitalize"
             >
-              {t("homePage")}
+              Trang Chủ
             </Link>
             <span className="mx-2 text-[var(--gray-text)]">/</span>
           </li>

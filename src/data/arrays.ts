@@ -2,17 +2,17 @@ export const menuItems = [
   {
     id: "1",
     url: "/danh-sach-san-pham?page=1&limit=8&sort=name-asc",
-    label: "products",
+    label: "Sản Phẩm",
   },
   {
     id: "2",
     url: "/gioi-thieu",
-    label: "aboutUs",
+    label: "Về chúng tôi",
   },
   {
     id: "3",
     url: "/lien-he",
-    label: "contact",
+    label: "Liên Hệ",
   },
 ];
 

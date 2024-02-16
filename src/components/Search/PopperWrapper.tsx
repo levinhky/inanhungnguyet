@@ -1,6 +1,6 @@
 import apiConfig from "@/config/apiConfig";
 import Image from "next/image";
-import { Link } from "@/navigation";
+import Link from "next/link";
 import { SetStateAction, useEffect, useState, Dispatch } from "react";
 
 type Props = {

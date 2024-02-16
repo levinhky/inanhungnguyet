@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import ProductDetail from "@/components/ProductDetail";
-import apiConfig, { getProduct, getProducts } from "@/config/apiConfig";
+import { getProduct, getProducts } from "@/config/apiConfig";
 import NotFound from "../not-found";
 import { isEmptyObject } from "@/assets/libs/functions";
 import { Metadata } from "next";

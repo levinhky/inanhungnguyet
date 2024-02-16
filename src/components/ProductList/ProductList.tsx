@@ -2,7 +2,6 @@
 
 import BreadCrumb from "@/components/BreadCrumb";
 import Loading from "@/components/Loading";
-import { useTranslations } from "next-intl";
 import React, { useEffect, useState, ChangeEvent, useCallback } from "react";
 import Pagination from "@/components/Pagination";
 import SortOption from "@/components/ProductList/SortOption";
@@ -36,7 +35,6 @@ export default function ProductList(props: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pagination, setPagination] = useState<number[]>([]);
   const [sortOption, setSortOption] = useState<string>("name-asc");
-  const t = useTranslations("");
 
   useEffect(() => {
     setIsLoading(false);
@@ -82,15 +80,15 @@ export default function ProductList(props: Props) {
           `}</style>
           <BreadCrumb slug={props?.slug} slugName={props?.categoryName} />
           <h6 className="font-bold rock:text-2xl text-xl text-center">
-            {props?.categoryName ? props?.categoryName : t("productList")}{" "}
+            {props?.categoryName ? props?.categoryName : "Danh sách sản phẩm"}{" "}
             <span className="count text-[var(--gray-text)] text-xs rock:text-sm font-medium capitalize">
-              ({totalCount} {t("products")} )
+              ({totalCount} Sản Phẩm )
             </span>
           </h6>
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
             <article className="p-5 rounded-xl rock:w-[250px] w-full h-fit rock:mt-0 mt-5">
-              <CategoryBoard categories={categories} title={t("category")} />
+              <CategoryBoard categories={categories} title={"Danh Mục"} />
             </article>
 
             <aside className="rock:ml-10">

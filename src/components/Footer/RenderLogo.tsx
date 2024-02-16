@@ -1,5 +1,5 @@
-import { Link } from "@/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 const RenderLogo = () => {
   return (

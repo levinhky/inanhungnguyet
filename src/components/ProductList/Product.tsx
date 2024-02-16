@@ -1,10 +1,20 @@
-import { Link } from "@/navigation";
+import Link from "next/link";
 
-const Product = ({ product, contactUs }: { product: ProductAttributes; contactUs: string }) => {
+const Product = ({
+  product,
+  contactUs,
+}: {
+  product: ProductAttributes;
+  contactUs: string;
+}) => {
   const renderProductThumb = () => (
     <div className="thumb mt-auto flex justify-center">
       <Link href={`/${product.slug}`}>
-        <img src={product.thumbs[0]} className="select-none rounded-lg w-36" alt={product.name} />
+        <img
+          src={product.thumbs[0]}
+          className="select-none rounded-lg w-36"
+          alt={product.name}
+        />
       </Link>
     </div>
   );
@@ -21,7 +31,11 @@ const Product = ({ product, contactUs }: { product: ProductAttributes; contactUs
     </h3>
   );
 
-  const renderProductSku = () => <h3 className="sku uppercase text-[var(--gray-text)] text-sm">SKU: {product.sku}</h3>;
+  const renderProductSku = () => (
+    <h3 className="sku uppercase text-[var(--gray-text)] text-sm">
+      SKU: {product.sku}
+    </h3>
+  );
 
   return (
     <div key={product._id} className="product shadow-md flex flex-col">

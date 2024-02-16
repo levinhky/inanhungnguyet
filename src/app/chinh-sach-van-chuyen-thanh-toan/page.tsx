@@ -1,31 +1,23 @@
-"use client";
 import BreadCrumb from "@/components/BreadCrumb";
 import { FacebookOutlined } from "@ant-design/icons";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 type Props = {};
 
 export default function ShippingAndPaymentPoliciesPage({}: Props) {
-  const t = useTranslations("policy.shippingAndPayment");
-  const t_global = useTranslations();
-
   return (
     <div className="container mx-auto rock:text-base text-sm">
       <BreadCrumb />
       <h3 className="font-bold rock:text-2xl text-xl">
-        {t("policyOf", { storeName: t_global("storeName") })}
+        Chính sách vận chuyển và thanh toán của In Ấn Hùng Nguyệt
       </h3>
 
       <section>
-        <h6 className="rock:my-5 my-3  font-semibold">
-          {t("interactiveService.headline")}
-        </h6>
+        <h6 className="rock:my-5 my-3  font-semibold">1. Dịch vụ tương tác:</h6>
 
         <h5 className="mb-2 ">
-          {t("interactiveService.description", {
-            storeName: t_global("storeName"),
-          })}
+          Tất cả các khách hàng khi mua sỉ, lẻ tại In Ấn Hùng Nguyệt có thể
+          tương tác:
         </h5>
 
         <ul>
@@ -39,7 +31,7 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
             </Link>
           </li>
           <li className="mb-2">
-            &bull; {t_global("social")}:
+            &bull; Mạng xã hội:
             <Link
               href={"https://www.facebook.com/levinhhoa.levinhhoa"}
               target="_blank"
@@ -54,9 +46,9 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
               className="text-[var(--blue)] ml-1 rock:hover:opacity-80 rock:ease-in-out"
               target="_blank"
               rel="nofollow"
-              href={`mailto:${t_global("mainEmail")}`}
+              href={`mailto:inanhungnguyet@gmail.com`}
             >
-              {t_global("mainEmail")}
+              inanhungnguyet@gmail.com
             </Link>
           </li>
           <li className="mb-2">
@@ -67,7 +59,7 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
               rel="nofollow"
               href={"tel:0867673358"}
             >
-              {t_global("mainPhoneNumber")}
+              086.767.3358
             </Link>
           </li>
         </ul>
@@ -75,34 +67,33 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
 
       <section>
         <h6 className="rock:my-5 my-3  font-semibold">
-          {t("deliveryAndOrderingTime.headline")}
+          2. Thời gian giao hàng và đặt hàng:
         </h6>
 
         <ul>
           <li className="mb-2 font-semibold">
-            &bull; {t_global("orderFrom")}:
-            <p className="font-normal my-2">
-              {t("deliveryAndOrderingTime.orderTime")}
-            </p>
+            &bull; Đặt hàng từ:
+            <p className="font-normal my-2">+ Từ 8:00 đến 20:00 hàng ngày</p>
           </li>
           <li className="mb-2 font-semibold">
-            &bull; {t_global("deliveryFrom")}:
-            <p className="font-normal my-2">
-              {t("deliveryAndOrderingTime.deliveryMorning")}
-            </p>
+            &bull; Giao hàng từ:
+            <p className="font-normal my-2">+ Buổi sáng: Từ 8:30 đến 12:00</p>
             <p className="font-normal mt-2 mb-5">
-              {t("deliveryAndOrderingTime.deliveryAfternoon")}
+              + Buổi chiều: Từ 13:30 đến 20:00
             </p>
             <ul>
               <li className="mb-2 font-normal">
-                &bull; {t("deliveryAndOrderingTime.deliverySchedule")}
+                &bull; Đơn hàng đặt: Trả hàng đúng theo lịch hai bên đã hẹn.
               </li>
               <li className="mb-2 font-normal">
-                &bull; {t("deliveryAndOrderingTime.objectiveCase")}
+                &bull; Trường hợp khách quan: Trả hàng sau 3 ngày hoặc có thông
+                báo trực tiếp với khách hàng.
               </li>
             </ul>
             <p className="font-normal my-2">
-              {t("deliveryAndOrderingTime.highBuildingCase")}
+              Với những khách hàng tại chung cư cao tầng, cơ quan, văn phòng,
+              nhà hàng ở trên cao vui lòng nhận hàng tại tầng trệt hoặc nơi nhận
+              thuận tiện nhất.
             </p>
           </li>
         </ul>
@@ -110,16 +101,18 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
 
       <section>
         <h6 className="rock:my-5 my-3  font-semibold">
-          {t("paymentMethod.headline")}
+          3. Phương thức thanh toán:
         </h6>
 
         <ul>
-          <li className="mb-2 font-normal">&bull; {t("paymentMethod.cod")}</li>
           <li className="mb-2 font-normal">
-            &bull; {t("paymentMethod.banking")}
+            &bull; Thanh toán trực tiếp: Ngay sau khi giao và nhận hàng.
           </li>
+          <li className="mb-2 font-normal">&bull; Thanh toán chuyển khoản.</li>
           <li className="mb-2 font-normal">
-            &bull; {t("paymentMethod.outsideProvince")}
+            &bull; Với đơn hàng ngoại tỉnh, chúng tôi chỉ nhận thanh toán chuyển
+            khoản trước 100% tiền hàng hoặc nhận tiền và giao hàng tại nhà xe do
+            quý khách cung cấp.
           </li>
         </ul>
       </section>

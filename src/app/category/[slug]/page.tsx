@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
   const res = await getCategory(slug);
-  
+
   return {
     title: res.category.name,
   };

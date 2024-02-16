@@ -1,8 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Dispatch, KeyboardEvent, SetStateAction, memo, useState } from "react";
+import { Dispatch, KeyboardEvent, SetStateAction, memo } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./PopperWrapper";
-import { useTranslations } from "next-intl";
 import useDebounce from "@/assets/libs/hooks/useDebounce";
 
 type Props = {
@@ -22,8 +21,6 @@ const MobilePopperWrapper = ({
   searchValue,
   setSearchValue,
 }: Props) => {
-  const t = useTranslations("");
-
   const searchInputClass =
     "px-3 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
        focus:outline-none focus:border-[var(--blue)] block w-full rounded-full text-base";
@@ -48,10 +45,10 @@ const MobilePopperWrapper = ({
                 <PopperWrapper
                   searchValue={debounceValue}
                   setSearchValue={setSearchValue}
-                  searchHistoryTitle={t("searchHistoryTitle")}
-                  searchHistoryEmpty={t("searchHistoryEmpty")}
-                  products={t("products")}
-                  noResult={t("noResult")}
+                  searchHistoryTitle={"Lịch sử tìm kiếm"}
+                  searchHistoryEmpty={"Lịch sử tìm kiếm rỗng"}
+                  products={"Sản Phẩm"}
+                  noResult={"Không tìm thấy kết quả!"}
                   setIsActiveSearchModal={setIsActiveSearchModal}
                   {...attrs}
                 />
@@ -62,7 +59,7 @@ const MobilePopperWrapper = ({
                 onInput={(e) => setSearchValue(e.currentTarget.value)}
                 value={searchValue}
                 className={searchInputClass}
-                placeholder={t("search")}
+                placeholder={"Tìm sản phẩm mong muốn ..."}
                 onKeyDown={(e) => handleKeyDown(e, debounceValue)}
               />
             </Tippy>
@@ -75,13 +72,13 @@ const MobilePopperWrapper = ({
                 }}
                 className="text-[var(--blue-text)] font-bold"
               >
-                {t("cancel")}
+                Huỷ
               </button>
             </div>
           </div>
 
           <button
-            title={t("searchBtn")}
+            title={"Tìm Kiếm"}
             onClick={() => {
               handlePushSearch(debounceValue);
               setIsActiveSearchModal(false);

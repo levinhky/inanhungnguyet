@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Loading from "@/components/Loading";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 type Props = {
@@ -16,7 +15,6 @@ type Props = {
 
 export default function ProductDetail({ slug, product, slugName }: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const t = useTranslations("");
 
   useEffect(() => {
     if (product._id !== "") {
@@ -59,8 +57,8 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
                 </h1>
 
                 <p className="rock:mb-5 mb-3">
-                  <span className="font-bold">{t("state")} :</span>{" "}
-                  {product.status === true ? t("inStock") : t("outStock")}
+                  <span className="font-bold">Trạng Thái :</span>{" "}
+                  {product.status === true ? "Còn Hàng" : "Hết Hàng"}
                 </p>
 
                 <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">
@@ -74,41 +72,41 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
                   flex items-center justify-center w-fit
                   text-base py-2 px-5 h-12 min-w-[200px]"
                 >
-                  <p>{t("contactUs")}</p>
+                  <p>Liên Hệ Chúng Tôi...</p>
                 </Link>
               </div>
             </div>
 
             <div className="additonal-infomation rock:w-1/2">
               <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">
-                {t("additionalInformation")}
+                Thông Tin Thêm
               </h3>
 
               <ul className="info mt-5 list-disc list-inside">
                 {product.attributes.capacity !== "" && (
                   <li>
-                    <b>{t("capacity")}:</b> {product.attributes.capacity}
+                    <b>Dung Tích:</b> {product.attributes.capacity}
                   </li>
                 )}
                 {product.attributes.color !== "" && (
                   <li>
-                    <b>{t("color")}:</b> {product.attributes.color}
+                    <b>Màu Sắc:</b> {product.attributes.color}
                   </li>
                 )}
                 {product.attributes.characteristics !== "" && (
                   <li>
-                    <b>{t("characteristics")}:</b>
+                    <b>Đặc Tính:</b>
                     {product.attributes.characteristics}
                   </li>
                 )}
                 {product.attributes.design !== "" && (
                   <li>
-                    <b>{t("model")}:</b> {product.attributes.design}
+                    <b>Mẫu Mã:</b> {product.attributes.design}
                   </li>
                 )}
                 {product.attributes.uses !== "" && (
                   <li>
-                    <b>{t("uses")}:</b> {product.attributes.uses}
+                    <b>Công Dụng:</b> {product.attributes.uses}
                   </li>
                 )}
               </ul>

@@ -13,7 +13,12 @@ const ProductSearchResultPage = async ({ params, searchParams }: Props) => {
   const sortParam = searchParams?.sort;
   const page = Number(searchParams?.page) || 1;
   const limit = Number(searchParams?.limit) || 8;
-  const productResponse = await getProductsSearch(query, page, limit, sortParam);
+  const productResponse = await getProductsSearch(
+    query,
+    page,
+    limit,
+    sortParam
+  );
   const categoryResponse = await getCategories();
 
   return (

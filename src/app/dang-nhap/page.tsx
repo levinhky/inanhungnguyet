@@ -11,7 +11,6 @@ import BreadCrumb from "@/components/BreadCrumb";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
-import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -40,8 +39,6 @@ export default function AuthenticationPage({}: Props) {
 
   const user = useAppSelector((state: RootState) => state.auth.userInfo);
   const router = useRouter();
-  const t = useTranslations("validation");
-  const t_global = useTranslations("");
 
   useEffect(() => {
     if (user.uid) {
@@ -58,7 +55,7 @@ export default function AuthenticationPage({}: Props) {
     switch (name) {
       case "email":
         if (!emailRegex.test(value)) {
-          setLoginErrors({ ...loginErrors, email: t("invalidEmail") });
+          setLoginErrors({ ...loginErrors, email: "Email không hợp lệ!" });
         } else {
           setLoginErrors({ ...loginErrors, email: "" });
         }
@@ -68,7 +65,7 @@ export default function AuthenticationPage({}: Props) {
         if (value.length === 0) {
           setLoginErrors({
             ...loginErrors,
-            password: t("passwordNotEmpty"),
+            password: "Mật khẩu không được để trống!",
           });
         } else {
           setLoginErrors({ ...loginErrors, password: "" });
@@ -90,7 +87,7 @@ export default function AuthenticationPage({}: Props) {
     switch (name) {
       case "email":
         if (!emailRegex.test(value)) {
-          setSignupErrors({ ...signupErrors, email: t("invalidEmail") });
+          setSignupErrors({ ...signupErrors, email: "Email không hợp lệ!" });
         } else {
           setSignupErrors({ ...signupErrors, email: "" });
         }
@@ -100,7 +97,7 @@ export default function AuthenticationPage({}: Props) {
         if (value.length === 0) {
           setSignupErrors({
             ...signupErrors,
-            fullname: t("nameNotEmpty"),
+            fullname: "Họ và tên không được để trống!",
           });
         } else {
           setSignupErrors({ ...signupErrors, fullname: "" });
@@ -111,7 +108,7 @@ export default function AuthenticationPage({}: Props) {
         if (value.length < 6) {
           setSignupErrors({
             ...signupErrors,
-            password: t("min.passwordSix"),
+            password: "Mật khẩu ít nhất 6 ký tự!",
           });
         } else {
           setSignupErrors({ ...signupErrors, password: "" });
@@ -125,9 +122,13 @@ export default function AuthenticationPage({}: Props) {
     setSignupData({ ...signUpData, [name]: value });
   };
 
-  const hasLoginErrors = Object.values(loginErrors).some((error) => error !== "");
+  const hasLoginErrors = Object.values(loginErrors).some(
+    (error) => error !== ""
+  );
 
-  const hasSignupErrors = Object.values(signupErrors).some((error) => error !== "");
+  const hasSignupErrors = Object.values(signupErrors).some(
+    (error) => error !== ""
+  );
 
   return (
     <div className="container mx-auto rock:text-base text-center text-sm">
@@ -140,32 +141,43 @@ export default function AuthenticationPage({}: Props) {
         }
       `}</style>
       <BreadCrumb />
-      <h3 className="font-bold rock:text-xl text-lg">{t_global("loginWith")}</h3>
+      <h3 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h3>
 
       <div className="text-center mt-5">
-        <button onClick={handleFacebookLogin} className="text-white indent-8 h-6 rounded-xl pr-3 mx-1" id="fb">
+        <button
+          onClick={handleFacebookLogin}
+          className="text-white indent-8 h-6 rounded-xl pr-3 mx-1"
+          id="fb"
+        >
           Facebook
         </button>
-        <button onClick={handleGoogleLogin} className="text-white indent-8 h-6 rounded-xl pr-3 mx-1" id="gg">
+        <button
+          onClick={handleGoogleLogin}
+          className="text-white indent-8 h-6 rounded-xl pr-3 mx-1"
+          id="gg"
+        >
           Google
         </button>
       </div>
 
       <div className="w-full relative mt-10 mb-5 border-b border-b-[#dfdfdf]">
         <span className="absolute left-2/4 -translate-x-2/4 -top-3 rock:text-sm text-xs bg-white px-2 uppercase">
-          {t_global("or")}
+          Hoặc
         </span>
       </div>
 
       <section className="flex rock:flex-nowrap flex-wrap rock:gap-10 gap-7">
         <div className="w-full" id="login-form">
           <h2 className="text-center rock:text-lg text-base uppercase mb-3">
-            {isForgotPasswordForm ? t_global("forgotPassword") : t_global("login")}
+            {isForgotPasswordForm ? "Quên mật khẩu?" : "Đăng Nhập"}
           </h2>
 
           {isForgotPasswordForm ? (
             <>
-              <p className="text-[#333] text-left rock:mb-6 mb-3 text-sm">{t_global("resetPasswordNote")}</p>
+              <p className="text-[#333] text-left rock:mb-6 mb-3 text-sm">
+                Vui lòng nhập địa chỉ email của bạn dưới đây để nhận được một
+                liên kết đặt lại mật khẩu.
+              </p>
               <div className="relative rock:mb-6 mb-3 form-group">
                 <div>
                   <div className="absolute inset-y-0 left-0 max-h-10 flex items-center pl-3.5 pointer-events-none">
@@ -174,9 +186,10 @@ export default function AuthenticationPage({}: Props) {
                   <input
                     onInput={(e: ChangeEvent<HTMLInputElement>) => {
                       setForgotPasswordValue(e.target.value);
-                      const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                      const emailRegex =
+                        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
                       if (!emailRegex.test(e.target.value)) {
-                        setForgotPasswordError(t("invalidEmail"));
+                        setForgotPasswordError("Email không hợp lệ!");
                       } else {
                         setForgotPasswordError("");
                       }
@@ -187,13 +200,15 @@ export default function AuthenticationPage({}: Props) {
                     className={`${
                       forgotPasswordError.length > 0 ? "border-red-500" : ""
                     } bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5`}
-                    placeholder={t_global("yourEmail")}
+                    placeholder={"Email của bạn"}
                   />
                   <span className="absolute right-0 top-1/4 text-red-600 text-3xl mr-4 before:content-['*']"></span>
                 </div>
 
                 {forgotPasswordError.length > 0 && (
-                  <p className="text-red-500 text-sm text-left italic mt-2">{forgotPasswordError}</p>
+                  <p className="text-red-500 text-sm text-left italic mt-2">
+                    {forgotPasswordError}
+                  </p>
                 )}
               </div>
             </>
@@ -212,12 +227,16 @@ export default function AuthenticationPage({}: Props) {
                     className={`${
                       loginErrors.email ? "border-red-500" : ""
                     } bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5`}
-                    placeholder={t_global("yourEmail")}
+                    placeholder={"Email của bạn"}
                   />
                   <span className="absolute right-0 top-1/4 text-red-600 text-3xl mr-4 before:content-['*']"></span>
                 </div>
 
-                {loginErrors.email && <p className="text-red-500 text-sm text-left italic mt-2">{loginErrors.email}</p>}
+                {loginErrors.email && (
+                  <p className="text-red-500 text-sm text-left italic mt-2">
+                    {loginErrors.email}
+                  </p>
+                )}
               </div>
               <div className="relative rock:mb-6 mb-3 form-group">
                 <div className="absolute inset-y-0 left-0 max-h-10 flex items-center pl-3.5 pointer-events-none">
@@ -229,12 +248,14 @@ export default function AuthenticationPage({}: Props) {
                   type="password"
                   id="password-login"
                   className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-                  placeholder={t_global("enterPassword")}
+                  placeholder={"Nhập mật khẩu"}
                 />
                 <span className="absolute right-0 top-1/4 text-red-600 text-3xl mr-4 before:content-['*']"></span>
                 <span className="absolute right-0 top-1/4 text-red-600 text-3xl mr-4 before:content-['*']"></span>
                 {loginErrors.password && (
-                  <p className="text-red-500 text-sm text-left italic mt-2">{loginErrors.password}</p>
+                  <p className="text-red-500 text-sm text-left italic mt-2">
+                    {loginErrors.password}
+                  </p>
                 )}
               </div>
             </>
@@ -246,26 +267,30 @@ export default function AuthenticationPage({}: Props) {
                 ? handleResetPassword(forgotPasswordValue)
                 : handleLogin(loginData.email, loginData.password)
             }
-            disabled={hasLoginErrors || forgotPasswordError.length > 0 ? true : false}
+            disabled={
+              hasLoginErrors || forgotPasswordError.length > 0 ? true : false
+            }
             className={`w-full p-2.5 border rounded-lg text-sm ${
               hasLoginErrors
                 ? ""
                 : "rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out"
             }`}
           >
-            {isForgotPasswordForm ? t_global("resetMyPassword") : t_global("login")}
+            {isForgotPasswordForm ? "Đặt lại mật khẩu của tôi" : "Đăng Nhập"}
           </button>
 
           <p
             onClick={() => setIsForgotPasswordForm(!isForgotPasswordForm)}
             className="text-sm w-fit cursor-pointer rock:hover:text-[var(--blue-text)] text-left mt-2"
           >
-            {isForgotPasswordForm ? t_global("login") : t_global("forgotPassword")}
+            {isForgotPasswordForm ? "Đăng Nhập" : "Quên mật khẩu?"}
           </p>
         </div>
 
         <div className="w-full" id="reg-form">
-          <h2 className="text-center rock:text-lg text-base uppercase mb-3">{t_global("signUp")}</h2>
+          <h2 className="text-center rock:text-lg text-base uppercase mb-3">
+            Đăng Ký
+          </h2>
 
           <div className="relative rock:mb-6 mb-3 form-group">
             <div className="absolute inset-y-0 left-0 max-h-10 flex items-center pl-3.5 pointer-events-none">
@@ -277,11 +302,13 @@ export default function AuthenticationPage({}: Props) {
               type="text"
               id="fullname-reg"
               className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder={t_global("fullname")}
+              placeholder={"Họ và tên"}
             />
             <span className="absolute right-0 top-1/4 text-red-600 text-3xl mr-4 before:content-['*']"></span>
             {signupErrors.fullname && (
-              <p className="text-red-500 text-sm text-left italic mt-2">{signupErrors.fullname}</p>
+              <p className="text-red-500 text-sm text-left italic mt-2">
+                {signupErrors.fullname}
+              </p>
             )}
           </div>
           <div className="relative rock:mb-6 mb-3 form-group">
@@ -297,7 +324,11 @@ export default function AuthenticationPage({}: Props) {
               placeholder="Email"
             />
             <span className="absolute right-0 top-1/4 text-red-600 text-3xl mr-4 before:content-['*']"></span>
-            {signupErrors.email && <p className="text-red-500 text-sm text-left italic mt-2">{signupErrors.email}</p>}
+            {signupErrors.email && (
+              <p className="text-red-500 text-sm text-left italic mt-2">
+                {signupErrors.email}
+              </p>
+            )}
           </div>
           <div className="relative rock:mb-6 mb-3 form-group">
             <div className="absolute inset-y-0 left-0 max-h-10 flex items-center pl-3.5 pointer-events-none">
@@ -309,16 +340,24 @@ export default function AuthenticationPage({}: Props) {
               type="password"
               id="password-reg"
               className="bg-gray-50 border border-gray-300 outline-none text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder={t_global("password")}
+              placeholder={"Mật khẩu"}
             />
             <span className="absolute right-0 top-1/4 text-red-600 text-3xl mr-4 before:content-['*']"></span>
             {signupErrors.password && (
-              <p className="text-red-500 text-sm text-left italic mt-2">{signupErrors.password}</p>
+              <p className="text-red-500 text-sm text-left italic mt-2">
+                {signupErrors.password}
+              </p>
             )}
           </div>
 
           <button
-            onClick={() => handleSignUp(signUpData.fullname, signUpData.email, signUpData.password)}
+            onClick={() =>
+              handleSignUp(
+                signUpData.fullname,
+                signUpData.email,
+                signUpData.password
+              )
+            }
             disabled={hasSignupErrors ? true : false}
             className={`w-full p-2.5 border rounded-lg text-sm ${
               hasSignupErrors
@@ -326,7 +365,7 @@ export default function AuthenticationPage({}: Props) {
                 : "rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out"
             }`}
           >
-            {t_global("register")}
+            Đăng ký
           </button>
         </div>
       </section>

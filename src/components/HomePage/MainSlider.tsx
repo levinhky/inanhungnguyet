@@ -21,7 +21,6 @@ export default function MainSlider({}: Props) {
 
     fetchSlides();
   }, []);
-  console.log(slides);
 
   return (
     <div>

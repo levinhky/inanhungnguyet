@@ -1,11 +1,9 @@
 import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Fragment } from "react";
 
 const RenderContact = (props: { liHover: string }) => {
   const { liHover } = props;
-  const t = useTranslations("");
 
   return (
     <Fragment>
@@ -20,19 +18,29 @@ const RenderContact = (props: { liHover: string }) => {
             rel="noopener noreferrer"
             className="ml-1 "
           >
-            {t("mainAddress")}
+            11 Hà Hoa, P.Hưng Trí, Tx.Kỳ Anh, Hà Tĩnh
           </Link>
         </li>
         <li className={`flex items-center mb-1 ${liHover}`}>
           <MailOutlined />
-          <Link target="_blank" rel="nofollow" href={`mailto:${t("mainEmail")}`} className="ml-1 ">
-            {t("mainEmail")}
+          <Link
+            target="_blank"
+            rel="nofollow"
+            href={`mailto:inanhungnguyet@gmail.com`}
+            className="ml-1 "
+          >
+            inanhungnguyet@gmail.com
           </Link>
         </li>
         <li className={`flex items-center mb-1 ${liHover}`}>
           <PhoneOutlined />
-          <Link target="_blank" rel="nofollow" href={"tel:0867673358"} className="ml-1 ">
-            {t("mainPhoneNumber")}
+          <Link
+            target="_blank"
+            rel="nofollow"
+            href={"tel:0867673358"}
+            className="ml-1 "
+          >
+            086.767.3358
           </Link>
         </li>
       </ul>
