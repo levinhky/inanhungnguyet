@@ -10,13 +10,15 @@ import Pulse from "@/components/Pulse";
 import Header from "@/components/Header";
 import NavBar from "@/components/Nav";
 
-
 export const metadata: Metadata = {
+  title: metadataContent.title,
+  description: metadataContent.description,
+  keywords: metadataContent.keywords,
   openGraph: metadataContent,
 };
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
