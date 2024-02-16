@@ -21,6 +21,7 @@ export const metadataContent = {
   keywords: [
     "kỳ anh",
     "ky anh",
+    "bao bì hùng nguyệt",
     "kỳ liên kỳ anh hà tĩnh",
     "kỳ lợi kỳ anh hà tĩnh",
     "kỳ thịnh kỳ anh hà tĩnh",
@@ -42,5 +43,5 @@ export const metadataContent = {
     "in bao thư giá rẻ",
   ],
   description:
-    "Chào mừng bạn đến với In Ấn Hùng Nguyệt - Địa chỉ tin cậy cho dịch vụ in túi nhựa, túi xốp, và cốc nhựa chất lượng hàng đầu tại Kỳ Anh, Hà Tĩnh",
+    "Chào mừng bạn đến với In Ấn Hùng Nguyệt - Địa chỉ tin cậy cho dịch vụ in túi nhựa, cốc giấy, và cốc nhựa chất lượng hàng đầu tại Kỳ Anh, Hà Tĩnh",
 };

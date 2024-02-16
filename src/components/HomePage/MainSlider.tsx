@@ -49,8 +49,8 @@ export default function MainSlider({}: Props) {
                     alt={slide.title}
                   />
                   <div
-                    className="banner-container absolute bottom-[-30px] right-[20%]
-               w-[320px] h-[270px] max-h-[80%] bg-[var(--red)] pt-[30px] px-[24px]"
+                    className="banner-container absolute bottom-[-30px] right-[22%] top-[230px]
+               w-[320px] h-auto max-h-[80%] bg-[var(--red)] pt-[20px] px-[24px]"
                   >
                     <h5 className="title text-[var(--white)] text-lg font-bold mb-3">
                       {slide.title}
