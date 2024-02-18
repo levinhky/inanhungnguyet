@@ -1,6 +1,14 @@
 import BreadCrumb from "@/components/BreadCrumb";
 import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'In Ấn Hùng Nguyệt',
+    description: 'quán photo kỳ anh, in ấn kỳ anh, bao bì hùng nguyệt, hùng nguyệt bao bì',
+  };
+}
 
 type Props = {};
 
