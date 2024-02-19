@@ -28,6 +28,7 @@ export default function RootLayout({
     <html lang="vi">
       <head>
         <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="favicon/favicon.ico" sizes="any" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
