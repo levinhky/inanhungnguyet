@@ -95,7 +95,7 @@ const Header = ({}: Props) => {
   return (
     <header className="mt-[-30px]">
       <div className="flex justify-between items-center">
-        <div className="main-logo cursor-pointer" title="In Ấn Hùng Nguyệt">
+        <div className="main-logo cursor-pointer" title="Bao Bì Hùng Nguyệt">
           <Link href={"/"}>
             <Image
               src={"/logo.svg"}

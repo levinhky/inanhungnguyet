@@ -1,6 +1,0 @@
-This favicon was generated using the following font:
-
-- Font Title: Yuji Boku
-- Font Author: Copyright 2021 The Yuji Project Authors (https://github.com/Kinutafontfactory/Yuji)
-- Font Source: http://fonts.gstatic.com/s/yujiboku/v5/P5sAzZybeNzXsA9xj1Fkjb2r2dgvJA.ttf
-- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
