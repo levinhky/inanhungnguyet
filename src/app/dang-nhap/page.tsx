@@ -129,7 +129,7 @@ export default function AuthenticationPage({}: Props) {
 
   const hasSignupError = Object.values(signupErrors).some((error) => error !== "");
 
-  const loginWith = <h3 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h3>;
+  const loginWithTitle = <h3 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h3>;
   const loginTitle = isForgotPasswordForm ? "Đăng Nhập" : "Quên mật khẩu?";
 
   const renderOr = () => {
@@ -195,7 +195,7 @@ export default function AuthenticationPage({}: Props) {
         }
       `}</style>
       <BreadCrumb />
-      {loginWith}
+      {loginWithTitle}
 
       {renderSocialLogin()}
 
