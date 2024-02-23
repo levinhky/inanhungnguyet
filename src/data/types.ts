@@ -44,3 +44,14 @@ interface SlideAttributes {
   updatedAt: string;
   __v: number;
 }
+
+interface LoginFields {
+  email: string;
+  password: string;
+}
+
+interface SignupFields {
+  fullname: string;
+  email: string;
+  password: string;
+}
