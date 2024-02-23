@@ -129,19 +129,21 @@ export default function AuthenticationPage({}: Props) {
 
   const hasSignupError = Object.values(signupErrors).some((error) => error !== "");
 
-  return (
-    <div className="container mx-auto rock:text-base text-center text-sm">
-      <style jsx>{`
-        #fb {
-          background: #546ea6 url(/icons/fb.png) no-repeat 0 center;
-        }
-        #gg {
-          background: #df5656 url(/icons/gg.png) no-repeat 0 center;
-        }
-      `}</style>
-      <BreadCrumb />
-      <h3 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h3>
+  const loginWith = <h3 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h3>;
+  const loginTitle = isForgotPasswordForm ? "Đăng Nhập" : "Quên mật khẩu?";
 
+  const renderOr = () => {
+    return (
+      <div className="w-full relative mt-10 mb-5 border-b border-b-[#dfdfdf]">
+        <span className="absolute left-2/4 -translate-x-2/4 -top-3 rock:text-sm text-xs bg-white px-2 uppercase">
+          Hoặc
+        </span>
+      </div>
+    );
+  };
+
+  const renderSocialLogin = () => {
+    return (
       <div className="text-center mt-5">
         <button onClick={handleFacebookLogin} className="text-white indent-8 h-6 rounded-xl pr-3 mx-1" id="facebook">
           Facebook
@@ -150,18 +152,58 @@ export default function AuthenticationPage({}: Props) {
           Google
         </button>
       </div>
+    );
+  };
 
-      <div className="w-full relative mt-10 mb-5 border-b border-b-[#dfdfdf]">
-        <span className="absolute left-2/4 -translate-x-2/4 -top-3 rock:text-sm text-xs bg-white px-2 uppercase">
-          Hoặc
-        </span>
-      </div>
+  const renderButtonActionLogin = () => {
+    return (
+      <>
+        <button
+          onClick={() =>
+            isForgotPasswordForm
+              ? handleResetPassword(forgotPasswordValue)
+              : handleLogin(loginData.email, loginData.password)
+          }
+          disabled={hasLoginError || forgotPasswordError.length > 0 ? true : false}
+          className={`w-full p-2.5 border rounded-lg text-sm ${
+            hasLoginError
+              ? ""
+              : "rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out"
+          }`}
+        >
+          {loginTitle}
+        </button>
+
+        <p
+          onClick={() => setIsForgotPasswordForm(!isForgotPasswordForm)}
+          className="text-sm w-fit cursor-pointer rock:hover:text-[var(--blue-text)] text-left mt-2"
+        >
+          {loginTitle}
+        </p>
+      </>
+    );
+  };
+
+  return (
+    <div className="container mx-auto rock:text-base text-center text-sm">
+      <style jsx>{`
+        #facebook {
+          background: #546ea6 url(/icons/fb.png) no-repeat 0 center;
+        }
+        #google {
+          background: #df5656 url(/icons/gg.png) no-repeat 0 center;
+        }
+      `}</style>
+      <BreadCrumb />
+      {loginWith}
+
+      {renderSocialLogin()}
+
+      {renderOr()}
 
       <section className="flex rock:flex-nowrap flex-wrap rock:gap-10 gap-7">
         <div className="w-full" id="login-form">
-          <h2 className="text-center rock:text-lg text-base uppercase mb-3">
-            {isForgotPasswordForm ? "Quên mật khẩu?" : "Đăng Nhập"}
-          </h2>
+          <h2 className="text-center rock:text-lg text-base uppercase mb-3">{loginTitle}</h2>
 
           {isForgotPasswordForm ? (
             <ForgotPasswordForm
@@ -173,28 +215,7 @@ export default function AuthenticationPage({}: Props) {
             <LoginForm handleChangeLoginForm={handleChangeLoginForm} loginErrors={loginErrors} />
           )}
 
-          <button
-            onClick={() =>
-              isForgotPasswordForm
-                ? handleResetPassword(forgotPasswordValue)
-                : handleLogin(loginData.email, loginData.password)
-            }
-            disabled={hasLoginError || forgotPasswordError.length > 0 ? true : false}
-            className={`w-full p-2.5 border rounded-lg text-sm ${
-              hasLoginError
-                ? ""
-                : "rock:hover:bg-[var(--blue)] rock:hover:text-white rock:duration-75 rock:delay-75 rock:ease-in-out"
-            }`}
-          >
-            {isForgotPasswordForm ? "Đặt lại mật khẩu của tôi" : "Đăng Nhập"}
-          </button>
-
-          <p
-            onClick={() => setIsForgotPasswordForm(!isForgotPasswordForm)}
-            className="text-sm w-fit cursor-pointer rock:hover:text-[var(--blue-text)] text-left mt-2"
-          >
-            {isForgotPasswordForm ? "Đăng Nhập" : "Quên mật khẩu?"}
-          </p>
+          {renderButtonActionLogin()}
         </div>
 
         <SignupForm
