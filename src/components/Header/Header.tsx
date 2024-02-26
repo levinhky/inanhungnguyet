@@ -7,10 +7,7 @@ import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModalMobile";
 import { onAuthStateChanged } from "firebase/auth";
-import {
-  setUserInfo,
-  handleSignOut,
-} from "@/redux/features/authentication/authSlice";
+import { setUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
 import useDebounce from "@/assets/libs/hooks/useDebounce";
 import { useAppDispatch } from "@/redux/hooks";
@@ -55,14 +52,22 @@ const Header = ({}: Props) => {
     "action-search min-w-[80px] w-[60px] absolute top-0 bg-[var(--blue)] h-[44px] right-0 rounded-full";
   const debounceValue = useDebounce(searchValue, 150);
 
+  const renderMainLogo = () => {
+    return (
+      <div className="main-logo cursor-pointer" title="Bao Bì Hùng Nguyệt">
+        <Link href={"/"}>
+          <Image src={"/logo.svg"} alt="inanhungnguyetlogo" width={150} height={150} priority={true} />
+        </Link>
+      </div>
+    );
+  };
+
   const renderHeaderLinks = () => {
     return !isUserLogged ? (
       <Link href={"/dang-nhap"}>
         <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
           <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-          <p className="rock:text-base rock:mt-[5px] rock:block hidden">
-            Đăng ký / Đăng nhập
-          </p>
+          <p className="rock:text-base rock:mt-[5px] rock:block hidden">Đăng ký / Đăng nhập</p>
         </button>
       </Link>
     ) : (
@@ -82,30 +87,17 @@ const Header = ({}: Props) => {
     setSearchValueMobile("");
   }, []);
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent<HTMLInputElement>, value: string) => {
-      if (e.nativeEvent.key === "Enter") {
-        handlePushSearch(value);
-        setIsActiveSearchModal(false);
-      }
-    },
-    []
-  );
+  const handleKeyDown = useCallback((e: KeyboardEvent<HTMLInputElement>, value: string) => {
+    if (e.nativeEvent.key === "Enter") {
+      handlePushSearch(value);
+      setIsActiveSearchModal(false);
+    }
+  }, []);
 
   return (
     <header className="mt-[-30px]">
       <div className="flex justify-between items-center">
-        <div className="main-logo cursor-pointer" title="Bao Bì Hùng Nguyệt">
-          <Link href={"/"}>
-            <Image
-              src={"/logo.svg"}
-              alt="inanhungnguyetlogo"
-              width={150}
-              height={150}
-              priority={true}
-            />
-          </Link>
-        </div>
+        {renderMainLogo()}
 
         <Tippy
           interactive={true}
@@ -133,22 +125,14 @@ const Header = ({}: Props) => {
                 onKeyDown={(e) => handleKeyDown(e, debounceValue)}
               />
             </div>
-            <button
-              title={"Tìm Kiếm"}
-              onClick={() => handlePushSearch(debounceValue)}
-              className={searchIconClass}
-            >
+            <button title={"Tìm Kiếm"} onClick={() => handlePushSearch(debounceValue)} className={searchIconClass}>
               <SearchOutlined className="text-white text-xl" />
             </button>
           </div>
         </Tippy>
 
         <div className="links flex items-center">
-          <button
-            onClick={() => setIsActiveSearchModal(true)}
-            title={"Tìm Kiếm"}
-            className="rock:hidden text-2xl"
-          >
+          <button onClick={() => setIsActiveSearchModal(true)} title={"Tìm Kiếm"} className="rock:hidden text-2xl">
             <SearchOutlined />
           </button>
           <button className={`${!isUserLogged ? "hidden" : ""} text-2xl ml-3`}>
