@@ -43,5 +43,5 @@ export const metadataContent = {
     "in bao thư giá rẻ",
   ],
   description:
-    "in ấn hùng nguyệt, bao bì hùng nguyệt, vincom kỳ anh, in bao bì kỳ anh, in bao bì hà tĩnh, in ly nhựa kỳ anh, in ly nhựa hà tĩnh, in nhanh kỳ anh",
+    "kỳ anh hà tĩnh, bao bì hùng nguyệt, vincom kỳ anh, in bao bì kỳ anh, in bao bì hà tĩnh, in ly nhựa kỳ anh, in ly nhựa hà tĩnh, in nhanh kỳ anh",
 };
