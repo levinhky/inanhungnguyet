@@ -43,5 +43,5 @@ export const metadataContent = {
     "in bao thư giá rẻ",
   ],
   description:
-    "Chào mừng bạn đến với In Ấn Hùng Nguyệt - Địa chỉ tin cậy cho dịch vụ in túi nhựa, cốc giấy, và cốc nhựa chất lượng hàng đầu tại Kỳ Anh, Hà Tĩnh",
+    "in ấn hùng nguyệt, bao bì hùng nguyệt, vincom kỳ anh, in bao bì kỳ anh, in bao bì hà tĩnh, in ly nhựa kỳ anh, in ly nhựa hà tĩnh, in nhanh kỳ anh",
 };

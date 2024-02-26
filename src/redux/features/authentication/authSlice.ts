@@ -58,7 +58,7 @@ export const authSlice = createSlice({
         .catch((error) => {
           Toast.fire({
             icon: "error",
-            title: error.message,
+            title: 'Có lỗi xảy ra!',
           });
         });
     },
