@@ -13,7 +13,6 @@ import SignupForm from "@/components/Authentication/SignupForm";
 import BreadCrumb from "@/components/BreadCrumb";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
-import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 

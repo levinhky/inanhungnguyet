@@ -36,7 +36,7 @@ export function handleGoogleLogin() {
     .catch((error) => {
       Toast.fire({
         icon: "error",
-        title: error.message,
+        title: "Một lỗi đã xuất hiện!",
       });
     });
 }
@@ -52,7 +52,7 @@ export function handleFacebookLogin() {
     .catch((error) => {
       Toast.fire({
         icon: "error",
-        title: error.message,
+        title: "Một lỗi đã xuất hiện!",
       });
     });
 }
@@ -119,7 +119,7 @@ export async function handleResetPassword(email: string) {
     .catch((error) => {
       Toast.fire({
         icon: "error",
-        title: error.message,
+        title: "Một lỗi đã xuất hiện!",
       });
     });
 }

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Giới thiệu về In Ấn Hùng Nguyệt',
-    description: 'in ly nhựa kỳ anh, in bao bì kỳ anh, in kỳ anh',
+    description: 'in ly nhựa kỳ anh, in bao bì kỳ anh, in kỳ anh, bao bì hùng nguyệt',
   };
 }
 
