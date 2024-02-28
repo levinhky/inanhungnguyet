@@ -7,22 +7,22 @@ type Props = {
   };
 };
 const useProductDetail = ({ params }: Props) => {
+  const { slug } = params;
   const [data, setData] = useState({
-    slug: "",
+    slug,
     product: {},
     slugName: "",
   });
-  const { slug } = params;
 
   useEffect(() => {
     const getData = async () => {
       try {
         const product = await getProduct(slug);
-        setData({
-          slug,
+        setData((prev) => ({
+          ...prev,
           product,
           slugName: product.name,
-        });
+        }));
       } catch (error) {
         console.log("error when fetching product", error);
       }
