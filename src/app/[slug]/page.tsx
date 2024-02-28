@@ -1,10 +1,11 @@
 export const dynamic = "force-dynamic";
 
 import ProductDetail from "@/components/ProductDetail";
-import { getProduct, getProducts } from "@/config/apiConfig";
+import { getProducts } from "@/config/apiConfig";
 import NotFound from "../not-found";
 import { isEmptyObject } from "@/assets/libs/functions";
 import { Metadata } from "next";
+import useProductDetail from "@/services/hooks/product/useProductDetail";
 
 type Props = {
   params: {
@@ -24,27 +25,19 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params;
-  const product = await getProduct(slug);
+  const { productName } = await useProductDetail({ params });
 
   return {
-    title: product.name,
-    description: product.name + "kỳ anh",
+    title: productName,
+    description: productName + "kỳ anh",
   };
 }
 
 export default async function ProductDetailPage({ params }: Props) {
-  const { slug } = params;
-  const productResponse = await getProduct(slug);
-  if (isEmptyObject(productResponse)) {
+  const { slug, product, productName } = await useProductDetail({ params });
+  if (isEmptyObject(product)) {
     return <NotFound />;
   }
 
-  return (
-    <ProductDetail
-      slug={slug}
-      product={productResponse}
-      slugName={productResponse.name}
-    />
-  );
+  return <ProductDetail slug={slug} product={product} slugName={productName} />;
 }

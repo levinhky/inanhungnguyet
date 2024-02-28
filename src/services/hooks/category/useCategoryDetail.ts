@@ -1,5 +1,4 @@
 import { getCategory } from "@/config/apiConfig";
-import { useEffect, useState } from "react";
 
 type Props = {
   params: {
@@ -8,41 +7,22 @@ type Props = {
   searchParams?: { [key: string]: string };
 };
 
-const useCategoryDetail = ({ params, searchParams }: Props) => {
+const useCategoryDetail = async ({ params, searchParams }: Props) => {
   const { slug } = params;
   const sortParam = searchParams?.sort;
   const page = Number(searchParams?.page);
   const limit = Number(searchParams?.limit);
-  const [data, setData] = useState({
-    products: [],
-    totalPages: 0,
-    totalCount: 0,
+  const categoryResponse = await getCategory(slug, page, limit, sortParam);
+
+  return {
+    products: categoryResponse.category.productsInCategory,
+    totalPages: categoryResponse.totalPages,
+    totalCount: categoryResponse.totalCount,
     currentPage: page,
     limit,
     slug,
-    categoryName: "",
-  });
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await getCategory(slug, page, limit, sortParam);
-        setData((prev) => ({
-          ...prev,
-          products: response.category.productsInCategory,
-          totalPages: response.productsInCategory,
-          totalCount: response.productsInCategory,
-          categoryName: response.category.name,
-        }));
-      } catch (error) {
-        console.log("error when fetching category", error);
-      }
-    };
-
-    getData();
-  }, [slug, sortParam, page, limit]);
-
-  return data;
+    categoryName: categoryResponse.category?.name,
+  };
 };
 
 export default useCategoryDetail;

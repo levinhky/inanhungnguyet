@@ -1,5 +1,6 @@
 import ProductList from "@/components/ProductList";
-import { getCategories, getProductsSearch } from "@/config/apiConfig";
+import useCategoryList from "@/services/hooks/category/useCategoryList";
+import useProductSearch from "@/services/hooks/product/useProductSearch";
 
 type Props = {
   params: {
@@ -9,25 +10,17 @@ type Props = {
 };
 
 const ProductSearchResultPage = async ({ params, searchParams }: Props) => {
-  const { query } = params;
-  const sortParam = searchParams?.sort;
-  const page = Number(searchParams?.page) || 1;
-  const limit = Number(searchParams?.limit) || 8;
-  const productResponse = await getProductsSearch(
-    query,
-    page,
-    limit,
-    sortParam
-  );
-  const categoryResponse = await getCategories();
+  const { products, totalPages, totalCount, currentPage, limit } =
+    await useProductSearch({ params, searchParams });
+  const categories = await useCategoryList();
 
   return (
     <ProductList
-      categories={categoryResponse.categories}
-      products={productResponse.products}
-      totalPages={productResponse.totalPages}
-      totalCount={productResponse.totalCount}
-      currentPage={page}
+      categories={categories}
+      products={products}
+      totalPages={totalPages}
+      totalCount={totalCount}
+      currentPage={currentPage}
       limit={limit}
     />
   );

@@ -1,25 +1,23 @@
 import ProductList from "@/components/ProductList";
-import { getCategories, getProducts } from "@/config/apiConfig";
-import React from "react";
+import useCategoryList from "@/services/hooks/category/useCategoryList";
+import useProductList from "@/services/hooks/product/useProductList";
 
 type Props = {
   searchParams?: { [key: string]: string };
 };
 
 export default async function ProductListingPage({ searchParams }: Props) {
-  const sortParam = searchParams?.sort;
-  const page = Number(searchParams?.page);
-  const limit = Number(searchParams?.limit);
-  const productResponse = await getProducts(page, limit, sortParam);
-  const categoryResponse = await getCategories();
-  
+  const { products, totalCount, totalPages, currentPage, limit, sortParam } =
+    await useProductList({ searchParams });
+  const categories = await useCategoryList();
+
   return (
     <ProductList
-      categories={categoryResponse.categories}
-      products={productResponse.products}
-      totalPages={productResponse.totalPages}
-      totalCount={productResponse.totalCount}
-      currentPage={page}
+      categories={categories}
+      products={products}
+      totalPages={totalPages}
+      totalCount={totalCount}
+      currentPage={currentPage}
       limit={limit}
       sortParam={sortParam}
     />

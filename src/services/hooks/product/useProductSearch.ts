@@ -1,5 +1,4 @@
 import { getProductsSearch } from "@/config/apiConfig";
-import { useEffect, useState } from "react";
 
 type Props = {
   params: {
@@ -13,32 +12,21 @@ const useProductSearch = async ({ params, searchParams }: Props) => {
   const sortParam = searchParams?.sort;
   const page = Number(searchParams?.page) || 1;
   const limit = Number(searchParams?.limit) || 8;
-  const [data, setData] = useState({
-    products: [],
-    totalPages: 0,
-    totalCount: 0,
+
+  const productResponse = await getProductsSearch(
+    query,
+    page,
+    limit,
+    sortParam
+  );
+
+  return {
+    products: productResponse.products,
+    totalPages: productResponse.totalPages,
+    totalCount: productResponse.totalCount,
     currentPage: page,
     limit,
-  });
-
-  useEffect(() => {
-    const getSearchData = async () => {
-      try {
-        const response = await getProductsSearch(query, page, limit, sortParam);
-        setData((prev) => ({
-          ...prev,
-          products: response.products,
-          totalPages: response.totalPages,
-          totalCount: response.totalCount,
-        }));
-      } catch (error) {
-        console.log("error when fetching product search", error);
-      }
-    };
-    getSearchData();
-  }, [query, page, limit, sortParam]);
-
-  return data;
+  };
 };
 
 export default useProductSearch;

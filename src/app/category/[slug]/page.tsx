@@ -1,5 +1,7 @@
 import ProductList from "@/components/ProductList";
-import { getCategories, getCategory } from "@/config/apiConfig";
+import { getCategory } from "@/config/apiConfig";
+import useCategoryDetail from "@/services/hooks/category/useCategoryDetail";
+import useCategoryList from "@/services/hooks/category/useCategoryList";
 import { Metadata } from "next";
 
 type Props = {
@@ -10,8 +12,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const categoryResponse = await getCategories();
-  const categories = await categoryResponse.categories;
+  const categories = await useCategoryList();
 
   return categories.length > 0
     ? categories.map((category: CategoryAttributes) => ({
@@ -30,23 +31,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const ProductsInCategoryPage = async ({ params, searchParams }: Props) => {
-  const { slug } = params;
-  const sortParam = searchParams?.sort;
-  const page = Number(searchParams?.page);
-  const limit = Number(searchParams?.limit);
-  const categoryListResponse = await getCategories();
-  const categoryResponse = await getCategory(slug, page, limit, sortParam);
+  const {
+    products,
+    totalPages,
+    totalCount,
+    currentPage,
+    limit,
+    slug,
+    categoryName,
+  } = await useCategoryDetail({ params, searchParams });
+  const categories = await useCategoryList();
 
   return (
     <ProductList
-      categories={categoryListResponse.categories}
-      products={categoryResponse.category.productsInCategory}
-      totalPages={categoryResponse.totalPages}
-      totalCount={categoryResponse.totalCount}
-      currentPage={page}
+      categories={categories}
+      products={products}
+      totalPages={totalPages}
+      totalCount={totalCount}
+      currentPage={currentPage}
       limit={limit}
       slug={slug}
-      categoryName={categoryResponse.category?.name}
+      categoryName={categoryName}
     />
   );
 };
