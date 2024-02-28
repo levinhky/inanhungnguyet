@@ -1,3 +1,4 @@
+"use client";
 import { pulseIcons } from "@/data/arrays";
 import Image from "next/image";
 import Link from "next/link";
