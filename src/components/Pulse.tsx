@@ -1,9 +1,8 @@
-// Import the type definition for PulseIconTypeimport { pulseIcons } from "@/data/arrays";
 import { pulseIcons } from "@/data/arrays";
 import Image from "next/image";
 import Link from "next/link";
 
-const PulseIcon: React.FC<{ icon: { href: string; src: string; alt: string } }> = ({ icon }) => (
+const PulseIcon: React.FC<{ icon: PulseIcon }> = ({ icon }) => (
   <div
     className={`circle pulse rock:w-11 rock:h-11 w-10 h-10 ${icon.alt === "phone" ? "mb-5" : "mb-8"} ${
       icon.alt === "phone" ? "phone-ring bg-[#66ff99]" : ""

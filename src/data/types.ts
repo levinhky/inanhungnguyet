@@ -55,3 +55,9 @@ interface SignupFields {
   email: string;
   password: string;
 }
+
+interface PulseIcon {
+  href: string;
+  src: string;
+  alt: string;
+}
