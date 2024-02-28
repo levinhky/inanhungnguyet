@@ -16,6 +16,24 @@ export const menuItems = [
   },
 ];
 
+export const pulseIcons = [
+  {
+    href: "https://zalo.me/0867673358",
+    src: "/icons/zalo.png",
+    alt: "zalo",
+  },
+  {
+    href: "https://www.messenger.com/t/100033316692112/",
+    src: "/icons/messenger.png",
+    alt: "messenger",
+  },
+  {
+    href: "tel:0867673358",
+    src: "/icons/phone.png",
+    alt: "phone",
+  },
+];
+
 export const metadataContent = {
   title: "In Ấn Hùng Nguyệt - Địa Chỉ In Túi, Ly Nhựa Chất Lượng",
   keywords: [
