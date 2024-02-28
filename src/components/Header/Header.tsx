@@ -9,7 +9,7 @@ import MobilePopperWrapper from "../Search/SearchModalMobile";
 import { onAuthStateChanged } from "firebase/auth";
 import { setUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
 import { auth } from "@/data/firebase";
-import useDebounce from "@/assets/libs/hooks/useDebounce";
+import useDebounce from "@/services/hooks/useDebounce";
 import { useAppDispatch } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";

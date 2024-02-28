@@ -2,7 +2,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Dispatch, KeyboardEvent, SetStateAction, memo } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "./PopperWrapper";
-import useDebounce from "@/assets/libs/hooks/useDebounce";
+import useDebounce from "@/services/hooks/useDebounce";
 
 type Props = {
   isActiveSearchModal: boolean;
