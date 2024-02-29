@@ -1,14 +1,17 @@
 import "./globals.css";
 import "@/assets/css/animation.css";
+import Script from "next/script";
 import type { Metadata } from "next";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Footer from "@/components/Footer";
 import { Providers } from "@/redux/provider";
 import { metadataContent } from "@/data/arrays";
-import Script from "next/script";
 import ScrollTop from "@/components/ScrollTop";
 import Pulse from "@/components/Pulse";
 import Header from "@/components/Header";
 import NavBar from "@/components/Nav";
+
+const queryClient = new QueryClient();
 
 export const metadata: Metadata = {
   title: metadataContent.title,
@@ -17,54 +20,35 @@ export const metadata: Metadata = {
   openGraph: metadataContent,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
 
   return (
     <html lang="vi">
       <head>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body suppressHydrationWarning={true}>
-        <Providers>
-          <div className="container mx-auto">
-            <Header />
-          </div>
-          <NavBar />
-          {children}
-          <Footer />
-        </Providers>
+        <QueryClientProvider client={queryClient}>
+          <Providers>
+            <div className="container mx-auto">
+              <Header />
+            </div>
+            <NavBar />
+            {children}
+            <Footer />
+          </Providers>
+        </QueryClientProvider>
         <ScrollTop />
         <Pulse />
       </body>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
     window.dataLayer = window.dataLayer || [];
