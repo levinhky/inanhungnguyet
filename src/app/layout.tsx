@@ -2,7 +2,6 @@ import "./globals.css";
 import "@/assets/css/animation.css";
 import Script from "next/script";
 import type { Metadata } from "next";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Footer from "@/components/Footer";
 import { Providers } from "@/redux/provider";
 import { metadataContent } from "@/data/arrays";
@@ -10,8 +9,6 @@ import ScrollTop from "@/components/ScrollTop";
 import Pulse from "@/components/Pulse";
 import Header from "@/components/Header";
 import NavBar from "@/components/Nav";
-
-const queryClient = new QueryClient();
 
 export const metadata: Metadata = {
   title: metadataContent.title,
@@ -35,7 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body suppressHydrationWarning={true}>
-        <QueryClientProvider client={queryClient}>
           <Providers>
             <div className="container mx-auto">
               <Header />
@@ -44,7 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
             <Footer />
           </Providers>
-        </QueryClientProvider>
         <ScrollTop />
         <Pulse />
       </body>
