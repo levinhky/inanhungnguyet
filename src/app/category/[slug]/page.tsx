@@ -22,24 +22,18 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params;
-  const res = await getCategory(slug);
+  const { categoryName } = await useCategoryDetail({ params });
 
   return {
-    title: res.category.name,
+    title: categoryName,
   };
 }
 
 const ProductsInCategoryPage = async ({ params, searchParams }: Props) => {
-  const {
-    products,
-    totalPages,
-    totalCount,
-    currentPage,
-    limit,
-    slug,
-    categoryName,
-  } = await useCategoryDetail({ params, searchParams });
+  const { products, totalPages, totalCount, currentPage, limit, slug, categoryName } = await useCategoryDetail({
+    params,
+    searchParams,
+  });
   const categories = await useCategoryList();
 
   return (
