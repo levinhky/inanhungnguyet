@@ -33,7 +33,7 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
           <li className="mb-2">
             &bull; Mạng xã hội:
             <Link
-              href={"https://www.facebook.com/levinhhoa.levinhhoa"}
+              href={"https://www.facebook.com/inanhungnguyet"}
               target="_blank"
               rel="noopener noreferrer"
             >
