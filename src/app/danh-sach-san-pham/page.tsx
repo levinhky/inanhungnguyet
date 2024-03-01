@@ -13,7 +13,7 @@ export default async function ProductListingPage({ searchParams }: Props) {
   const categories = await useCategoryList();
 
   return (
-    <Suspense key={searchParams?.page} fallback={<Loading />}>
+    <Suspense key={JSON.stringify(searchParams)} fallback={<Loading />}>
       <ProductList
         categories={categories}
         products={products}
