@@ -22,33 +22,25 @@ type Props = {
 };
 
 export default function ProductList(props: Props) {
-  const {
-    categories,
-    products,
-    totalCount,
-    totalPages,
-    currentPage,
-    limit,
-    sortParam,
-  } = props;
+  const { categories, products, totalCount, totalPages, currentPage, limit, sortParam } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pagination, setPagination] = useState<number[]>([]);
-  const [sortOption, setSortOption] = useState<string>("name-asc");
+  const [sortOption, setSortOption] = useState<string | undefined>(sortParam || "name-asc");
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     setIsLoading(false);
-  }, []);
+  }, [sortParam, currentPage]);
 
   useEffect(() => {
     if (totalPages > 0) {
       setPagination(Array.from({ length: totalPages }, (v, i) => i + 1));
     }
   }, [totalPages]);
-
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const createQueryString = useCallback((name: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -60,7 +52,25 @@ export default function ProductList(props: Props) {
   const handleSort = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     setSortOption(e.target.value);
     router.push(pathname + "?" + createQueryString("sort", e.target.value));
+    setIsLoading(true);
   }, []);
+
+  const handlePage = (page: number) => {
+    router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
+    setIsLoading(true);
+  };
+
+  const handlePrev = () => {
+    const page = currentPage > 1 ? currentPage - 1 : 1;
+    router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
+    setIsLoading(true);
+  };
+
+  const handleNext = () => {
+    const page = currentPage < totalPages ? currentPage + 1 : totalPages;
+    router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
+    setIsLoading(true);
+  };
 
   return (
     <>
@@ -99,8 +109,9 @@ export default function ProductList(props: Props) {
                   currentPage={currentPage}
                   totalPages={totalPages}
                   pagination={pagination}
-                  limit={limit}
-                  sortParam={sortParam}
+                  handlePage={handlePage}
+                  handlePrev={handlePrev}
+                  handleNext={handleNext}
                 />
               )}
             </aside>

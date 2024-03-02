@@ -1,9 +1,6 @@
 import { ChangeEvent } from "react";
 
-const SortOption = (props: {
-  sortOption: string;
-  handleSort: (e: ChangeEvent<HTMLSelectElement>) => void;
-}) => {
+const SortOption = (props: { sortOption?: string; handleSort: (e: ChangeEvent<HTMLSelectElement>) => void }) => {
   const { sortOption, handleSort } = props;
 
   return (
