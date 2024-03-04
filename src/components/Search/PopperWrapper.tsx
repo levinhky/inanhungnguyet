@@ -1,7 +1,8 @@
 import apiConfig from "@/config/apiConfig";
 import Image from "next/image";
 import Link from "next/link";
-import { SetStateAction, useEffect, useState, Dispatch } from "react";
+import { SetStateAction, useEffect, useState, Dispatch, useCallback } from "react";
+import Product from "./Product";
 
 type Props = {
   searchValue: string;
@@ -32,9 +33,7 @@ export default function PopperWrapper({
         setIsLoading(true);
         setIsShow(false);
         try {
-          const response = await fetch(
-            apiConfig.baseURL + "products?query=" + searchValue
-          );
+          const response = await fetch(apiConfig.baseURL + "products?query=" + searchValue);
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
@@ -52,11 +51,14 @@ export default function PopperWrapper({
     fetchData();
   }, [searchValue]);
 
+  const handleClickProductSearch = useCallback(() => {
+    setSearchValue("");
+    setIsActiveSearchModal?.(false);
+  }, []);
+
   return (
     <div className="rock:w-[700px] w-full bg-white rock:p-5 p-3 rock:rounded-lg rock:border-[var(--gray)] rock:border">
-      <h4 className="font-bold mb-2 rock:text-sm test-base">
-        {isShow ? products : searchHistoryTitle}
-      </h4>
+      <h4 className="font-bold mb-2 rock:text-sm test-base">{isShow ? products : searchHistoryTitle}</h4>
 
       {!isShow ? (
         <p className="text-sm">{searchHistoryEmpty}</p>
@@ -66,27 +68,7 @@ export default function PopperWrapper({
             "Loading..."
           ) : searchData?.length ? (
             searchData.map((product) => (
-              <div key={product._id} className="flex items-center mb-3">
-                <div className="thumb">
-                  <Image
-                    src={product.thumbs[0]}
-                    className="h-[50px] rounded"
-                    width={50}
-                    height={50}
-                    alt={product.name}
-                  />
-                </div>
-                <Link
-                  href={`/${product.slug}`}
-                  className="name ml-3 rock:hover:text-[var(--blue)] rock:ease-in-out"
-                  onClick={() => {
-                    setSearchValue("");
-                    setIsActiveSearchModal?.(false);
-                  }}
-                >
-                  {product.name}
-                </Link>
-              </div>
+              <Product key={product._id} product={product} handleClickProductSearch={handleClickProductSearch} />
             ))
           ) : (
             <p className="text-sm">{noResult}</p>

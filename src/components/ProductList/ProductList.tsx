@@ -49,11 +49,11 @@ export default function ProductList(props: Props) {
     return params.toString();
   }, []);
 
-  const handleSort = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
     setSortOption(e.target.value);
     router.push(pathname + "?" + createQueryString("sort", e.target.value));
     setIsLoading(true);
-  }, []);
+  };
 
   const handlePage = (page: number) => {
     router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
