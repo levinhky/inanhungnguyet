@@ -1,8 +1,6 @@
-import apiConfig from "@/config/apiConfig";
-import Image from "next/image";
-import Link from "next/link";
 import { SetStateAction, useEffect, useState, Dispatch, useCallback } from "react";
 import Product from "./Product";
+import useProductSearch from "@/services/hooks/product/useProductSearch";
 
 type Props = {
   searchValue: string;
@@ -33,12 +31,8 @@ export default function PopperWrapper({
         setIsLoading(true);
         setIsShow(false);
         try {
-          const response = await fetch(apiConfig.baseURL + "products?query=" + searchValue);
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const data = await response.json();
-          setSearchData(data.products);
+          const { products } = await useProductSearch({ params: { query: searchValue } });
+          setSearchData(products);
           setIsShow(true);
           setIsLoading(false);
         } catch (error) {

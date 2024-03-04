@@ -9,7 +9,7 @@ type Props = {
 
 const useProductSearch = async ({ params, searchParams }: Props) => {
   const { query } = params;
-  const sortParam = searchParams?.sort;
+  const sortParam = searchParams?.sort|| 'name-asc';
   const page = Number(searchParams?.page) || 1;
   const limit = Number(searchParams?.limit) || 8;
 
