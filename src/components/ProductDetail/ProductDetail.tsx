@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Loading from "@/components/Loading";
 import Link from "next/link";
+import { isEmptyObj } from "@/config/methods";
 
 type Props = {
   slug: string;
@@ -75,19 +76,21 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
               </div>
             </div>
 
-            <div className="additonal-infomation rock:w-1/2">
-              <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">
-                Thông Tin Thêm
-              </h3>
+            {!isEmptyObj(product.attributes) && (
+              <div className="additonal-infomation rock:w-1/2">
+                <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">
+                  Thông Tin Thêm
+                </h3>
 
-              <ul className="info mt-5 list-disc list-inside">
-                {renderAttribute("Dung tích", capacity)}
-                {renderAttribute("Màu Sắc", color)}
-                {renderAttribute("Đặc Tính", characteristics)}
-                {renderAttribute("Mẫu Mã", design)}
-                {renderAttribute("Công Dụng", uses)}
-              </ul>
-            </div>
+                <ul className="info mt-5 list-disc list-inside">
+                  {renderAttribute("Dung tích", capacity)}
+                  {renderAttribute("Màu Sắc", color)}
+                  {renderAttribute("Đặc Tính", characteristics)}
+                  {renderAttribute("Mẫu Mã", design)}
+                  {renderAttribute("Công Dụng", uses)}
+                </ul>
+              </div>
+            )}
           </section>
         </div>
       )}
