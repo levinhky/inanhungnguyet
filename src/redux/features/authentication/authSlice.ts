@@ -16,6 +16,7 @@ export type UserAttributes = {
 
 export interface AuthState {
   userInfo: UserAttributes;
+  isLoggedIn: boolean;
 }
 
 const initialState: AuthState = {
@@ -28,6 +29,7 @@ const initialState: AuthState = {
     photoURL: "",
     uid: "",
   },
+  isLoggedIn: false,
 };
 
 export const authSlice = createSlice({
@@ -36,6 +38,9 @@ export const authSlice = createSlice({
   reducers: {
     setUserInfo: (state, action: PayloadAction<UserAttributes>) => {
       state.userInfo = action.payload;
+    },
+    setIsLoggedIn: (state, action: PayloadAction<boolean>) => {
+      state.isLoggedIn = action.payload;
     },
     handleSignOut: (state) => {
       state.userInfo = {
@@ -58,13 +63,13 @@ export const authSlice = createSlice({
         .catch((error) => {
           Toast.fire({
             icon: "error",
-            title: 'Có lỗi xảy ra!',
+            title: "Có lỗi xảy ra!",
           });
         });
     },
   },
 });
 
-export const { setUserInfo, handleSignOut } = authSlice.actions;
+export const { setUserInfo, handleSignOut, setIsLoggedIn } = authSlice.actions;
 
 export default authSlice.reducer;
