@@ -2,15 +2,13 @@
 
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import { useState, useEffect, KeyboardEvent, useCallback, memo } from "react";
+import { useState, KeyboardEvent, useCallback, memo } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModalMobile";
-import { onAuthStateChanged } from "firebase/auth";
-import { setUserInfo, handleSignOut } from "@/redux/features/authentication/authSlice";
-import { auth } from "@/data/firebase";
+import { handleSignOut } from "@/redux/features/authentication/authSlice";
 import useDebounce from "@/services/hooks/useDebounce";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -20,30 +18,9 @@ const Header = ({}: Props) => {
   const [searchValue, setSearchValue] = useState("");
   const [searchValueMobile, setSearchValueMobile] = useState("");
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
-  const [isUserLogged, setIsUserLogged] = useState(false);
   const dispath = useAppDispatch();
+  const { isSignIn } = useAppSelector((state) => state.auth);
   const route = useRouter();
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispath(
-          setUserInfo({
-            displayName: user.displayName ?? "",
-            email: user.email ?? "",
-            emailVerified: user.emailVerified ?? false,
-            isAnonymous: user.isAnonymous ?? false,
-            phoneNumber: user.phoneNumber ?? "",
-            photoURL: user.photoURL ?? "",
-            uid: user.uid,
-          })
-        );
-        setIsUserLogged(true);
-      } else {
-        setIsUserLogged(false);
-      }
-    });
-  }, []);
 
   const searchInputClass =
     "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
@@ -63,7 +40,7 @@ const Header = ({}: Props) => {
   };
 
   const renderHeaderLinks = () => {
-    return !isUserLogged ? (
+    return !isSignIn ? (
       <Link href={"/dang-nhap"}>
         <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
           <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
@@ -135,7 +112,7 @@ const Header = ({}: Props) => {
           <button onClick={() => setIsActiveSearchModal(true)} title={"Tìm Kiếm"} className="rock:hidden text-2xl">
             <SearchOutlined />
           </button>
-          <button className={`${!isUserLogged ? "hidden" : ""} text-2xl ml-3`}>
+          <button className={`${!isSignIn ? "hidden" : ""} text-2xl ml-3`}>
             <HeartOutlined />
           </button>
 

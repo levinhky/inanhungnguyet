@@ -16,7 +16,7 @@ export type UserAttributes = {
 
 export interface AuthState {
   userInfo: UserAttributes;
-  isLoggedIn: boolean;
+  isSignIn: boolean;
 }
 
 const initialState: AuthState = {
@@ -29,7 +29,7 @@ const initialState: AuthState = {
     photoURL: "",
     uid: "",
   },
-  isLoggedIn: false,
+  isSignIn: false,
 };
 
 export const authSlice = createSlice({
@@ -39,8 +39,8 @@ export const authSlice = createSlice({
     setUserInfo: (state, action: PayloadAction<UserAttributes>) => {
       state.userInfo = action.payload;
     },
-    setIsLoggedIn: (state, action: PayloadAction<boolean>) => {
-      state.isLoggedIn = action.payload;
+    setIsSignIn: (state, action: PayloadAction<boolean>) => {
+      state.isSignIn = action.payload;
     },
     handleSignOut: (state) => {
       state.userInfo = {
@@ -70,6 +70,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setUserInfo, handleSignOut, setIsLoggedIn } = authSlice.actions;
+export const { setUserInfo, handleSignOut, setIsSignIn } = authSlice.actions;
 
 export default authSlice.reducer;

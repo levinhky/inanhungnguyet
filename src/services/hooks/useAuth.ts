@@ -1,5 +1,5 @@
 import { auth } from "@/data/firebase";
-import { setIsLoggedIn, setUserInfo } from "@/redux/features/authentication/authSlice";
+import { setIsSignIn, setUserInfo } from "@/redux/features/authentication/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -19,9 +19,9 @@ const useAuth = () => {
           uid: user.uid,
         })
       );
-      setIsLoggedIn(true);
+      setIsSignIn(true);
     } else {
-      setIsLoggedIn(false);
+      setIsSignIn(false);
     }
   });
 };
