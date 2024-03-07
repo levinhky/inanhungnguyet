@@ -2,7 +2,7 @@
 
 import { HeartOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import { useState, KeyboardEvent, useCallback, memo } from "react";
+import { useState, KeyboardEvent, useCallback, memo, useEffect } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModalMobile";
@@ -11,6 +11,7 @@ import useDebounce from "@/services/hooks/useDebounce";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import useAuth from "@/services/hooks/useAuth";
 
 type Props = {};
 
@@ -21,6 +22,9 @@ const Header = ({}: Props) => {
   const dispath = useAppDispatch();
   const { isSignIn } = useAppSelector((state) => state.auth);
   const route = useRouter();
+  // const { userInfo } = useAuth();
+  console.log(useAuth());
+  
 
   const searchInputClass =
     "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
@@ -33,7 +37,13 @@ const Header = ({}: Props) => {
     return (
       <div className="main-logo cursor-pointer" title="Bao Bì Hùng Nguyệt">
         <Link href={"/"}>
-          <Image src={"/logo.svg"} alt="inanhungnguyetlogo" width={150} height={150} priority={true} />
+          <Image
+            src={"/logo.svg"}
+            alt="inanhungnguyetlogo"
+            width={150}
+            height={150}
+            priority={true}
+          />
         </Link>
       </div>
     );
@@ -44,7 +54,9 @@ const Header = ({}: Props) => {
       <Link href={"/dang-nhap"}>
         <button className="login flex items-center justify-center rock:hover:text-[var(--blue)]">
           <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />
-          <p className="rock:text-base rock:mt-[5px] rock:block hidden">Đăng ký / Đăng nhập</p>
+          <p className="rock:text-base rock:mt-[5px] rock:block hidden">
+            Đăng ký / Đăng nhập
+          </p>
         </button>
       </Link>
     ) : (
@@ -64,12 +76,15 @@ const Header = ({}: Props) => {
     setSearchValueMobile("");
   }, []);
 
-  const handleKeyDown = useCallback((e: KeyboardEvent<HTMLInputElement>, value: string) => {
-    if (e.nativeEvent.key === "Enter") {
-      handlePushSearch(value);
-      setIsActiveSearchModal(false);
-    }
-  }, []);
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLInputElement>, value: string) => {
+      if (e.nativeEvent.key === "Enter") {
+        handlePushSearch(value);
+        setIsActiveSearchModal(false);
+      }
+    },
+    []
+  );
 
   return (
     <header className="mt-[-30px]">
@@ -102,14 +117,22 @@ const Header = ({}: Props) => {
                 onKeyDown={(e) => handleKeyDown(e, debounceValue)}
               />
             </div>
-            <button title={"Tìm Kiếm"} onClick={() => handlePushSearch(debounceValue)} className={searchIconClass}>
+            <button
+              title={"Tìm Kiếm"}
+              onClick={() => handlePushSearch(debounceValue)}
+              className={searchIconClass}
+            >
               <SearchOutlined className="text-white text-xl" />
             </button>
           </div>
         </Tippy>
 
         <div className="links flex items-center">
-          <button onClick={() => setIsActiveSearchModal(true)} title={"Tìm Kiếm"} className="rock:hidden text-2xl">
+          <button
+            onClick={() => setIsActiveSearchModal(true)}
+            title={"Tìm Kiếm"}
+            className="rock:hidden text-2xl"
+          >
             <SearchOutlined />
           </button>
           <button className={`${!isSignIn ? "hidden" : ""} text-2xl ml-3`}>

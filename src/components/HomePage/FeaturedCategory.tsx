@@ -15,6 +15,7 @@ export default function CategoryList({ categories }: Props) {
   // );
 
   return (
+    categories &&
     categories.length > 0 && (
       <section
         className="mt-11 relative bg-[#F0F5FF] px-3 rock:py-10 pt-5 pb-6 

@@ -36,12 +36,6 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setUserInfo: (state, action: PayloadAction<UserAttributes>) => {
-      state.userInfo = action.payload;
-    },
-    setIsSignIn: (state, action: PayloadAction<boolean>) => {
-      state.isSignIn = action.payload;
-    },
     handleSignOut: (state) => {
       state.userInfo = {
         displayName: "",
@@ -70,6 +64,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setUserInfo, handleSignOut, setIsSignIn } = authSlice.actions;
+export const { handleSignOut } = authSlice.actions;
 
 export default authSlice.reducer;

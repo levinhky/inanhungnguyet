@@ -124,11 +124,17 @@ export default function AuthenticationPage({}: Props) {
     setSignupData({ ...signUpData, [name]: value });
   };
 
-  const hasLoginError = Object.values(loginErrors).some((error) => error !== "");
+  const hasLoginError = Object.values(loginErrors).some(
+    (error) => error !== ""
+  );
 
-  const hasSignupError = Object.values(signupErrors).some((error) => error !== "");
+  const hasSignupError = Object.values(signupErrors).some(
+    (error) => error !== ""
+  );
 
-  const loginWithTitle = <h3 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h3>;
+  const loginWithTitle = (
+    <h3 className="font-bold rock:text-xl text-lg">Đăng nhập bằng</h3>
+  );
   const loginTitle = isForgotPasswordForm ? "Đăng Nhập" : "Quên mật khẩu?";
 
   const renderOr = () => {
@@ -144,10 +150,26 @@ export default function AuthenticationPage({}: Props) {
   const renderSocialLogin = () => {
     return (
       <div className="text-center mt-5">
-        <button onClick={handleFacebookLogin} className="text-white indent-8 h-6 rounded-xl pr-3 mx-1" id="facebook">
+        <style jsx>{`
+          #facebook {
+            background: #546ea6 url(/icons/fb.png) no-repeat 0 center;
+          }
+          #google {
+            background: #df5656 url(/icons/gg.png) no-repeat 0 center;
+          }
+        `}</style>
+        <button
+          onClick={handleFacebookLogin}
+          className="text-white indent-8 h-6 rounded-xl pr-3 mx-1"
+          id="facebook"
+        >
           Facebook
         </button>
-        <button onClick={handleGoogleLogin} className="text-white indent-8 h-6 rounded-xl pr-3 mx-1" id="google">
+        <button
+          onClick={handleGoogleLogin}
+          className="text-white indent-8 h-6 rounded-xl pr-3 mx-1"
+          id="google"
+        >
           Google
         </button>
       </div>
@@ -163,7 +185,9 @@ export default function AuthenticationPage({}: Props) {
               ? handleResetPassword(forgotPasswordValue)
               : handleLogin(loginData.email, loginData.password)
           }
-          disabled={hasLoginError || forgotPasswordError.length > 0 ? true : false}
+          disabled={
+            hasLoginError || forgotPasswordError.length > 0 ? true : false
+          }
           className={`w-full p-2.5 border rounded-lg text-sm ${
             hasLoginError
               ? ""
@@ -185,14 +209,6 @@ export default function AuthenticationPage({}: Props) {
 
   return (
     <div className="container mx-auto rock:text-base text-center text-sm">
-      <style jsx>{`
-        #facebook {
-          background: #546ea6 url(/icons/fb.png) no-repeat 0 center;
-        }
-        #google {
-          background: #df5656 url(/icons/gg.png) no-repeat 0 center;
-        }
-      `}</style>
       <BreadCrumb />
       {loginWithTitle}
 
@@ -202,7 +218,9 @@ export default function AuthenticationPage({}: Props) {
 
       <section className="flex rock:flex-nowrap flex-wrap rock:gap-10 gap-7">
         <div className="w-full" id="login-form">
-          <h2 className="text-center rock:text-lg text-base uppercase mb-3">{loginTitle}</h2>
+          <h2 className="text-center rock:text-lg text-base uppercase mb-3">
+            {loginTitle}
+          </h2>
 
           {isForgotPasswordForm ? (
             <ForgotPasswordForm
@@ -211,7 +229,10 @@ export default function AuthenticationPage({}: Props) {
               forgotPasswordError={forgotPasswordError}
             />
           ) : (
-            <LoginForm handleChangeLoginForm={handleChangeLoginForm} loginErrors={loginErrors} />
+            <LoginForm
+              handleChangeLoginForm={handleChangeLoginForm}
+              loginErrors={loginErrors}
+            />
           )}
 
           {renderButtonActionLogin()}
