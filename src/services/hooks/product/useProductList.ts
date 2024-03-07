@@ -5,7 +5,7 @@ type Props = {
 };
 
 const useProductList = async ({ searchParams }: Props) => {
-  const sortParam = searchParams?.sort;
+  const sortParam = searchParams?.sort ?? 'name-asc';
   const page = Number(searchParams?.page);
   const limit = Number(searchParams?.limit);
 
