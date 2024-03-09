@@ -25,11 +25,9 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
 
   const renderAttribute = (label: string, value: string) => {
     return (
-      value !== "" && (
-        <li>
-          <b>{label}:</b> {value}
-        </li>
-      )
+      <li>
+        <b>{label}:</b> {value !== "" ? value : "Đang cập nhật..."}
+      </li>
     );
   };
 
@@ -45,24 +43,38 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
           <section id="content">
             <div className="flex flex-wrap rock:flex-nowrap">
               <div className="images rock:w-1/2 rock:mr-10">
-                <Carousel className="rock:w-[500px]" swipeable={false} showStatus={false} thumbWidth={50}>
+                <Carousel
+                  className="rock:w-[500px]"
+                  swipeable={false}
+                  showStatus={false}
+                  thumbWidth={50}
+                >
                   {product.thumbs &&
                     product.thumbs.map((thumb, index) => (
                       <div key={thumb}>
-                        <img src={thumb} className="select-none rounded-lg" alt={thumb} />
+                        <img
+                          src={thumb}
+                          className="select-none rounded-lg"
+                          alt={thumb}
+                        />
                       </div>
                     ))}
                 </Carousel>
               </div>
 
               <div className="info text-center rock:text-left w-full flex flex-col items-center rock:block">
-                <h1 className="font-bold text-2xl rock:my-5 mb-3">{product.name}</h1>
+                <h1 className="font-bold text-2xl rock:my-5 mb-3">
+                  {product.name}
+                </h1>
 
                 <p className="rock:mb-5 mb-3">
-                  <span className="font-bold">Trạng Thái :</span> {product.status === true ? "Còn Hàng" : "Hết Hàng"}
+                  <span className="font-bold">Trạng Thái :</span>{" "}
+                  {product.status === true ? "Còn Hàng" : "Hết Hàng"}
                 </p>
 
-                <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">SKU: {product.sku}</h2>
+                <h2 className="text-[var(--gray-text)] text-sm rock:mb-5 mb-3">
+                  SKU: {product.sku}
+                </h2>
                 <Link
                   target="_blank"
                   rel="nofollow"
@@ -76,21 +88,19 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
               </div>
             </div>
 
-            {!isEmptyObj(product.attributes) && (
-              <div className="additonal-infomation rock:w-1/2">
-                <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">
-                  Thông Tin Thêm
-                </h3>
+            <div className="additonal-infomation rock:w-1/2">
+              <h3 className="rock:text-center text-left font-bold text-base pb-5 rock:pt-0 pt-7 border-b-[3px] border-b-[var(--blue)]">
+                Thông Tin Thêm
+              </h3>
 
-                <ul className="info mt-5 list-disc list-inside">
-                  {renderAttribute("Dung tích", capacity)}
-                  {renderAttribute("Màu Sắc", color)}
-                  {renderAttribute("Đặc Tính", characteristics)}
-                  {renderAttribute("Mẫu Mã", design)}
-                  {renderAttribute("Công Dụng", uses)}
-                </ul>
-              </div>
-            )}
+              <ul className="info mt-5 list-disc list-inside">
+                {renderAttribute("Dung tích", capacity)}
+                {renderAttribute("Màu Sắc", color)}
+                {renderAttribute("Đặc Tính", characteristics)}
+                {renderAttribute("Mẫu Mã", design)}
+                {renderAttribute("Công Dụng", uses)}
+              </ul>
+            </div>
           </section>
         </div>
       )}
