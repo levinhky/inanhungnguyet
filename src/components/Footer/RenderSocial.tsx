@@ -11,7 +11,7 @@ const RenderSocial = (props: { liHover: string }) => {
       <ul>
         <li className={`${liHover}`}>
           <Link
-            href={"https://www.facebook.com/levinhhoa.levinhhoa"}
+            href={"https://www.facebook.com/inanhungnguyet/"}
             target="_blank"
             rel="noopener noreferrer"
           >
