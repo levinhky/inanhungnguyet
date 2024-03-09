@@ -6,9 +6,12 @@ import { useState, KeyboardEvent, useCallback, memo, useEffect } from "react";
 import Tippy from "@tippyjs/react/headless";
 import PopperWrapper from "../Search/PopperWrapper";
 import MobilePopperWrapper from "../Search/SearchModalMobile";
-import { handleSignOut } from "@/redux/features/authentication/authSlice";
+import {
+  handleSignOut,
+  setUserInfo,
+} from "@/redux/features/authentication/authSlice";
 import useDebounce from "@/services/hooks/useDebounce";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import useAuth from "@/services/hooks/useAuth";
@@ -19,12 +22,10 @@ const Header = ({}: Props) => {
   const [searchValue, setSearchValue] = useState("");
   const [searchValueMobile, setSearchValueMobile] = useState("");
   const [isActiveSearchModal, setIsActiveSearchModal] = useState(false);
-  const dispath = useAppDispatch();
-  const { isSignIn } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
   const route = useRouter();
-  // const { userInfo } = useAuth();
-  console.log(useAuth());
-  
+  const { user, isSignIn } = useAuth();
+  user && dispatch(setUserInfo(user));
 
   const searchInputClass =
     "px-5 py-2 h-[44px] bg-[var(--gray-light)] border shadow-sm border-slate-300 placeholder-slate-400 \
@@ -61,7 +62,7 @@ const Header = ({}: Props) => {
       </Link>
     ) : (
       <button
-        onClick={() => dispath(handleSignOut())}
+        onClick={() => dispatch(handleSignOut())}
         className="login flex items-center justify-center rock:hover:text-[var(--blue)]"
       >
         <UserOutlined className="rock:text-xl rock:mr-[5px] text-2xl ml-3" />

@@ -4,29 +4,21 @@ import { useState } from "react";
 
 const useAuth = () => {
   const [isSignIn, setIsSignIn] = useState(false);
+  const [user, setUser] = useState<any>();
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setIsSignIn(true);
+      setUser(user);
     } else {
       setIsSignIn(false);
     }
   });
 
-  return isSignIn
-    ? {
-        // userInfo: {
-        //   displayName: user.displayName ?? "",
-        //   email: user.email ?? "",
-        //   emailVerified: user.emailVerified ?? false,
-        //   isAnonymous: user.isAnonymous ?? false,
-        //   phoneNumber: user.phoneNumber ?? "",
-        //   photoURL: user.photoURL ?? "",
-        //   uid: user.uid,
-        // },
-        isSignIn: true,
-      }
-    : null;
+  return {
+    user,
+    isSignIn,
+  };
 };
 
 export default useAuth;
