@@ -8,9 +8,9 @@ export default function ShippingAndPaymentPoliciesPage({}: Props) {
   return (
     <div className="container mx-auto rock:text-base text-sm">
       <BreadCrumb />
-      <h3 className="font-bold rock:text-2xl text-xl">
+      <h1 className="font-bold rock:text-2xl text-xl">
         Chính sách vận chuyển và thanh toán của In Ấn Hùng Nguyệt
-      </h3>
+      </h1>
 
       <section>
         <h6 className="rock:my-5 my-3  font-semibold">1. Dịch vụ tương tác:</h6>

@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -10,7 +9,7 @@ const RenderPolicy = (props: { liHover: string }) => {
       <h4 className="mb-2 mt-11 font-bold uppercase">Chính Sách</h4>
       <ul>
         <li className={`${liHover}`}>
-          <Link href={"/"}>Hướng dẫn mua hàng</Link>
+          <Link href={"/huong-dan-dat-hang"}>Hướng dẫn đặt hàng</Link>
         </li>
         <li className={`${liHover}`}>
           <Link href={"/chinh-sach-van-chuyen-thanh-toan"}>

@@ -4,11 +4,12 @@ import { Fragment } from "react";
 const CategoryBoard = ({
   categories,
   title,
+  setLoading,
 }: {
   categories: [CategoryAttributes];
   title: string;
+  setLoading: () => void;
 }) => {
-  
   return (
     <Fragment>
       <h3 className="font-bold pb-2.5 mb-5 border-b border-b-[#ccc] uppercase">
@@ -20,6 +21,7 @@ const CategoryBoard = ({
             <li key={category._id} className="mb-1">
               <Link
                 className="rock:hover:text-[var(--blue-text)] rock:ease-linear rock:delay-75"
+                onClick={setLoading}
                 href={
                   "/category/" + category.slug + "?page=1&limit=8&sort=name-asc"
                 }

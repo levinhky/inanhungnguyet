@@ -13,7 +13,7 @@ const useCategoryDetail = async ({ params, searchParams }: Props) => {
   const page = Number(searchParams?.page);
   const limit = Number(searchParams?.limit);
   const categoryResponse = await getCategory(slug, page, limit, sortParam);
-
+  
   return {
     products: categoryResponse.category.productsInCategory,
     totalPages: categoryResponse.totalPages,

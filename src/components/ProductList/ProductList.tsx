@@ -22,11 +22,21 @@ type Props = {
 };
 
 export default function ProductList(props: Props) {
-  const { categories, products, totalCount, totalPages, currentPage, limit, sortParam } = props;
+  const {
+    categories,
+    products,
+    totalCount,
+    totalPages,
+    currentPage,
+    limit,
+    sortParam,
+  } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pagination, setPagination] = useState<number[]>([]);
-  const [sortOption, setSortOption] = useState<string | undefined>(sortParam || "name-asc");
+  const [sortOption, setSortOption] = useState<string | undefined>(
+    sortParam || "name-asc"
+  );
 
   const router = useRouter();
   const pathname = usePathname();
@@ -34,7 +44,11 @@ export default function ProductList(props: Props) {
 
   useEffect(() => {
     setIsLoading(false);
-  }, [sortParam, currentPage]);
+  }, [sortParam, currentPage, pathname]);
+
+  const setLoading = useCallback(() => {
+    setIsLoading(true);
+  }, []);
 
   useEffect(() => {
     if (totalPages > 0) {
@@ -52,24 +66,24 @@ export default function ProductList(props: Props) {
   const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
     setSortOption(e.target.value);
     router.push(pathname + "?" + createQueryString("sort", e.target.value));
-    setIsLoading(true);
+    setLoading();
   };
 
   const handlePage = (page: number) => {
     router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
-    setIsLoading(true);
+    setLoading();
   };
 
   const handlePrev = () => {
     const page = currentPage > 1 ? currentPage - 1 : 1;
     router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
-    setIsLoading(true);
+    setLoading();
   };
 
   const handleNext = () => {
     const page = currentPage < totalPages ? currentPage + 1 : totalPages;
     router.push(`${pathname}?page=${page}&limit=${limit}&sort=${sortParam}`);
-    setIsLoading(true);
+    setLoading();
   };
 
   return (
@@ -98,7 +112,11 @@ export default function ProductList(props: Props) {
 
           <section className="flex flex-col-reverse rock:flex-row mt-7">
             <article className="p-5 rounded-xl rock:w-[250px] w-full h-fit rock:mt-0 mt-5">
-              <CategoryBoard categories={categories} title={"Danh Mục"} />
+              <CategoryBoard
+                categories={categories}
+                title={"Danh Mục"}
+                setLoading={setLoading}
+              />
             </article>
 
             <aside className="rock:ml-10">

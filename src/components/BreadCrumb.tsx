@@ -23,6 +23,8 @@ export default function BreadCrumb({ slug, slugName }: Props) {
         return "Về chúng tôi";
       case "lien-he":
         return "Liên hệ";
+      case "huong-dan-dat-hang":
+        return "Hướng dẫn đặt hàng";
       case "chinh-sach-van-chuyen-thanh-toan":
         return "Chính sách vận chuyển - thanh toán";
       case "chinh-sach-doi-tra-bao-hanh":
