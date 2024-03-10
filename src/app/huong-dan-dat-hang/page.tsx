@@ -91,13 +91,13 @@ export default function OrderGuidePage() {
           </p>
 
           <p className="mb-2">
-            * Cũng như khi đặt in ONLINE, khách hàng cần cung cấp đầy đủ thông
-            tin sản xuất cho kỹ thuật và tiến hành lập đơn hàng ngay tại xưởng
-            in
+            * Cũng như khi đặt hàng <b>ONLINE</b>, khách hàng cần cung cấp đầy
+            đủ thông tin sản xuất cho kỹ thuật và tiến hành lập đơn hàng ngay
+            tại xưởng in
           </p>
 
           <h3 className="mb-2 font-bold">
-            Chúc quý khách có một trải nghiệm dịch vụ hoàn hảo tại In Ấn Hùng
+            Chúc quý khách có một trải nghiệm dịch vụ tốt nhất tại In Ấn Hùng
             Nguyệt
           </h3>
         </section>

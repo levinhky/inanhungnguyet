@@ -22,6 +22,7 @@ const useCategoryDetail = async ({ params, searchParams }: Props) => {
     limit,
     slug,
     categoryName: categoryResponse.category?.name,
+    sortParam
   };
 };
 

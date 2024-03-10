@@ -30,7 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const ProductsInCategoryPage = async ({ params, searchParams }: Props) => {
-  const { products, totalPages, totalCount, currentPage, limit, slug, categoryName } = await useCategoryDetail({
+  const {
+    products,
+    totalPages,
+    totalCount,
+    currentPage,
+    limit,
+    slug,
+    categoryName,
+    sortParam,
+  } = await useCategoryDetail({
     params,
     searchParams,
   });
@@ -46,6 +55,7 @@ const ProductsInCategoryPage = async ({ params, searchParams }: Props) => {
       limit={limit}
       slug={slug}
       categoryName={categoryName}
+      sortParam={sortParam}
     />
   );
 };
