@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: productName,
-    description: productName + "kỳ anh",
+    description: productName + " kỳ anh",
   };
 }
 
