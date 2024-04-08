@@ -1,5 +1,6 @@
 "use client";
 
+import RouterPaths from "@/router/routerPaths";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useId } from "react";
@@ -19,25 +20,25 @@ export default function BreadCrumb({ slug, slugName }: Props) {
 
   const handleCrumbLabel = (crumb: string) => {
     switch (crumb) {
-      case "gioi-thieu":
+      case RouterPaths.ABOUT_US:
         return "Về chúng tôi";
-      case "lien-he":
+      case RouterPaths.CONTACT_US:
         return "Liên hệ";
-      case "huong-dan-dat-hang":
+      case RouterPaths.ORDER_GUIDE:
         return "Hướng dẫn đặt hàng";
-      case "chinh-sach-van-chuyen-thanh-toan":
+      case RouterPaths.SHIPPING_POLICY:
         return "Chính sách vận chuyển - thanh toán";
-      case "chinh-sach-doi-tra-bao-hanh":
+      case RouterPaths.RETURN_POLICY:
         return "Chính sách đổi trả - bảo hành";
-      case "danh-sach-san-pham":
+      case RouterPaths.PRODUCT_LIST:
         return "Danh sách sản phẩm";
-      case "dang-nhap":
+      case RouterPaths.LOGIN:
         return "Đăng nhập";
       case slug:
         return slugName;
 
       default:
-        return "Sản Phẩm";
+        return "";
     }
   };
 

@@ -21,31 +21,27 @@ export default async function Footer({}: Props) {
           <RenderContact liHover={liHover} />
         </div>
 
-        {/* desktop */}
+        {/* --- DESKTOP SECTION --- */}
         <div className="rock:flex items-start flex-col  hidden rock:mt-0 mt-[-50px] rock:mr-0 mr-8 mb-5 rock:mb-0">
           <RenderCategories categories={categories} liHover={liHover} />
         </div>
-        {/* end */}
 
-        {/* desktop */}
         <div className="rock:flex hidden items-start flex-col rock:mt-0 mt-[-50px]">
           <RenderPolicy liHover={liHover} />
         </div>
-        {/* end */}
+        {/* --- END DESKTOP SECTION --- */}
 
-        {/* mobile */}
+        {/* --- MOBILE SECTION --- */}
         <div className="rock:hidden flex justify-between w-full">
           <div className={`${mobileClasss} rock:mr-0 mb-5 rock:mb-0`}>
             <RenderCategories categories={categories} liHover={liHover} />
           </div>
-          {/* end */}
 
-          {/* mobile */}
           <div className={mobileClasss}>
             <RenderPolicy liHover={liHover} />
           </div>
         </div>
-        {/* end */}
+        {/* END MOBILE SECTION --- */}
 
         <div className={mobileClasss}>
           <RenderSocial liHover={liHover} />

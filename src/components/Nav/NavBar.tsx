@@ -1,10 +1,10 @@
 "use client";
 
-import { menuItems } from "@/data/arrays";
 import Link from "next/link";
 import { useState } from "react";
 import MenuMobile from "./MenuMobile";
 import SwitcherLanguage from "./SwitcherLanguage";
+import { menuItems } from "@/utils/data";
 
 type Props = {};
 

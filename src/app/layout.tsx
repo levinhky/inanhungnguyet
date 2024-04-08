@@ -4,11 +4,11 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import { Providers } from "@/redux/provider";
-import { metadataContent } from "@/data/arrays";
 import ScrollTop from "@/components/ScrollTop";
 import Pulse from "@/components/Pulse";
 import Header from "@/components/Header";
 import NavBar from "@/components/Nav";
+import { metadataContent } from "@/utils/data";
 
 export const metadata: Metadata = {
   title: metadataContent.title,

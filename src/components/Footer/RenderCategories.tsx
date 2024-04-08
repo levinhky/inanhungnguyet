@@ -1,4 +1,4 @@
-
+import { getCategoryLink } from "@/utils/common";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -12,7 +12,7 @@ const RenderCategories = (props: { categories: CategoryAttributes[]; liHover: st
         {categories.length &&
           categories.map((category) => (
             <li key={category._id} className={`${liHover}`}>
-              <Link href={"/category/" + category.slug}>{category.name}</Link>
+              <Link href={getCategoryLink(category)}>{category.name}</Link>
             </li>
           ))}
       </ul>

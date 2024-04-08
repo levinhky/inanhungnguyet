@@ -1,4 +1,5 @@
-import { menuItems } from "@/data/arrays";
+
+import { menuItems } from "@/utils/data";
 import { CloseOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
