@@ -1,4 +1,3 @@
-import { auth } from "@/data/firebase";
 import {
   signInWithPopup,
   GoogleAuthProvider,
@@ -10,6 +9,7 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { Toast } from "../libs/toast";
+import { auth } from "@/utils/firebase";
 
 const googleAuthProvider = new GoogleAuthProvider();
 const facebookAuthProvider = new FacebookAuthProvider();

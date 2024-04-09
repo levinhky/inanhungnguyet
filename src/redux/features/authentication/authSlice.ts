@@ -1,5 +1,5 @@
 import { Toast } from "@/assets/libs/toast";
-import { auth } from "@/data/firebase";
+import { auth } from "@/utils/firebase";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { signOut } from "firebase/auth";
