@@ -54,7 +54,7 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
                       <div key={thumb}>
                         <img
                           src={thumb}
-                          className="select-none rounded-lg"
+                          className="select-none rounded-lg !w-[200px]"
                           alt={thumb}
                         />
                       </div>
@@ -78,7 +78,7 @@ export default function ProductDetail({ slug, product, slugName }: Props) {
                 <Link
                   target="_blank"
                   rel="nofollow"
-                  href={"https://zalo.me/0867673358"}
+                  href={"https://www.messenger.com/t/100033316692112/"}
                   className="text-white bg-[var(--blue-text)] rock:hover:bg-[var(--blue)] rounded-full
                   flex items-center justify-center w-fit
                   text-base py-2 px-5 h-12 min-w-[200px]"
